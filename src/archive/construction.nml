@@ -1,0 +1,405 @@
+/*
+ * Normal building sprite of 64px width and arbitrary width
+ * and normal alignment to the edges of the tile
+ */
+
+switch (FEAT_INDUSTRYTILES, SELF, switch_tile_fences_neighbouring_station, [
+            STORE_TEMP(LOAD_TEMP(9) * (nearby_tile_class(-1,  0) != TILE_CLASS_STATION), 9),
+            STORE_TEMP(LOAD_TEMP(10) * (nearby_tile_class( 0, -1) != TILE_CLASS_STATION), 10),
+            STORE_TEMP(LOAD_TEMP(11) * (nearby_tile_class( 0,  1) != TILE_CLASS_STATION), 11),
+            STORE_TEMP(LOAD_TEMP(12) * (nearby_tile_class( 1,  0) != TILE_CLASS_STATION), 12),
+        ]) {
+    return 1;
+}
+switch (FEAT_INDUSTRYTILES, SELF, switch_tile_fences_neighbouring_industry, [
+            STORE_TEMP(LOAD_TEMP(9) * !nearby_tile_is_same_industry(-1,  0), 9),
+            STORE_TEMP(LOAD_TEMP(10) * !nearby_tile_is_same_industry( 0, -1), 10),
+            STORE_TEMP(LOAD_TEMP(11) * !nearby_tile_is_same_industry( 0,  1), 11),
+            STORE_TEMP(LOAD_TEMP(12) * !nearby_tile_is_same_industry( 1,  0), 12),
+        ]) {
+    switch_tile_fences_neighbouring_station;
+}
+switch (FEAT_INDUSTRYTILES, SELF, switch_tile_fences, [
+            STORE_TEMP(0, 1),
+            STORE_TEMP(0, 2),
+            STORE_TEMP(0, 3),
+            STORE_TEMP(0, 4),
+            STORE_TEMP(1, 9),
+            STORE_TEMP(1, 10),
+            STORE_TEMP(1, 11),
+            STORE_TEMP(1, 12),
+            STORE_TEMP(0, 5),
+            STORE_TEMP(0, 6),
+            STORE_TEMP(0, 7),
+            STORE_TEMP(0, 8),
+            ]) {
+    switch_tile_fences_neighbouring_industry;
+}switch (FEAT_INDUSTRYTILES, SELF, switch_terrain_sprite_normal, [STORE_TEMP(GROUNDSPRITE_NORMAL, 0)]) {
+    return 1;
+}
+switch (FEAT_INDUSTRYTILES, SELF, switch_terrain_sprite_arctic_full_snow, [STORE_TEMP(GROUNDSPRITE_SNOW_4_4, 0)]) {
+    return 1;
+}
+switch (FEAT_INDUSTRYTILES, SELF, switch_terrain_sprite_arctic_three_quarter_snow, [STORE_TEMP(GROUNDSPRITE_SNOW_3_4, 0)]) {
+    return 1;
+}
+switch (FEAT_INDUSTRYTILES, SELF, switch_terrain_sprite_arctic_half_snow, [STORE_TEMP(GROUNDSPRITE_SNOW_2_4, 0)]) {
+    return 1;
+}
+switch (FEAT_INDUSTRYTILES, SELF, switch_terrain_sprite_arctic_quarter_snow, [STORE_TEMP(GROUNDSPRITE_SNOW_1_4, 0)]) {
+    return 1;
+}
+switch (FEAT_INDUSTRYTILES, SELF, switch_terrain_sprite_arctic, [nearby_tile_height(0, 0) - snowline_height]) {
+    2..255: switch_terrain_sprite_arctic_full_snow;
+    1: switch_terrain_sprite_arctic_three_quarter_snow;
+    0: switch_terrain_sprite_arctic_half_snow;
+    -1: switch_terrain_sprite_arctic_quarter_snow;
+    switch_terrain_sprite_normal;
+}
+switch (FEAT_INDUSTRYTILES, SELF, switch_terrain_sprite_tropic_full_desert, [STORE_TEMP(GROUNDSPRITE_DESERT, 0)]) {
+    return 1;
+}
+switch (FEAT_INDUSTRYTILES, SELF, switch_terrain_sprite_tropic_half_desert, [STORE_TEMP(GROUNDSPRITE_DESERT_1_2, 0)]) {
+    return 1;
+}
+switch (FEAT_INDUSTRYTILES, SELF, switch_terrain_sprite_tropic_desert,
+                                                        [(nearby_tile_terrain_type(1, 0) != TILETYPE_DESERT)
+                                                         || (nearby_tile_terrain_type(-1, 0) != TILETYPE_DESERT)
+                                                         || (nearby_tile_terrain_type(0, 1) != TILETYPE_DESERT)
+                                                         || (nearby_tile_terrain_type(0, -1) != TILETYPE_DESERT)]) {
+    1: switch_terrain_sprite_tropic_half_desert;
+    switch_terrain_sprite_tropic_full_desert;
+}
+switch (FEAT_INDUSTRYTILES, SELF, switch_terrain_sprite_tropic, nearby_tile_terrain_type(0, 0)) {
+    TILETYPE_DESERT: switch_terrain_sprite_tropic_desert;
+    switch_terrain_sprite_normal;
+}
+switch (FEAT_INDUSTRYTILES, SELF, switch_terrain_sprite, climate) {
+    CLIMATE_ARCTIC: switch_terrain_sprite_arctic;
+    CLIMATE_TROPIC: switch_terrain_sprite_tropic;
+    switch_terrain_sprite_normal; 
+
+}template tmpl_building_sprite(x, y, h, dy) {
+    [x, y, 64, h, -31, dy, ANIM]
+}
+template tmpl_building_sprite_filename(x, y, h, dy, filename) {
+    [x, y, 64, h, -31, dy, ANIM | NOCROP, filename]
+}/* *******************************************************
+ * Construction states shared by many (not all) industries
+ * *******************************************************/
+spriteset(spriteset_default_construction_states) {
+	tmpl_building_sprite_filename(10, 10, 64, -33, "gfx/other/default_construction_states.png")
+	tmpl_building_sprite_filename(80, 10, 64, -33, "gfx/other/default_construction_states.png")
+	tmpl_building_sprite_filename(150, 10, 64, -33, "gfx/other/default_construction_states.png")
+	tmpl_building_sprite_filename(220, 10, 64, -33, "gfx/other/default_construction_states.png")
+	tmpl_building_sprite_filename(290, 10, 64, -33, "gfx/other/default_construction_states.png")
+	tmpl_building_sprite_filename(360, 10, 64, -33, "gfx/other/default_construction_states.png")
+	tmpl_building_sprite_filename(430, 10, 64, -33, "gfx/other/default_construction_states.png")
+	tmpl_building_sprite_filename(500, 10, 64, -33, "gfx/other/default_construction_states.png")
+	tmpl_building_sprite_filename(10, 100, 64, -33, "gfx/other/default_construction_states.png")
+	tmpl_building_sprite_filename(80, 100, 64, -33, "gfx/other/default_construction_states.png")
+	tmpl_building_sprite_filename(150, 100, 64, -33, "gfx/other/default_construction_states.png")
+	tmpl_building_sprite_filename(220, 100, 64, -33, "gfx/other/default_construction_states.png")
+	tmpl_building_sprite_filename(290, 100, 64, -33, "gfx/other/default_construction_states.png")
+	tmpl_building_sprite_filename(360, 100, 64, -33, "gfx/other/default_construction_states.png")
+	tmpl_building_sprite_filename(430, 100, 64, -33, "gfx/other/default_construction_states.png")
+	tmpl_building_sprite_filename(500, 100, 64, -33, "gfx/other/default_construction_states.png")
+}
+spritelayout spritelayout_default_construction_states {
+	ground {
+		sprite: spriteset_default_construction_states(random_bits % 16);
+		recolour_mode: RECOLOUR_REMAP;
+		palette: 0;
+	}
+}
+/* *******************************************************
+ * Construction states WATER
+ * *******************************************************/
+
+spriteset(spriteset_default_construction_states_WATER) {
+	tmpl_building_sprite_filename(10, 10, 64, -33, "gfx/other/default_construction_states_WATER.png")
+	tmpl_building_sprite_filename(80, 10, 64, -33, "gfx/other/default_construction_states_WATER.png")
+	tmpl_building_sprite_filename(150, 10, 64, -33, "gfx/other/default_construction_states_WATER.png")
+	tmpl_building_sprite_filename(220, 10, 64, -33, "gfx/other/default_construction_states_WATER.png")
+	tmpl_building_sprite_filename(290, 10, 64, -33, "gfx/other/default_construction_states_WATER.png")
+	tmpl_building_sprite_filename(360, 10, 64, -33, "gfx/other/default_construction_states_WATER.png")
+	tmpl_building_sprite_filename(430, 10, 64, -33, "gfx/other/default_construction_states_WATER.png")
+	tmpl_building_sprite_filename(500, 10, 64, -33, "gfx/other/default_construction_states_WATER.png")
+	tmpl_building_sprite_filename(10, 100, 64, -33, "gfx/other/default_construction_states_WATER.png")
+	tmpl_building_sprite_filename(80, 100, 64, -33, "gfx/other/default_construction_states_WATER.png")
+	tmpl_building_sprite_filename(150, 100, 64, -33, "gfx/other/default_construction_states_WATER.png")
+	tmpl_building_sprite_filename(220, 100, 64, -33, "gfx/other/default_construction_states_WATER.png")
+	tmpl_building_sprite_filename(290, 100, 64, -33, "gfx/other/default_construction_states_WATER.png")
+	tmpl_building_sprite_filename(360, 100, 64, -33, "gfx/other/default_construction_states_WATER.png")
+	tmpl_building_sprite_filename(430, 100, 64, -33, "gfx/other/default_construction_states_WATER.png")
+	tmpl_building_sprite_filename(500, 100, 64, -33, "gfx/other/default_construction_states_WATER.png")
+}
+spritelayout spritelayout_default_construction_states_WATER {
+	ground {
+		sprite: spriteset_default_construction_states_WATER(random_bits % 16);
+		recolour_mode: RECOLOUR_REMAP;
+		palette: 0;
+	}
+}
+template tmpl_ground_tile(x, y) {
+	[x, y, 64, 31, -31, 0, ANIM]
+}
+        spriteset(spriteset_ground_tile_mud_1, "gfx/other/ground_tiles.png") {
+                tmpl_ground_tile(0, 10)
+        }
+		
+/* *******************************************************
+ * AXIS, shared ground tiles
+ * *******************************************************/
+ 
+	spriteset(spriteset_ground_tile_hard_standing_dirt_1, "gfx/ground_tiles.png") {
+			tmpl_ground_tile(430, 10)
+			}
+	
+	spriteset(spriteset_ground_tile_concrete_1, "gfx/ground_tiles.png") {
+            tmpl_ground_tile(80, 10)
+			}
+			
+			
+/* *******************************************************
+ * Improved Town Industry Functions
+ * *******************************************************/
+ 
+ /**
+ * Bypass location check requirements if the industry is being funded or if we're in Scenario Editor.
+ * @return 1 if the industry is being funded or we're in Scenario Editor, else 0 (the industry is being generated during map generation or during a game).
+ */
+switch (FEAT_INDUSTRIES, SELF, IsBeingFunded, (extra_callback_info2 == IND_CREATION_FUND || game_mode == GAMEMODE_EDITOR)) {return;}
+
+/**
+ * Check if a bank is facing a road.
+ * @return 1 if there are road tiles in front of the two bank tiles, else 0.
+ */
+switch (FEAT_INDUSTRIES, SELF, BankIsFacingRoad, (nearby_tile_class(0,1) == TILE_CLASS_ROAD) && nearby_tile_class(1,1) == TILE_CLASS_ROAD) {return;}
+
+/**
+ * Check if a secondary industry can be built in this city (because none already exist).
+ * Note: Banks are the exception and are really primary industries anyway.
+ * @return 1 if no secondary industries exist, else 0.
+ */
+switch (FEAT_INDUSTRIES, SELF, CityHasNoSecondaryIndustries, 
+    industry_town_count(industry_building_materials_factory) > 0 ||
+    industry_town_count(industry_factory) > 0 ||
+    industry_town_count(industry_food_processing_plant) > 0 ||
+    industry_town_count(industry_oil_refinery) > 0 ||
+    industry_town_count(industry_paper_mill) > 0 ||
+    industry_town_count(industry_recycling_center) > 0 ||
+    industry_town_count(industry_sawmill) > 0 ||
+    industry_town_count(industry_steel_mill) > 0
+    ) {1: return 0; return 1;}
+
+/**
+ * Check if there are any industries of a given type within a given distance.
+ * @return 1 if there are no industries of the given type within the required distance, else 0.
+ */
+ switch (FEAT_INDUSTRIES, SELF, NoNearbyCompetitors, industrytype, required_distance, industry_distance(industrytype) > required_distance) {return;}
+
+/**
+ * Helper function for IsWithinDistanceToTown()
+ * Note: The sum of the radii is greater than simply the largest radii, but it means larger towns have a greater range for industry placement.
+ * @returns the sum of the town's townzone radii. 
+ */
+switch (FEAT_INDUSTRIES, PARENT, StoreTownRadii,   town_zone_0_radius_square +
+                                                    town_zone_1_radius_square + 
+                                                    town_zone_2_radius_square + 
+                                                    town_zone_3_radius_square + 
+                                                    town_zone_4_radius_square) {return;}
+
+/**
+ * Checks the distance from an industry to its parent town.
+ * The townzone radii and Euclidean distance are both squared, so we need to sqaure the padding parameter to match.
+ * @param padding Area around the town where industries can spawn.
+ * @return 1 if the industry is within the given distance to the town, else 0.
+ */
+switch (FEAT_INDUSTRIES, SELF, IsWithinDistanceToTown, padding, (town_euclidean_dist(0,0) < ( (padding * padding) + StoreTownRadii()) ) ) {return;}
+
+/**
+ * Check if the industry is near a town - required for secondary industries.
+ * @return 1 if near a town, else 0.
+ */
+ switch (FEAT_INDUSTRIES, SELF, IsNearTown, IsWithinDistanceToTown(15)) {return;}
+
+/**
+ * Get a town's population.
+ * @return the population of the town.
+ */
+switch (FEAT_INDUSTRIES, PARENT, TownPopulation, population) {return;}
+
+/**
+ * Check if a town has a required population.
+ * @param required The required population.
+ * @return 1 if the town's population is over the given requirement, else 0.
+ */
+switch (FEAT_INDUSTRIES, SELF, TownHasPopulation, required, TownPopulation() > required) {return;}
+
+/**
+ * Get the adjusted production efficiency, where transporting 75% of possible passengers gives 100% production efficiency.
+ * @return The adjusted efficiency, from 0..100.
+ */
+switch (FEAT_INDUSTRIES, PARENT, GetAdjustedProductionEfficiency, percent_transported_passengers) {
+    0: return 0;
+    return min(percent_transported_passengers + 25, 100);
+}
+
+/**
+ * Get the secondary production level of a town, 1/5 the population divided by 8 production ticks per month, multiplied by the percentage of transported passengers.
+ * @return The production per 256 ticks.
+ */
+switch (FEAT_INDUSTRIES, SELF, GetSecondaryProductionLevel, (TownPopulation() / 5 / 8 * GetAdjustedProductionEfficiency()) / 100) {return;}
+
+/** 
+ * Get the primary industry population multiplier based on the population of the town. 
+ * @return The multiplier, in range 1-5.
+ */
+switch (FEAT_INDUSTRIES, PARENT, GetPopMultiplier, min(1 + (population / 1000), 5)) {return;}
+
+/**
+ * Get the primary industry production amount based on town population and percent of transported passengers.
+ * @return The amount to be produced every 256 ticks.
+ */
+switch (FEAT_INDUSTRIES, SELF, GetPrimaryProduction, (16 * GetPopMultiplier() * GetAdjustedProductionEfficiency()) / 100) {return;}
+
+/**
+ * Choose the proper string for the next population goal for primary industry towns.
+ * @return The string ID for the chosen population goal helptext.
+ */
+switch (FEAT_INDUSTRIES, SELF, StringNextPrimaryProductionGoal, GetPopMultiplier()) {
+    1: return string(STR_PRIMARY_GOAL_1000);
+    2: return string(STR_PRIMARY_GOAL_2000);
+    3: return string(STR_PRIMARY_GOAL_3000);
+    4: return string(STR_PRIMARY_GOAL_4000);
+    return string(STR_PRIMARY_GOAL_MAX);
+}
+
+/**
+ * Choose the correct string for the helptext about transporting more passengers in town.
+ * @return The string ID for the correct helptext, either telling passengers to transport more, or to keep up the good work.
+ */
+switch (FEAT_INDUSTRIES, SELF, StringIncreaseProductionEfficiency, GetAdjustedProductionEfficiency()) {
+    0..99: return string(STR_PRIMARY_INCREASE_EFFICIENCY);
+    return string(STR_PRIMARY_MAX_EFFICIENCY);
+}
+
+/**
+ * Build text stack for primary industry helptext.
+ * @return The helptext string with substrings and values from the text stack.
+ */
+switch (FEAT_INDUSTRIES, SELF, StringGetPrimaryHelptext, [
+    STORE_TEMP(StringNextPrimaryProductionGoal() + 0xD000, 257),   // list the next population goal (or say we've reached it)
+    STORE_TEMP(GetAdjustedProductionEfficiency(), 258),   // current production efficiency
+    STORE_TEMP(StringIncreaseProductionEfficiency() + 0xD000, 259) // helptext to increase efficiency by transporting more passengers, if <100%, else an empty string
+]) {return string(STR_PRIMARY_HELPTEXT);}
+
+/**
+ * Build text stack for secondary industry helptext.
+ * @return The helptext string with substrings and values from the text stack.
+ */
+switch (FEAT_INDUSTRIES, SELF, StringGetSecondaryHelptext, [
+    STORE_TEMP(TownPopulation() / 5, 257),   // list the next population goal (or say we've reached it)
+    STORE_TEMP(GetAdjustedProductionEfficiency(), 258),   // current production efficiency
+    STORE_TEMP(StringIncreaseProductionEfficiency() + 0xD000, 259) // helptext to increase efficiency by transporting more passengers, if <100%, else an empty string
+]) {return string(STR_SECONDARY_HELPTEXT);}
+
+/**
+ * Is the parent town a city?
+ * @return True if it is a city, else false.
+ */
+switch (FEAT_INDUSTRIES, PARENT, IsCity, is_city) {return;}
+
+/**
+ * Is the parent town a town? (as oppposed to a city)
+ * @return True if it is a town, else false.
+ */
+ switch (FEAT_INDUSTRIES, PARENT, IsTown, !is_city) {return;}
+
+/**
+ * Check if an industry is within a range of elevation.
+ * @param min_z elevation (inclusive)
+ * @param max_z elevation (inclusive)
+ * @return 1 if the industry is at or between the specified min and max elevations, else 0
+ */
+switch (FEAT_INDUSTRIES, SELF, IndustryElevationCheck, min_z, max_z, nearby_tile_height(0,0) >= min_z && nearby_tile_height(0,0) <= max_z) {return;}
+
+/**
+ * Calculate the x coordinate of an industry's northernmost tile.
+ * @returns the x coordinate
+ */
+switch (FEAT_INDUSTRIES, SELF, GetTileX, var[0x80, 0, 0xFFFFFFFF] % map_x_edge) {return;}
+
+/**
+ * Calculate the y coordinate of an industry's northernmost tile.
+ * @returns the y coordinate
+ */
+switch (FEAT_INDUSTRIES, SELF, GetTileY, var[0x80, 0, 0xFFFFFFFF] / map_x_edge) {return;}
+
+ /**
+ * Check if an industry is in the North quadrant of the map.
+ * @return 1 if this is true, we're in Scenario Editor, or param_primary_quadrants disables this feature, else 0.
+ */
+switch (FEAT_INDUSTRIES, SELF, IsInQuadrantN,
+	!param_primary_quadrants || game_mode == GAMEMODE_EDITOR || (GetTileX() < (map_x_edge / 2) && GetTileY() < (map_y_edge / 2))
+) {return;}
+
+/**
+ * Check if an industry is in the East quadrant of the map.
+ * @return 1 if this is true, we're in Scenario Editor, or param_primary_quadrants disables this feature, else 0.
+ */
+switch (FEAT_INDUSTRIES, SELF, IsInQuadrantE,
+	!param_primary_quadrants || game_mode == GAMEMODE_EDITOR || (GetTileX() < (map_x_edge / 2) && GetTileY() > (map_y_edge / 2))
+) {return;}
+
+/**
+ * Check if an industry is in the South quadrant of the map.
+ * @return 1 if this is true, we're in Scenario Editor, or param_primary_quadrants disables this feature, else 0.
+ */
+switch (FEAT_INDUSTRIES, SELF, IsInQuadrantS,
+	!param_primary_quadrants || game_mode == GAMEMODE_EDITOR || (GetTileX() > (map_x_edge / 2) && GetTileY() > (map_y_edge / 2))
+) {return;}
+
+/**
+ * Check if an industry is in the West quadrant of the map.
+ * @return 1 if this is true, we're in Scenario Editor, or param_primary_quadrants disables this feature, else 0.
+ */
+switch (FEAT_INDUSTRIES, SELF, IsInQuadrantW,
+	!param_primary_quadrants || game_mode == GAMEMODE_EDITOR || (GetTileX() > (map_x_edge / 2) && GetTileY() < (map_y_edge / 2))
+) {return;}
+
+/**
+ * Check if an industry is in the Northeast quadrant of the map.
+ * @return 1 if this is true, we're in Scenario Editor, or param_primary_quadrants disables this feature, else 0. 
+ */
+switch (FEAT_INDUSTRIES, SELF, IsInQuadrantNE,
+    !param_primary_quadrants || game_mode == GAMEMODE_EDITOR || ((GetTileX() * map_y_edge) < (GetTileY() * map_x_edge)) && ((GetTileX() * map_y_edge + GetTileY() * map_x_edge) < (map_x_edge * map_y_edge))
+) {return;}
+
+/**
+ * Check if an industry is in the Southeast quadrant of the map.
+ * @return 1 if this is true, we're in Scenario Editor, or param_primary_quadrants disables this feature, else 0. 
+ */
+switch (FEAT_INDUSTRIES, SELF, IsInQuadrantSE,
+    !param_primary_quadrants || game_mode == GAMEMODE_EDITOR || ((GetTileX() * map_y_edge) < (GetTileY() * map_x_edge)) && ((GetTileX() * map_y_edge + GetTileY() * map_x_edge) > (map_x_edge * map_y_edge))
+) {return;}
+
+/**
+ * Check if an industry is in the Southwest quadrant of the map.
+ * @return 1 if this is true, we're in Scenario Editor, or param_primary_quadrants disables this feature, else 0. 
+ */
+switch (FEAT_INDUSTRIES, SELF, IsInQuadrantSW,
+    !param_primary_quadrants || game_mode == GAMEMODE_EDITOR || ((GetTileX() * map_y_edge) > (GetTileY() * map_x_edge)) && ((GetTileX() * map_y_edge + GetTileY() * map_x_edge) > (map_x_edge * map_y_edge))
+) {return;}
+
+/**
+ * Check if an industry is in the Northwest quadrant of the map.
+ * @return 1 if this is true, we're in Scenario Editor, or param_primary_quadrants disables this feature, else 0. 
+ */
+switch (FEAT_INDUSTRIES, SELF, IsInQuadrantNW,
+    !param_primary_quadrants || game_mode == GAMEMODE_EDITOR || ((GetTileX() * map_y_edge) > (GetTileY() * map_x_edge)) && ((GetTileX() * map_y_edge + GetTileY() * map_x_edge) < (map_x_edge * map_y_edge))
+) {return;}
+
+/* Empty production block. */
+produce (produce_none, [], [])

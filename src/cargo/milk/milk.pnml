@@ -1,0 +1,36 @@
+/*---- milk ----*/
+	
+	spriteset(cargoicon_milk) {[10 + 20 * 13, 10 + 20 * 0, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_milk, 10) {
+		property {
+			number: 10;
+			station_list_colour: 		161;
+			cargo_payment_list_colour: 	161;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_MILK);
+			unit_name: 					string(STR_CARGO_NAME_MILK);
+			type_abbreviation: 			string(STR_CID_MILK);
+			cargo_label: 				"MILK";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_MILK);
+			items_of_cargo: 			string(STR_CARGO_UNIT_MILK);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0625;
+			cargo_classes: bitmask(		CC_POTABLE, CC_PIECE_GOODS, CC_LIQUID_BULK, CC_EXPRESS, CC_REFRIGERATED
+			);
+
+			penalty_lowerbound: 		0;
+			single_penalty_length: 		20;
+			price_factor: 				135;
+					
+			
+		}
+		graphics {						cargoicon_milk;
+		}
+	}

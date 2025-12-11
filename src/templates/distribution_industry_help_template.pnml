@@ -1,0 +1,5 @@
+/*---- _industry_item_name__help_text ----*/
+ 
+switch (FEAT_INDUSTRIES, SELF, _industry_item_name__extra_text, [
+    STORE_TEMP(town_zone_text() + 0xD000, 257),   // Store the town zone
+]) {return string(STR__string__EXTRA_TEXT);}

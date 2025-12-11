@@ -1,0 +1,5 @@
+#refinement
+
+STR_IND_REFINEMENT		:(2-Processing) Refinement
+STR_FUND_REFINEMENT		:{}Represents refinement of extracted raw materials
+STR_STATION_REFINEMENT	:Refinery

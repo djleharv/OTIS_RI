@@ -1,0 +1,6 @@
+# mail
+
+STR_CARGO_NAME_MAIL										:Mail
+STR_CID_MAIL												:{TINYFONT}MAIL
+STR_CARGO_UNIT_MAIL										:{SIGNED_WORD} bag{P 0 "" s} of Mail
+STR_SHORT_UNIT_MAIL										:{SIGNED_WORD} bag{P 0 "" s}

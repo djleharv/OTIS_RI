@@ -1,0 +1,5 @@
+#food_processing
+
+STR_IND_FOOD_PROCESSING		:(3-Manufacturing) Food Processing
+STR_FUND_FOOD_PROCESSING		:{}Represents processing of food products
+STR_STATION_FOOD_PROCESSING	:Plant

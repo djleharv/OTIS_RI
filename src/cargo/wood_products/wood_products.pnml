@@ -1,0 +1,36 @@
+/*---- wood_products ----*/
+	
+	spriteset(cargoicon_wood_products) {[10 + 20 * 6, 10 + 20 * 1, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_wood_products, 17) {
+		property {
+			number: 17;
+			station_list_colour: 		58;
+			cargo_payment_list_colour: 	58;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_WOOD_PRODUCTS);
+			unit_name: 					string(STR_CARGO_NAME_WOOD_PRODUCTS);
+			type_abbreviation: 			string(STR_CID_WOOD_PRODUCTS);
+			cargo_label: 				"WDPR";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_WOOD_PRODUCTS);
+			items_of_cargo: 			string(STR_CARGO_UNIT_WOOD_PRODUCTS);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED
+			);
+
+			penalty_lowerbound: 		12;
+			single_penalty_length: 		255;
+			price_factor: 				126;
+					
+			
+		}
+		graphics {						cargoicon_wood_products;
+		}
+	}

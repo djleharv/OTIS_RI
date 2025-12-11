@@ -1,0 +1,6 @@
+# recycled_paper
+
+STR_CARGO_NAME_RECYCLED_PAPER										:Recycled Paper
+STR_CID_RECYCLED_PAPER												:{TINYFONT}RPAP
+STR_CARGO_UNIT_RECYCLED_PAPER										:{WEIGHT} of Recycled Paper
+STR_SHORT_UNIT_RECYCLED_PAPER										:{WEIGHT}

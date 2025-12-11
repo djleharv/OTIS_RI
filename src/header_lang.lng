@@ -1,0 +1,25 @@
+##grflangid 0x01
+##plural 0
+
+STR_GRF_NAME                                                    :{TITLE} {VERSION}
+STR_GRF_DESC                                                    :{ORANGE}OTIS - One Tile Industry Set (Reimagined by DJ Le_Harv){}{BLACK} Inspired by: OTIS by GarryG and Quast65, SPI by 3iff, FIRS by andytheNorth, XIS/AXIS by EmperorJake, ITI by 2TallTyler and all the others. {SILVER} See readme for more information. {BLACK}License: GPL v2.
+STR_GRF_DOCS_URL                                                :
+
+#Parameter Strings
+STR_PARAM_INDUSTRY_TILE_STYLE_NAME								:Industry Tile Style
+STR_PARAM_INDUSTRY_TILE_STYLE_DESC								:Choose the style of industry tile. Condensed gives general industry tiles that represent industry types (e.g. mining). Solo represents individual indsutry types (e.g. coal mine).
+STR_PARAM_INDUSTRY_TILE_STYLE_VALUE_CONDENSED					:Condensed
+STR_PARAM_INDUSTRY_TILE_STYLE_VALUE_SOLO						:Solo
+
+#Miscellaneous
+STR_TOWN                                                        :{STRING}
+STR_STATION                                                     :{STRING} {STRING}
+STR_EMPTY   													:
+
+#Help Text
+STR_TOWN_ZONE_1													:Out of Town
+STR_TOWN_ZONE_2													:Edge of Town
+STR_TOWN_ZONE_3													:Outer Suburbs
+STR_TOWN_ZONE_4													:Inner Suburbs
+STR_TOWN_ZONE_CENTRE											:City Centre
+

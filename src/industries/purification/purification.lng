@@ -1,0 +1,5 @@
+#purification
+
+STR_IND_PURIFICATION		:(2-Processing) Mineral Purification
+STR_FUND_PURIFICATION		:{}Represents purification of minerals
+STR_STATION_PURIFICATION	:Plant

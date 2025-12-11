@@ -1,0 +1,36 @@
+/*---- paper_products ----*/
+	
+	spriteset(cargoicon_paper_products) {[10 + 20 * 5, 10 + 20 * 2, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_paper_products, 12) {
+		property {
+			number: 12;
+			station_list_colour: 		23;
+			cargo_payment_list_colour: 	23;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_PAPER_PRODUCTS);
+			unit_name: 					string(STR_CARGO_NAME_PAPER_PRODUCTS);
+			type_abbreviation: 			string(STR_CID_PAPER_PRODUCTS);
+			cargo_label: 				"PAPR";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_PAPER_PRODUCTS);
+			items_of_cargo: 			string(STR_CARGO_UNIT_PAPER_PRODUCTS);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
+			);
+
+			penalty_lowerbound: 		7;
+			single_penalty_length: 		60;
+			price_factor: 				135;
+					
+			
+		}
+		graphics {						cargoicon_paper_products;
+		}
+	}

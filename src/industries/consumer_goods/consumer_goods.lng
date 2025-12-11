@@ -1,0 +1,5 @@
+#consumer_goods
+
+STR_IND_CONSUMER_GOODS		:(3-Manufacturing) Consumer Goods
+STR_FUND_CONSUMER_GOODS		:{}Represents manufacturing of goods for consumers
+STR_STATION_CONSUMER_GOODS	:Factory

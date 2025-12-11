@@ -1,0 +1,5 @@
+#offshore_excavation
+
+STR_IND_OFFSHORE_EXCAVATION		:(1-Extraction) Offshore Excavation
+STR_FUND_OFFSHORE_EXCAVATION		:{}Represents offshore excavation activity
+STR_STATION_OFFSHORE_EXCAVATION	:Dredging Site

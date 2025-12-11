@@ -1,0 +1,5 @@
+#reclamation
+
+STR_IND_RECLAMATION		:(2-Processing) Reclamation
+STR_FUND_RECLAMATION		:{}Represents recycling of materials
+STR_STATION_RECLAMATION	:Plant

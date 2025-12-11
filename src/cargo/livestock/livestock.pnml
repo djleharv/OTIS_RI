@@ -1,0 +1,36 @@
+/*---- livestock ----*/
+	
+	spriteset(cargoicon_livestock) {[10 + 20 * 4, 10 + 20 * 0, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_livestock, 4) {
+		property {
+			number: 4;
+			station_list_colour: 		79;
+			cargo_payment_list_colour: 	79;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_LIVESTOCK);
+			unit_name: 					string(STR_CARGO_NAME_LIVESTOCK);
+			type_abbreviation: 			string(STR_CID_LIVESTOCK);
+			cargo_label: 				"LVST";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_LIVESTOCK);
+			items_of_cargo: 			string(STR_CARGO_UNIT_LIVESTOCK);
+			capacity_multiplier: 		1;	
+			
+			weight: 					0.1875;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_WEIRD
+			);
+
+			penalty_lowerbound: 		0;
+			single_penalty_length: 		22;
+			price_factor: 				125;
+					
+			
+		}
+		graphics {						cargoicon_livestock;
+		}
+	}

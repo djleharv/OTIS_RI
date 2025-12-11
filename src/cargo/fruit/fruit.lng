@@ -1,0 +1,6 @@
+# fruit
+
+STR_CARGO_NAME_FRUIT										:Fruit and Vegetables
+STR_CID_FRUIT												:{TINYFONT}FTVG
+STR_CARGO_UNIT_FRUIT										:{WEIGHT} of Fruit or Vegetables
+STR_SHORT_UNIT_FRUIT										:{WEIGHT}

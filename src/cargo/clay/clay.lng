@@ -1,0 +1,6 @@
+# clay
+
+STR_CARGO_NAME_CLAY										:Clay
+STR_CID_CLAY												:{TINYFONT}CLAY
+STR_CARGO_UNIT_CLAY										:{WEIGHT} of Clay
+STR_SHORT_UNIT_CLAY										:{WEIGHT}

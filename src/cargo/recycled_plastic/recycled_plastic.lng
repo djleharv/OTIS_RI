@@ -1,0 +1,6 @@
+# recycled_plastic
+
+STR_CARGO_NAME_RECYCLED_PLASTIC										:Recycled Plastic
+STR_CID_RECYCLED_PLASTIC												:{TINYFONT}RPLA
+STR_CARGO_UNIT_RECYCLED_PLASTIC										:{WEIGHT} of Recycled Plastic
+STR_SHORT_UNIT_RECYCLED_PLASTIC										:{WEIGHT}

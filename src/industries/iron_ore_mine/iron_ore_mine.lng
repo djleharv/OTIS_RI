@@ -1,0 +1,5 @@
+#iron_ore_mine
+
+STR_IND_IRON_ORE_MINE		:(1-Extraction) Iron Ore Mining
+STR_FUND_IRON_ORE_MINE		:{}Represents mining of iron ore
+STR_STATION_IRON_ORE_MINE	:Iron Ore Mine

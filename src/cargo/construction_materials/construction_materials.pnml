@@ -1,0 +1,36 @@
+/*---- construction_materials ----*/
+	
+	spriteset(cargoicon_construction_materials) {[10 + 20 * 1, 10 + 20 * 1, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_construction_materials, 21) {
+		property {
+			number: 21;
+			station_list_colour: 		34;
+			cargo_payment_list_colour: 	34;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_CONSTRUCTION_MATERIALS);
+			unit_name: 					string(STR_CARGO_NAME_CONSTRUCTION_MATERIALS);
+			type_abbreviation: 			string(STR_CID_CONSTRUCTION_MATERIALS);
+			cargo_label: 				"BDMT";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_CONSTRUCTION_MATERIALS);
+			items_of_cargo: 			string(STR_CARGO_UNIT_CONSTRUCTION_MATERIALS);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED, CC_EXPRESS
+			);
+
+			penalty_lowerbound: 		12;
+			single_penalty_length: 		255;
+			price_factor: 				136;
+					
+			
+		}
+		graphics {						cargoicon_construction_materials;
+		}
+	}

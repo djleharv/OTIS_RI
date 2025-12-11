@@ -1,0 +1,6 @@
+# copper_ore
+
+STR_CARGO_NAME_COPPER_ORE										:Copper Ore
+STR_CID_COPPER_ORE												:{TINYFONT}CORE
+STR_CARGO_UNIT_COPPER_ORE										:{WEIGHT} of Copper Ore
+STR_SHORT_UNIT_COPPER_ORE										:{WEIGHT}

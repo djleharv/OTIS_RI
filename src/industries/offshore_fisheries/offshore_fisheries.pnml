@@ -1,0 +1,110 @@
+/*---- offshore_fisheries ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (offshore_fisheries_execute_production, 
+	[
+	// consumption execution
+				SESP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				FISH: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, offshore_fisheries_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(food_processing),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(offshore_fisheries),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("FISH"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("SESP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (extraction_core_cargo_production_210(),210),
+				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
+				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
+				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    offshore_fisheries_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, offshore_fisheries, 4) {
+		property {
+			substitute: 0;
+			map_colour: 99;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [dirt_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_OFFSHORE_FISHERIES);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("SESP"),
+
+				produce_cargo("FISH",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_OFFSHORE_FISHERIES));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_OFFSHORE_FISHERIES);
+			extra_text_industry:	offshore_fisheries_extra_text();
+			produce_256_ticks: 		return offshore_fisheries_calculate_production;
+
+	}
+}
+}

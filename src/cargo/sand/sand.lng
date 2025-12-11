@@ -1,0 +1,6 @@
+# sand
+
+STR_CARGO_NAME_SAND										:Sand
+STR_CID_SAND												:{TINYFONT}SAND
+STR_CARGO_UNIT_SAND										:{WEIGHT} of Sand
+STR_SHORT_UNIT_SAND										:{WEIGHT}

@@ -1,0 +1,6 @@
+# construction_materials
+
+STR_CARGO_NAME_CONSTRUCTION_MATERIALS										:Construction Materials
+STR_CID_CONSTRUCTION_MATERIALS												:{TINYFONT}CNST
+STR_CARGO_UNIT_CONSTRUCTION_MATERIALS										:{SIGNED_WORD} pallette{P 0 "" s} of Construction Materials
+STR_SHORT_UNIT_CONSTRUCTION_MATERIALS										:{SIGNED_WORD} pallette{P 0 "" s}

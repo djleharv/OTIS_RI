@@ -1,0 +1,6 @@
+# lithium
+
+STR_CARGO_NAME_LITHIUM										:Lithium Carbonate
+STR_CID_LITHIUM												:{TINYFONT}LITH
+STR_CARGO_UNIT_LITHIUM										:{WEIGHT} of Lithium Carbonate
+STR_SHORT_UNIT_LITHIUM										:{WEIGHT}

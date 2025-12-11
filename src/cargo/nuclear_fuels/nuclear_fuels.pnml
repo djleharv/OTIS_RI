@@ -1,0 +1,36 @@
+/*---- nuclear_fuels ----*/
+	
+	spriteset(cargoicon_nuclear_fuels) {[10 + 20 * 3, 10 + 20 * 5, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_nuclear_fuels, 54) {
+		property {
+			number: 54;
+			station_list_colour: 		209;
+			cargo_payment_list_colour: 	209;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_NUCLEAR_FUELS);
+			unit_name: 					string(STR_CARGO_NAME_NUCLEAR_FUELS);
+			type_abbreviation: 			string(STR_CID_NUCLEAR_FUELS);
+			cargo_label: 				"NUKF";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_NUCLEAR_FUELS);
+			items_of_cargo: 			string(STR_CARGO_UNIT_NUCLEAR_FUELS);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_ARMOURED, CC_WEIRD
+			);
+
+			penalty_lowerbound: 		30;
+			single_penalty_length: 		255;
+			price_factor: 				150;
+					
+			
+		}
+		graphics {						cargoicon_nuclear_fuels;
+		}
+	}

@@ -1,0 +1,6 @@
+# waste
+
+STR_CARGO_NAME_WASTE										:Waste
+STR_CID_WASTE												:{TINYFONT}WSTE
+STR_CARGO_UNIT_WASTE										:{WEIGHT} of Waste
+STR_SHORT_UNIT_WASTE										:{WEIGHT}

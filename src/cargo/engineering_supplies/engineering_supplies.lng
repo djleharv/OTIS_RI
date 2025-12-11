@@ -1,0 +1,6 @@
+# engineering_supplies
+
+STR_CARGO_NAME_ENGINEERING_SUPPLIES										:Engineering Supplies
+STR_CID_ENGINEERING_SUPPLIES												:{TINYFONT}ENGS
+STR_CARGO_UNIT_ENGINEERING_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s} of Engineering Supplies
+STR_SHORT_UNIT_ENGINEERING_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s}

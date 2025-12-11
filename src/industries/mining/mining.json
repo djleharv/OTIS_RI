@@ -1,0 +1,152 @@
+{
+    "industry_item_name": "mining",
+    "string": "MINING",
+    "folder": "mining",
+    "include": true,
+    "industry_type": "extraction",
+    "industry_pack": 0,
+    "industry_ID": 7,
+    "industry_colour_number": 116,
+    "industry_layout": "dirt",
+    "extra_text_industry": "extraction",
+    "prob_map_gen": 2,
+    "prob_in_game": 0,
+    "fund_cost_multiplier": 255,
+    "str_ind": "(1-Extraction) Mining",
+    "str_fund": "{}Represents offshore excavation activity",
+    "str_station": "Mine",
+    "accept_cargo_list": [
+        {
+            "accept_cargo": "ENSP",
+            "accept_cargo_type": "supply",
+            "stock_num": 40,
+            "cons_num": 140
+        }
+    ],
+    "produce_cargo_list": [
+        {
+            "produce_cargo": "COAL",
+            "produce_cargo_type": "core",
+            "prod_num": 210,
+            "demand_num": 220,
+            "bias_num": 230
+        },
+        {
+            "produce_cargo": "IORE",
+            "produce_cargo_type": "core",
+            "prod_num": 211,
+            "demand_num": 221,
+            "bias_num": 231
+        },
+        {
+            "produce_cargo": "AORE",
+            "produce_cargo_type": "core",
+            "prod_num": 212,
+            "demand_num": 222,
+            "bias_num": 232
+        },
+        {
+            "produce_cargo": "CORE",
+            "produce_cargo_type": "core",
+            "prod_num": 213,
+            "demand_num": 223,
+            "bias_num": 233
+        },
+        {
+            "produce_cargo": "POTA",
+            "produce_cargo_type": "core",
+            "prod_num": 214,
+            "demand_num": 224,
+            "bias_num": 234
+        },
+        {
+            "produce_cargo": "URAN",
+            "produce_cargo_type": "core",
+            "prod_num": 215,
+            "demand_num": 225,
+            "bias_num": 235
+        },
+        {
+            "produce_cargo": "NITR",
+            "produce_cargo_type": "core",
+            "prod_num": 216,
+            "demand_num": 226,
+            "bias_num": 236
+        },
+        {
+            "produce_cargo": "WSTE",
+            "produce_cargo_type": "byproduct",
+            "prod_num": 240,
+            "demand_num": null,
+            "bias_num": null
+        },
+        {
+            "produce_cargo": "RCYC",
+            "produce_cargo_type": "byproduct",
+            "prod_num": 241,
+            "demand_num": null,
+            "bias_num": null
+        },
+        {
+            "produce_cargo": "COMM",
+            "produce_cargo_type": "byproduct",
+            "prod_num": 250,
+            "demand_num": null,
+            "bias_num": null
+        }
+    ],
+    "demand_customers": [
+        {
+            "produce_cargo": "COAL",
+            "accepted_by": [
+                "metals",
+                "purification",
+                "products"
+            ],
+            "demand_num": 220
+        },
+        {
+            "produce_cargo": "IORE",
+            "accepted_by": [
+                "metals"
+            ],
+            "demand_num": 221
+        },
+        {
+            "produce_cargo": "AORE",
+            "accepted_by": [
+                "metals"
+            ],
+            "demand_num": 222
+        },
+        {
+            "produce_cargo": "CORE",
+            "accepted_by": [
+                "metals"
+            ],
+            "demand_num": 223
+        },
+        {
+            "produce_cargo": "POTA",
+            "accepted_by": [
+                "enrichment"
+            ],
+            "demand_num": 224
+        },
+        {
+            "produce_cargo": "URAN",
+            "accepted_by": [
+                "enrichment"
+            ],
+            "demand_num": 225
+        },
+        {
+            "produce_cargo": "NITR",
+            "accepted_by": [
+                "purification",
+                "chemicals"
+            ],
+            "demand_num": 226
+        }
+    ]
+}

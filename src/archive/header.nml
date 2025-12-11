@@ -1,0 +1,14 @@
+grf {
+	grfid: "DJ\01\01";
+	name: string(STR_GRF_NAME);
+	desc: string(STR_GRF_DESC);
+	url: string(STR_GRF_DOCS_URL);
+	version: 1;
+	min_compatible_version: 0;
+	}
+
+/* Disable base game industries */
+disable_item(FEAT_INDUSTRIES);
+
+/* Disable base game cargos */
+disable_item(FEAT_CARGOS);

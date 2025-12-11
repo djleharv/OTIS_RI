@@ -1,0 +1,6 @@
+# mineral_ore
+
+STR_CARGO_NAME_MINERAL_ORE										:Mineral Ore
+STR_CID_MINERAL_ORE												:{TINYFONT}MORE
+STR_CARGO_UNIT_MINERAL_ORE										:{WEIGHT} of Mineral Ore
+STR_SHORT_UNIT_MINERAL_ORE										:{WEIGHT}

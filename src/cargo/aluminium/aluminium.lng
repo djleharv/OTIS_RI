@@ -1,0 +1,6 @@
+# aluminium
+
+STR_CARGO_NAME_ALUMINIUM										:Aluminium
+STR_CID_ALUMINIUM												:{TINYFONT}ALUM
+STR_CARGO_UNIT_ALUMINIUM										:{WEIGHT} of Aluminium
+STR_SHORT_UNIT_ALUMINIUM										:{WEIGHT}

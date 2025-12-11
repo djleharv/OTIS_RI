@@ -1,0 +1,5 @@
+#farming_supplies
+
+STR_IND_FARMING_SUPPLIES		:(3-Manufacturing) Farming Supplies Manufacturing
+STR_FUND_FARMING_SUPPLIES		:{}Represents manufacturing of supplies
+STR_STATION_FARMING_SUPPLIES	:Factory

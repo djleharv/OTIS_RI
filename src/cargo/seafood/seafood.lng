@@ -1,0 +1,6 @@
+# seafood
+
+STR_CARGO_NAME_SEAFOOD										:Seafood
+STR_CID_SEAFOOD												:{TINYFONT}SEAF
+STR_CARGO_UNIT_SEAFOOD										:{WEIGHT} of Seafood
+STR_SHORT_UNIT_SEAFOOD										:{WEIGHT}

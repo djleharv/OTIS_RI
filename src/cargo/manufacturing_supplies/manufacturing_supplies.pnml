@@ -1,0 +1,36 @@
+/*---- manufacturing_supplies ----*/
+	
+	spriteset(cargoicon_manufacturing_supplies) {[10 + 20 * 2, 10 + 20 * 2, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_manufacturing_supplies, 57) {
+		property {
+			number: 57;
+			station_list_colour: 		69;
+			cargo_payment_list_colour: 	69;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_MANUFACTURING_SUPPLIES);
+			unit_name: 					string(STR_CARGO_NAME_MANUFACTURING_SUPPLIES);
+			type_abbreviation: 			string(STR_CID_MANUFACTURING_SUPPLIES);
+			cargo_label: 				"MNSP";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_MANUFACTURING_SUPPLIES);
+			items_of_cargo: 			string(STR_CARGO_UNIT_MANUFACTURING_SUPPLIES);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED, CC_EXPRESS
+			);
+
+			penalty_lowerbound: 		4;
+			single_penalty_length: 		40;
+			price_factor: 				103;
+					
+			
+		}
+		graphics {						cargoicon_manufacturing_supplies;
+		}
+	}

@@ -1,0 +1,5 @@
+#manufacturing_supplies
+
+STR_IND_MANUFACTURING_SUPPLIES		:(3-Manufacturing) Manufacturing Supplies Manufacturing
+STR_FUND_MANUFACTURING_SUPPLIES		:{}Represents manufacturing of supplies
+STR_STATION_MANUFACTURING_SUPPLIES	:Factory

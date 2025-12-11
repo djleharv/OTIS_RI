@@ -1,0 +1,6 @@
+# glass_products
+
+STR_CARGO_NAME_GLASS_PRODUCTS										:Glass Products
+STR_CID_GLASS_PRODUCTS												:{TINYFONT}GLAS
+STR_CARGO_UNIT_GLASS_PRODUCTS										:{WEIGHT} of Glass Products
+STR_SHORT_UNIT_GLASS_PRODUCTS										:{WEIGHT}

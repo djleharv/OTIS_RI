@@ -1,0 +1,36 @@
+/*---- alcohol ----*/
+	
+	spriteset(cargoicon_alcohol) {[10 + 20 * 7, 10 + 20 * 0, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_alcohol, 22) {
+		property {
+			number: 22;
+			station_list_colour: 		180;
+			cargo_payment_list_colour: 	180;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_ALCOHOL);
+			unit_name: 					string(STR_CARGO_NAME_ALCOHOL);
+			type_abbreviation: 			string(STR_CID_ALCOHOL);
+			cargo_label: 				"BEER";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_ALCOHOL);
+			items_of_cargo: 			string(STR_CARGO_UNIT_ALCOHOL);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_POTABLE, CC_PIECE_GOODS, CC_EXPRESS, CC_REFRIGERATED
+			);
+
+			penalty_lowerbound: 		0;
+			single_penalty_length: 		24;
+			price_factor: 				146;
+					
+			
+		}
+		graphics {						cargoicon_alcohol;
+		}
+	}

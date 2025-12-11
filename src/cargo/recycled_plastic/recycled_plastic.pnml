@@ -1,0 +1,36 @@
+/*---- recycled_plastic ----*/
+	
+	spriteset(cargoicon_recycled_plastic) {[10 + 20 * 6, 10 + 20 * 3, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_recycled_plastic, 45) {
+		property {
+			number: 45;
+			station_list_colour: 		102;
+			cargo_payment_list_colour: 	102;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_RECYCLED_PLASTIC);
+			unit_name: 					string(STR_CARGO_NAME_RECYCLED_PLASTIC);
+			type_abbreviation: 			string(STR_CID_RECYCLED_PLASTIC);
+			cargo_label: 				"RPLA";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_RECYCLED_PLASTIC);
+			items_of_cargo: 			string(STR_CARGO_UNIT_RECYCLED_PLASTIC);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_OPEN_BULK
+			);
+
+			penalty_lowerbound: 		4;
+			single_penalty_length: 		40;
+			price_factor: 				116;
+					
+			
+		}
+		graphics {						cargoicon_recycled_plastic;
+		}
+	}

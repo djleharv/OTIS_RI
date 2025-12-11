@@ -1,0 +1,146 @@
+/*---- mining ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (mining_execute_production, 
+	[
+	// consumption execution
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				COAL: LOAD_PERM(210);
+				IORE: LOAD_PERM(211);
+				AORE: LOAD_PERM(212);
+				CORE: LOAD_PERM(213);
+				POTA: LOAD_PERM(214);
+				URAN: LOAD_PERM(215);
+				NITR: LOAD_PERM(216);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(metals) + industry_count(purification) + industry_count(products),
+							220),
+				STORE_PERM (industry_count(metals),
+							221),
+				STORE_PERM (industry_count(metals),
+							222),
+				STORE_PERM (industry_count(metals),
+							223),
+				STORE_PERM (industry_count(enrichment),
+							224),
+				STORE_PERM (industry_count(enrichment),
+							225),
+				STORE_PERM (industry_count(purification) + industry_count(chemicals),
+							226),
+
+
+	//supply competition
+				STORE_PERM (industry_count(mining),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("COAL"),230),
+				STORE_PERM (transported_last_month_pct("IORE"),231),
+				STORE_PERM (transported_last_month_pct("AORE"),232),
+				STORE_PERM (transported_last_month_pct("CORE"),233),
+				STORE_PERM (transported_last_month_pct("POTA"),234),
+				STORE_PERM (transported_last_month_pct("URAN"),235),
+				STORE_PERM (transported_last_month_pct("NITR"),236),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (extraction_core_cargo_production_210(),210),
+				STORE_PERM (extraction_core_cargo_production_211(),211),
+				STORE_PERM (extraction_core_cargo_production_212(),212),
+				STORE_PERM (extraction_core_cargo_production_213(),213),
+				STORE_PERM (extraction_core_cargo_production_214(),214),
+				STORE_PERM (extraction_core_cargo_production_215(),215),
+				STORE_PERM (extraction_core_cargo_production_216(),216),
+				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
+				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
+				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    mining_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, mining, 7) {
+		property {
+			substitute: 0;
+			map_colour: 116;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [dirt_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_MINING);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("ENSP"),
+
+				produce_cargo("COAL",0),
+				produce_cargo("IORE",0),
+				produce_cargo("AORE",0),
+				produce_cargo("CORE",0),
+				produce_cargo("POTA",0),
+				produce_cargo("URAN",0),
+				produce_cargo("NITR",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_MINING));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_MINING);
+			extra_text_industry:	mining_extra_text();
+			produce_256_ticks: 		return mining_calculate_production;
+
+	}
+}
+}

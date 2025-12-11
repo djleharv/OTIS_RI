@@ -1,0 +1,81 @@
+{
+    "industry_item_name": "steel_mill",
+    "string": "STEEL_MILL",
+    "folder": "steel_mill",
+    "include": true,
+    "industry_type": "processing",
+    "industry_pack": 1,
+    "industry_ID": 3,
+    "industry_colour_number": 10,
+    "industry_layout": "concrete",
+    "extra_text_industry": "processing",
+    "prob_map_gen": 2,
+    "prob_in_game": 0,
+    "fund_cost_multiplier": 255,
+    "str_ind": "(1-Processing) Steel Milling",
+    "str_fund": "{}Represents processing of Iron Ore into Steel",
+    "str_station": "Steel Mill",
+    "accept_cargo_list": [
+        {
+            "accept_cargo": "IORE",
+            "accept_cargo_type": "primary",
+            "stock_num": 10,
+            "cons_num": 110
+        },
+        {
+            "accept_cargo": "COAL",
+            "accept_cargo_type": "secondary",
+            "stock_num": 20,
+            "cons_num": 120
+        },
+        {
+            "accept_cargo": "CHEM",
+            "accept_cargo_type": "support",
+            "stock_num": 30,
+            "cons_num": 130
+        },
+        {
+            "accept_cargo": "ENSP",
+            "accept_cargo_type": "supply",
+            "stock_num": 40,
+            "cons_num": 140
+        }
+    ],
+    "produce_cargo_list": [
+        {
+            "produce_cargo": "STEL",
+            "produce_cargo_type": "core",
+            "prod_num": 210,
+            "demand_num": 220,
+            "bias_num": 230
+        },
+        {
+            "produce_cargo": "WSTE",
+            "produce_cargo_type": "byproduct",
+            "prod_num": 240,
+            "demand_num": null,
+            "bias_num": null
+        },
+        {
+            "produce_cargo": "RCYC",
+            "produce_cargo_type": "byproduct",
+            "prod_num": 241,
+            "demand_num": null,
+            "bias_num": null
+        },
+        {
+            "produce_cargo": "COMM",
+            "produce_cargo_type": "byproduct",
+            "prod_num": 250,
+            "demand_num": null,
+            "bias_num": null
+        }
+    ],
+    "demand_customers": [
+        {
+            "produce_cargo": "STEL",
+            "accepted_by": [],
+            "demand_num": 220
+        }
+    ]
+}

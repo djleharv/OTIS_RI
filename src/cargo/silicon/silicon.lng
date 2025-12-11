@@ -1,0 +1,6 @@
+# silicon
+
+STR_CARGO_NAME_SILICON										:Silicon
+STR_CID_SILICON												:{TINYFONT}SILI
+STR_CARGO_UNIT_SILICON										:{WEIGHT} of Silicon
+STR_SHORT_UNIT_SILICON										:{WEIGHT}

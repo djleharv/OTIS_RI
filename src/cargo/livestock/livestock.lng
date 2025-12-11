@@ -1,0 +1,6 @@
+# livestock
+
+STR_CARGO_NAME_LIVESTOCK										:Livestock
+STR_CID_LIVESTOCK												:{TINYFONT}LVST
+STR_CARGO_UNIT_LIVESTOCK										:{COMMA} item{P "" s} of Livestock
+STR_SHORT_UNIT_LIVESTOCK										:{COMMA} item{P "" s}

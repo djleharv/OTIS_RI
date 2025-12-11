@@ -1,0 +1,147 @@
+/*---- retail ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+
+produce (retail_execute_consumption, 
+	[
+	// consumption execution
+				PASS: LOAD_PERM(110);
+				MAIL: LOAD_PERM(111);
+				GOOD: LOAD_PERM(112);
+				VEHI: LOAD_PERM(113);
+				FOOD: LOAD_PERM(114);
+				PETR: LOAD_PERM(115);
+				BEER: LOAD_PERM(116);
+				BDMT: LOAD_PERM(117);
+
+
+	], 
+	[
+	// production execution
+
+ 
+	])
+
+produce (retail_execute_production, 
+	[
+	// consumption execution
+
+
+	], 
+	[
+	// production execution
+				PASS: LOAD_PERM(210);
+				MAIL: LOAD_PERM(211);
+				PCL_: LOAD_PERM(212);
+				WSTE: LOAD_PERM(213);
+				RCYC: LOAD_PERM(214);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, retail_calculate_consumption, [
+
+// store information for use in the procedure
+
+	STORE_PERM 	(town_euclidean_dist(0,0),3),
+	STORE_PERM 	(town_zone(0,0),4),
+	
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("PASS"),10),
+				STORE_PERM (incoming_cargo_waiting("MAIL"),11),
+				STORE_PERM (incoming_cargo_waiting("GOOD"),12),
+				STORE_PERM (incoming_cargo_waiting("VEHI"),13),
+				STORE_PERM (incoming_cargo_waiting("FOOD"),14),
+				STORE_PERM (incoming_cargo_waiting("PETR"),15),
+				STORE_PERM (incoming_cargo_waiting("BEER"),16),
+				STORE_PERM (incoming_cargo_waiting("BDMT"),17),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (distribution_primary_cargo_consumption_10(),110),
+				STORE_PERM (distribution_primary_cargo_consumption_11(),111),
+				STORE_PERM (distribution_primary_cargo_consumption_12(),112),
+				STORE_PERM (distribution_primary_cargo_consumption_13(),113),
+				STORE_PERM (distribution_primary_cargo_consumption_14(),114),
+				STORE_PERM (distribution_primary_cargo_consumption_15(),115),
+				STORE_PERM (distribution_primary_cargo_consumption_16(),116),
+				STORE_PERM (distribution_primary_cargo_consumption_17(),117),
+
+
+ ])
+
+// Execute Production
+	{    retail_execute_consumption;	}
+
+switch (FEAT_INDUSTRIES, SELF, retail_calculate_production, [
+	
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (distribution_core_cargo_production_210(),210),
+				STORE_PERM (distribution_core_cargo_production_211(),211),
+				STORE_PERM (distribution_core_cargo_production_212(),212),
+				STORE_PERM (distribution_core_cargo_production_213(),213),
+				STORE_PERM (distribution_core_cargo_production_214(),214),
+
+
+ ])
+
+// Execute Production
+	{    retail_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, retail, 109) {
+		property {
+			substitute: 0;
+			map_colour: 142;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_RETAIL);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("PASS"),
+				accept_cargo("MAIL"),
+				accept_cargo("GOOD"),
+				accept_cargo("VEHI"),
+				accept_cargo("FOOD"),
+				accept_cargo("PETR"),
+				accept_cargo("BEER"),
+				accept_cargo("BDMT"),
+
+				produce_cargo("PASS",0),
+				produce_cargo("MAIL",0),
+				produce_cargo("PCL_",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_RETAIL));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_RETAIL);
+			extra_text_industry:	retail_extra_text();
+			produce_256_ticks: 		return retail_calculate_production;
+			produce_cargo_arrival: 	return retail_calculate_consumption;
+			cargo_subtype_display:	cargo_subtype_display;
+
+	}
+}
+}

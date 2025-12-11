@@ -1,0 +1,36 @@
+/*---- recycled_metal ----*/
+	
+	spriteset(cargoicon_recycled_metal) {[10 + 20 * 14, 10 + 20 * 5, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_recycled_metal, 44) {
+		property {
+			number: 44;
+			station_list_colour: 		5;
+			cargo_payment_list_colour: 	5;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_RECYCLED_METAL);
+			unit_name: 					string(STR_CARGO_NAME_RECYCLED_METAL);
+			type_abbreviation: 			string(STR_CID_RECYCLED_METAL);
+			cargo_label: 				"SCMT";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_RECYCLED_METAL);
+			items_of_cargo: 			string(STR_CARGO_UNIT_RECYCLED_METAL);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_OPEN_BULK
+			);
+
+			penalty_lowerbound: 		30;
+			single_penalty_length: 		255;
+			price_factor: 				74;
+					
+			
+		}
+		graphics {						cargoicon_recycled_metal;
+		}
+	}

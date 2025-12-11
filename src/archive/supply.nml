@@ -1,0 +1,69 @@
+/*---- Supply Side ----*/
+
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+produce (supply_start_production, 
+  [
+
+
+
+	], 
+  [
+	COAL: 4 * 4;
+	IORE: 4 * 4;
+	CHEM: 4 * 4;
+	SCMT: 4 * 4;
+	RFPR: 4 * 4;
+	RPLA: 4 * 4;
+	ENSP: 16 * 4;
+	COMM: 4 * 4;
+
+
+  ])
+
+	
+	
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+
+            item(FEAT_INDUSTRIES, supply, 127) {
+                property {
+                    substitute: 0;
+                    override: 0;
+                    map_colour: 11;
+                    life_type: IND_LIFE_TYPE_BLACK_HOLE;
+                    min_cargo_distr: 1;
+                    layouts: [concrete_industry_tilelayout];
+                    spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+                    conflicting_ind_types: [];
+                    random_sound_effects: [];
+                    name: string(STR_IND_SUPPLY);
+                    prob_map_gen: 0;
+                    prob_in_game: 0;
+                    prospect_chance: 0.75;
+                    fund_cost_multiplier: 1;
+                    remove_cost_multiplier: 0;
+                    remove_cost_multiplier: 0;
+                    cargo_types: [
+						produce_cargo("COAL",0),
+						produce_cargo("IORE",0),
+						produce_cargo("CHEM",0),
+						produce_cargo("SCMT",0),
+						produce_cargo("RFPR",0),
+						produce_cargo("RPLA",0),
+						produce_cargo("ENSP",0),
+						produce_cargo("COMM",0)
+						];
+                    nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_IMPORT_EXPORT));
+                }
+
+                graphics {
+ 
+                    extra_text_fund:		return string(STR_FUND_SUPPLY);
+					extra_text_industry:	return string(STR_EXTRA_SUPPLY);
+					produce_256_ticks: 		return supply_start_production;
+
+                }
+            }

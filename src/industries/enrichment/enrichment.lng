@@ -1,0 +1,5 @@
+#enrichment
+
+STR_IND_ENRICHMENT		:(2-Processing) Enrichment
+STR_FUND_ENRICHMENT		:{}Represents enrichment of materials
+STR_STATION_ENRICHMENT	:Plant

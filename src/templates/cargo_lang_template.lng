@@ -1,0 +1,6 @@
+# _cargo_item_name_
+
+STR_CARGO_NAME__string_										:_str_cargo_name_
+STR_CID__string_												:{TINYFONT}_str_cargo_CID_
+STR_CARGO_UNIT__string_										:_str_cargo_units_
+STR_SHORT_UNIT__string_										:_str_cargo_short_units_

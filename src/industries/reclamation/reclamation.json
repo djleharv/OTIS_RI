@@ -1,0 +1,114 @@
+{
+    "industry_item_name": "reclamation",
+    "string": "RECLAMATION",
+    "folder": "reclamation",
+    "include": true,
+    "industry_type": "processing",
+    "industry_pack": 0,
+    "industry_ID": 43,
+    "industry_colour_number": 59,
+    "industry_layout": "concrete",
+    "extra_text_industry": "processing",
+    "prob_map_gen": 2,
+    "prob_in_game": 0,
+    "fund_cost_multiplier": 255,
+    "str_ind": "(2-Processing) Reclamation",
+    "str_fund": "{}Represents recycling of materials",
+    "str_station": "Plant",
+    "accept_cargo_list": [
+        {
+            "accept_cargo": "RCYC",
+            "accept_cargo_type": "primary",
+            "stock_num": 10,
+            "cons_num": 110
+        },
+        {
+            "accept_cargo": "ENSP",
+            "accept_cargo_type": "supply",
+            "stock_num": 40,
+            "cons_num": 140
+        }
+    ],
+    "produce_cargo_list": [
+        {
+            "produce_cargo": "SCMT",
+            "produce_cargo_type": "core",
+            "prod_num": 210,
+            "demand_num": 220,
+            "bias_num": 230
+        },
+        {
+            "produce_cargo": "RPAP",
+            "produce_cargo_type": "core",
+            "prod_num": 211,
+            "demand_num": 221,
+            "bias_num": 231
+        },
+        {
+            "produce_cargo": "RPLA",
+            "produce_cargo_type": "core",
+            "prod_num": 212,
+            "demand_num": 222,
+            "bias_num": 232
+        },
+        {
+            "produce_cargo": "RGLA",
+            "produce_cargo_type": "core",
+            "prod_num": 213,
+            "demand_num": 223,
+            "bias_num": 233
+        },
+        {
+            "produce_cargo": "WSTE",
+            "produce_cargo_type": "byproduct",
+            "prod_num": 240,
+            "demand_num": null,
+            "bias_num": null
+        },
+        {
+            "produce_cargo": "RCYC",
+            "produce_cargo_type": "byproduct",
+            "prod_num": 241,
+            "demand_num": null,
+            "bias_num": null
+        },
+        {
+            "produce_cargo": "COMM",
+            "produce_cargo_type": "byproduct",
+            "prod_num": 250,
+            "demand_num": null,
+            "bias_num": null
+        }
+    ],
+    "demand_customers": [
+        {
+            "produce_cargo": "SCMT",
+            "accepted_by": [
+                "metals"
+            ],
+            "demand_num": 220
+        },
+        {
+            "produce_cargo": "RPAP",
+            "accepted_by": [
+                "products"
+            ],
+            "demand_num": 221
+        },
+        {
+            "produce_cargo": "RPLA",
+            "accepted_by": [
+                "products"
+            ],
+            "demand_num": 222
+        },
+        {
+            "produce_cargo": "RGLA",
+            "accepted_by": [
+                "materials",
+                "products"
+            ],
+            "demand_num": 223
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+/*---- electronics ----*/
+	
+	spriteset(cargoicon_electronics) {[10 + 20 * 5, 10 + 20 * 4, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_electronics, 49) {
+		property {
+			number: 49;
+			station_list_colour: 		206;
+			cargo_payment_list_colour: 	206;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_ELECTRONICS);
+			unit_name: 					string(STR_CARGO_NAME_ELECTRONICS);
+			type_abbreviation: 			string(STR_CID_ELECTRONICS);
+			cargo_label: 				"POWR";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_ELECTRONICS);
+			items_of_cargo: 			string(STR_CARGO_UNIT_ELECTRONICS);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
+			);
+
+			penalty_lowerbound: 		5;
+			single_penalty_length: 		24;
+			price_factor: 				149;
+					
+			
+		}
+		graphics {						cargoicon_electronics;
+		}
+	}

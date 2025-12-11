@@ -1,0 +1,5 @@
+#products
+
+STR_IND_PRODUCTS		:(2-Processing) Products
+STR_FUND_PRODUCTS		:{}Represents processing of materials into products used in manufacturing
+STR_STATION_PRODUCTS	:Plant

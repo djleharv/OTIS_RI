@@ -1,0 +1,3 @@
+# _industry_item_name__help_text
+
+STR__string__EXTRA_TEXT							:{SKIP}{SKIP}{BLACK}Production Run Efficiency: {GREEN}{UNSIGNED_WORD}%{}{}{SKIP}{BLACK}Production Runs Per Cycle: {GREEN}{UNSIGNED_WORD}{}{}{BLUE}Supply Cargo: {BLACK}_supply_cargo_{}{}{BLACK}Increase efficiency by delivering {YELLOW}supplies{BLACK}, transport {YELLOW}commuters {BLACK}home and transport {YELLOW}waste {BLACK}or {YELLOW}recyclables {BLACK}away.{}{}{BLACK}Production runs increase with each new industry that demands production cargos. 

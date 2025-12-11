@@ -1,0 +1,6 @@
+# milk
+
+STR_CARGO_NAME_MILK										:Milk
+STR_CID_MILK												:{TINYFONT}MILK
+STR_CARGO_UNIT_MILK										:{VOLUME} of Milk
+STR_SHORT_UNIT_MILK										:{VOLUME}

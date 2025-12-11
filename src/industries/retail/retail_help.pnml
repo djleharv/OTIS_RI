@@ -1,0 +1,5 @@
+/*---- retail_help_text ----*/
+ 
+switch (FEAT_INDUSTRIES, SELF, retail_extra_text, [
+    STORE_TEMP(town_zone_text() + 0xD000, 257),   // Store the town zone
+]) {return string(STR_RETAIL_EXTRA_TEXT);}

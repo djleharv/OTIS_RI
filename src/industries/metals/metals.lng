@@ -1,0 +1,5 @@
+#metals
+
+STR_IND_METALS		:(2-Processing) Metals Processing
+STR_FUND_METALS		:{}Represents refinement of metals
+STR_STATION_METALS	:Mill

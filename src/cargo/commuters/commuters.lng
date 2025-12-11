@@ -1,0 +1,6 @@
+# commuters
+
+STR_CARGO_NAME_COMMUTERS										:Commuters
+STR_CID_COMMUTERS												:{TINYFONT}COMM
+STR_CARGO_UNIT_COMMUTERS										:{SIGNED_WORD} Commuters
+STR_SHORT_UNIT_COMMUTERS										:{SIGNED_WORD} Commuters

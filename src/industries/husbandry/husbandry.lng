@@ -1,0 +1,5 @@
+#husbandry
+
+STR_IND_HUSBANDRY		:(1-Extraction) Husbandry
+STR_FUND_HUSBANDRY		:{}Represents animal farming activity
+STR_STATION_HUSBANDRY	:Farm

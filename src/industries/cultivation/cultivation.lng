@@ -1,0 +1,5 @@
+#cultivation
+
+STR_IND_CULTIVATION		:(1-Extraction) Cultivation
+STR_FUND_CULTIVATION		:{}Represents crop growing activity
+STR_STATION_CULTIVATION	:Farm

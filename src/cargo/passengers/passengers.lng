@@ -1,0 +1,6 @@
+# passengers
+
+STR_CARGO_NAME_PASSENGERS										:Passengers
+STR_CID_PASSENGERS												:{TINYFONT}PASS
+STR_CARGO_UNIT_PASSENGERS										:{SIGNED_WORD} Passengers
+STR_SHORT_UNIT_PASSENGERS										:{SIGNED_WORD} Passengers

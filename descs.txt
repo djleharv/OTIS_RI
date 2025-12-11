@@ -1,0 +1,198 @@
+
+#Extraction Industry Names
+STR_IND_FARMS													:(1-Extraction) Farms & Forestries
+STR_IND_MINES_AND_QUARRIES										:(1-Extraction) Wells, Mines & Quarries
+STR_IND_FISHING_OFFSHORE										:(1-Extraction) Offshore Locations
+
+#Processing Industry Names
+STR_IND_HEAVY_IND												:(2-Processing) Rocks & Sediments
+STR_IND_PROCESSING_2											:(2-Processing) Metals
+STR_IND_PROCESSING_3											:(2-Processing) Pulp & Plastics
+STR_IND_UTILITY_COMP											:(2-Processing) Reclamation Facilities
+STR_IND_ENRICHMENT												:(2-Processing) Enrichment Facilities
+
+#Manufacturing Industry Names
+STR_IND_MANUFACTURING_IND										:(3-Manufacturing) Component Manufacturing Facilities
+STR_IND_MANUFACTURING_2											:(3-Manufacturing) Consumer Goods Manufacturing Facilities
+STR_IND_FOOD_PROCESSING											:(3-Manufacturing) Food and Fibres Processing Facilities
+STR_IND_SUPPLIES												:(3-Manufacturing) Supplies Manufacturing Facilities
+
+#Distribution Industry Names
+
+
+#Utilities Industry Names
+STR_IND_DISPOSAL												:(5-Utilities) Disposal Sites
+STR_IND_POWER_GENERATION										:(5-Utilities) Power Generation Sites
+
+#Import/Export Industry Names
+STR_IND_IMPORT_EXPORT											:(6-Import & Export) Raw & Processed Materials
+STR_IND_IMPORT_EXPORT_2											:(6-Import & Export) Organic Materials
+STR_IND_IMPORT_EXPORT_3											:(6-Import & Export) Manufactured Goods
+STR_IND_IMPORT_EXPORT_4											:(6-Import & Export) People and Places
+
+
+
+#Extraction Industry Station Names
+STR_STATION_FARMS												:Farms & Forestry
+STR_STATION_MINES_AND_QUARRIES									:Mines & Quarries
+STR_STATION_FISHING_OFFSHORE									:Offshore Location
+
+#Processing Industry Station Names
+STR_STATION_HEAVY_IND											:Processing Facility
+STR_STATION_PROCESSING_2										:Processing Facility
+STR_STATION_PROCESSING_3										:Processing Facility
+STR_STATION_UTILITY_COMP										:Reclamation Facility
+STR_STATION_ENRICHMENT											:Enrichment Facility
+
+#Manufacturing Industry Station Names
+STR_STATION_MANUFACTURING_IND									:Manufacturing Facility
+STR_STATION_MANUFACTURING_2										:Manufacturing Facility
+STR_STATION_FOOD_PROCESSING										:Processing Facility
+STR_STATION_SUPPLIES											:Supplies Manufacturing Facility
+
+#Distribution Industry Station Names
+STR_STATION_RESIDENTIAL											:Residential Location
+STR_STATION_SERVICES											:Service Location
+STR_STATION_RETAIL												:Retail Location
+
+#Utilities Industry Station Names
+STR_STATION_DISPOSAL											:Disposal Site
+STR_STATION_POWER_GENERATION									:Power Station
+
+#Import/Export Industry Station Names
+STR_STATION_IMPORT_EXPORT										:Import & Export
+STR_STATION_IMPORT_EXPORT_2										:Import & Export
+STR_STATION_IMPORT_EXPORT_3										:Import & Export
+STR_STATION_IMPORT_EXPORT_4										:Import & Export
+
+
+
+#Extraction Extra Fund Window Text
+STR_FUND_FARMS													:{BLACK}Represents resources grown, produced or raised through farming or forestry.{}{BLACK}- Create farms for Plant Fibres, Cereal & Grains and Fruit & Vegetables.{}{BLACK}- Create amimal farms to produce Livestock, Milk or Wool.{}{BLACK}- Create logging operations to produce Logs.
+STR_FUND_MINES_AND_QUARRIES										:{BLACK}Represents resources extracted through mining, drilling and quarries.{}{BLACK}- Create mines for Coal, Iron Ore, Bauxite, Potash, Uranium and Copper Ore.{}{BLACK}- Create quarries for Aggregates, Clay and Sand.{}{BLACK}- Create wells for Crude Oil.
+STR_FUND_FISHING_OFFSHORE										:{BLACK}Represents resources farmed or extracted at sea.{}{BLACK}- Create fishing sites for Seafood.{}{BLACK}- Create dredging sites for Aggregates, Clay and Sand. {}{BLACK}- Create oil rigs for Crude Oil.
+
+#Processing Extra Fund Window Text
+STR_FUND_HEAVY_IND												:{BLACK}Represents processing of extracted materials into products used by other processes.{}{BLACK}- Create refineries to process Crude Oil into Chemical Products and Petroleum Fuels.{}{BLACK}- Create facilities to process Aggregates, Sand, Recycled Glass and Clay into Cement.{}{BLACK}- Create facilities to process Mineral Ore and Coal into Chemical Products.{}{BLACK}- Create facilities to process Sand and Coal into Glass Products.
+STR_FUND_PROCESSING_2											:{BLACK}Represents processing of extracted materials into products used by other processes.{}{BLACK}- Create mills to process Iron Ore, Bauxite, Copper Ore, Recycled Metal, Coal and Chemical Products into Steel, Aluminium and Copper.{}{BLACK}- Create faciliities to process Aggregates, Coal and Chemical Products into Silicon.
+STR_FUND_PROCESSING_3											:{BLACK}Represents processing of extracted materials into products used by other processes.{}{BLACK}- Create refineries to process Mineral Ore, Coal and Chemical Products into Lithium Carbonate.{}{BLACK}- Create mills to process Wood Products, Recycled Paper and Chemical Products into Wood Products and Paper Products.{}{BLACK}- Create facilities to process Petrochemicals and Recycled Plastic into Plastic Products.
+STR_FUND_UTILITY_COMP											:{BLACK}Represents recycling to produce new resuable product.{}{BLACK}- Create reclamation facilities to process Recyclables into Metal Products, Glass Products, Paper Products and Plastic Products.
+STR_FUND_ENRICHMENT												:{BLACK}Represents enrichment of materials used in other processes.{}{BLACK}- Create enrichment facilities to process Uranium Ore, Nuclear Waste and Chemical Products into Nuclear Fuels.{}{BLACK}- Create enrichment facilities to process Potash and Chemical Products into Fertilizer.
+
+#Manufacturing Extra Fund Window Text
+STR_FUND_MANUFACTURING_IND										:{BLACK}Represents the manufacturing of components from products.{}{BLACK}- Create facilities to manufacture Packaging from Steel, Aluminium, Plastic Products, Glass Products and Paper Products.{}{BLACK}- Create facilities to manufacture Electronics from Copper, Silicon, Plastic Products, Steel and Aluminium.{}{BLACK}- Create facilities to manufacture Power Cells from Lithium Carbonate, Chemical Products, Steel and Aluminium. 
+STR_FUND_MANUFACTURING_2										:{BLACK}Represents the manufacturing of consumer goods from products.{}{BLACK}- Create facilities to manufacture Vehicles from Steel, Aluminium, Electronics, Plastic Products, Glass Products, Power Cells and Textiles. {}{BLACK}- Create facilities to manufacture Goods from Steel, Aluminium, Packaging, Electronics, Plastic Products, Chemical Products, Wood Products and Textiles.
+STR_FUND_FOOD_PROCESSING										:{BLACK}Represents processing and preparation of food or textiles for distribution.{}{BLACK}- Create facilities to combine Packaging with Cereals & Grains, Fruit & Vegetables, Milk, Livestock and Seafood to create Food.{}{BLACK}- Create facilities to combine Packaging with Cereals & Grains and Fruit & Vegetables to create Alcohol.{}{BLACK}- Create facilities to combine Fibre Crops, Wool and Chemical Products to create Textiles.{}{}{YELLOW}Delivering Manufacturing Supplies results in a boost to production. 
+STR_FUND_SUPPLIES												:{BLACK}Represents the manufacturing of supplies to support other industries.{}{BLACK}- Create facilities to produce Farm Supplies from Fertilizer, Packaging and Wood Products.{}{BLACK}- Create facilities to produce Construction Materials from Cement, Packaging and Wood Products.{}{BLACK}- Create facilities to produce Marine Supplies from Textiles, Packaging and Chemical Products.{}{BLACK}- Create facilities to produce Engineering Supplies from Steel, Packaging and Electronics.{}{BLACK}- Create facilities to produce Manufacturing Supplies from Electronics, Packaging and Chemical Products.
+
+#Distribution Extra Fund Window Text
+STR_FUND_RESIDENTIAL											:{BLACK}Represents residential locations where people live.{}{BLACK}- Create residential locations to produce Commuters, Passengers, Parcels and Mail.{}{ORANGE}- These locations produce Waste and Recyclables.
+STR_FUND_SERVICES												:{BLACK}Represents the delivery of services such as banking or tourism.{}{BLACK}- Create banks to trade in Valuables.{}{BLACK}- Create tourist locations that require deliveries of Food, Goods or Alcohol.
+STR_FUND_RETAIL                                      			:{BLACK}Represents retail locations where manufactured goods are sold.{}{BLACK}- Create retail locations to sell Goods, Food, Vehicles, Petroleum Fuels, Construction Materials and Alcohol.
+
+#Utilities Extra Fund Window Text
+STR_FUND_DISPOSAL												:{BLACK}Represents the disposal of waste that can't be recycled.{}{BLACK}- Create land fills and incinerators by delivering Waste.{}{BLACK}- Create nuclear waste bunkers by delivering Nuclear Waste.
+STR_FUND_POWER_GENERATION										:{BLACK}Represents the generation of electricity.{}{BLACK}- Create power stations by delivering Coal, Crude Oil or Nuclear Fuels.{}{BLACK}Nuclear power stations produce Nuclear Waste.
+
+#Import/Export Extra Fund Window Text
+STR_FUND_IMPORT_EXPORT											:{BLACK}Represents the international market for raw and processed materials.{}{}{BLACK}Use as a 'black hole' for vehicles to deliver and recieve cargos from 'outside' the map. 
+STR_FUND_IMPORT_EXPORT_2										:{BLACK}Represents the international market for organic materials.{}{}{BLACK}Use as a 'black hole' for vehicles to deliver and recieve cargos from 'outside' the map. 
+STR_FUND_IMPORT_EXPORT_3										:{BLACK}Represents the international market for manufactured goods.{}{}{BLACK}Use as a 'black hole' for vehicles to deliver and recieve cargos from 'outside' the map.
+STR_FUND_IMPORT_EXPORT_4										:{BLACK}Represents the international market for tourism.{}{}{BLACK}Use as a 'black hole' for vehicles to deliver and recieve cargos from 'outside' the map.
+
+
+
+#Extraction Extra Industry Text
+STR_EXTRA_FARMS													:{BLACK}Represents resources grown, produced or raised through farming or forestry.{}{}{YELLOW}Delivering Farming Supplies and Commuters results in a boost to production.
+STR_EXTRA_MINES_AND_QUARRIES									:{BLACK}Represents resources extracted through mining, drilling and quarries.{}{}{YELLOW}Delivering Engineering Supplies and Commuters results in a boost to production.
+STR_EXTRA_FISHING_OFFSHORE										:{BLACK}Represents resources farmed or extracted in bodies of water.{}{}{YELLOW}Delivering Marine Supplies or Commuters results in a boost to production.
+
+#Processing Extra Industry Text
+STR_EXTRA_HEAVY_IND												:{BLACK}Represents processing of extracted materials into products used by other processes.{}{}{YELLOW}Delivering Engineering Supplies results in a boost to production.
+STR_EXTRA_PROCESSING_2											:{BLACK}Represents processing of raw and refined materials into products used by other processes.{}{}{YELLOW}Delivering Engineering Supplies results in a boost to production.
+STR_EXTRA_PROCESSING_3											:{BLACK}Represents processing of raw and refined materials into products used by other processes.{}{}{YELLOW}Delivering Engineering Supplies results in a boost to production.
+STR_EXTRA_UTILITY_COMP											:{BLACK}Represents recycling to produce new resuable product.{}{}{YELLOW}Delivering Engineering Supplies results in a boost to production.
+STR_EXTRA_ENRICHMENT											:{BLACK}Represents enrichment of materials used in other processes.{}{}{YELLOW}Delivering Engineering Supplies results in a boost to production.
+
+#Manufacturing Extra Industry Text
+STR_EXTRA_MANUFACTURING_IND										:{BLACK}Represents the manufacturing of components from products.{}{}{YELLOW}Delivering Manufacturing Supplies results in a boost to production. 
+STR_EXTRA_MANUFACTURING_2										:{BLACK}Represents the manufacturing of consumer goods from products.{}{}{YELLOW}Delivering Manufacturing Supplies results in a boost to production.
+STR_EXTRA_FOOD_PROCESSING										:{BLACK}Represents processing and preparation of food or textiles for distribution.{}{}{YELLOW}Delivering Manufacturing Supplies results in a boost to production.
+STR_EXTRA_SUPPLIES												:{BLACK}Represents the manufacturing of supplies to support other industries.
+
+#Distribution Extra Industry Text
+STR_EXTRA_RESIDENTIAL											:{BLACK}Represents residential locations where people live.
+STR_EXTRA_SERVICES												:{BLACK}Represents the delivery of services such as banking or tourism.
+STR_EXTRA_RETAIL                                      			:{BLACK}Represents retail locations where manufactured goods are sold.
+
+#Utilities Extra Industry Text
+STR_EXTRA_DISPOSAL												:{BLACK}Represents the disposal of waste that can't be recycled.
+STR_EXTRA_POWER_GENERATION										:{BLACK}Represents the generation of electricity.
+
+#Import/Export Extra Industry Text
+STR_EXTRA_IMPORT_EXPORT											:{BLACK}Represents the international market for raw and processed materials.{}{}{BLACK}Use as a 'black hole' for vehicles to deliver and recieve cargos from 'outside' the map.
+STR_EXTRA_IMPORT_EXPORT_2										:{BLACK}Represents the international market for organic materials.{}{}{BLACK}Use as a 'black hole' for vehicles to deliver and recieve cargos from 'outside' the map.  
+STR_EXTRA_IMPORT_EXPORT_3										:{BLACK}Represents the international market for manufactured goods.{}{}{BLACK}Use as a 'black hole' for vehicles to deliver and recieve cargos from 'outside' the map. 
+STR_EXTRA_IMPORT_EXPORT_4										:{BLACK}Represents the international market for tourism.{}{}{BLACK}Use as a 'black hole' for vehicles to deliver and recieve cargos from 'outside' the map.   
+
+
+minimum production amount to maintain cargo viability
+
+
+Proportion of production
+
+Cargo transported pct / sum of total cargo transported * 100
+
+
+switch 	(FEAT_INDUSTRIES, SELF, core_cargo_210_production,
+
+divide by 100 in production
+
+switch (FEAT_INDUSTRIES, SELF, bias_number, LOAD_PERM(238) ,) {return;}
+switch (FEAT_INDUSTRIES, SELF, number_outputs, LOAD_PERM(239) ,) {return;}
+switch (FEAT_INDUSTRIES, SELF, industry_divider, 100 / number_outputs() ,) {return;}
+
+switch (FEAT_INDUSTRIES, SELF, cargo_pct_210, LOAD_PERM(230),) {return;}
+switch (FEAT_INDUSTRIES, SELF, cargo_pct_211, LOAD_PERM(231),) {return;}
+switch (FEAT_INDUSTRIES, SELF, cargo_pct_212, LOAD_PERM(232),) {return;}
+switch (FEAT_INDUSTRIES, SELF, cargo_pct_213, LOAD_PERM(233),) {return;}
+switch (FEAT_INDUSTRIES, SELF, cargo_pct_214, LOAD_PERM(234),) {return;}
+switch (FEAT_INDUSTRIES, SELF, cargo_pct_215, LOAD_PERM(235),) {return;}
+switch (FEAT_INDUSTRIES, SELF, cargo_pct_216, LOAD_PERM(236),) {return;}
+switch (FEAT_INDUSTRIES, SELF, cargo_pct_217, LOAD_PERM(237),) {return;}
+
+
+
+switch (FEAT_INDUSTRIES, SELF, other_outputs, LOAD_PERM(231) || LOAD_PERM(232) || LOAD_PERM(233) || LOAD_PERM(234) || LOAD_PERM(235) || LOAD_PERM(236)  || LOAD_PERM(237) > 0,) {return;}
+switch (FEAT_INDUSTRIES, SELF, total_outputs, LOAD_PERM(230) + LOAD_PERM(231) + LOAD_PERM(232) + LOAD_PERM(233) + LOAD_PERM(234) + LOAD_PERM(235) + LOAD_PERM(236)  + LOAD_PERM(237) > 0,) {return;}
+
+
+switch (FEAT_INDUSTRIES, SELF, production_bias_neutral, [STORE_PERM(bias_number() + (industry_divider() - bias_number()) * (bias_number() < 10), 238),]) {return bias_number();}
+switch (FEAT_INDUSTRIES, SELF, production_bias_single, [STORE_PERM(max(25, LOAD_PERM(230) / total_outputs * 100, 238)]) {return bias_number();}
+switch (FEAT_INDUSTRIES, SELF, production_bias_multi, [STORE_PERM(max(25, LOAD_PERM(230) / total_outputs * 100, 238)]) {return bias_number();}
+
+switch (FEAT_INDUSTRIES, SELF, production_bias_210, [STORE_PERM(max(25, LOAD_PERM(230) / total_outputs * 100, 238)]) {return LOAD_PERM(238);}  
+switch (FEAT_INDUSTRIES, SELF, production_bias_211, [STORE_PERM(max(25, LOAD_PERM(231) / total_outputs * 100, 238)]) {return LOAD_PERM(238);}  
+switch (FEAT_INDUSTRIES, SELF, production_bias_212, [STORE_PERM(max(25, LOAD_PERM(232) / total_outputs * 100, 238)]) {return LOAD_PERM(238);}  
+switch (FEAT_INDUSTRIES, SELF, production_bias_213, [STORE_PERM(max(25, LOAD_PERM(233) / total_outputs * 100, 238)]) {return LOAD_PERM(238);}  
+switch (FEAT_INDUSTRIES, SELF, production_bias_214, [STORE_PERM(max(25, LOAD_PERM(234) / total_outputs * 100, 238)]) {return LOAD_PERM(238);}  
+switch (FEAT_INDUSTRIES, SELF, production_bias_215, [STORE_PERM(max(25, LOAD_PERM(235) / total_outputs * 100, 238)]) {return LOAD_PERM(238);}  
+switch (FEAT_INDUSTRIES, SELF, production_bias_216, [STORE_PERM(max(25, LOAD_PERM(236) / total_outputs * 100, 238)]) {return LOAD_PERM(238);}  
+switch (FEAT_INDUSTRIES, SELF, production_bias_217, [STORE_PERM(max(25, LOAD_PERM(237) / total_outputs * 100, 238)]) {return LOAD_PERM(238);}  
+ 
+
+switch (FEAT_INDUSTRIES, SELF, production_bias_alt, 
+	cargo_pct_210 > 0 + 
+	
+	(other_outputs) * 2 + ((cargo_pct_210() + other_outputs()) < 50 ) * 10)
+{ 0: return production_bias_neutral;
+  1: return production_bias_210;
+  2: return production_bias_211;
+  3: return production_bias_212;
+  4: return production_bias_213;
+  5: return production_bias_214;
+  6: return production_bias_215;
+  7: return production_bias_216;
+  8: return production_bias_217;
+  10: return production_bias_neutral;  
+     return production_bias_neutral;   //low transportation levels, equalise bias 

@@ -1,0 +1,6 @@
+# plant_fibres
+
+STR_CARGO_NAME_PLANT_FIBRES										:Plant Fibres
+STR_CID_PLANT_FIBRES												:{TINYFONT}PLNT
+STR_CARGO_UNIT_PLANT_FIBRES										:{SIGNED_WORD} bale{P 0 "" s} of Plant Fibres
+STR_SHORT_UNIT_PLANT_FIBRES										:{SIGNED_WORD} bale{P 0 "" s}

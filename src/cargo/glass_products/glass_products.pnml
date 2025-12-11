@@ -1,0 +1,36 @@
+/*---- glass_products ----*/
+	
+	spriteset(cargoicon_glass_products) {[10 + 20 * 2, 10 + 20 * 1, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_glass_products, 25) {
+		property {
+			number: 25;
+			station_list_colour: 		210;
+			cargo_payment_list_colour: 	210;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_GLASS_PRODUCTS);
+			unit_name: 					string(STR_CARGO_NAME_GLASS_PRODUCTS);
+			type_abbreviation: 			string(STR_CID_GLASS_PRODUCTS);
+			cargo_label: 				"GLAS";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_GLASS_PRODUCTS);
+			items_of_cargo: 			string(STR_CARGO_UNIT_GLASS_PRODUCTS);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
+			);
+
+			penalty_lowerbound: 		12;
+			single_penalty_length: 		255;
+			price_factor: 				136;
+					
+			
+		}
+		graphics {						cargoicon_glass_products;
+		}
+	}

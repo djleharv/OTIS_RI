@@ -1,0 +1,155 @@
+{
+    "industry_item_name": "components",
+    "string": "COMPONENTS",
+    "folder": "components",
+    "include": true,
+    "industry_type": "manufacturing",
+    "industry_pack": 0,
+    "industry_ID": 73,
+    "industry_colour_number": 144,
+    "industry_layout": "concrete",
+    "extra_text_industry": "manufacturing",
+    "prob_map_gen": 2,
+    "prob_in_game": 0,
+    "fund_cost_multiplier": 255,
+    "str_ind": "(3-Manufacturing) Component Manufacturing",
+    "str_fund": "{}Represents manufacturing of components used in other manufacturing processes",
+    "str_station": "Factory",
+    "accept_cargo_list": [
+        {
+            "accept_cargo": "STEL",
+            "accept_cargo_type": "primary",
+            "stock_num": 10,
+            "cons_num": 110
+        },
+        {
+            "accept_cargo": "ALUM",
+            "accept_cargo_type": "primary",
+            "stock_num": 11,
+            "cons_num": 111
+        },
+        {
+            "accept_cargo": "COPR",
+            "accept_cargo_type": "primary",
+            "stock_num": 12,
+            "cons_num": 112
+        },
+        {
+            "accept_cargo": "PLAS",
+            "accept_cargo_type": "secondary",
+            "stock_num": 20,
+            "cons_num": 120
+        },
+        {
+            "accept_cargo": "GLAS",
+            "accept_cargo_type": "secondary",
+            "stock_num": 21,
+            "cons_num": 121
+        },
+        {
+            "accept_cargo": "PAPR",
+            "accept_cargo_type": "secondary",
+            "stock_num": 22,
+            "cons_num": 122
+        },
+        {
+            "accept_cargo": "CHEM",
+            "accept_cargo_type": "secondary",
+            "stock_num": 23,
+            "cons_num": 123
+        },
+        {
+            "accept_cargo": "SILI",
+            "accept_cargo_type": "support",
+            "stock_num": 30,
+            "cons_num": 130
+        },
+        {
+            "accept_cargo": "LITH",
+            "accept_cargo_type": "support",
+            "stock_num": 31,
+            "cons_num": 131
+        },
+        {
+            "accept_cargo": "MNSP",
+            "accept_cargo_type": "supply",
+            "stock_num": 40,
+            "cons_num": 140
+        }
+    ],
+    "produce_cargo_list": [
+        {
+            "produce_cargo": "PACK",
+            "produce_cargo_type": "core",
+            "prod_num": 210,
+            "demand_num": 220,
+            "bias_num": 230
+        },
+        {
+            "produce_cargo": "ELEC",
+            "produce_cargo_type": "core",
+            "prod_num": 211,
+            "demand_num": 221,
+            "bias_num": 231
+        },
+        {
+            "produce_cargo": "POWR",
+            "produce_cargo_type": "core",
+            "prod_num": 212,
+            "demand_num": 222,
+            "bias_num": 232
+        },
+        {
+            "produce_cargo": "WSTE",
+            "produce_cargo_type": "byproduct",
+            "prod_num": 240,
+            "demand_num": null,
+            "bias_num": null
+        },
+        {
+            "produce_cargo": "RCYC",
+            "produce_cargo_type": "byproduct",
+            "prod_num": 241,
+            "demand_num": null,
+            "bias_num": null
+        },
+        {
+            "produce_cargo": "COMM",
+            "produce_cargo_type": "byproduct",
+            "prod_num": 250,
+            "demand_num": null,
+            "bias_num": null
+        }
+    ],
+    "demand_customers": [
+        {
+            "produce_cargo": "PACK",
+            "accepted_by": [
+                "consumer_goods",
+                "food_processing",
+                "engineering_supplies",
+                "farming_supplies",
+                "marine_supplies",
+                "manufacturing_supplies",
+                "construction_materials"
+            ],
+            "demand_num": 220
+        },
+        {
+            "produce_cargo": "ELEC",
+            "accepted_by": [
+                "consumer_goods"
+            ],
+            "demand_num": 221
+        },
+        {
+            "produce_cargo": "POWR",
+            "accepted_by": [
+                "consumer_goods",
+                "engineering_supplies",
+                "manufacturing_supplies"
+            ],
+            "demand_num": 222
+        }
+    ]
+}

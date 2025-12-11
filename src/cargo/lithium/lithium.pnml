@@ -1,0 +1,36 @@
+/*---- lithium ----*/
+	
+	spriteset(cargoicon_lithium) {[10 + 20 * 0, 10 + 20 * 4, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_lithium, 40) {
+		property {
+			number: 40;
+			station_list_colour: 		88;
+			cargo_payment_list_colour: 	88;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_LITHIUM);
+			unit_name: 					string(STR_CARGO_NAME_LITHIUM);
+			type_abbreviation: 			string(STR_CID_LITHIUM);
+			cargo_label: 				"LITH";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_LITHIUM);
+			items_of_cargo: 			string(STR_CARGO_UNIT_LITHIUM);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_COVERED_BULK, CC_POWDER_BULK
+			);
+
+			penalty_lowerbound: 		30;
+			single_penalty_length: 		255;
+			price_factor: 				83;
+					
+			
+		}
+		graphics {						cargoicon_lithium;
+		}
+	}

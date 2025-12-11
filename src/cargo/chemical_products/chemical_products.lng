@@ -1,0 +1,6 @@
+# chemical_products
+
+STR_CARGO_NAME_CHEMICAL_PRODUCTS										:Chemical Products
+STR_CID_CHEMICAL_PRODUCTS												:{TINYFONT}CHEM
+STR_CARGO_UNIT_CHEMICAL_PRODUCTS										:{VOLUME} of Chemical Products
+STR_SHORT_UNIT_CHEMICAL_PRODUCTS										:{VOLUME}

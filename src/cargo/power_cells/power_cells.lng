@@ -1,0 +1,6 @@
+# power_cells
+
+STR_CARGO_NAME_POWER_CELLS										:Power Cells
+STR_CID_POWER_CELLS												:{TINYFONT}POWR
+STR_CARGO_UNIT_POWER_CELLS										:{SIGNED_WORD} pallette{P 0 "" s} of Power Cells
+STR_SHORT_UNIT_POWER_CELLS										:{SIGNED_WORD} pallette{P 0 "" s}

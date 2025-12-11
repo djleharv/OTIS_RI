@@ -1,0 +1,5 @@
+#components
+
+STR_IND_COMPONENTS		:(3-Manufacturing) Component Manufacturing
+STR_FUND_COMPONENTS		:{}Represents manufacturing of components used in other manufacturing processes
+STR_STATION_COMPONENTS	:Factory

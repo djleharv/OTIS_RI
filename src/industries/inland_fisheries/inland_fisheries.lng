@@ -1,0 +1,5 @@
+#inland_fisheries
+
+STR_IND_INLAND_FISHERIES		:(1-Extraction) Inland Fisheries
+STR_FUND_INLAND_FISHERIES		:{}Represents inland fisheries activity
+STR_STATION_INLAND_FISHERIES	:Hatchery

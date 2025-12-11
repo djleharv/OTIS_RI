@@ -1,0 +1,6 @@
+# goods
+
+STR_CARGO_NAME_GOODS										:Goods
+STR_CID_GOODS												:{TINYFONT}GOOD
+STR_CARGO_UNIT_GOODS										:{SIGNED_WORD} pallette{P 0 "" s} of Goods
+STR_SHORT_UNIT_GOODS										:{SIGNED_WORD} pallette{P 0 "" s}

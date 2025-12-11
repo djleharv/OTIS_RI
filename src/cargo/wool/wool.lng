@@ -1,0 +1,6 @@
+# wool
+
+STR_CARGO_NAME_WOOL										:Wool
+STR_CID_WOOL												:{TINYFONT}WOOL
+STR_CARGO_UNIT_WOOL										:{SIGNED_WORD} bale{P 0 "" s} of Wool
+STR_SHORT_UNIT_WOOL										:{SIGNED_WORD} bale{P 0 "" s}

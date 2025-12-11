@@ -1,0 +1,6 @@
+# iron_ore
+
+STR_CARGO_NAME_IRON_ORE										:Iron Ore
+STR_CID_IRON_ORE												:{TINYFONT}IORE
+STR_CARGO_UNIT_IRON_ORE										:{WEIGHT} of Iron Ore
+STR_SHORT_UNIT_IRON_ORE										:{WEIGHT}

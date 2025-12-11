@@ -1,0 +1,36 @@
+/*---- logs ----*/
+	
+	spriteset(cargoicon_logs) {[10 + 20 * 8, 10 + 20 * 0, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_logs, 7) {
+		property {
+			number: 7;
+			station_list_colour: 		53;
+			cargo_payment_list_colour: 	53;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_LOGS);
+			unit_name: 					string(STR_CARGO_NAME_LOGS);
+			type_abbreviation: 			string(STR_CID_LOGS);
+			cargo_label: 				"WOOD";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_LOGS);
+			items_of_cargo: 			string(STR_CARGO_UNIT_LOGS);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_FLATBED
+			);
+
+			penalty_lowerbound: 		24;
+			single_penalty_length: 		255;
+			price_factor: 				98;
+					
+			
+		}
+		graphics {						cargoicon_logs;
+		}
+	}

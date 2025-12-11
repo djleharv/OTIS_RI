@@ -1,0 +1,6 @@
+# electronics
+
+STR_CARGO_NAME_ELECTRONICS										:Electronics
+STR_CID_ELECTRONICS												:{TINYFONT}ELEC
+STR_CARGO_UNIT_ELECTRONICS										:{SIGNED_WORD} pallette{P 0 "" s} of Electronics
+STR_SHORT_UNIT_ELECTRONICS										:{SIGNED_WORD} pallette{P 0 "" s}

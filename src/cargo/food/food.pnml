@@ -1,0 +1,36 @@
+/*---- food ----*/
+	
+	spriteset(cargoicon_food) {[10 + 20 * 12, 10 + 20 * 0, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_food, 11) {
+		property {
+			number: 11;
+			station_list_colour: 		48;
+			cargo_payment_list_colour: 	48;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_FOOD);
+			unit_name: 					string(STR_CARGO_NAME_FOOD);
+			type_abbreviation: 			string(STR_CID_FOOD);
+			cargo_label: 				"FOOD";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_FOOD);
+			items_of_cargo: 			string(STR_CARGO_UNIT_FOOD);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_POTABLE, CC_PIECE_GOODS, CC_EXPRESS, CC_REFRIGERATED
+			);
+
+			penalty_lowerbound: 		0;
+			single_penalty_length: 		24;
+			price_factor: 				150;
+					
+			
+		}
+		graphics {						cargoicon_food;
+		}
+	}

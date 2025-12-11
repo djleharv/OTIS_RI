@@ -1,0 +1,6 @@
+# paper_products
+
+STR_CARGO_NAME_PAPER_PRODUCTS										:Paper Products
+STR_CID_PAPER_PRODUCTS												:{TINYFONT}PAPR
+STR_CARGO_UNIT_PAPER_PRODUCTS										:{WEIGHT} of Paper Products
+STR_SHORT_UNIT_PAPER_PRODUCTS										:{WEIGHT}

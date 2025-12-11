@@ -1,0 +1,71 @@
+	
+/********************************************
+ * One Tile Spritelayouts
+*********************************************/
+
+/*---- Dirt Tile ----*/
+
+	spritelayout dirt_industry_spritelayout {
+        ground 		{sprite: 2022;}
+		building	{sprite: 2022;}
+	}			
+		
+					
+/*---- Concrete Tile ----*/
+
+	spritelayout concrete_industry_spritelayout {
+        ground 		{sprite: 1420;}
+		building	{sprite: 1420;}
+		}
+
+/********************************************
+ * One Tile Tilelayouts
+*********************************************/
+
+/*---- Dirt Tile ----*/
+
+	tilelayout dirt_industry_tilelayout {
+            0, 0: dirt_industry_tile;
+					}
+
+
+/*---- Concrete Tile ----*/
+
+	tilelayout concrete_industry_tilelayout {
+            0, 0: concrete_industry_tile;
+					}
+					
+/********************************************
+ * One Tile Definitions
+*********************************************/
+
+/*---- Dirt Tile ----*/
+
+item(FEAT_INDUSTRYTILES, dirt_industry_tile) {
+	property {
+		substitute:						0;
+		special_flags:					bitmask(INDTILE_FLAG_ACCEPT_ALL);
+		accepted_cargos:				[[COMM, 8]];
+	}
+	graphics {
+		default: 						dirt_industry_spritelayout;
+		foundations: 					return CB_RESULT_FOUNDATIONS;
+	}
+}
+
+/*---- Concrete Tile ----*/
+
+item(FEAT_INDUSTRYTILES, concrete_industry_tile) {
+	property {
+		substitute:						0;
+		special_flags:					bitmask(INDTILE_FLAG_ACCEPT_ALL);
+		accepted_cargos:				[[COMM, 8]];
+	}	
+	graphics {
+		default: 						concrete_industry_spritelayout;
+		foundations: 					return CB_RESULT_FOUNDATIONS;
+	}
+}	
+	
+
+

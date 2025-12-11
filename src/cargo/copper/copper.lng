@@ -1,0 +1,6 @@
+# copper
+
+STR_CARGO_NAME_COPPER										:Copper
+STR_CID_COPPER												:{TINYFONT}COPP
+STR_CARGO_UNIT_COPPER										:{WEIGHT} of Copper
+STR_SHORT_UNIT_COPPER										:{WEIGHT}

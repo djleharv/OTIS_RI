@@ -1,0 +1,36 @@
+/*---- plastic_products ----*/
+	
+	spriteset(cargoicon_plastic_products) {[10 + 20 * 6, 10 + 20 * 4, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_plastic_products, 43) {
+		property {
+			number: 43;
+			station_list_colour: 		151;
+			cargo_payment_list_colour: 	151;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_PLASTIC_PRODUCTS);
+			unit_name: 					string(STR_CARGO_NAME_PLASTIC_PRODUCTS);
+			type_abbreviation: 			string(STR_CID_PLASTIC_PRODUCTS);
+			cargo_label: 				"PLAS";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_PLASTIC_PRODUCTS);
+			items_of_cargo: 			string(STR_CARGO_UNIT_PLASTIC_PRODUCTS);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
+			);
+
+			penalty_lowerbound: 		30;
+			single_penalty_length: 		42;
+			price_factor: 				150;
+					
+			
+		}
+		graphics {						cargoicon_plastic_products;
+		}
+	}

@@ -1,0 +1,6 @@
+# crude_oil
+
+STR_CARGO_NAME_CRUDE_OIL										:Crude Oil
+STR_CID_CRUDE_OIL												:{TINYFONT}OILC
+STR_CARGO_UNIT_CRUDE_OIL										:{VOLUME} of Crude Oil
+STR_SHORT_UNIT_CRUDE_OIL										:{VOLUME}

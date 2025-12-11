@@ -1,0 +1,36 @@
+/*---- petroleum_fuels ----*/
+	
+	spriteset(cargoicon_petroleum_fuels) {[10 + 20 * 12, 10 + 20 * 1, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_petroleum_fuels, 27) {
+		property {
+			number: 27;
+			station_list_colour: 		159;
+			cargo_payment_list_colour: 	159;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_PETROLEUM_FUELS);
+			unit_name: 					string(STR_CARGO_NAME_PETROLEUM_FUELS);
+			type_abbreviation: 			string(STR_CID_PETROLEUM_FUELS);
+			cargo_label: 				"PETR";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_PETROLEUM_FUELS);
+			items_of_cargo: 			string(STR_CARGO_UNIT_PETROLEUM_FUELS);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_LIQUID_BULK
+			);
+
+			penalty_lowerbound: 		18;
+			single_penalty_length: 		255;
+			price_factor: 				127;
+					
+			
+		}
+		graphics {						cargoicon_petroleum_fuels;
+		}
+	}

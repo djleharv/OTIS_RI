@@ -1,0 +1,6 @@
+# plastic_products
+
+STR_CARGO_NAME_PLASTIC_PRODUCTS										:Plastic Products
+STR_CID_PLASTIC_PRODUCTS												:{TINYFONT}PLAS
+STR_CARGO_UNIT_PLASTIC_PRODUCTS										:{WEIGHT} of Plastic Products
+STR_SHORT_UNIT_PLASTIC_PRODUCTS										:{WEIGHT}

@@ -1,0 +1,6 @@
+# steel
+
+STR_CARGO_NAME_STEEL										:Steel
+STR_CID_STEEL												:{TINYFONT}STEL
+STR_CARGO_UNIT_STEEL										:{WEIGHT} of Steel
+STR_SHORT_UNIT_STEEL										:{WEIGHT}

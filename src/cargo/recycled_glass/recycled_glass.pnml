@@ -1,0 +1,36 @@
+/*---- recycled_glass ----*/
+	
+	spriteset(cargoicon_recycled_glass) {[10 + 20 * 0, 10 + 20 * 2, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_recycled_glass, 46) {
+		property {
+			number: 46;
+			station_list_colour: 		93;
+			cargo_payment_list_colour: 	93;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_RECYCLED_GLASS);
+			unit_name: 					string(STR_CARGO_NAME_RECYCLED_GLASS);
+			type_abbreviation: 			string(STR_CID_RECYCLED_GLASS);
+			cargo_label: 				"RGLA";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_RECYCLED_GLASS);
+			items_of_cargo: 			string(STR_CARGO_UNIT_RECYCLED_GLASS);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_OPEN_BULK
+			);
+
+			penalty_lowerbound: 		4;
+			single_penalty_length: 		40;
+			price_factor: 				116;
+					
+			
+		}
+		graphics {						cargoicon_recycled_glass;
+		}
+	}

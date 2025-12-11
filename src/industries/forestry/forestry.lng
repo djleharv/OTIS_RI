@@ -1,0 +1,5 @@
+#forestry
+
+STR_IND_FORESTRY		:(1-Extraction) Forestry
+STR_FUND_FORESTRY		:{}Represents forestry activity
+STR_STATION_FORESTRY	:Forest

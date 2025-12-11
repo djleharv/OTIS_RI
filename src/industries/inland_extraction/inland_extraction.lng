@@ -1,0 +1,5 @@
+#inland_extraction
+
+STR_IND_INLAND_EXTRACTION		:(1-Extraction) Inland Extraction
+STR_FUND_INLAND_EXTRACTION		:{}Represents inland extraction activity
+STR_STATION_INLAND_EXTRACTION	:Wells

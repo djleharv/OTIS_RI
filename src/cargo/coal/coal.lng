@@ -1,0 +1,6 @@
+# coal
+
+STR_CARGO_NAME_COAL										:Coal
+STR_CID_COAL												:{TINYFONT}COAL
+STR_CARGO_UNIT_COAL										:{WEIGHT} of Coal
+STR_SHORT_UNIT_COAL										:{WEIGHT}

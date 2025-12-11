@@ -1,0 +1,6 @@
+# petrochemicals
+
+STR_CARGO_NAME_PETROCHEMICALS										:Petrochemicals
+STR_CID_PETROCHEMICALS												:{TINYFONT}RFPR
+STR_CARGO_UNIT_PETROCHEMICALS										:{VOLUME} of Petrochemicals
+STR_SHORT_UNIT_PETROCHEMICALS										:{VOLUME}

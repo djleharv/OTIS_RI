@@ -1,0 +1,6 @@
+# logs
+
+STR_CARGO_NAME_LOGS										:Logs
+STR_CID_LOGS												:{TINYFONT}LOGS
+STR_CARGO_UNIT_LOGS										:{WEIGHT} of Logs
+STR_SHORT_UNIT_LOGS										:{WEIGHT}

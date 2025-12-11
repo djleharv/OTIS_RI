@@ -1,0 +1,5 @@
+#chemicals
+
+STR_IND_CHEMICALS		:(2-Processing) Chemicals
+STR_FUND_CHEMICALS		:{}Represents processing of chemicals
+STR_STATION_CHEMICALS	:Plant

@@ -1,0 +1,341 @@
+/********************************************
+ * PRODUCTION SWITCHES AND VALUES
+*********************************************/
+
+
+//foundational information needed for calculations (needs to be divisble into whole numbers)
+base_consumption = 20; 
+total_production = 16; 
+
+primary_stockpile_level = base_consumption * 10;
+secondary_stockpile_level = base_consumption * 20;
+support_stockpile_level = base_consumption * 40;
+
+//level of superproduction divider 
+superprod = base_consumption * 100;
+
+base_supply_consumption = base_consumption / 10;
+
+base_extraction_production_runs = 1;
+
+base_commuter_production = base_consumption / 10;
+base_byproduct_production = base_consumption / base_consumption;
+
+secondary_cargo_synergy_bonus = total_production / 8;
+support_cargo_synergy_bonus = total_production / 8;
+
+supply_bonus = total_production / 4;
+commuter_bonus = total_production / 8;
+byproduct_bonus = total_production / 8;
+
+//production efficiency mechanics for cargo production
+
+//additional production for delivering supplies
+switch 	(FEAT_INDUSTRIES, SELF, supplies_production_efficiency, LOAD_PERM(40) < base_supply_consumption,) {1: return supply_bonus; return 0;}	
+
+//additional production for transporting commuters
+switch 	(FEAT_INDUSTRIES, SELF, commuter_production_efficiency, LOAD_PERM(5) < 1,) {1: return commuter_bonus; return 0;}	
+
+//additional production for transporting byproducts
+switch 	(FEAT_INDUSTRIES, SELF, byproduct_production_efficiency, LOAD_PERM(6) < 1,) {1: return byproduct_bonus; return 0;}	
+
+//total production efficiency
+switch 	(FEAT_INDUSTRIES, SELF, total_production_efficiency, supplies_production_efficiency() + commuter_production_efficiency() + byproduct_production_efficiency(),) {return;}	
+
+//production mechanics for 1 - extraction industries
+
+//base primary industry output on number of customers 
+//count supply side industries
+switch 	(FEAT_INDUSTRIES, SELF, total_demand_industries,
+				LOAD_PERM(01)	
+				)	{return;}
+				
+//count demand side industries (unused but potential production cap)
+switch 	(FEAT_INDUSTRIES, SELF, total_supply_industries,
+				LOAD_PERM(02)	
+				)	{return;}
+
+//calculate production runs for extraction industries
+switch 	(FEAT_INDUSTRIES, SELF, extraction_production_runs,	base_extraction_production_runs + (base_extraction_production_runs * total_demand_industries()) ,) {return;}
+
+//calculate supply consumption 
+switch 	(FEAT_INDUSTRIES, SELF, extraction_supply_cargo_consumption, base_supply_consumption * extraction_production_runs() ,) {return;}	
+
+//calculate cargo production 
+switch 	(FEAT_INDUSTRIES, SELF, extraction_cargo_production, (total_production - total_production_efficiency()) * extraction_production_runs() ,) {return;}
+
+//calculate byproduct/commuter consumption 
+switch 	(FEAT_INDUSTRIES, SELF, extraction_waste_cargo_production, base_byproduct_production * extraction_production_runs() ,) {return;}
+switch 	(FEAT_INDUSTRIES, SELF, extraction_recyclables_cargo_production, base_byproduct_production * extraction_production_runs() ,) {return;}
+switch 	(FEAT_INDUSTRIES, SELF, extraction_organic_waste_cargo_production, base_byproduct_production * extraction_production_runs() ,) {return;}
+switch 	(FEAT_INDUSTRIES, SELF, extraction_commuter_cargo_production, base_commuter_production * extraction_production_runs() ,) {return;}
+
+
+//production mechanics for 2 - processing industries
+
+//aggregate cargos
+switch 	(FEAT_INDUSTRIES, SELF, total_primary_cargos,
+			(	LOAD_PERM(10) +
+				LOAD_PERM(11) +
+				LOAD_PERM(12) +
+				LOAD_PERM(13) +
+				LOAD_PERM(14) +
+				LOAD_PERM(15) +
+				LOAD_PERM(16) +
+				LOAD_PERM(17) +
+				LOAD_PERM(18) +
+				LOAD_PERM(19))
+			) 	{return;}
+
+switch 	(FEAT_INDUSTRIES, SELF, total_secondary_cargos,
+			(	LOAD_PERM(20) +
+				LOAD_PERM(21) +
+				LOAD_PERM(22) +
+				LOAD_PERM(23) +
+				LOAD_PERM(24) +
+				LOAD_PERM(25) +
+				LOAD_PERM(26) +
+				LOAD_PERM(27) +
+				LOAD_PERM(28) +
+				LOAD_PERM(29))
+			) 	{return;}
+			
+switch 	(FEAT_INDUSTRIES, SELF, total_support_cargos,
+			(	LOAD_PERM(30) +
+				LOAD_PERM(31) +
+				LOAD_PERM(32) +
+				LOAD_PERM(33) +
+				LOAD_PERM(34) +
+				LOAD_PERM(35) +
+				LOAD_PERM(36) +
+				LOAD_PERM(37) +
+				LOAD_PERM(38) +
+				LOAD_PERM(39))
+			) 	{return;}
+
+switch 	(FEAT_INDUSTRIES, SELF, total_supply_cargos,
+				LOAD_PERM(40) 
+			) 	{return;}
+
+//unlock additional production runs (encourages delivery of all cargos)
+switch 	(FEAT_INDUSTRIES, SELF, primary_cargo_unlock, total_primary_cargos() >= base_consumption ,) {return;}
+switch 	(FEAT_INDUSTRIES, SELF, other_cargo_unlock, (total_secondary_cargos() || total_support_cargos() >= base_consumption) || total_supply_cargos() >=  base_supply_consumption,) {return;}
+
+//production efficiency mechanics for cargo production
+
+//additional production for secondary cargo synergy
+switch 	(FEAT_INDUSTRIES, SELF, secondary_synergy_production_efficiency, (total_secondary_cargos() > base_consumption) * (total_primary_cargos() > base_consumption),) {1: return secondary_cargo_synergy_bonus; return 0;}	
+
+//additional production for support cargo synergy
+switch 	(FEAT_INDUSTRIES, SELF, support_synergy_production_efficiency, (total_support_cargos() > base_consumption) * (total_primary_cargos() > base_consumption	),) {1: return support_cargo_synergy_bonus; return 0;}	
+
+//total synergy production efficiency
+switch 	(FEAT_INDUSTRIES, SELF, synergy_production_efficiency, secondary_synergy_production_efficiency() + support_synergy_production_efficiency(),) {return;}	
+
+//primary cargo production runs
+switch 	(FEAT_INDUSTRIES, SELF, primary_cargo_runs, cargo_amount,	
+			(	cargo_amount 	>= base_consumption						) +
+			(	cargo_amount 	> primary_stockpile_level * 1			) +
+		(	(	cargo_amount 	> primary_stockpile_level * 2			) + 
+			(	cargo_amount 	> primary_stockpile_level * 3			) +
+			(	cargo_amount 	> primary_stockpile_level * 4			) +
+			(	cargo_amount 	> primary_stockpile_level * 5			) +
+			(	cargo_amount 	> primary_stockpile_level * 6			) +
+			(	cargo_amount 	> primary_stockpile_level * 7			) +
+			(	cargo_amount 	> primary_stockpile_level * 8			) +
+			(	cargo_amount 	> primary_stockpile_level * 9			) +
+			(	cargo_amount 	> primary_stockpile_level * 10			)	) *
+			(	other_cargo_unlock()									) +
+			(	cargo_amount 	/ superprod 							),		
+				) 	{return;}
+
+//secondary cargo production runs
+switch 	(FEAT_INDUSTRIES, SELF, secondary_cargo_runs, cargo_amount,	
+			(	cargo_amount 	>= base_consumption						) + 
+			(	cargo_amount 	> secondary_stockpile_level * 1			) + 
+		(	(	cargo_amount 	> secondary_stockpile_level * 2			) +
+			(	cargo_amount 	> secondary_stockpile_level * 3			)	) *
+			(	primary_cargo_unlock()									) +
+			(	cargo_amount 	/ superprod 							),		
+				) 	{return;}
+
+//support cargo production runs
+switch 	(FEAT_INDUSTRIES, SELF, support_cargo_runs, cargo_amount,	
+			(	cargo_amount 	>= base_consumption						) + 
+			(	cargo_amount 	> support_stockpile_level * 1			) *
+			(	primary_cargo_unlock()									) +
+			(	cargo_amount 	/ superprod 							),		
+				) 	{return;}	
+
+//calculate cargo consumption
+//primary cargos
+switch 	(FEAT_INDUSTRIES, SELF, primary_cargo_consumption_10, primary_cargo_runs(LOAD_PERM(10)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, primary_cargo_consumption_11, primary_cargo_runs(LOAD_PERM(11)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, primary_cargo_consumption_12, primary_cargo_runs(LOAD_PERM(12)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, primary_cargo_consumption_13, primary_cargo_runs(LOAD_PERM(13)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, primary_cargo_consumption_14, primary_cargo_runs(LOAD_PERM(14)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, primary_cargo_consumption_15, primary_cargo_runs(LOAD_PERM(15)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, primary_cargo_consumption_16, primary_cargo_runs(LOAD_PERM(16)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, primary_cargo_consumption_17, primary_cargo_runs(LOAD_PERM(17)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, primary_cargo_consumption_18, primary_cargo_runs(LOAD_PERM(18)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, primary_cargo_consumption_19, primary_cargo_runs(LOAD_PERM(19)))	{return;}
+
+//secondary cargos
+switch 	(FEAT_INDUSTRIES, SELF, secondary_cargo_consumption_20, secondary_cargo_runs(LOAD_PERM(20)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, secondary_cargo_consumption_21, secondary_cargo_runs(LOAD_PERM(21)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, secondary_cargo_consumption_22, secondary_cargo_runs(LOAD_PERM(22)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, secondary_cargo_consumption_23, secondary_cargo_runs(LOAD_PERM(23)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, secondary_cargo_consumption_24, secondary_cargo_runs(LOAD_PERM(24)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, secondary_cargo_consumption_25, secondary_cargo_runs(LOAD_PERM(25)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, secondary_cargo_consumption_26, secondary_cargo_runs(LOAD_PERM(26)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, secondary_cargo_consumption_27, secondary_cargo_runs(LOAD_PERM(27)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, secondary_cargo_consumption_28, secondary_cargo_runs(LOAD_PERM(28)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, secondary_cargo_consumption_29, secondary_cargo_runs(LOAD_PERM(29)))	{return;}
+
+//support cargos
+switch 	(FEAT_INDUSTRIES, SELF, support_cargo_consumption_30, support_cargo_runs(LOAD_PERM(30)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, support_cargo_consumption_31, support_cargo_runs(LOAD_PERM(31)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, support_cargo_consumption_32, support_cargo_runs(LOAD_PERM(32)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, support_cargo_consumption_33, support_cargo_runs(LOAD_PERM(33)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, support_cargo_consumption_34, support_cargo_runs(LOAD_PERM(34)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, support_cargo_consumption_35, support_cargo_runs(LOAD_PERM(35)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, support_cargo_consumption_36, support_cargo_runs(LOAD_PERM(36)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, support_cargo_consumption_37, support_cargo_runs(LOAD_PERM(37)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, support_cargo_consumption_38, support_cargo_runs(LOAD_PERM(38)))	{return;}
+switch 	(FEAT_INDUSTRIES, SELF, support_cargo_consumption_39, support_cargo_runs(LOAD_PERM(39)))	{return;}
+
+//return runs for primary production
+switch 	(FEAT_INDUSTRIES, SELF, primary_production_runs,
+			(	primary_cargo_consumption_10() +
+				primary_cargo_consumption_11() +
+				primary_cargo_consumption_12() +
+				primary_cargo_consumption_13() +
+				primary_cargo_consumption_14() +
+				primary_cargo_consumption_15() +
+				primary_cargo_consumption_16() +
+				primary_cargo_consumption_17() +
+				primary_cargo_consumption_18() +
+				primary_cargo_consumption_19() )
+			) 	{return;}
+			
+//return runs for secondary production
+switch 	(FEAT_INDUSTRIES, SELF, secondary_production_runs,
+			(	secondary_cargo_consumption_20() +
+				secondary_cargo_consumption_21() +
+				secondary_cargo_consumption_22() +
+				secondary_cargo_consumption_23() +
+				secondary_cargo_consumption_24() +
+				secondary_cargo_consumption_25() +
+				secondary_cargo_consumption_26() +
+				secondary_cargo_consumption_27() +
+				secondary_cargo_consumption_28() +
+				secondary_cargo_consumption_29() )	
+			) 	{return;}
+			
+//return runs for support production
+switch 	(FEAT_INDUSTRIES, SELF, support_production_runs,
+			(	support_cargo_consumption_30() +
+				support_cargo_consumption_31() +
+				support_cargo_consumption_32() +
+				support_cargo_consumption_33() +
+				support_cargo_consumption_34() +
+				support_cargo_consumption_35() +
+				support_cargo_consumption_36() +
+				support_cargo_consumption_37() +
+				support_cargo_consumption_38() +
+				support_cargo_consumption_39() )
+			) 	{return;}
+
+//return total runs for production
+switch 	(FEAT_INDUSTRIES, SELF, total_production_runs,
+			(	primary_production_runs() 	+
+				secondary_production_runs() +
+				support_production_runs() 	)
+			) 	{return;}
+
+//calculate core cargo production (1 cargo output)
+switch 	(FEAT_INDUSTRIES, SELF, core_cargo_production, (total_production - synergy_production_efficiency() - total_production_efficiency()) * total_production_runs() ,) {return;}
+
+
+switch (FEAT_INDUSTRIES, SELF, production_bias_neutral, [
+  STORE_PERM(LOAD_PERM(8) + (50 - LOAD_PERM(8)) * (LOAD_PERM(8) < 15), 8),
+  STORE_PERM(LOAD_PERM(8) - ((LOAD_PERM(8) - 50) > 0) + ((LOAD_PERM(8) - 50) < 0), 8)
+  ]) {return LOAD_PERM(8);}
+
+switch (FEAT_INDUSTRIES, SELF, production_bias_1, [
+  STORE_PERM(min(95, LOAD_PERM(8) + 1), 8)
+  ]) {return LOAD_PERM(8);}
+
+switch (FEAT_INDUSTRIES, SELF, production_bias_2, [
+  STORE_PERM(max(5, LOAD_PERM(8) - 1), 8)
+  ]) {return LOAD_PERM(8);}
+
+switch (FEAT_INDUSTRIES, SELF, production_bias, (LOAD_PERM(1) > 0) + (LOAD_PERM(2) > 0) * 2 + ((LOAD_PERM(1) + LOAD_PERM(2)) < 50 ) * 4)
+{
+  0: return production_bias_neutral;
+  1: return production_bias_1;
+  2: return production_bias_2;
+  3: return production_bias_neutral;  
+     return production_bias_neutral;   //low transportation levels, equalise bias 
+}
+
+
+//TEST - Alternative Bias Method
+
+
+switch (FEAT_INDUSTRIES, SELF, total_outputs, LOAD_PERM(230) + LOAD_PERM(231) + LOAD_PERM(232) + LOAD_PERM(233) + LOAD_PERM(234) + LOAD_PERM(235) + LOAD_PERM(236) + LOAD_PERM(237),) {return;}
+
+switch (FEAT_INDUSTRIES, SELF, production_bias_210, LOAD_PERM(230) * 100 / total_outputs(),) {return;}  
+switch (FEAT_INDUSTRIES, SELF, production_bias_211, LOAD_PERM(231) * 100 / total_outputs(),) {return;}  
+switch (FEAT_INDUSTRIES, SELF, production_bias_212, LOAD_PERM(232) * 100 / total_outputs(),) {return;}   
+switch (FEAT_INDUSTRIES, SELF, production_bias_213, LOAD_PERM(233) * 100 / total_outputs(),) {return;}   
+switch (FEAT_INDUSTRIES, SELF, production_bias_214, LOAD_PERM(234) * 100 / total_outputs(),) {return;}   
+switch (FEAT_INDUSTRIES, SELF, production_bias_215, LOAD_PERM(235) * 100 / total_outputs(),) {return;}  
+switch (FEAT_INDUSTRIES, SELF, production_bias_216, LOAD_PERM(236) * 100 / total_outputs(),) {return;}   
+switch (FEAT_INDUSTRIES, SELF, production_bias_217, LOAD_PERM(237) * 100 / total_outputs(),) {return;}   
+
+
+
+
+switch 	(FEAT_INDUSTRIES, SELF, core_cargo_210_production, max(1, ((total_production - synergy_production_efficiency() - total_production_efficiency()) * total_production_runs()) * production_bias_210() / 100)			,) {return;}
+switch 	(FEAT_INDUSTRIES, SELF, core_cargo_211_production, max(1, ((total_production - synergy_production_efficiency() - total_production_efficiency()) * total_production_runs()) * production_bias_211() / 100)			,) {return;}
+
+
+//calculate supply consumption 
+switch 	(FEAT_INDUSTRIES, SELF, supply_cargo_consumption, base_supply_consumption * total_production_runs() ,) {return;}	
+
+//calculate waste production
+switch 	(FEAT_INDUSTRIES, SELF, waste_cargo_production, base_byproduct_production * total_production_runs(),) {return;}
+
+//calculate organic waste production
+switch 	(FEAT_INDUSTRIES, SELF, organic_waste_cargo_production, base_byproduct_production * total_production_runs(),) {return;}
+
+//calculate recyclables production
+switch 	(FEAT_INDUSTRIES, SELF, recyclables_cargo_production, base_byproduct_production * total_production_runs(),) {return;}
+
+//calculate commuter production
+switch 	(FEAT_INDUSTRIES, SELF, commuter_cargo_production, base_commuter_production * total_production_runs(),) {return;}
+
+
+
+
+
+
+//production mechanics for 3 - manufacturing industries
+
+
+
+//production mechanics for 4 - distribution industries
+
+
+
+//production mechanics for 5 - utilities industries
+
+
+
+//production mechanics for 6 - import/export industries
+
+	
+/* *************************************************
+ * INDUSTRIES
+ * *************************************************/

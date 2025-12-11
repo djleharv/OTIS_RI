@@ -1,0 +1,6 @@
+# potash
+
+STR_CARGO_NAME_POTASH										:Potash
+STR_CID_POTASH												:{TINYFONT}POTA
+STR_CARGO_UNIT_POTASH										:{WEIGHT} of Potash
+STR_SHORT_UNIT_POTASH										:{WEIGHT}

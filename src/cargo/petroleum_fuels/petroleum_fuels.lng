@@ -1,0 +1,6 @@
+# petroleum_fuels
+
+STR_CARGO_NAME_PETROLEUM_FUELS										:Petroleum Fuels
+STR_CID_PETROLEUM_FUELS												:{TINYFONT}PETR
+STR_CARGO_UNIT_PETROLEUM_FUELS										:{VOLUME} of Petroleum Fuels
+STR_SHORT_UNIT_PETROLEUM_FUELS										:{WEIGHT}

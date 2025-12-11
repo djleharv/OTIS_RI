@@ -1,0 +1,5 @@
+#marine_supplies
+
+STR_IND_MARINE_SUPPLIES		:(3-Manufacturing) Marine Supplies Manufacturing
+STR_FUND_MARINE_SUPPLIES		:{}Represents manufacturing of supplies
+STR_STATION_MARINE_SUPPLIES	:Factory

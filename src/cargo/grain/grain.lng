@@ -1,0 +1,6 @@
+# grain
+
+STR_CARGO_NAME_GRAIN										:Cereals and Grains
+STR_CID_GRAIN												:{TINYFONT}GRAI
+STR_CARGO_UNIT_GRAIN										:{WEIGHT} of Cereals or Grains
+STR_SHORT_UNIT_GRAIN										:{WEIGHT}

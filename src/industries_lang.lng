@@ -1,0 +1,179 @@
+#chemicals
+
+STR_IND_CHEMICALS		:(2-Processing) Chemicals
+STR_FUND_CHEMICALS		:{}Represents processing of chemicals
+STR_STATION_CHEMICALS	:Plant
+
+#coal_mine
+
+STR_IND_COAL_MINE		:(1-Extraction) Coal Mining
+STR_FUND_COAL_MINE		:{}Represents mining of coal
+STR_STATION_COAL_MINE	:Coal Mine
+
+#components
+
+STR_IND_COMPONENTS		:(3-Manufacturing) Component Manufacturing
+STR_FUND_COMPONENTS		:{}Represents manufacturing of components used in other manufacturing processes
+STR_STATION_COMPONENTS	:Factory
+
+#construction_materials
+
+STR_IND_CONSTRUCTION_MATERIALS		:(3-Manufacturing) Construction Materials Manufacturing
+STR_FUND_CONSTRUCTION_MATERIALS		:{}Represents manufacturing of supplies
+STR_STATION_CONSTRUCTION_MATERIALS	:Factory
+
+#consumer_goods
+
+STR_IND_CONSUMER_GOODS		:(3-Manufacturing) Consumer Goods
+STR_FUND_CONSUMER_GOODS		:{}Represents manufacturing of goods for consumers
+STR_STATION_CONSUMER_GOODS	:Factory
+
+#cultivation
+
+STR_IND_CULTIVATION		:(1-Extraction) Cultivation
+STR_FUND_CULTIVATION		:{}Represents crop growing activity
+STR_STATION_CULTIVATION	:Farm
+
+#engineering_supplies
+
+STR_IND_ENGINEERING_SUPPLIES		:(3-Manufacturing) Engineering Supplies Manufacturing
+STR_FUND_ENGINEERING_SUPPLIES		:{}Represents manufacturing of supplies
+STR_STATION_ENGINEERING_SUPPLIES	:Factory
+
+#enrichment
+
+STR_IND_ENRICHMENT		:(2-Processing) Enrichment
+STR_FUND_ENRICHMENT		:{}Represents enrichment of materials
+STR_STATION_ENRICHMENT	:Plant
+
+#farming_supplies
+
+STR_IND_FARMING_SUPPLIES		:(3-Manufacturing) Farming Supplies Manufacturing
+STR_FUND_FARMING_SUPPLIES		:{}Represents manufacturing of supplies
+STR_STATION_FARMING_SUPPLIES	:Factory
+
+#food_processing
+
+STR_IND_FOOD_PROCESSING		:(3-Manufacturing) Food Processing
+STR_FUND_FOOD_PROCESSING		:{}Represents processing of food products
+STR_STATION_FOOD_PROCESSING	:Plant
+
+#forestry
+
+STR_IND_FORESTRY		:(1-Extraction) Forestry
+STR_FUND_FORESTRY		:{}Represents forestry activity
+STR_STATION_FORESTRY	:Forest
+
+#husbandry
+
+STR_IND_HUSBANDRY		:(1-Extraction) Husbandry
+STR_FUND_HUSBANDRY		:{}Represents animal farming activity
+STR_STATION_HUSBANDRY	:Farm
+
+#inland_excavation
+
+STR_IND_INLAND_EXCAVATION		:(1-Extraction) Inland Excavation
+STR_FUND_INLAND_EXCAVATION		:{}Represents inland excavation activity
+STR_STATION_INLAND_EXCAVATION	:Quarry
+
+#inland_extraction
+
+STR_IND_INLAND_EXTRACTION		:(1-Extraction) Inland Extraction
+STR_FUND_INLAND_EXTRACTION		:{}Represents inland extraction activity
+STR_STATION_INLAND_EXTRACTION	:Wells
+
+#inland_fisheries
+
+STR_IND_INLAND_FISHERIES		:(1-Extraction) Inland Fisheries
+STR_FUND_INLAND_FISHERIES		:{}Represents inland fisheries activity
+STR_STATION_INLAND_FISHERIES	:Hatchery
+
+#iron_ore_mine
+
+STR_IND_IRON_ORE_MINE		:(1-Extraction) Iron Ore Mining
+STR_FUND_IRON_ORE_MINE		:{}Represents mining of iron ore
+STR_STATION_IRON_ORE_MINE	:Iron Ore Mine
+
+#manufacturing_supplies
+
+STR_IND_MANUFACTURING_SUPPLIES		:(3-Manufacturing) Manufacturing Supplies Manufacturing
+STR_FUND_MANUFACTURING_SUPPLIES		:{}Represents manufacturing of supplies
+STR_STATION_MANUFACTURING_SUPPLIES	:Factory
+
+#marine_supplies
+
+STR_IND_MARINE_SUPPLIES		:(3-Manufacturing) Marine Supplies Manufacturing
+STR_FUND_MARINE_SUPPLIES		:{}Represents manufacturing of supplies
+STR_STATION_MARINE_SUPPLIES	:Factory
+
+#materials
+
+STR_IND_MATERIALS		:(2-Processing) Materials
+STR_FUND_MATERIALS		:{}Represents processing of materials
+STR_STATION_MATERIALS	:Plant
+
+#metals
+
+STR_IND_METALS		:(2-Processing) Metals Processing
+STR_FUND_METALS		:{}Represents refinement of metals
+STR_STATION_METALS	:Mill
+
+#mining
+
+STR_IND_MINING		:(1-Extraction) Mining
+STR_FUND_MINING		:{}Represents offshore excavation activity
+STR_STATION_MINING	:Mine
+
+#offshore_excavation
+
+STR_IND_OFFSHORE_EXCAVATION		:(1-Extraction) Offshore Excavation
+STR_FUND_OFFSHORE_EXCAVATION		:{}Represents offshore excavation activity
+STR_STATION_OFFSHORE_EXCAVATION	:Dredging Site
+
+#offshore_extraction
+
+STR_IND_OFFSHORE_EXTRACTION		:(1-Extraction) Offshore Extraction
+STR_FUND_OFFSHORE_EXTRACTION		:{}Represents offshore extraction activity
+STR_STATION_OFFSHORE_EXTRACTION	:Rig
+
+#offshore_fisheries
+
+STR_IND_OFFSHORE_FISHERIES		:(1-Extraction) Offshore Fisheries
+STR_FUND_OFFSHORE_FISHERIES		:{}Represents offshore fishing activity
+STR_STATION_OFFSHORE_FISHERIES	:Fishing Grounds
+
+#products
+
+STR_IND_PRODUCTS		:(2-Processing) Products
+STR_FUND_PRODUCTS		:{}Represents processing of materials into products used in manufacturing
+STR_STATION_PRODUCTS	:Plant
+
+#purification
+
+STR_IND_PURIFICATION		:(2-Processing) Mineral Purification
+STR_FUND_PURIFICATION		:{}Represents purification of minerals
+STR_STATION_PURIFICATION	:Plant
+
+#reclamation
+
+STR_IND_RECLAMATION		:(2-Processing) Reclamation
+STR_FUND_RECLAMATION		:{}Represents recycling of materials
+STR_STATION_RECLAMATION	:Plant
+
+#refinement
+
+STR_IND_REFINEMENT		:(2-Processing) Refinement
+STR_FUND_REFINEMENT		:{}Represents refinement of extracted raw materials
+STR_STATION_REFINEMENT	:Refinery
+
+#retail
+
+STR_IND_RETAIL		:(4-Distribution) Retail Locations
+STR_FUND_RETAIL		:{}Represents retail locations
+STR_STATION_RETAIL	:Mall
+
+#steel_mill
+
+STR_IND_STEEL_MILL		:(1-Processing) Steel Milling
+STR_FUND_STEEL_MILL		:{}Represents processing of Iron Ore into Steel
+STR_STATION_STEEL_MILL	:Steel Mill

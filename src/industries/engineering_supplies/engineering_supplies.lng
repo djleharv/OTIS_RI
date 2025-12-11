@@ -1,0 +1,5 @@
+#engineering_supplies
+
+STR_IND_ENGINEERING_SUPPLIES		:(3-Manufacturing) Engineering Supplies Manufacturing
+STR_FUND_ENGINEERING_SUPPLIES		:{}Represents manufacturing of supplies
+STR_STATION_ENGINEERING_SUPPLIES	:Factory

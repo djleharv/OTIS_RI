@@ -1,0 +1,185 @@
+/*---- Demand Side ----*/
+
+/* *************************************************
+ * GRAPHICS
+ * *************************************************/
+
+	spriteset(import_export_raw_spriteset_2_0) {
+                        [0, 0, 64, 64, -31, -33, ANIM | NOCROP, "gfx/import_export.png"]
+            }
+            spriteset(import_export_raw_spriteset_2_0_snow) {
+                            [0, 0, 64, 64, -31, -33, ANIM | NOCROP, "gfx/import_export_SNOW.png"]
+            }
+    spritelayout import_export_raw_spritelayout {
+                    childsprite {
+                        sprite: GROUNDSPRITE_NORMAL;
+                        recolour_mode: RECOLOUR_REMAP;
+                        palette: PALETTE_USE_DEFAULT;
+                        hide_sprite: (LOAD_TEMP(13));
+                        always_draw: 1;
+                    }
+                    childsprite {
+                        sprite: GROUNDSPRITE_NORMAL;
+                        recolour_mode: RECOLOUR_REMAP;
+                        palette: PALETTE_USE_DEFAULT;
+                        hide_sprite: (!LOAD_TEMP(13));
+                        always_draw: 1;
+                    }
+                building {
+                    sprite: import_export_raw_spriteset_2_0(0);
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: PALETTE_USE_DEFAULT;
+                    xoffset: 0;
+                    yoffset: 0;
+                    zoffset: 0;
+                    xextent: 16;
+                    yextent: 16;
+                    zextent: 16;
+                    always_draw: 0;
+                    hide_sprite: (LOAD_TEMP(125));
+                }
+                building {
+                    sprite: import_export_raw_spriteset_2_0_snow(0);
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: PALETTE_USE_DEFAULT;
+                    xoffset: 0;
+                    yoffset: 0;
+                    zoffset: 0;
+                    xextent: 16;
+                    yextent: 16;
+                    zextent: 16;
+                    always_draw: 0;
+                    hide_sprite: (LOAD_TEMP(115));
+                }
+    }
+    switch(FEAT_INDUSTRYTILES, SELF, import_export_raw_industry_layout_graphics_switch, relative_pos) {
+                relative_coord(0, 0): import_export_raw_spritelayout;
+        return 0; // a default is needed, but should never be reached, layout definitions are explicit
+    }
+switch(FEAT_INDUSTRYTILES, PARENT, import_export_raw_industry_graphics_switch_layouts, layout_num) {
+        1: import_export_raw_industry_layout_graphics_switch;
+    import_export_raw_industry_layout_graphics_switch; // default
+}
+switch(FEAT_INDUSTRYTILES, SELF, import_export_raw_industry_construction_state_graphics_switch, construction_state) {
+    0..2: spritelayout_default_construction_states;
+    import_export_raw_industry_graphics_switch_layouts; // default
+}
+
+switch(FEAT_INDUSTRYTILES, SELF, import_export_raw_store_temp_vars,
+        [STORE_TEMP(random_bits, 14),
+         STORE_TEMP(terrain_type == TILETYPE_SNOW, 13)
+                , STORE_TEMP(0,
+                             125) 
+                , STORE_TEMP(construction_state != 3 ? 1 : LOAD_TEMP(125),
+                             125)
+                , STORE_TEMP(LOAD_TEMP(13) == 0 ? 1 : LOAD_TEMP(125), 
+                             115) 
+                , STORE_TEMP(LOAD_TEMP(13) == 1 ? 1 : LOAD_TEMP(125), 
+                             125)
+        ]) {
+    import_export_raw_industry_construction_state_graphics_switch; // default
+}
+switch (FEAT_INDUSTRYTILES, SELF, import_export_raw_switch_graphics, [switch_tile_fences(), switch_terrain_sprite()]) {
+    import_export_raw_store_temp_vars;
+}
+    switch(FEAT_INDUSTRYTILES, SELF, import_export_raw_tile_1_lc_1,
+        (nearby_tile_class( 1,  1) == TILE_CLASS_INDUSTRY) |
+        (nearby_tile_class( 1,  0) == TILE_CLASS_INDUSTRY) |
+        (nearby_tile_class( 1, -1) == TILE_CLASS_INDUSTRY) |
+        (nearby_tile_class( 0, -1) == TILE_CLASS_INDUSTRY) |
+        (nearby_tile_class(-1, -1) == TILE_CLASS_INDUSTRY) |
+        (nearby_tile_class(-1,  0) == TILE_CLASS_INDUSTRY) |
+        (nearby_tile_class(-1,  1) == TILE_CLASS_INDUSTRY) |
+        (nearby_tile_class( 0,  1) == TILE_CLASS_INDUSTRY)) {
+        1: return CB_RESULT_LOCATION_DISALLOW;
+        return CB_RESULT_LOCATION_ALLOW;
+    }
+
+    switch (FEAT_INDUSTRYTILES, PARENT, import_export_raw_tile_1_lc_0, (
+                (((extra_callback_info2 & 0xFF00) >> 8) == IND_CREATION_FUND) ||
+                (((extra_callback_info2 & 0xFF00) >> 8) == IND_CREATION_PROSPECT)
+                )
+            ) {
+        1: return CB_RESULT_LOCATION_ALLOW;
+        import_export_raw_tile_1_lc_1;
+    }
+
+    item(FEAT_INDUSTRYTILES, import_export_raw_tile_1, 107) {
+        property {
+            substitute:         0;
+            land_shape_flags:    bitmask(LSF_ONLY_ON_FLAT_LAND);
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+            animation_triggers: bitmask();
+        }
+        graphics {
+    		    tile_check: import_export_raw_tile_1_lc_0;
+            import_export_raw_switch_graphics;
+        }
+    }
+	
+    tilelayout import_export_raw_industry_layout_tilelayout {
+            0, 0: import_export_raw_tile_1;
+    }	
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+produce (demand_start_production, 
+  [
+	STEL: 5 * 4 * prodbonus;
+	PLAS: 5 * 4 * prodbonus;
+	WSTE: 5 * 4 * prodbonus;
+	RCYC: 5 * 4 * prodbonus;
+	COMM: 5 * 4 * prodbonus;
+
+
+	], 
+  [
+
+
+
+  ])
+
+	
+	
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+
+            item(FEAT_INDUSTRIES, demand, 19) {
+                property {
+                    substitute: 0;
+                    override: 0;
+                    map_colour: 11;
+                    life_type: IND_LIFE_TYPE_BLACK_HOLE;
+                    min_cargo_distr: 1;
+                    layouts: [import_export_raw_industry_layout_tilelayout];
+                    spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+                    conflicting_ind_types: [];
+                    random_sound_effects: [];
+                    name: string(STR_IND_DEMAND);
+                    prob_map_gen: 0;
+                    prob_in_game: 0;
+                    prospect_chance: 0.75;
+                    fund_cost_multiplier: 1;
+                    remove_cost_multiplier: 0;
+                    remove_cost_multiplier: 0;
+                    cargo_types: [
+						accept_cargo("STEL"),
+						accept_cargo("PLAS"),
+						accept_cargo("WSTE"),
+						accept_cargo("RCYC"),
+						accept_cargo("COMM")
+
+						];
+                    nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_IMPORT_EXPORT));
+                }
+
+                graphics {
+ 
+                    extra_text_fund:		return string(STR_FUND_DEMAND);
+					extra_text_industry:	return string(STR_EXTRA_DEMAND);
+					produce_256_ticks: 		return demand_start_production;
+
+                }
+            }

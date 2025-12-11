@@ -1,0 +1,36 @@
+/*---- coal ----*/
+	
+	spriteset(cargoicon_coal) {[10 + 20 * 1, 10 + 20 * 0, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_coal, 1) {
+		property {
+			number: 1;
+			station_list_colour: 		5;
+			cargo_payment_list_colour: 	5;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_COAL);
+			unit_name: 					string(STR_CARGO_NAME_COAL);
+			type_abbreviation: 			string(STR_CID_COAL);
+			cargo_label: 				"COAL";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_COAL);
+			items_of_cargo: 			string(STR_CARGO_UNIT_COAL);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
+			);
+
+			penalty_lowerbound: 		30;
+			single_penalty_length: 		255;
+			price_factor: 				74;
+					
+			
+		}
+		graphics {						cargoicon_coal;
+		}
+	}

@@ -1,0 +1,5 @@
+#inland_excavation
+
+STR_IND_INLAND_EXCAVATION		:(1-Extraction) Inland Excavation
+STR_FUND_INLAND_EXCAVATION		:{}Represents inland excavation activity
+STR_STATION_INLAND_EXCAVATION	:Quarry

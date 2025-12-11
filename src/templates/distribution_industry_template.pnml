@@ -1,0 +1,101 @@
+/*---- _industry_item_name_ ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+
+produce (_industry_item_name__execute_consumption, 
+	[
+	// consumption execution
+_execute_consumption_
+
+	], 
+	[
+	// production execution
+
+ 
+	])
+
+produce (_industry_item_name__execute_production, 
+	[
+	// consumption execution
+
+
+	], 
+	[
+	// production execution
+_execute_production_
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, _industry_item_name__calculate_consumption, [
+
+// store information for use in the procedure
+
+	STORE_PERM 	(town_euclidean_dist(0,0),3),
+	STORE_PERM 	(town_zone(0,0),4),
+	
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+_cargo_stockpiles_
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+_cargo_consumption_
+
+ ])
+
+// Execute Production
+	{    _industry_item_name__execute_consumption;	}
+
+switch (FEAT_INDUSTRIES, SELF, _industry_item_name__calculate_production, [
+	
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+_cargo_production_
+
+ ])
+
+// Execute Production
+	{    _industry_item_name__execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == _industry_pack_) {
+
+	item(FEAT_INDUSTRIES, _industry_item_name_, _industry_ID_) {
+		property {
+			substitute: 0;
+			map_colour: _industry_colour_number_;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [_industry_layout__industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND__string_);
+			prob_map_gen: _prob_map_gen_; // Account for difficulty of finding suitable locatiom
+			prob_in_game: _prob_in_game_;
+			fund_cost_multiplier: _fund_cost_multiplier_;
+			cargo_types: [
+_accept_cargo_list_
+_produce_cargo_list_
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION__string_));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND__string_);
+			extra_text_industry:	_industry_item_name__extra_text();
+			produce_256_ticks: 		return _industry_item_name__calculate_production;
+			produce_cargo_arrival: 	return _industry_item_name__calculate_consumption;
+			cargo_subtype_display:	cargo_subtype_display;
+
+	}
+}
+}

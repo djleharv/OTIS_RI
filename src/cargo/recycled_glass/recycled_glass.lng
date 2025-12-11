@@ -1,0 +1,6 @@
+# recycled_glass
+
+STR_CARGO_NAME_RECYCLED_GLASS										:Recycled Glass
+STR_CID_RECYCLED_GLASS												:{TINYFONT}RGLA
+STR_CARGO_UNIT_RECYCLED_GLASS										:{WEIGHT} of Recycled Glass
+STR_SHORT_UNIT_RECYCLED_GLASS										:{WEIGHT}

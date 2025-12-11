@@ -1,0 +1,36 @@
+/*---- _cargo_item_name_ ----*/
+	
+	spriteset(cargoicon__cargo_item_name_) {[10 + 20 * _cargo_icon_x_, 10 + 20 * _cargo_icon_y_, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo__cargo_item_name_, _cargo_ID_) {
+		property {
+			number: _cargo_ID_;
+			station_list_colour: 		_cargo_colour_number_;
+			cargo_payment_list_colour: 	_cargo_colour_number_;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: _town_growth_effect_;
+			town_growth_multiplier: _town_growth_multiplier_;
+			
+			is_freight: 				_is_freight_;
+			type_name: 					string(STR_CARGO_NAME__string_);
+			unit_name: 					string(STR_CARGO_NAME__string_);
+			type_abbreviation: 			string(STR_CID__string_);
+			cargo_label: 				"_cargo_label_";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT__string_);
+			items_of_cargo: 			string(STR_CARGO_UNIT__string_);
+			capacity_multiplier: 		_capacity_multiplier_;	
+			
+			weight: 					_cargo_weight_;
+			cargo_classes: bitmask(		_cargo_classes_
+			);
+
+			penalty_lowerbound: 		_penalty_lower_bound_;
+			single_penalty_length: 		_single_penalty_length_;
+			price_factor: 				_price_factor_;
+					
+			
+		}
+		graphics {						cargoicon__cargo_item_name_;
+		}
+	}

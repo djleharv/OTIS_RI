@@ -1,0 +1,134 @@
+{
+    "industry_item_name": "retail",
+    "string": "RETAIL",
+    "folder": "retail",
+    "include": true,
+    "industry_type": "distribution",
+    "industry_pack": 0,
+    "industry_ID": 109,
+    "industry_colour_number": 142,
+    "industry_layout": "concrete",
+    "extra_text_industry": "distribution",
+    "prob_map_gen": 2,
+    "prob_in_game": 0,
+    "fund_cost_multiplier": 255,
+    "str_ind": "(4-Distribution) Retail Locations",
+    "str_fund": "{}Represents retail locations",
+    "str_station": "Mall",
+    "accept_cargo_list": [
+        {
+            "accept_cargo": "PASS",
+            "accept_cargo_type": "primary",
+            "stock_num": 10,
+            "cons_num": 110
+        },
+        {
+            "accept_cargo": "MAIL",
+            "accept_cargo_type": "primary",
+            "stock_num": 11,
+            "cons_num": 111
+        },
+        {
+            "accept_cargo": "GOOD",
+            "accept_cargo_type": "primary",
+            "stock_num": 12,
+            "cons_num": 112
+        },
+        {
+            "accept_cargo": "VEHI",
+            "accept_cargo_type": "primary",
+            "stock_num": 13,
+            "cons_num": 113
+        },
+        {
+            "accept_cargo": "FOOD",
+            "accept_cargo_type": "primary",
+            "stock_num": 14,
+            "cons_num": 114
+        },
+        {
+            "accept_cargo": "PETR",
+            "accept_cargo_type": "primary",
+            "stock_num": 15,
+            "cons_num": 115
+        },
+        {
+            "accept_cargo": "BEER",
+            "accept_cargo_type": "primary",
+            "stock_num": 16,
+            "cons_num": 116
+        },
+        {
+            "accept_cargo": "BDMT",
+            "accept_cargo_type": "primary",
+            "stock_num": 17,
+            "cons_num": 117
+        }
+    ],
+    "produce_cargo_list": [
+        {
+            "produce_cargo": "PASS",
+            "produce_cargo_type": "core",
+            "prod_num": 210,
+            "demand_num": 220,
+            "bias_num": 230
+        },
+        {
+            "produce_cargo": "MAIL",
+            "produce_cargo_type": "core",
+            "prod_num": 211,
+            "demand_num": 221,
+            "bias_num": 231
+        },
+        {
+            "produce_cargo": "PCL_",
+            "produce_cargo_type": "core",
+            "prod_num": 212,
+            "demand_num": 222,
+            "bias_num": 232
+        },
+        {
+            "produce_cargo": "WSTE",
+            "produce_cargo_type": "core",
+            "prod_num": 213,
+            "demand_num": 223,
+            "bias_num": 233
+        },
+        {
+            "produce_cargo": "RCYC",
+            "produce_cargo_type": "core",
+            "prod_num": 214,
+            "demand_num": 224,
+            "bias_num": 234
+        }
+    ],
+    "demand_customers": [
+        {
+            "produce_cargo": "PASS",
+            "accepted_by": [],
+            "demand_num": 220
+        },
+        {
+            "produce_cargo": "MAIL",
+            "accepted_by": [],
+            "demand_num": 221
+        },
+        {
+            "produce_cargo": "PCL_",
+            "accepted_by": [],
+            "demand_num": 222
+        },
+        {
+            "produce_cargo": "WSTE",
+            "accepted_by": [],
+            "demand_num": 223
+        },
+        {
+            "produce_cargo": "RCYC",
+            "accepted_by": [
+                "reclamation"
+            ],
+            "demand_num": 224
+        }
+    ]
+}

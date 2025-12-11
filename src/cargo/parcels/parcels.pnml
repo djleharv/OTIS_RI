@@ -1,0 +1,36 @@
+/*---- parcels ----*/
+	
+	spriteset(cargoicon_parcels) {[10 + 20 * 7, 10 + 20 * 1, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_parcels, 18) {
+		property {
+			number: 18;
+			station_list_colour: 		197;
+			cargo_payment_list_colour: 	197;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_MAIL;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				0;
+			type_name: 					string(STR_CARGO_NAME_PARCELS);
+			unit_name: 					string(STR_CARGO_NAME_PARCELS);
+			type_abbreviation: 			string(STR_CID_PARCELS);
+			cargo_label: 				"PCL_";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_PARCELS);
+			items_of_cargo: 			string(STR_CARGO_UNIT_PARCELS);
+			capacity_multiplier: 		2;	
+			
+			weight: 					0.1;
+			cargo_classes: bitmask(		CC_MAIL, CC_EXPRESS, CC_ARMOURED
+			);
+
+			penalty_lowerbound: 		6;
+			single_penalty_length: 		24;
+			price_factor: 				150;
+					
+			
+		}
+		graphics {						cargoicon_parcels;
+		}
+	}

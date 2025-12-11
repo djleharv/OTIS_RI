@@ -1,0 +1,5 @@
+#materials
+
+STR_IND_MATERIALS		:(2-Processing) Materials
+STR_FUND_MATERIALS		:{}Represents processing of materials
+STR_STATION_MATERIALS	:Plant

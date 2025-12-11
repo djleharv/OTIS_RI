@@ -1,0 +1,36 @@
+/*---- chemical_products ----*/
+	
+	spriteset(cargoicon_chemical_products) {[10 + 20 * 10, 10 + 20 * 1, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_chemical_products, 52) {
+		property {
+			number: 52;
+			station_list_colour: 		208;
+			cargo_payment_list_colour: 	208;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_CHEMICAL_PRODUCTS);
+			unit_name: 					string(STR_CARGO_NAME_CHEMICAL_PRODUCTS);
+			type_abbreviation: 			string(STR_CID_CHEMICAL_PRODUCTS);
+			cargo_label: 				"CHEM";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_CHEMICAL_PRODUCTS);
+			items_of_cargo: 			string(STR_CARGO_UNIT_CHEMICAL_PRODUCTS);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_LIQUID_BULK, CC_GAS_BULK
+			);
+
+			penalty_lowerbound: 		20;
+			single_penalty_length: 		40;
+			price_factor: 				120;
+					
+			
+		}
+		graphics {						cargoicon_chemical_products;
+		}
+	}

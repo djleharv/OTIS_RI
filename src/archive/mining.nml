@@ -1,0 +1,134 @@
+/*---- Mining ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (mining_production_run, 
+	[
+// primary cargo consumption
+
+// secondary cargo consumption
+
+// support cargo consumption
+  
+// supply cargo consumption
+	ENSP: LOAD_PERM(140); 
+	], 
+	[
+// core cargo production
+	COAL: LOAD_PERM(210);
+	IORE: LOAD_PERM(210);
+	AORE: LOAD_PERM(210);
+	CORE: LOAD_PERM(210);
+	POTA: LOAD_PERM(210);
+	URAN: LOAD_PERM(210);
+	NITR: LOAD_PERM(210);
+  
+// byproduct production
+	WSTE: LOAD_PERM(240);
+	RCYC: LOAD_PERM(241);
+	OWAS: LOAD_PERM(242);
+	COMM: LOAD_PERM(250);
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, mining_start_production, [
+	
+//store information used to determine production
+	// number of demand industries 
+
+	
+	// commuters transported 	
+		STORE_PERM 	(last_month_transported("COMM") 					,5),
+		
+	// byproducts transported 
+		STORE_PERM 	(last_month_transported("WSTE") + 						
+					last_month_transported("RCYC")  +			 	
+					last_month_transported("OWAS")				 		,6),
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19
+
+	// secondary cargos 20-29
+
+	// support cargos 30-39
+		
+	// supply cargos 40-49
+		STORE_PERM (incoming_cargo_waiting("ENSP")						,40),
+
+// calculate consumption per cargo 
+	// primary cargos 110-119	
+
+	// secondary cargos 120-129
+
+	// support cargos 130-139
+		
+	// supply cargos 140-149
+		STORE_PERM (extraction_supply_cargo_consumption()				,140),
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229
+		STORE_PERM (extraction_cargo_production()						,210),
+		
+	//waste cargo production 240-249
+		STORE_PERM (extraction_waste_cargo_production()					,240),
+		
+	//recyclables cargo production 240-249
+		STORE_PERM (extraction_recyclables_cargo_production()			,241),
+		
+	//organic_waste cargo production 240-249
+		STORE_PERM (extraction_organic_waste_cargo_production()			,242),
+		
+	//commuter cargo production 250-255
+		STORE_PERM (extraction_commuter_cargo_production()				,250),
+
+ ])
+
+// Execute Production
+	{    mining_production_run;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+
+            item(FEAT_INDUSTRIES, mining, 07) {
+                property {
+                    substitute: 0;
+                    map_colour: 116;
+                    life_type: IND_LIFE_TYPE_BLACK_HOLE;
+                    layouts: [dirt_industry_tilelayout];
+                    spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+                    name: string(STR_IND_MINING);
+                    prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+                    prob_in_game: 0;
+                    fund_cost_multiplier: 255;
+                    cargo_types: [
+						accept_cargo("ENSP"),
+						produce_cargo("COAL",0),
+						produce_cargo("IORE",0),
+						produce_cargo("AORE",0),
+						produce_cargo("CORE",0),
+						produce_cargo("POTA",0),
+						produce_cargo("URAN",0),
+						produce_cargo("NITR",0),
+						produce_cargo("WSTE",0),
+						produce_cargo("RCYC",0),
+						produce_cargo("OWAS",0),
+						produce_cargo("COMM",0)
+						];
+                    nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_MINING));
+                }
+
+                graphics {
+ 
+					extra_text_fund:		return string(STR_FUND_MINING);
+					extra_text_industry:	extraction_extra_text();
+					produce_256_ticks: 		return mining_start_production;
+
+                }
+            }

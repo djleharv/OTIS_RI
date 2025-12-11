@@ -1,0 +1,6 @@
+# fertilizer
+
+STR_CARGO_NAME_FERTILIZER										:Fertilizer
+STR_CID_FERTILIZER												:{TINYFONT}FERT
+STR_CARGO_UNIT_FERTILIZER										:{WEIGHT} of Fertilizer
+STR_SHORT_UNIT_FERTILIZER										:{WEIGHT}

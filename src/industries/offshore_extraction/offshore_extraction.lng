@@ -1,0 +1,5 @@
+#offshore_extraction
+
+STR_IND_OFFSHORE_EXTRACTION		:(1-Extraction) Offshore Extraction
+STR_FUND_OFFSHORE_EXTRACTION		:{}Represents offshore extraction activity
+STR_STATION_OFFSHORE_EXTRACTION	:Rig

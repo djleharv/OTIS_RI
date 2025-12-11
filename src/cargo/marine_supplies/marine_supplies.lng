@@ -1,0 +1,6 @@
+# marine_supplies
+
+STR_CARGO_NAME_MARINE_SUPPLIES										:Marine Supplies
+STR_CID_MARINE_SUPPLIES												:{TINYFONT}MARI
+STR_CARGO_UNIT_MARINE_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s} of Marine Supplies
+STR_SHORT_UNIT_MARINE_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s}

@@ -1,0 +1,6 @@
+/*---- offshore_extraction_help_text ----*/
+ 
+switch (FEAT_INDUSTRIES, SELF, offshore_extraction_extra_text, [
+    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
+	STORE_TEMP(extraction_actual_production_runs(), 258)   // returns the total number of production runs active
+]) {return string(STR_OFFSHORE_EXTRACTION_EXTRA_TEXT);}

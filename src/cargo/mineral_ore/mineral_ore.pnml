@@ -1,0 +1,36 @@
+/*---- mineral_ore ----*/
+	
+	spriteset(cargoicon_mineral_ore) {[10 + 20 * 7, 10 + 20 * 2, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_mineral_ore, 38) {
+		property {
+			number: 38;
+			station_list_colour: 		135;
+			cargo_payment_list_colour: 	135;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_MINERAL_ORE);
+			unit_name: 					string(STR_CARGO_NAME_MINERAL_ORE);
+			type_abbreviation: 			string(STR_CID_MINERAL_ORE);
+			cargo_label: 				"NITR";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_MINERAL_ORE);
+			items_of_cargo: 			string(STR_CARGO_UNIT_MINERAL_ORE);
+			capacity_multiplier: 		1;	
+			
+			weight: 					1.0;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
+			);
+
+			penalty_lowerbound: 		30;
+			single_penalty_length: 		255;
+			price_factor: 				83;
+					
+			
+		}
+		graphics {						cargoicon_mineral_ore;
+		}
+	}

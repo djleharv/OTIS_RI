@@ -1,0 +1,6 @@
+# textiles
+
+STR_CARGO_NAME_TEXTILES										:Textiles
+STR_CID_TEXTILES												:{TINYFONT}TEXT
+STR_CARGO_UNIT_TEXTILES										:{WEIGHT} of Textiles
+STR_SHORT_UNIT_TEXTILES										:{WEIGHT}

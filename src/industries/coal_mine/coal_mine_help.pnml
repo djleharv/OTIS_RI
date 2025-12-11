@@ -1,0 +1,6 @@
+/*---- coal_mine_help_text ----*/
+ 
+switch (FEAT_INDUSTRIES, SELF, coal_mine_extra_text, [
+    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
+	STORE_TEMP(extraction_actual_production_runs(), 258)   // returns the total number of production runs active
+]) {return string(STR_COAL_MINE_EXTRA_TEXT);}

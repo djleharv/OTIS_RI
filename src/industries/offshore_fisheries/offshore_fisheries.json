@@ -1,0 +1,65 @@
+{
+    "industry_item_name": "offshore_fisheries",
+    "string": "OFFSHORE_FISHERIES",
+    "folder": "offshore_fisheries",
+    "include": true,
+    "industry_type": "extraction",
+    "industry_pack": 0,
+    "industry_ID": 4,
+    "industry_colour_number": 99,
+    "industry_layout": "dirt",
+    "extra_text_industry": "extraction",
+    "prob_map_gen": 2,
+    "prob_in_game": 0,
+    "fund_cost_multiplier": 255,
+    "str_ind": "(1-Extraction) Offshore Fisheries",
+    "str_fund": "{}Represents offshore fishing activity",
+    "str_station": "Fishing Grounds",
+    "accept_cargo_list": [
+        {
+            "accept_cargo": "SESP",
+            "accept_cargo_type": "supply",
+            "stock_num": 40,
+            "cons_num": 140
+        }
+    ],
+    "produce_cargo_list": [
+        {
+            "produce_cargo": "FISH",
+            "produce_cargo_type": "core",
+            "prod_num": 210,
+            "demand_num": 220,
+            "bias_num": 230
+        },
+        {
+            "produce_cargo": "WSTE",
+            "produce_cargo_type": "byproduct",
+            "prod_num": 240,
+            "demand_num": null,
+            "bias_num": null
+        },
+        {
+            "produce_cargo": "RCYC",
+            "produce_cargo_type": "byproduct",
+            "prod_num": 241,
+            "demand_num": null,
+            "bias_num": null
+        },
+        {
+            "produce_cargo": "COMM",
+            "produce_cargo_type": "byproduct",
+            "prod_num": 250,
+            "demand_num": null,
+            "bias_num": null
+        }
+    ],
+    "demand_customers": [
+        {
+            "produce_cargo": "FISH",
+            "accepted_by": [
+                "food_processing"
+            ],
+            "demand_num": 220
+        }
+    ]
+}

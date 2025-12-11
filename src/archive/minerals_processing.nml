@@ -1,0 +1,136 @@
+/*---- Minerals Processing ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (minerals_processing_production_run, 
+	[
+// core cargo consumption
+	NITR: LOAD_PERM(110);
+	COAL: LOAD_PERM(130);
+	CHEM: LOAD_PERM(131);
+	
+// boost cargo consumption
+	ENSP: LOAD_PERM(140); 
+	], 
+	[
+// core cargo production
+	LITH: LOAD_PERM(210);
+  
+// byproduct production
+	WSTE: LOAD_PERM(240);
+	RCYC: LOAD_PERM(241);
+	OWAS: LOAD_PERM(242);
+	COMM: LOAD_PERM(250);
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, minerals_processing_start_production, [
+	
+//store information used to determine production
+	// production bias information 1-4
+		
+	// production bias assessment				
+			
+	// commuters transported 	
+		STORE_PERM 	(transported_last_month_pct("COMM") 				,5),
+		
+	// byproducts transported 
+		STORE_PERM 	(	last_month_transported("WSTE") + 						
+						last_month_transported("RCYC")  +			 	
+						last_month_transported("OWAS")				 	,6),
+						
+	// test				
+		STORE_PERM (total_production_efficiency()						,9),
+				
+// store stockpile amount for use in procedure
+	// primary cargos 10-19
+		STORE_PERM (incoming_cargo_waiting("NITR")						,10),
+		
+	// secondary cargos 20-29
+		
+	// support cargos 30-39
+		STORE_PERM (incoming_cargo_waiting("COAL")						,30),
+		STORE_PERM (incoming_cargo_waiting("CHEM")						,31),
+		
+	// supply cargos 40-49
+		STORE_PERM (incoming_cargo_waiting("ENSP")						,40),
+		
+// calculate consumption per cargo 
+	// primary cargos 110-119	
+		STORE_PERM (primary_cargo_consumption_10()						,110),
+		
+	// secondary cargos 120-129
+		
+	// support cargos 130-139
+		STORE_PERM (support_cargo_consumption_30()						,130),
+		STORE_PERM (support_cargo_consumption_31()						,131),
+		
+	// supply cargos 140-149
+		STORE_PERM (supply_cargo_consumption()							,140),
+
+	// commuter cargos 150-159
+		
+// calculate cargo and byproduct production
+	//core cargo production 210-229
+		STORE_PERM (core_cargo_production() 							,210),
+		
+	//waste cargo production 240-249
+		STORE_PERM (waste_cargo_production()							,240),
+		
+	//recyclables cargo production 240-249
+		STORE_PERM (recyclables_cargo_production()						,241),
+		
+	//recyclables cargo production 240-249
+		STORE_PERM (organic_waste_cargo_production()					,242),
+		
+	//commuter cargo production 250-255
+		STORE_PERM (commuter_cargo_production()							,250),
+
+ ])
+
+// Execute Production
+	{    minerals_processing_production_run;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+
+            item(FEAT_INDUSTRIES, minerals_processing, 40) {
+                property {
+                    substitute: 0;
+                    map_colour: 68;
+                    life_type: IND_LIFE_TYPE_BLACK_HOLE;
+                    layouts: [concrete_industry_tilelayout];
+                    spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+                    name: string(STR_IND_MINERALS_PROCESSING);
+                    prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+                    prob_in_game: 0;
+                    fund_cost_multiplier: 255;
+                    cargo_types: [
+						accept_cargo("ENSP"),
+						accept_cargo("NITR"),
+						accept_cargo("COAL"),
+						accept_cargo("CHEM"),
+						produce_cargo("LITH",0),
+						produce_cargo("WSTE",0),
+						produce_cargo("RCYC",0),
+						produce_cargo("OWAS",0),
+						produce_cargo("COMM",0)
+						];
+                    nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_MINERALS_PROCESSING));
+                }
+
+                graphics {
+ 
+					extra_text_fund:		return string(STR_FUND_MINERALS_PROCESSING);
+					extra_text_industry:	industry_extra_text();
+					produce_256_ticks: 		return minerals_processing_start_production;
+
+                }
+            }

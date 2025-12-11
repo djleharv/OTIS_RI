@@ -1,0 +1,6 @@
+# food
+
+STR_CARGO_NAME_FOOD										:Food
+STR_CID_FOOD												:{TINYFONT}FOOD
+STR_CARGO_UNIT_FOOD										:{SIGNED_WORD} pallette{P 0 "" s} of Food
+STR_SHORT_UNIT_FOOD										:{SIGNED_WORD} pallette{P 0 "" s}

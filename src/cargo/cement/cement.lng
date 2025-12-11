@@ -1,0 +1,6 @@
+# cement
+
+STR_CARGO_NAME_CEMENT										:Cement
+STR_CID_CEMENT												:{TINYFONT}CMNT
+STR_CARGO_UNIT_CEMENT										:{WEIGHT} of Cement
+STR_SHORT_UNIT_CEMENT										:{WEIGHT}

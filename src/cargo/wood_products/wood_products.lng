@@ -1,0 +1,6 @@
+# wood_products
+
+STR_CARGO_NAME_WOOD_PRODUCTS										:Wood Products
+STR_CID_WOOD_PRODUCTS												:{TINYFONT}WDPR
+STR_CARGO_UNIT_WOOD_PRODUCTS										:{WEIGHT} of Wood Products
+STR_SHORT_UNIT_WOOD_PRODUCTS										:{WEIGHT}

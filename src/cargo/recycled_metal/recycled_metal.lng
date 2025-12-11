@@ -1,0 +1,6 @@
+# recycled_metal
+
+STR_CARGO_NAME_RECYCLED_METAL										:Recycled Metal
+STR_CID_RECYCLED_METAL												:{TINYFONT}SCMT
+STR_CARGO_UNIT_RECYCLED_METAL										:{WEIGHT} of Recycled Metal
+STR_SHORT_UNIT_RECYCLED_METAL										:{WEIGHT}

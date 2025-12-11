@@ -1,0 +1,6 @@
+# aggregates
+
+STR_CARGO_NAME_AGGREGATES										:Aggregates
+STR_CID_AGGREGATES												:{TINYFONT}AGGR
+STR_CARGO_UNIT_AGGREGATES										:{WEIGHT} of Aggregates
+STR_SHORT_UNIT_AGGREGATES										:{WEIGHT}

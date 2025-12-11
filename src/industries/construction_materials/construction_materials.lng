@@ -1,0 +1,5 @@
+#construction_materials
+
+STR_IND_CONSTRUCTION_MATERIALS		:(3-Manufacturing) Construction Materials Manufacturing
+STR_FUND_CONSTRUCTION_MATERIALS		:{}Represents manufacturing of supplies
+STR_STATION_CONSTRUCTION_MATERIALS	:Factory

@@ -1,0 +1,6 @@
+# packaging
+
+STR_CARGO_NAME_PACKAGING										:Packaging
+STR_CID_PACKAGING												:{TINYFONT}PACK
+STR_CARGO_UNIT_PACKAGING										:{SIGNED_WORD} pallette{P 0 "" s} of Packaging
+STR_SHORT_UNIT_PACKAGING										:{SIGNED_WORD} pallette{P 0 "" s}

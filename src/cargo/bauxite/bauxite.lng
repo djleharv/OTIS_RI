@@ -1,0 +1,6 @@
+# bauxite
+
+STR_CARGO_NAME_BAUXITE										:Bauxite
+STR_CID_BAUXITE												:{TINYFONT}AORE
+STR_CARGO_UNIT_BAUXITE										:{WEIGHT} of Bauxite
+STR_SHORT_UNIT_BAUXITE										:{WEIGHT}

@@ -1,0 +1,6 @@
+# recyclables
+
+STR_CARGO_NAME_RECYCLABLES										:Recyclables
+STR_CID_RECYCLABLES												:{TINYFONT}RCYC
+STR_CARGO_UNIT_RECYCLABLES										:{WEIGHT} of Recyclables
+STR_SHORT_UNIT_RECYCLABLES										:{WEIGHT}

@@ -1,0 +1,36 @@
+/*---- plant_fibres ----*/
+	
+	spriteset(cargoicon_plant_fibres) {[10 + 20 * 3, 10 + 20 * 1, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_plant_fibres, 29) {
+		property {
+			number: 29;
+			station_list_colour: 		12;
+			cargo_payment_list_colour: 	12;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1.0;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_PLANT_FIBRES);
+			unit_name: 					string(STR_CARGO_NAME_PLANT_FIBRES);
+			type_abbreviation: 			string(STR_CID_PLANT_FIBRES);
+			cargo_label: 				"FICR";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_PLANT_FIBRES);
+			items_of_cargo: 			string(STR_CARGO_UNIT_PLANT_FIBRES);
+			capacity_multiplier: 		1;	
+			
+			weight: 					0.2;
+			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
+			);
+
+			penalty_lowerbound: 		10;
+			single_penalty_length: 		36;
+			price_factor: 				108;
+					
+			
+		}
+		graphics {						cargoicon_plant_fibres;
+		}
+	}

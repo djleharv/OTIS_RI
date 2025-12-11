@@ -1,0 +1,6 @@
+# parcels
+
+STR_CARGO_NAME_PARCELS										:Parcels
+STR_CID_PARCELS												:{TINYFONT}PCLS
+STR_CARGO_UNIT_PARCELS										:{SIGNED_WORD} Parcels
+STR_SHORT_UNIT_PARCELS										:{SIGNED_WORD} Parcels

@@ -1,0 +1,132 @@
+/*---- reclamation ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (reclamation_execute_production, 
+	[
+	// consumption execution
+				RCYC: LOAD_PERM(110);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				SCMT: LOAD_PERM(210);
+				RPAP: LOAD_PERM(211);
+				RPLA: LOAD_PERM(212);
+				RGLA: LOAD_PERM(213);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, reclamation_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(metals),
+							220),
+				STORE_PERM (industry_count(products),
+							221),
+				STORE_PERM (industry_count(products),
+							222),
+				STORE_PERM (industry_count(materials) + industry_count(products),
+							223),
+
+
+	//supply competition
+				STORE_PERM (industry_count(reclamation),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("SCMT"),230),
+				STORE_PERM (transported_last_month_pct("RPAP"),231),
+				STORE_PERM (transported_last_month_pct("RPLA"),232),
+				STORE_PERM (transported_last_month_pct("RGLA"),233),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("RCYC"),10),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_core_cargo_production_211(),211),
+				STORE_PERM (processing_core_cargo_production_212(),212),
+				STORE_PERM (processing_core_cargo_production_213(),213),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    reclamation_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, reclamation, 43) {
+		property {
+			substitute: 0;
+			map_colour: 59;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_RECLAMATION);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("RCYC"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("SCMT",0),
+				produce_cargo("RPAP",0),
+				produce_cargo("RPLA",0),
+				produce_cargo("RGLA",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_RECLAMATION));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_RECLAMATION);
+			extra_text_industry:	reclamation_extra_text();
+			produce_256_ticks: 		return reclamation_calculate_production;
+
+	}
+}
+}

@@ -1,0 +1,6 @@
+# vehicles
+
+STR_CARGO_NAME_VEHICLES										:Vehicles
+STR_CID_VEHICLES												:{TINYFONT}VEHI
+STR_CARGO_UNIT_VEHICLES										:{SIGNED_WORD} Vehicles
+STR_SHORT_UNIT_VEHICLES										:{SIGNED_WORD} Vehicles

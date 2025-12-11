@@ -1,0 +1,3851 @@
+/*---- metals ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (metals_execute_production, 
+	[
+	// consumption execution
+				IORE: LOAD_PERM(110);
+				AORE: LOAD_PERM(111);
+				CORE: LOAD_PERM(112);
+				COAL: LOAD_PERM(120);
+				SCMT: LOAD_PERM(121);
+				CHEM: LOAD_PERM(130);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				STEL: LOAD_PERM(210);
+				ALUM: LOAD_PERM(211);
+				COPR: LOAD_PERM(212);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, metals_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(components) + industry_count(consumer_goods) + industry_count(engineering_supplies),
+							220),
+				STORE_PERM (industry_count(components) + industry_count(consumer_goods),
+							221),
+				STORE_PERM (industry_count(components),
+							222),
+
+
+	//supply competition
+				STORE_PERM (industry_count(metals),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("STEL"),230),
+				STORE_PERM (transported_last_month_pct("ALUM"),231),
+				STORE_PERM (transported_last_month_pct("COPR"),232),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("IORE"),10),
+				STORE_PERM (incoming_cargo_waiting("AORE"),11),
+				STORE_PERM (incoming_cargo_waiting("CORE"),12),
+				STORE_PERM (incoming_cargo_waiting("COAL"),20),
+				STORE_PERM (incoming_cargo_waiting("SCMT"),21),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),30),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_primary_cargo_consumption_11(),111),
+				STORE_PERM (processing_primary_cargo_consumption_12(),112),
+				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (processing_secondary_cargo_consumption_21(),121),
+				STORE_PERM (processing_support_cargo_consumption_30(),130),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_core_cargo_production_211(),211),
+				STORE_PERM (processing_core_cargo_production_212(),212),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    metals_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, metals, 37) {
+		property {
+			substitute: 0;
+			map_colour: 36;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_METALS);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("IORE"),
+				accept_cargo("AORE"),
+				accept_cargo("CORE"),
+				accept_cargo("COAL"),
+				accept_cargo("SCMT"),
+				accept_cargo("CHEM"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("STEL",0),
+				produce_cargo("ALUM",0),
+				produce_cargo("COPR",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_METALS));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_METALS);
+			extra_text_industry:	metals_extra_text();
+			produce_256_ticks: 		return metals_calculate_production;
+
+	}
+}
+}
+
+/*---- purification ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (purification_execute_production, 
+	[
+	// consumption execution
+				NITR: LOAD_PERM(110);
+				GRVL: LOAD_PERM(111);
+				SAND: LOAD_PERM(112);
+				COAL: LOAD_PERM(120);
+				CHEM: LOAD_PERM(130);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				LITH: LOAD_PERM(210);
+				SILI: LOAD_PERM(211);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, purification_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(components),
+							220),
+				STORE_PERM (industry_count(components),
+							221),
+
+
+	//supply competition
+				STORE_PERM (industry_count(purification),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("LITH"),230),
+				STORE_PERM (transported_last_month_pct("SILI"),231),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("NITR"),10),
+				STORE_PERM (incoming_cargo_waiting("GRVL"),11),
+				STORE_PERM (incoming_cargo_waiting("SAND"),12),
+				STORE_PERM (incoming_cargo_waiting("COAL"),20),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),30),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_primary_cargo_consumption_11(),111),
+				STORE_PERM (processing_primary_cargo_consumption_12(),112),
+				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (processing_support_cargo_consumption_30(),130),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_core_cargo_production_211(),211),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    purification_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, purification, 38) {
+		property {
+			substitute: 0;
+			map_colour: 152;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_PURIFICATION);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("NITR"),
+				accept_cargo("GRVL"),
+				accept_cargo("SAND"),
+				accept_cargo("COAL"),
+				accept_cargo("CHEM"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("LITH",0),
+				produce_cargo("SILI",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_PURIFICATION));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_PURIFICATION);
+			extra_text_industry:	purification_extra_text();
+			produce_256_ticks: 		return purification_calculate_production;
+
+	}
+}
+}
+
+/*---- refinement ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (refinement_execute_production, 
+	[
+	// consumption execution
+				OIL_: LOAD_PERM(110);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				PETR: LOAD_PERM(210);
+				RFPR: LOAD_PERM(211);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, refinement_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(retail),
+							220),
+				STORE_PERM (industry_count(products),
+							221),
+
+
+	//supply competition
+				STORE_PERM (industry_count(refinement),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("PETR"),230),
+				STORE_PERM (transported_last_month_pct("RFPR"),231),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("OIL_"),10),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_core_cargo_production_211(),211),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    refinement_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, refinement, 39) {
+		property {
+			substitute: 0;
+			map_colour: 146;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_REFINEMENT);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("OIL_"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("PETR",0),
+				produce_cargo("RFPR",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_REFINEMENT));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_REFINEMENT);
+			extra_text_industry:	refinement_extra_text();
+			produce_256_ticks: 		return refinement_calculate_production;
+
+	}
+}
+}
+
+/*---- chemicals ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (chemicals_execute_production, 
+	[
+	// consumption execution
+				NITR: LOAD_PERM(110);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				CHEM: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, chemicals_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(metals) + industry_count(purification) + industry_count(materials) + industry_count(products) + industry_count(enrichment) + industry_count(components) + industry_count(consumer_goods) + industry_count(food_processing) + industry_count(marine_supplies) + industry_count(manufacturing_supplies),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(chemicals),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("CHEM"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("NITR"),10),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    chemicals_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, chemicals, 40) {
+		property {
+			substitute: 0;
+			map_colour: 81;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_CHEMICALS);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("NITR"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("CHEM",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_CHEMICALS));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_CHEMICALS);
+			extra_text_industry:	chemicals_extra_text();
+			produce_256_ticks: 		return chemicals_calculate_production;
+
+	}
+}
+}
+
+/*---- materials ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (materials_execute_production, 
+	[
+	// consumption execution
+				GRVL: LOAD_PERM(110);
+				SAND: LOAD_PERM(111);
+				CLAY: LOAD_PERM(112);
+				RGLA: LOAD_PERM(120);
+				CHEM: LOAD_PERM(130);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				CMNT: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, materials_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(construction_materials),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(materials),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("CMNT"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("GRVL"),10),
+				STORE_PERM (incoming_cargo_waiting("SAND"),11),
+				STORE_PERM (incoming_cargo_waiting("CLAY"),12),
+				STORE_PERM (incoming_cargo_waiting("RGLA"),20),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),30),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_primary_cargo_consumption_11(),111),
+				STORE_PERM (processing_primary_cargo_consumption_12(),112),
+				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (processing_support_cargo_consumption_30(),130),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    materials_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, materials, 41) {
+		property {
+			substitute: 0;
+			map_colour: 58;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_MATERIALS);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("GRVL"),
+				accept_cargo("SAND"),
+				accept_cargo("CLAY"),
+				accept_cargo("RGLA"),
+				accept_cargo("CHEM"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("CMNT",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_MATERIALS));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_MATERIALS);
+			extra_text_industry:	materials_extra_text();
+			produce_256_ticks: 		return materials_calculate_production;
+
+	}
+}
+}
+
+/*---- products ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (products_execute_production, 
+	[
+	// consumption execution
+				WOOD: LOAD_PERM(110);
+				RFPR: LOAD_PERM(111);
+				SAND: LOAD_PERM(112);
+				RGLA: LOAD_PERM(120);
+				RPAP: LOAD_PERM(121);
+				RPLA: LOAD_PERM(122);
+				COAL: LOAD_PERM(130);
+				CHEM: LOAD_PERM(131);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				WDPR: LOAD_PERM(210);
+				PAPR: LOAD_PERM(211);
+				PLAS: LOAD_PERM(212);
+				GLAS: LOAD_PERM(213);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, products_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(consumer_goods) + industry_count(farming_supplies) + industry_count(construction_materials),
+							220),
+				STORE_PERM (industry_count(components),
+							221),
+				STORE_PERM (industry_count(components) + industry_count(consumer_goods),
+							222),
+				STORE_PERM (industry_count(components) + industry_count(consumer_goods),
+							223),
+
+
+	//supply competition
+				STORE_PERM (industry_count(products),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("WDPR"),230),
+				STORE_PERM (transported_last_month_pct("PAPR"),231),
+				STORE_PERM (transported_last_month_pct("PLAS"),232),
+				STORE_PERM (transported_last_month_pct("GLAS"),233),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("WOOD"),10),
+				STORE_PERM (incoming_cargo_waiting("RFPR"),11),
+				STORE_PERM (incoming_cargo_waiting("SAND"),12),
+				STORE_PERM (incoming_cargo_waiting("RGLA"),20),
+				STORE_PERM (incoming_cargo_waiting("RPAP"),21),
+				STORE_PERM (incoming_cargo_waiting("RPLA"),22),
+				STORE_PERM (incoming_cargo_waiting("COAL"),30),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),31),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_primary_cargo_consumption_11(),111),
+				STORE_PERM (processing_primary_cargo_consumption_12(),112),
+				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (processing_secondary_cargo_consumption_21(),121),
+				STORE_PERM (processing_secondary_cargo_consumption_22(),122),
+				STORE_PERM (processing_support_cargo_consumption_30(),130),
+				STORE_PERM (processing_support_cargo_consumption_31(),131),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_core_cargo_production_211(),211),
+				STORE_PERM (processing_core_cargo_production_212(),212),
+				STORE_PERM (processing_core_cargo_production_213(),213),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    products_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, products, 42) {
+		property {
+			substitute: 0;
+			map_colour: 166;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_PRODUCTS);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("WOOD"),
+				accept_cargo("RFPR"),
+				accept_cargo("SAND"),
+				accept_cargo("RGLA"),
+				accept_cargo("RPAP"),
+				accept_cargo("RPLA"),
+				accept_cargo("COAL"),
+				accept_cargo("CHEM"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("WDPR",0),
+				produce_cargo("PAPR",0),
+				produce_cargo("PLAS",0),
+				produce_cargo("GLAS",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_PRODUCTS));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_PRODUCTS);
+			extra_text_industry:	products_extra_text();
+			produce_256_ticks: 		return products_calculate_production;
+
+	}
+}
+}
+
+/*---- reclamation ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (reclamation_execute_production, 
+	[
+	// consumption execution
+				RCYC: LOAD_PERM(110);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				SCMT: LOAD_PERM(210);
+				RPAP: LOAD_PERM(211);
+				RPLA: LOAD_PERM(212);
+				RGLA: LOAD_PERM(213);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, reclamation_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(metals),
+							220),
+				STORE_PERM (industry_count(products),
+							221),
+				STORE_PERM (industry_count(products),
+							222),
+				STORE_PERM (industry_count(materials) + industry_count(products),
+							223),
+
+
+	//supply competition
+				STORE_PERM (industry_count(reclamation),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("SCMT"),230),
+				STORE_PERM (transported_last_month_pct("RPAP"),231),
+				STORE_PERM (transported_last_month_pct("RPLA"),232),
+				STORE_PERM (transported_last_month_pct("RGLA"),233),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("RCYC"),10),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_core_cargo_production_211(),211),
+				STORE_PERM (processing_core_cargo_production_212(),212),
+				STORE_PERM (processing_core_cargo_production_213(),213),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    reclamation_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, reclamation, 43) {
+		property {
+			substitute: 0;
+			map_colour: 59;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_RECLAMATION);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("RCYC"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("SCMT",0),
+				produce_cargo("RPAP",0),
+				produce_cargo("RPLA",0),
+				produce_cargo("RGLA",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_RECLAMATION));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_RECLAMATION);
+			extra_text_industry:	reclamation_extra_text();
+			produce_256_ticks: 		return reclamation_calculate_production;
+
+	}
+}
+}
+
+/*---- enrichment ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (enrichment_execute_production, 
+	[
+	// consumption execution
+				URAN: LOAD_PERM(110);
+				POTA: LOAD_PERM(111);
+				CHEM: LOAD_PERM(120);
+				NUKW: LOAD_PERM(121);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				NUKF: LOAD_PERM(210);
+				FERT: LOAD_PERM(211);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, enrichment_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(farming_supplies),
+							221),
+
+
+	//supply competition
+				STORE_PERM (industry_count(enrichment),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("NUKF"),230),
+				STORE_PERM (transported_last_month_pct("FERT"),231),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("URAN"),10),
+				STORE_PERM (incoming_cargo_waiting("POTA"),11),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),20),
+				STORE_PERM (incoming_cargo_waiting("NUKW"),21),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_primary_cargo_consumption_11(),111),
+				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (processing_secondary_cargo_consumption_21(),121),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_core_cargo_production_211(),211),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    enrichment_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, enrichment, 44) {
+		property {
+			substitute: 0;
+			map_colour: 171;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_ENRICHMENT);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("URAN"),
+				accept_cargo("POTA"),
+				accept_cargo("CHEM"),
+				accept_cargo("NUKW"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("NUKF",0),
+				produce_cargo("FERT",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_ENRICHMENT));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_ENRICHMENT);
+			extra_text_industry:	enrichment_extra_text();
+			produce_256_ticks: 		return enrichment_calculate_production;
+
+	}
+}
+}
+
+/*---- steel_mill ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (steel_mill_execute_production, 
+	[
+	// consumption execution
+				IORE: LOAD_PERM(110);
+				COAL: LOAD_PERM(120);
+				CHEM: LOAD_PERM(130);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				STEL: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, steel_mill_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+
+
+	//supply competition
+				STORE_PERM (industry_count(steel_mill),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("STEL"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("IORE"),10),
+				STORE_PERM (incoming_cargo_waiting("COAL"),20),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),30),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (processing_support_cargo_consumption_30(),130),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    steel_mill_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 1) {
+
+	item(FEAT_INDUSTRIES, steel_mill, 3) {
+		property {
+			substitute: 0;
+			map_colour: 10;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_STEEL_MILL);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("IORE"),
+				accept_cargo("COAL"),
+				accept_cargo("CHEM"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("STEL",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_STEEL_MILL));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_STEEL_MILL);
+			extra_text_industry:	steel_mill_extra_text();
+			produce_256_ticks: 		return steel_mill_calculate_production;
+
+	}
+}
+}
+
+/*---- inland_extraction ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (inland_extraction_execute_production, 
+	[
+	// consumption execution
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				OIL_: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, inland_extraction_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(refinement),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(inland_extraction),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("OIL_"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (extraction_core_cargo_production_210(),210),
+				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
+				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
+				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    inland_extraction_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, inland_extraction, 1) {
+		property {
+			substitute: 0;
+			map_colour: 152;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [dirt_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_INLAND_EXTRACTION);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("ENSP"),
+
+				produce_cargo("OIL_",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_INLAND_EXTRACTION));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_INLAND_EXTRACTION);
+			extra_text_industry:	inland_extraction_extra_text();
+			produce_256_ticks: 		return inland_extraction_calculate_production;
+
+	}
+}
+}
+
+/*---- offshore_extraction ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (offshore_extraction_execute_production, 
+	[
+	// consumption execution
+				SESP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				OIL_: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, offshore_extraction_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(refinement),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(offshore_extraction),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("OIL_"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("SESP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (extraction_core_cargo_production_210(),210),
+				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
+				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
+				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    offshore_extraction_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, offshore_extraction, 2) {
+		property {
+			substitute: 0;
+			map_colour: 152;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [dirt_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_OFFSHORE_EXTRACTION);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("SESP"),
+
+				produce_cargo("OIL_",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_OFFSHORE_EXTRACTION));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_OFFSHORE_EXTRACTION);
+			extra_text_industry:	offshore_extraction_extra_text();
+			produce_256_ticks: 		return offshore_extraction_calculate_production;
+
+	}
+}
+}
+
+/*---- inland_fisheries ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (inland_fisheries_execute_production, 
+	[
+	// consumption execution
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				FISH: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, inland_fisheries_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(food_processing),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(inland_fisheries),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("FISH"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (extraction_core_cargo_production_210(),210),
+				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
+				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
+				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    inland_fisheries_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, inland_fisheries, 3) {
+		property {
+			substitute: 0;
+			map_colour: 99;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [dirt_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_INLAND_FISHERIES);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("ENSP"),
+
+				produce_cargo("FISH",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_INLAND_FISHERIES));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_INLAND_FISHERIES);
+			extra_text_industry:	inland_fisheries_extra_text();
+			produce_256_ticks: 		return inland_fisheries_calculate_production;
+
+	}
+}
+}
+
+/*---- offshore_fisheries ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (offshore_fisheries_execute_production, 
+	[
+	// consumption execution
+				SESP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				FISH: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, offshore_fisheries_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(food_processing),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(offshore_fisheries),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("FISH"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("SESP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (extraction_core_cargo_production_210(),210),
+				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
+				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
+				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    offshore_fisheries_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, offshore_fisheries, 4) {
+		property {
+			substitute: 0;
+			map_colour: 99;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [dirt_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_OFFSHORE_FISHERIES);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("SESP"),
+
+				produce_cargo("FISH",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_OFFSHORE_FISHERIES));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_OFFSHORE_FISHERIES);
+			extra_text_industry:	offshore_fisheries_extra_text();
+			produce_256_ticks: 		return offshore_fisheries_calculate_production;
+
+	}
+}
+}
+
+/*---- inland_excavation ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (inland_excavation_execute_production, 
+	[
+	// consumption execution
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				GRVL: LOAD_PERM(210);
+				SAND: LOAD_PERM(211);
+				CLAY: LOAD_PERM(212);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, inland_excavation_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(purification) + industry_count(materials),
+							220),
+				STORE_PERM (industry_count(purification) + industry_count(materials) + industry_count(products),
+							221),
+				STORE_PERM (industry_count(materials),
+							222),
+
+
+	//supply competition
+				STORE_PERM (industry_count(inland_excavation),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("GRVL"),230),
+				STORE_PERM (transported_last_month_pct("SAND"),231),
+				STORE_PERM (transported_last_month_pct("CLAY"),232),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (extraction_core_cargo_production_210(),210),
+				STORE_PERM (extraction_core_cargo_production_211(),211),
+				STORE_PERM (extraction_core_cargo_production_212(),212),
+				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
+				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
+				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    inland_excavation_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, inland_excavation, 5) {
+		property {
+			substitute: 0;
+			map_colour: 6;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [dirt_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_INLAND_EXCAVATION);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("ENSP"),
+
+				produce_cargo("GRVL",0),
+				produce_cargo("SAND",0),
+				produce_cargo("CLAY",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_INLAND_EXCAVATION));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_INLAND_EXCAVATION);
+			extra_text_industry:	inland_excavation_extra_text();
+			produce_256_ticks: 		return inland_excavation_calculate_production;
+
+	}
+}
+}
+
+/*---- offshore_excavation ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (offshore_excavation_execute_production, 
+	[
+	// consumption execution
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				GRVL: LOAD_PERM(210);
+				SAND: LOAD_PERM(211);
+				CLAY: LOAD_PERM(212);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, offshore_excavation_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(purification) + industry_count(materials),
+							220),
+				STORE_PERM (industry_count(purification) + industry_count(materials) + industry_count(products),
+							221),
+				STORE_PERM (industry_count(materials),
+							222),
+
+
+	//supply competition
+				STORE_PERM (industry_count(offshore_excavation),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("GRVL"),230),
+				STORE_PERM (transported_last_month_pct("SAND"),231),
+				STORE_PERM (transported_last_month_pct("CLAY"),232),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (extraction_core_cargo_production_210(),210),
+				STORE_PERM (extraction_core_cargo_production_211(),211),
+				STORE_PERM (extraction_core_cargo_production_212(),212),
+				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
+				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
+				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    offshore_excavation_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, offshore_excavation, 6) {
+		property {
+			substitute: 0;
+			map_colour: 6;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [dirt_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_OFFSHORE_EXCAVATION);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("ENSP"),
+
+				produce_cargo("GRVL",0),
+				produce_cargo("SAND",0),
+				produce_cargo("CLAY",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_OFFSHORE_EXCAVATION));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_OFFSHORE_EXCAVATION);
+			extra_text_industry:	offshore_excavation_extra_text();
+			produce_256_ticks: 		return offshore_excavation_calculate_production;
+
+	}
+}
+}
+
+/*---- mining ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (mining_execute_production, 
+	[
+	// consumption execution
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				COAL: LOAD_PERM(210);
+				IORE: LOAD_PERM(211);
+				AORE: LOAD_PERM(212);
+				CORE: LOAD_PERM(213);
+				POTA: LOAD_PERM(214);
+				URAN: LOAD_PERM(215);
+				NITR: LOAD_PERM(216);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(metals) + industry_count(purification) + industry_count(products),
+							220),
+				STORE_PERM (industry_count(metals),
+							221),
+				STORE_PERM (industry_count(metals),
+							222),
+				STORE_PERM (industry_count(metals),
+							223),
+				STORE_PERM (industry_count(enrichment),
+							224),
+				STORE_PERM (industry_count(enrichment),
+							225),
+				STORE_PERM (industry_count(purification) + industry_count(chemicals),
+							226),
+
+
+	//supply competition
+				STORE_PERM (industry_count(mining),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("COAL"),230),
+				STORE_PERM (transported_last_month_pct("IORE"),231),
+				STORE_PERM (transported_last_month_pct("AORE"),232),
+				STORE_PERM (transported_last_month_pct("CORE"),233),
+				STORE_PERM (transported_last_month_pct("POTA"),234),
+				STORE_PERM (transported_last_month_pct("URAN"),235),
+				STORE_PERM (transported_last_month_pct("NITR"),236),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (extraction_core_cargo_production_210(),210),
+				STORE_PERM (extraction_core_cargo_production_211(),211),
+				STORE_PERM (extraction_core_cargo_production_212(),212),
+				STORE_PERM (extraction_core_cargo_production_213(),213),
+				STORE_PERM (extraction_core_cargo_production_214(),214),
+				STORE_PERM (extraction_core_cargo_production_215(),215),
+				STORE_PERM (extraction_core_cargo_production_216(),216),
+				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
+				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
+				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    mining_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, mining, 7) {
+		property {
+			substitute: 0;
+			map_colour: 116;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [dirt_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_MINING);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("ENSP"),
+
+				produce_cargo("COAL",0),
+				produce_cargo("IORE",0),
+				produce_cargo("AORE",0),
+				produce_cargo("CORE",0),
+				produce_cargo("POTA",0),
+				produce_cargo("URAN",0),
+				produce_cargo("NITR",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_MINING));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_MINING);
+			extra_text_industry:	mining_extra_text();
+			produce_256_ticks: 		return mining_calculate_production;
+
+	}
+}
+}
+
+/*---- husbandry ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (husbandry_execute_production, 
+	[
+	// consumption execution
+				FMSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				LVST: LOAD_PERM(210);
+				MILK: LOAD_PERM(211);
+				WOOL: LOAD_PERM(212);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, husbandry_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(food_processing),
+							220),
+				STORE_PERM (industry_count(food_processing),
+							221),
+				STORE_PERM (industry_count(food_processing),
+							222),
+
+
+	//supply competition
+				STORE_PERM (industry_count(husbandry),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("LVST"),230),
+				STORE_PERM (transported_last_month_pct("MILK"),231),
+				STORE_PERM (transported_last_month_pct("WOOL"),232),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("FMSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (extraction_core_cargo_production_210(),210),
+				STORE_PERM (extraction_core_cargo_production_211(),211),
+				STORE_PERM (extraction_core_cargo_production_212(),212),
+				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
+				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
+				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    husbandry_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, husbandry, 8) {
+		property {
+			substitute: 0;
+			map_colour: 107;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [dirt_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_HUSBANDRY);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("FMSP"),
+
+				produce_cargo("LVST",0),
+				produce_cargo("MILK",0),
+				produce_cargo("WOOL",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_HUSBANDRY));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_HUSBANDRY);
+			extra_text_industry:	husbandry_extra_text();
+			produce_256_ticks: 		return husbandry_calculate_production;
+
+	}
+}
+}
+
+/*---- cultivation ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (cultivation_execute_production, 
+	[
+	// consumption execution
+				FMSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				GRAI: LOAD_PERM(210);
+				FRUT: LOAD_PERM(211);
+				FICR: LOAD_PERM(212);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, cultivation_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(food_processing),
+							220),
+				STORE_PERM (industry_count(food_processing),
+							221),
+				STORE_PERM (industry_count(food_processing),
+							222),
+
+
+	//supply competition
+				STORE_PERM (industry_count(cultivation),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("GRAI"),230),
+				STORE_PERM (transported_last_month_pct("FRUT"),231),
+				STORE_PERM (transported_last_month_pct("FICR"),232),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("FMSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (extraction_core_cargo_production_210(),210),
+				STORE_PERM (extraction_core_cargo_production_211(),211),
+				STORE_PERM (extraction_core_cargo_production_212(),212),
+				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
+				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
+				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    cultivation_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, cultivation, 9) {
+		property {
+			substitute: 0;
+			map_colour: 51;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [dirt_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_CULTIVATION);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("FMSP"),
+
+				produce_cargo("GRAI",0),
+				produce_cargo("FRUT",0),
+				produce_cargo("FICR",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_CULTIVATION));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_CULTIVATION);
+			extra_text_industry:	cultivation_extra_text();
+			produce_256_ticks: 		return cultivation_calculate_production;
+
+	}
+}
+}
+
+/*---- forestry ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (forestry_execute_production, 
+	[
+	// consumption execution
+				FMSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				WOOD: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, forestry_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(products),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(forestry),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("WOOD"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("FMSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (extraction_core_cargo_production_210(),210),
+				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
+				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
+				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    forestry_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, forestry, 10) {
+		property {
+			substitute: 0;
+			map_colour: 85;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [dirt_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_FORESTRY);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("FMSP"),
+
+				produce_cargo("WOOD",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_FORESTRY));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_FORESTRY);
+			extra_text_industry:	forestry_extra_text();
+			produce_256_ticks: 		return forestry_calculate_production;
+
+	}
+}
+}
+
+/*---- coal_mine ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (coal_mine_execute_production, 
+	[
+	// consumption execution
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				COAL: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, coal_mine_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(steel_mill),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(coal_mine),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("COAL"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (extraction_core_cargo_production_210(),210),
+				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
+				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
+				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    coal_mine_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 1) {
+
+	item(FEAT_INDUSTRIES, coal_mine, 1) {
+		property {
+			substitute: 0;
+			map_colour: 2;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [dirt_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_COAL_MINE);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("ENSP"),
+
+				produce_cargo("COAL",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_COAL_MINE));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_COAL_MINE);
+			extra_text_industry:	coal_mine_extra_text();
+			produce_256_ticks: 		return coal_mine_calculate_production;
+
+	}
+}
+}
+
+/*---- iron_ore_mine ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (iron_ore_mine_execute_production, 
+	[
+	// consumption execution
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				IORE: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, iron_ore_mine_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(steel_mill),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(iron_ore_mine),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("IORE"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (extraction_core_cargo_production_210(),210),
+				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
+				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
+				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    iron_ore_mine_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 1) {
+
+	item(FEAT_INDUSTRIES, iron_ore_mine, 2) {
+		property {
+			substitute: 0;
+			map_colour: 187;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [dirt_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_IRON_ORE_MINE);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("ENSP"),
+
+				produce_cargo("IORE",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_IRON_ORE_MINE));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_IRON_ORE_MINE);
+			extra_text_industry:	iron_ore_mine_extra_text();
+			produce_256_ticks: 		return iron_ore_mine_calculate_production;
+
+	}
+}
+}
+
+/*---- components ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (components_execute_production, 
+	[
+	// consumption execution
+				STEL: LOAD_PERM(110);
+				ALUM: LOAD_PERM(111);
+				COPR: LOAD_PERM(112);
+				PLAS: LOAD_PERM(120);
+				GLAS: LOAD_PERM(121);
+				PAPR: LOAD_PERM(122);
+				CHEM: LOAD_PERM(123);
+				SILI: LOAD_PERM(130);
+				LITH: LOAD_PERM(131);
+				MNSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				PACK: LOAD_PERM(210);
+				ELEC: LOAD_PERM(211);
+				POWR: LOAD_PERM(212);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, components_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(consumer_goods) + industry_count(food_processing) + industry_count(engineering_supplies) + industry_count(farming_supplies) + industry_count(marine_supplies) + industry_count(manufacturing_supplies) + industry_count(construction_materials),
+							220),
+				STORE_PERM (industry_count(consumer_goods),
+							221),
+				STORE_PERM (industry_count(consumer_goods) + industry_count(engineering_supplies) + industry_count(manufacturing_supplies),
+							222),
+
+
+	//supply competition
+				STORE_PERM (industry_count(components),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("PACK"),230),
+				STORE_PERM (transported_last_month_pct("ELEC"),231),
+				STORE_PERM (transported_last_month_pct("POWR"),232),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("STEL"),10),
+				STORE_PERM (incoming_cargo_waiting("ALUM"),11),
+				STORE_PERM (incoming_cargo_waiting("COPR"),12),
+				STORE_PERM (incoming_cargo_waiting("PLAS"),20),
+				STORE_PERM (incoming_cargo_waiting("GLAS"),21),
+				STORE_PERM (incoming_cargo_waiting("PAPR"),22),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),23),
+				STORE_PERM (incoming_cargo_waiting("SILI"),30),
+				STORE_PERM (incoming_cargo_waiting("LITH"),31),
+				STORE_PERM (incoming_cargo_waiting("MNSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (manufacturing_primary_cargo_consumption_10(),110),
+				STORE_PERM (manufacturing_primary_cargo_consumption_11(),111),
+				STORE_PERM (manufacturing_primary_cargo_consumption_12(),112),
+				STORE_PERM (manufacturing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (manufacturing_secondary_cargo_consumption_21(),121),
+				STORE_PERM (manufacturing_secondary_cargo_consumption_22(),122),
+				STORE_PERM (manufacturing_secondary_cargo_consumption_23(),123),
+				STORE_PERM (manufacturing_support_cargo_consumption_30(),130),
+				STORE_PERM (manufacturing_support_cargo_consumption_31(),131),
+				STORE_PERM (manufacturing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (manufacturing_core_cargo_production_210(),210),
+				STORE_PERM (manufacturing_core_cargo_production_211(),211),
+				STORE_PERM (manufacturing_core_cargo_production_212(),212),
+				STORE_PERM (manufacturing_byproduct_cargo_production_240(),240),
+				STORE_PERM (manufacturing_byproduct_cargo_production_241(),241),
+				STORE_PERM (manufacturing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    components_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, components, 73) {
+		property {
+			substitute: 0;
+			map_colour: 144;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_COMPONENTS);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("STEL"),
+				accept_cargo("ALUM"),
+				accept_cargo("COPR"),
+				accept_cargo("PLAS"),
+				accept_cargo("GLAS"),
+				accept_cargo("PAPR"),
+				accept_cargo("CHEM"),
+				accept_cargo("SILI"),
+				accept_cargo("LITH"),
+				accept_cargo("MNSP"),
+
+				produce_cargo("PACK",0),
+				produce_cargo("ELEC",0),
+				produce_cargo("POWR",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_COMPONENTS));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_COMPONENTS);
+			extra_text_industry:	components_extra_text();
+			produce_256_ticks: 		return components_calculate_production;
+
+	}
+}
+}
+
+/*---- consumer_goods ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (consumer_goods_execute_production, 
+	[
+	// consumption execution
+				STEL: LOAD_PERM(110);
+				ALUM: LOAD_PERM(111);
+				PLAS: LOAD_PERM(112);
+				GLAS: LOAD_PERM(113);
+				WDPR: LOAD_PERM(114);
+				ELEC: LOAD_PERM(120);
+				POWR: LOAD_PERM(121);
+				CHEM: LOAD_PERM(122);
+				TEXT: LOAD_PERM(123);
+				PACK: LOAD_PERM(130);
+				MNSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				GOOD: LOAD_PERM(210);
+				VEHI: LOAD_PERM(211);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, consumer_goods_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(retail),
+							220),
+				STORE_PERM (industry_count(retail),
+							221),
+
+
+	//supply competition
+				STORE_PERM (industry_count(consumer_goods),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("GOOD"),230),
+				STORE_PERM (transported_last_month_pct("VEHI"),231),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("STEL"),10),
+				STORE_PERM (incoming_cargo_waiting("ALUM"),11),
+				STORE_PERM (incoming_cargo_waiting("PLAS"),12),
+				STORE_PERM (incoming_cargo_waiting("GLAS"),13),
+				STORE_PERM (incoming_cargo_waiting("WDPR"),14),
+				STORE_PERM (incoming_cargo_waiting("ELEC"),20),
+				STORE_PERM (incoming_cargo_waiting("POWR"),21),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),22),
+				STORE_PERM (incoming_cargo_waiting("TEXT"),23),
+				STORE_PERM (incoming_cargo_waiting("PACK"),30),
+				STORE_PERM (incoming_cargo_waiting("MNSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (manufacturing_primary_cargo_consumption_10(),110),
+				STORE_PERM (manufacturing_primary_cargo_consumption_11(),111),
+				STORE_PERM (manufacturing_primary_cargo_consumption_12(),112),
+				STORE_PERM (manufacturing_primary_cargo_consumption_13(),113),
+				STORE_PERM (manufacturing_primary_cargo_consumption_14(),114),
+				STORE_PERM (manufacturing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (manufacturing_secondary_cargo_consumption_21(),121),
+				STORE_PERM (manufacturing_secondary_cargo_consumption_22(),122),
+				STORE_PERM (manufacturing_secondary_cargo_consumption_23(),123),
+				STORE_PERM (manufacturing_support_cargo_consumption_30(),130),
+				STORE_PERM (manufacturing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (manufacturing_core_cargo_production_210(),210),
+				STORE_PERM (manufacturing_core_cargo_production_211(),211),
+				STORE_PERM (manufacturing_byproduct_cargo_production_240(),240),
+				STORE_PERM (manufacturing_byproduct_cargo_production_241(),241),
+				STORE_PERM (manufacturing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    consumer_goods_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, consumer_goods, 74) {
+		property {
+			substitute: 0;
+			map_colour: 37;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_CONSUMER_GOODS);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("STEL"),
+				accept_cargo("ALUM"),
+				accept_cargo("PLAS"),
+				accept_cargo("GLAS"),
+				accept_cargo("WDPR"),
+				accept_cargo("ELEC"),
+				accept_cargo("POWR"),
+				accept_cargo("CHEM"),
+				accept_cargo("TEXT"),
+				accept_cargo("PACK"),
+				accept_cargo("MNSP"),
+
+				produce_cargo("GOOD",0),
+				produce_cargo("VEHI",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_CONSUMER_GOODS));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_CONSUMER_GOODS);
+			extra_text_industry:	consumer_goods_extra_text();
+			produce_256_ticks: 		return consumer_goods_calculate_production;
+
+	}
+}
+}
+
+/*---- food_processing ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (food_processing_execute_production, 
+	[
+	// consumption execution
+				GRAI: LOAD_PERM(110);
+				FRUT: LOAD_PERM(111);
+				MILK: LOAD_PERM(112);
+				LVST: LOAD_PERM(113);
+				FISH: LOAD_PERM(114);
+				FICR: LOAD_PERM(115);
+				WOOL: LOAD_PERM(116);
+				CHEM: LOAD_PERM(120);
+				PACK: LOAD_PERM(130);
+				MNSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				FOOD: LOAD_PERM(210);
+				BEER: LOAD_PERM(211);
+				TEXT: LOAD_PERM(212);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, food_processing_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(retail),
+							220),
+				STORE_PERM (industry_count(retail),
+							221),
+				STORE_PERM (industry_count(consumer_goods) + industry_count(marine_supplies),
+							222),
+
+
+	//supply competition
+				STORE_PERM (industry_count(food_processing),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("FOOD"),230),
+				STORE_PERM (transported_last_month_pct("BEER"),231),
+				STORE_PERM (transported_last_month_pct("TEXT"),232),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("GRAI"),10),
+				STORE_PERM (incoming_cargo_waiting("FRUT"),11),
+				STORE_PERM (incoming_cargo_waiting("MILK"),12),
+				STORE_PERM (incoming_cargo_waiting("LVST"),13),
+				STORE_PERM (incoming_cargo_waiting("FISH"),14),
+				STORE_PERM (incoming_cargo_waiting("FICR"),15),
+				STORE_PERM (incoming_cargo_waiting("WOOL"),16),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),20),
+				STORE_PERM (incoming_cargo_waiting("PACK"),30),
+				STORE_PERM (incoming_cargo_waiting("MNSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (manufacturing_primary_cargo_consumption_10(),110),
+				STORE_PERM (manufacturing_primary_cargo_consumption_11(),111),
+				STORE_PERM (manufacturing_primary_cargo_consumption_12(),112),
+				STORE_PERM (manufacturing_primary_cargo_consumption_13(),113),
+				STORE_PERM (manufacturing_primary_cargo_consumption_14(),114),
+				STORE_PERM (manufacturing_primary_cargo_consumption_15(),115),
+				STORE_PERM (manufacturing_primary_cargo_consumption_16(),116),
+				STORE_PERM (manufacturing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (manufacturing_support_cargo_consumption_30(),130),
+				STORE_PERM (manufacturing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (manufacturing_core_cargo_production_210(),210),
+				STORE_PERM (manufacturing_core_cargo_production_211(),211),
+				STORE_PERM (manufacturing_core_cargo_production_212(),212),
+				STORE_PERM (manufacturing_byproduct_cargo_production_240(),240),
+				STORE_PERM (manufacturing_byproduct_cargo_production_241(),241),
+				STORE_PERM (manufacturing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    food_processing_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, food_processing, 75) {
+		property {
+			substitute: 0;
+			map_colour: 87;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_FOOD_PROCESSING);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("GRAI"),
+				accept_cargo("FRUT"),
+				accept_cargo("MILK"),
+				accept_cargo("LVST"),
+				accept_cargo("FISH"),
+				accept_cargo("FICR"),
+				accept_cargo("WOOL"),
+				accept_cargo("CHEM"),
+				accept_cargo("PACK"),
+				accept_cargo("MNSP"),
+
+				produce_cargo("FOOD",0),
+				produce_cargo("BEER",0),
+				produce_cargo("TEXT",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_FOOD_PROCESSING));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_FOOD_PROCESSING);
+			extra_text_industry:	food_processing_extra_text();
+			produce_256_ticks: 		return food_processing_calculate_production;
+
+	}
+}
+}
+
+/*---- engineering_supplies ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (engineering_supplies_execute_production, 
+	[
+	// consumption execution
+				STEL: LOAD_PERM(110);
+				POWR: LOAD_PERM(120);
+				PACK: LOAD_PERM(130);
+				MNSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				ENSP: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, engineering_supplies_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(metals) + industry_count(purification) + industry_count(refinement) + industry_count(chemicals) + industry_count(materials) + industry_count(products) + industry_count(reclamation) + industry_count(enrichment) + industry_count(inland_extraction) + industry_count(inland_fisheries) + industry_count(inland_excavation) + industry_count(offshore_excavation) + industry_count(mining),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(engineering_supplies),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("ENSP"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("STEL"),10),
+				STORE_PERM (incoming_cargo_waiting("POWR"),20),
+				STORE_PERM (incoming_cargo_waiting("PACK"),30),
+				STORE_PERM (incoming_cargo_waiting("MNSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (manufacturing_primary_cargo_consumption_10(),110),
+				STORE_PERM (manufacturing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (manufacturing_support_cargo_consumption_30(),130),
+				STORE_PERM (manufacturing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (manufacturing_core_cargo_production_210(),210),
+				STORE_PERM (manufacturing_byproduct_cargo_production_240(),240),
+				STORE_PERM (manufacturing_byproduct_cargo_production_241(),241),
+				STORE_PERM (manufacturing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    engineering_supplies_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, engineering_supplies, 77) {
+		property {
+			substitute: 0;
+			map_colour: 139;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_ENGINEERING_SUPPLIES);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("STEL"),
+				accept_cargo("POWR"),
+				accept_cargo("PACK"),
+				accept_cargo("MNSP"),
+
+				produce_cargo("ENSP",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_ENGINEERING_SUPPLIES));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_ENGINEERING_SUPPLIES);
+			extra_text_industry:	engineering_supplies_extra_text();
+			produce_256_ticks: 		return engineering_supplies_calculate_production;
+
+	}
+}
+}
+
+/*---- farming_supplies ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (farming_supplies_execute_production, 
+	[
+	// consumption execution
+				FERT: LOAD_PERM(110);
+				WDPR: LOAD_PERM(120);
+				PACK: LOAD_PERM(130);
+				MNSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				FMSP: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, farming_supplies_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(husbandry) + industry_count(cultivation) + industry_count(forestry),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(farming_supplies),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("FMSP"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("FERT"),10),
+				STORE_PERM (incoming_cargo_waiting("WDPR"),20),
+				STORE_PERM (incoming_cargo_waiting("PACK"),30),
+				STORE_PERM (incoming_cargo_waiting("MNSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (manufacturing_primary_cargo_consumption_10(),110),
+				STORE_PERM (manufacturing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (manufacturing_support_cargo_consumption_30(),130),
+				STORE_PERM (manufacturing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (manufacturing_core_cargo_production_210(),210),
+				STORE_PERM (manufacturing_byproduct_cargo_production_240(),240),
+				STORE_PERM (manufacturing_byproduct_cargo_production_241(),241),
+				STORE_PERM (manufacturing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    farming_supplies_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, farming_supplies, 78) {
+		property {
+			substitute: 0;
+			map_colour: 139;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_FARMING_SUPPLIES);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("FERT"),
+				accept_cargo("WDPR"),
+				accept_cargo("PACK"),
+				accept_cargo("MNSP"),
+
+				produce_cargo("FMSP",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_FARMING_SUPPLIES));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_FARMING_SUPPLIES);
+			extra_text_industry:	farming_supplies_extra_text();
+			produce_256_ticks: 		return farming_supplies_calculate_production;
+
+	}
+}
+}
+
+/*---- marine_supplies ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (marine_supplies_execute_production, 
+	[
+	// consumption execution
+				TEXT: LOAD_PERM(110);
+				CHEM: LOAD_PERM(120);
+				PACK: LOAD_PERM(130);
+				MNSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				SESP: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, marine_supplies_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(offshore_extraction) + industry_count(offshore_fisheries),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(marine_supplies),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("SESP"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("TEXT"),10),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),20),
+				STORE_PERM (incoming_cargo_waiting("PACK"),30),
+				STORE_PERM (incoming_cargo_waiting("MNSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (manufacturing_primary_cargo_consumption_10(),110),
+				STORE_PERM (manufacturing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (manufacturing_support_cargo_consumption_30(),130),
+				STORE_PERM (manufacturing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (manufacturing_core_cargo_production_210(),210),
+				STORE_PERM (manufacturing_byproduct_cargo_production_240(),240),
+				STORE_PERM (manufacturing_byproduct_cargo_production_241(),241),
+				STORE_PERM (manufacturing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    marine_supplies_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, marine_supplies, 79) {
+		property {
+			substitute: 0;
+			map_colour: 139;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_MARINE_SUPPLIES);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("TEXT"),
+				accept_cargo("CHEM"),
+				accept_cargo("PACK"),
+				accept_cargo("MNSP"),
+
+				produce_cargo("SESP",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_MARINE_SUPPLIES));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_MARINE_SUPPLIES);
+			extra_text_industry:	marine_supplies_extra_text();
+			produce_256_ticks: 		return marine_supplies_calculate_production;
+
+	}
+}
+}
+
+/*---- manufacturing_supplies ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (manufacturing_supplies_execute_production, 
+	[
+	// consumption execution
+				POWR: LOAD_PERM(110);
+				CHEM: LOAD_PERM(120);
+				PACK: LOAD_PERM(130);
+				MNSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				MNSP: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, manufacturing_supplies_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(components) + industry_count(consumer_goods) + industry_count(food_processing) + industry_count(engineering_supplies) + industry_count(farming_supplies) + industry_count(marine_supplies) + industry_count(construction_materials),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(manufacturing_supplies),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("MNSP"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("POWR"),10),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),20),
+				STORE_PERM (incoming_cargo_waiting("PACK"),30),
+				STORE_PERM (incoming_cargo_waiting("MNSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (manufacturing_primary_cargo_consumption_10(),110),
+				STORE_PERM (manufacturing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (manufacturing_support_cargo_consumption_30(),130),
+				STORE_PERM (manufacturing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (manufacturing_core_cargo_production_210(),210),
+				STORE_PERM (manufacturing_byproduct_cargo_production_240(),240),
+				STORE_PERM (manufacturing_byproduct_cargo_production_241(),241),
+				STORE_PERM (manufacturing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    manufacturing_supplies_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, manufacturing_supplies, 80) {
+		property {
+			substitute: 0;
+			map_colour: 139;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_MANUFACTURING_SUPPLIES);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("POWR"),
+				accept_cargo("CHEM"),
+				accept_cargo("PACK"),
+				accept_cargo("MNSP"),
+
+				produce_cargo("MNSP",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_MANUFACTURING_SUPPLIES));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_MANUFACTURING_SUPPLIES);
+			extra_text_industry:	manufacturing_supplies_extra_text();
+			produce_256_ticks: 		return manufacturing_supplies_calculate_production;
+
+	}
+}
+}
+
+/*---- construction_materials ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (construction_materials_execute_production, 
+	[
+	// consumption execution
+				CMNT: LOAD_PERM(110);
+				WDPR: LOAD_PERM(120);
+				PACK: LOAD_PERM(130);
+				MNSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				BDMT: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				COMM: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, construction_materials_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(retail),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(construction_materials),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") + 						
+							last_month_transported("RCYC") ,6),
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("BDMT"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("CMNT"),10),
+				STORE_PERM (incoming_cargo_waiting("WDPR"),20),
+				STORE_PERM (incoming_cargo_waiting("PACK"),30),
+				STORE_PERM (incoming_cargo_waiting("MNSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (manufacturing_primary_cargo_consumption_10(),110),
+				STORE_PERM (manufacturing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (manufacturing_support_cargo_consumption_30(),130),
+				STORE_PERM (manufacturing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (manufacturing_core_cargo_production_210(),210),
+				STORE_PERM (manufacturing_byproduct_cargo_production_240(),240),
+				STORE_PERM (manufacturing_byproduct_cargo_production_241(),241),
+				STORE_PERM (manufacturing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    construction_materials_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, construction_materials, 81) {
+		property {
+			substitute: 0;
+			map_colour: 139;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_CONSTRUCTION_MATERIALS);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("CMNT"),
+				accept_cargo("WDPR"),
+				accept_cargo("PACK"),
+				accept_cargo("MNSP"),
+
+				produce_cargo("BDMT",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("COMM",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_CONSTRUCTION_MATERIALS));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_CONSTRUCTION_MATERIALS);
+			extra_text_industry:	construction_materials_extra_text();
+			produce_256_ticks: 		return construction_materials_calculate_production;
+
+	}
+}
+}
+
+/*---- retail ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+
+produce (retail_execute_consumption, 
+	[
+	// consumption execution
+				PASS: LOAD_PERM(110);
+				MAIL: LOAD_PERM(111);
+				GOOD: LOAD_PERM(112);
+				VEHI: LOAD_PERM(113);
+				FOOD: LOAD_PERM(114);
+				PETR: LOAD_PERM(115);
+				BEER: LOAD_PERM(116);
+				BDMT: LOAD_PERM(117);
+
+
+	], 
+	[
+	// production execution
+
+ 
+	])
+
+produce (retail_execute_production, 
+	[
+	// consumption execution
+
+
+	], 
+	[
+	// production execution
+				PASS: LOAD_PERM(210);
+				MAIL: LOAD_PERM(211);
+				PCL_: LOAD_PERM(212);
+				WSTE: LOAD_PERM(213);
+				RCYC: LOAD_PERM(214);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, retail_calculate_consumption, [
+
+// store information for use in the procedure
+
+	STORE_PERM 	(town_euclidean_dist(0,0),3),
+	STORE_PERM 	(town_zone(0,0),4),
+	
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("PASS"),10),
+				STORE_PERM (incoming_cargo_waiting("MAIL"),11),
+				STORE_PERM (incoming_cargo_waiting("GOOD"),12),
+				STORE_PERM (incoming_cargo_waiting("VEHI"),13),
+				STORE_PERM (incoming_cargo_waiting("FOOD"),14),
+				STORE_PERM (incoming_cargo_waiting("PETR"),15),
+				STORE_PERM (incoming_cargo_waiting("BEER"),16),
+				STORE_PERM (incoming_cargo_waiting("BDMT"),17),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (distribution_primary_cargo_consumption_10(),110),
+				STORE_PERM (distribution_primary_cargo_consumption_11(),111),
+				STORE_PERM (distribution_primary_cargo_consumption_12(),112),
+				STORE_PERM (distribution_primary_cargo_consumption_13(),113),
+				STORE_PERM (distribution_primary_cargo_consumption_14(),114),
+				STORE_PERM (distribution_primary_cargo_consumption_15(),115),
+				STORE_PERM (distribution_primary_cargo_consumption_16(),116),
+				STORE_PERM (distribution_primary_cargo_consumption_17(),117),
+
+
+ ])
+
+// Execute Production
+	{    retail_execute_consumption;	}
+
+switch (FEAT_INDUSTRIES, SELF, retail_calculate_production, [
+	
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (distribution_core_cargo_production_210(),210),
+				STORE_PERM (distribution_core_cargo_production_211(),211),
+				STORE_PERM (distribution_core_cargo_production_212(),212),
+				STORE_PERM (distribution_core_cargo_production_213(),213),
+				STORE_PERM (distribution_core_cargo_production_214(),214),
+
+
+ ])
+
+// Execute Production
+	{    retail_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, retail, 109) {
+		property {
+			substitute: 0;
+			map_colour: 142;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_RETAIL);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("PASS"),
+				accept_cargo("MAIL"),
+				accept_cargo("GOOD"),
+				accept_cargo("VEHI"),
+				accept_cargo("FOOD"),
+				accept_cargo("PETR"),
+				accept_cargo("BEER"),
+				accept_cargo("BDMT"),
+
+				produce_cargo("PASS",0),
+				produce_cargo("MAIL",0),
+				produce_cargo("PCL_",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_RETAIL));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_RETAIL);
+			extra_text_industry:	retail_extra_text();
+			produce_256_ticks: 		return retail_calculate_production;
+			produce_cargo_arrival: 	return retail_calculate_consumption;
+			cargo_subtype_display:	cargo_subtype_display;
+
+	}
+}
+}
+

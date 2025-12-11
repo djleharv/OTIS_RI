@@ -1,0 +1,6 @@
+# farm_supplies
+
+STR_CARGO_NAME_FARM_SUPPLIES										:Farm Supplies
+STR_CID_FARM_SUPPLIES												:{TINYFONT}FARM
+STR_CARGO_UNIT_FARM_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s} of Farm Supplies
+STR_SHORT_UNIT_FARM_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s}
