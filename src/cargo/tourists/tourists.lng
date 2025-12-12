@@ -1,6 +1,0 @@
-# tourists
-
-STR_CARGO_NAME_TOURISTS										:Tourists
-STR_CID_TOURISTS												:{TINYFONT}TOUR
-STR_CARGO_UNIT_TOURISTS										:{SIGNED_WORD} Tourists
-STR_SHORT_UNIT_TOURISTS										:{SIGNED_WORD} Tourists

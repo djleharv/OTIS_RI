@@ -45,7 +45,7 @@ item(FEAT_INDUSTRYTILES, dirt_industry_tile) {
 	property {
 		substitute:						0;
 		special_flags:					bitmask(INDTILE_FLAG_ACCEPT_ALL);
-		accepted_cargos:				[[COMM, 8]];
+		accepted_cargos:				[[PASS, 8]];
 	}
 	graphics {
 		default: 						dirt_industry_spritelayout;
@@ -59,7 +59,7 @@ item(FEAT_INDUSTRYTILES, concrete_industry_tile) {
 	property {
 		substitute:						0;
 		special_flags:					bitmask(INDTILE_FLAG_ACCEPT_ALL);
-		accepted_cargos:				[[COMM, 8]];
+		accepted_cargos:				[[PASS, 8]];
 	}	
 	graphics {
 		default: 						concrete_industry_spritelayout;

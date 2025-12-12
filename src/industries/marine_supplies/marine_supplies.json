@@ -64,7 +64,7 @@
             "bias_num": null
         },
         {
-            "produce_cargo": "COMM",
+            "produce_cargo": "PASS",
             "produce_cargo_type": "byproduct",
             "prod_num": 250,
             "demand_num": null,
@@ -76,7 +76,8 @@
             "produce_cargo": "SESP",
             "accepted_by": [
                 "offshore_extraction",
-                "offshore_fisheries"
+                "offshore_fisheries",
+                "offshore_excavation"
             ],
             "demand_num": 220
         }

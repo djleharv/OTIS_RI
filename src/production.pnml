@@ -15,23 +15,26 @@
 	superprod = base_consumption * 100;
 
 //calculation used to determine how many supplies are used per run
-	base_supply_consumption = base_consumption / (base_consumption / 2);
+	base_supply_consumption = base_consumption / base_consumption;
 	
 //the base level of runs for extraction industries with no cargo inputs
-	base_extraction_production_runs = 5;
+	base_extraction_production_runs = 3;
 
 //calculation used to determine how many commuters are produced per run
-	base_commuter_production = base_consumption / base_consumption;
+	base_commuter_production = total_production / (total_production * 2);
 
 //calculation used to determine how much byproduct is produced per run
-	base_byproduct_production = base_consumption / base_consumption;
+	base_byproduct_production = total_production / (total_production * 2);
 
 //calculation used to determine the effect of bonuses on production
-	secondary_cargo_synergy_bonus = total_production / 8;
-	support_cargo_synergy_bonus = total_production / 8;
+	secondary_cargo_synergy_bonus = total_production / 8; 
+	support_cargo_synergy_bonus = total_production / 8; 
 	supply_bonus = total_production / 4;
 	commuter_bonus = total_production / 8;
 	byproduct_bonus = total_production / 8;
+	
+	waste_bonus = total_production / total_production;
+	recyclables_bonus = total_production / total_production;
 
 //universal production bias mechanics (Total of produced cargo transported percentages, used to control bias)
 	switch (FEAT_INDUSTRIES, SELF, total_outputs, LOAD_PERM(230) + LOAD_PERM(231) + LOAD_PERM(232) + LOAD_PERM(233) + LOAD_PERM(234) + LOAD_PERM(235) + LOAD_PERM(236) + LOAD_PERM(237),) {return;}
@@ -46,9 +49,15 @@
 
 	//production efficiency for transporting byproducts
 		switch 	(FEAT_INDUSTRIES, SELF, byproduct_production_efficiency, LOAD_PERM(6) < 1,) {1: return byproduct_bonus; return 0;}	
+		
+	//production efficiency for transporting waste
+		switch 	(FEAT_INDUSTRIES, SELF, waste_production_efficiency, LOAD_PERM(6) < 1,) {1: return waste_bonus; return 0;}
+	
+	//production efficiency for transporting recyclables
+		switch 	(FEAT_INDUSTRIES, SELF, recyclables_production_efficiency, LOAD_PERM(7) < 1,) {1: return recyclables_bonus; return 0;}	
 
 	//total production efficiency
-		switch 	(FEAT_INDUSTRIES, SELF, total_production_efficiency, supplies_production_efficiency() + commuter_production_efficiency() + byproduct_production_efficiency(),) {return;}	
+		switch 	(FEAT_INDUSTRIES, SELF, total_production_efficiency, supplies_production_efficiency() + commuter_production_efficiency() + waste_production_efficiency() + recyclables_production_efficiency(),) {return;}	
 
 /********************************************
  * PRODUCTION MECHANICS FOR 1-EXTRACTION INDUSTRIES

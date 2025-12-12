@@ -13,7 +13,7 @@
     "prob_in_game": 0,
     "fund_cost_multiplier": 255,
     "str_ind": "(1-Extraction) Mining",
-    "str_fund": "{}Represents offshore excavation activity",
+    "str_fund": "{}Represents mining activity",
     "str_station": "Mine",
     "accept_cargo_list": [
         {
@@ -88,7 +88,7 @@
             "bias_num": null
         },
         {
-            "produce_cargo": "COMM",
+            "produce_cargo": "PASS",
             "produce_cargo_type": "byproduct",
             "prod_num": 250,
             "demand_num": null,

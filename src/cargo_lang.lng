@@ -208,13 +208,6 @@ STR_CID_PLANT_FIBRES												:{TINYFONT}PLNT
 STR_CARGO_UNIT_PLANT_FIBRES										:{SIGNED_WORD} bale{P 0 "" s} of Plant Fibres
 STR_SHORT_UNIT_PLANT_FIBRES										:{SIGNED_WORD} bale{P 0 "" s}
 
-# commuters
-
-STR_CARGO_NAME_COMMUTERS										:Commuters
-STR_CID_COMMUTERS												:{TINYFONT}COMM
-STR_CARGO_UNIT_COMMUTERS										:{SIGNED_WORD} Commuters
-STR_SHORT_UNIT_COMMUTERS										:{SIGNED_WORD} Commuters
-
 # copper_ore
 
 STR_CARGO_NAME_COPPER_ORE										:Copper Ore
@@ -256,13 +249,6 @@ STR_CARGO_NAME_BAUXITE										:Bauxite
 STR_CID_BAUXITE												:{TINYFONT}AORE
 STR_CARGO_UNIT_BAUXITE										:{WEIGHT} of Bauxite
 STR_SHORT_UNIT_BAUXITE										:{WEIGHT}
-
-# tourists
-
-STR_CARGO_NAME_TOURISTS										:Tourists
-STR_CID_TOURISTS												:{TINYFONT}TOUR
-STR_CARGO_UNIT_TOURISTS										:{SIGNED_WORD} Tourists
-STR_SHORT_UNIT_TOURISTS										:{SIGNED_WORD} Tourists
 
 # mineral_ore
 

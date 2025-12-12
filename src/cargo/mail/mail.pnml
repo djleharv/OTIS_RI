@@ -9,7 +9,7 @@
 			cargo_payment_list_colour: 	15;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_MAIL;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				0;
 			type_name: 					string(STR_CARGO_NAME_MAIL);
@@ -27,7 +27,7 @@
 
 			penalty_lowerbound: 		6;
 			single_penalty_length: 		24;
-			price_factor: 				144;
+			price_factor: 				156;
 					
 			
 		}

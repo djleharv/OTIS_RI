@@ -64,7 +64,7 @@
             "bias_num": null
         },
         {
-            "produce_cargo": "COMM",
+            "produce_cargo": "PASS",
             "produce_cargo_type": "byproduct",
             "prod_num": 250,
             "demand_num": null,
@@ -75,6 +75,10 @@
         {
             "produce_cargo": "ENSP",
             "accepted_by": [
+                "inland_extraction",
+                "inland_fisheries",
+                "inland_excavation",
+                "mining",
                 "metals",
                 "purification",
                 "refinement",
@@ -82,12 +86,7 @@
                 "materials",
                 "products",
                 "reclamation",
-                "enrichment",
-                "inland_extraction",
-                "inland_fisheries",
-                "inland_excavation",
-                "offshore_excavation",
-                "mining"
+                "enrichment"
             ],
             "demand_num": 220
         }

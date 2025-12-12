@@ -21,7 +21,7 @@ produce (manufacturing_supplies_execute_production,
 				MNSP: LOAD_PERM(210);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -40,11 +40,11 @@ switch (FEAT_INDUSTRIES, SELF, manufacturing_supplies_calculate_production, [
 				STORE_PERM (industry_count(manufacturing_supplies),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("MNSP"),230),
@@ -106,7 +106,7 @@ switch (FEAT_INDUSTRIES, SELF, manufacturing_supplies_calculate_production, [
 				produce_cargo("MNSP",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_MANUFACTURING_SUPPLIES));
 		}

@@ -9,7 +9,7 @@
 			cargo_payment_list_colour: 	152;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_PASSENGERS;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				0;
 			type_name: 					string(STR_CARGO_NAME_PASSENGERS);
@@ -27,7 +27,7 @@
 
 			penalty_lowerbound: 		0;
 			single_penalty_length: 		22;
-			price_factor: 				102;
+			price_factor: 				105;
 					
 			
 		}
@@ -42,11 +42,11 @@
 	item(FEAT_CARGOS, cargo_coal, 1) {
 		property {
 			number: 1;
-			station_list_colour: 		5;
-			cargo_payment_list_colour: 	5;	
+			station_list_colour: 		1;
+			cargo_payment_list_colour: 	1;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_COAL);
@@ -58,13 +58,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_COAL);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
+			weight: 					1;
+			cargo_classes: bitmask(		CC_BULK
 			);
 
 			penalty_lowerbound: 		30;
 			single_penalty_length: 		255;
-			price_factor: 				74;
+			price_factor: 				56;
 					
 			
 		}
@@ -83,7 +83,7 @@
 			cargo_payment_list_colour: 	15;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_MAIL;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				0;
 			type_name: 					string(STR_CARGO_NAME_MAIL);
@@ -101,7 +101,7 @@
 
 			penalty_lowerbound: 		6;
 			single_penalty_length: 		24;
-			price_factor: 				144;
+			price_factor: 				156;
 					
 			
 		}
@@ -116,11 +116,11 @@
 	item(FEAT_CARGOS, cargo_crude_oil, 3) {
 		property {
 			number: 3;
-			station_list_colour: 		1;
-			cargo_payment_list_colour: 	1;	
+			station_list_colour: 		171;
+			cargo_payment_list_colour: 	171;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_CRUDE_OIL);
@@ -132,8 +132,8 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_CRUDE_OIL);
 			capacity_multiplier: 		1;	
 			
-			weight: 					0.875;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_LIQUID_BULK
+			weight: 					0.9;
+			cargo_classes: bitmask(		CC_LIQUID
 			);
 
 			penalty_lowerbound: 		30;
@@ -153,11 +153,11 @@
 	item(FEAT_CARGOS, cargo_livestock, 4) {
 		property {
 			number: 4;
-			station_list_colour: 		79;
-			cargo_payment_list_colour: 	79;	
+			station_list_colour: 		75;
+			cargo_payment_list_colour: 	75;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_LIVESTOCK);
@@ -170,12 +170,12 @@
 			capacity_multiplier: 		1;	
 			
 			weight: 					0.1875;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_WEIRD
+			cargo_classes: bitmask(		CC_PIECE_GOODS
 			);
 
 			penalty_lowerbound: 		0;
-			single_penalty_length: 		22;
-			price_factor: 				125;
+			single_penalty_length: 		16;
+			price_factor: 				123;
 					
 			
 		}
@@ -194,7 +194,7 @@
 			cargo_payment_list_colour: 	194;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_GOODS;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_GOODS);
@@ -204,15 +204,15 @@
 			
 			units_of_cargo: 			string(STR_SHORT_UNIT_GOODS);
 			items_of_cargo: 			string(STR_CARGO_UNIT_GOODS);
-			capacity_multiplier: 		1;	
+			capacity_multiplier: 		2;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED, CC_EXPRESS
+			weight: 					0.5;
+			cargo_classes: bitmask(		CC_EXPRESS
 			);
 
-			penalty_lowerbound: 		5;
-			single_penalty_length: 		24;
-			price_factor: 				149;
+			penalty_lowerbound: 		10;
+			single_penalty_length: 		64;
+			price_factor: 				166;
 					
 			
 		}
@@ -227,11 +227,11 @@
 	item(FEAT_CARGOS, cargo_grain, 6) {
 		property {
 			number: 6;
-			station_list_colour: 		186;
-			cargo_payment_list_colour: 	186;	
+			station_list_colour: 		190;
+			cargo_payment_list_colour: 	190;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_GRAIN);
@@ -243,13 +243,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_GRAIN);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_POTABLE, CC_COVERED_BULK
+			weight: 					1;
+			cargo_classes: bitmask(		CC_BULK
 			);
 
 			penalty_lowerbound: 		4;
 			single_penalty_length: 		40;
-			price_factor: 				117;
+			price_factor: 				104;
 					
 			
 		}
@@ -264,11 +264,11 @@
 	item(FEAT_CARGOS, cargo_logs, 7) {
 		property {
 			number: 7;
-			station_list_colour: 		53;
-			cargo_payment_list_colour: 	53;	
+			station_list_colour: 		55;
+			cargo_payment_list_colour: 	55;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_LOGS);
@@ -280,13 +280,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_LOGS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_FLATBED
+			weight: 					1;
+			cargo_classes: bitmask(		CC_PIECE_GOODS
 			);
 
 			penalty_lowerbound: 		24;
 			single_penalty_length: 		255;
-			price_factor: 				98;
+			price_factor: 				97;
 					
 			
 		}
@@ -301,11 +301,11 @@
 	item(FEAT_CARGOS, cargo_iron_ore, 8) {
 		property {
 			number: 8;
-			station_list_colour: 		63;
-			cargo_payment_list_colour: 	63;	
+			station_list_colour: 		118;
+			cargo_payment_list_colour: 	118;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_IRON_ORE);
@@ -317,13 +317,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_IRON_ORE);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
+			weight: 					1;
+			cargo_classes: bitmask(		CC_BULK
 			);
 
 			penalty_lowerbound: 		30;
 			single_penalty_length: 		255;
-			price_factor: 				74;
+			price_factor: 				60;
 					
 			
 		}
@@ -342,7 +342,7 @@
 			cargo_payment_list_colour: 	10;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_STEEL);
@@ -354,11 +354,11 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_STEEL);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED
+			weight: 					1;
+			cargo_classes: bitmask(		CC_PIECE_GOODS
 			);
 
-			penalty_lowerbound: 		7;
+			penalty_lowerbound: 		14;
 			single_penalty_length: 		255;
 			price_factor: 				126;
 					
@@ -379,7 +379,7 @@
 			cargo_payment_list_colour: 	161;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_MILK);
@@ -391,13 +391,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_MILK);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0625;
-			cargo_classes: bitmask(		CC_POTABLE, CC_PIECE_GOODS, CC_LIQUID_BULK, CC_EXPRESS, CC_REFRIGERATED
+			weight: 					1.1;
+			cargo_classes: bitmask(		CC_EXPRESS, CC_LIQUID, CC_REFRIGERATED
 			);
 
 			penalty_lowerbound: 		0;
-			single_penalty_length: 		20;
-			price_factor: 				135;
+			single_penalty_length: 		16;
+			price_factor: 				145;
 					
 			
 		}
@@ -416,7 +416,7 @@
 			cargo_payment_list_colour: 	48;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_FOOD);
@@ -428,7 +428,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_FOOD);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_POTABLE, CC_PIECE_GOODS, CC_EXPRESS, CC_REFRIGERATED
 			);
 
@@ -453,7 +453,7 @@
 			cargo_payment_list_colour: 	23;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_PAPER_PRODUCTS);
@@ -465,13 +465,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_PAPER_PRODUCTS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
+			weight: 					1;
+			cargo_classes: bitmask(		CC_PIECE_GOODS
 			);
 
-			penalty_lowerbound: 		7;
+			penalty_lowerbound: 		12;
 			single_penalty_length: 		60;
-			price_factor: 				135;
+			price_factor: 				140;
 					
 			
 		}
@@ -490,7 +490,7 @@
 			cargo_payment_list_colour: 	149;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_SEAFOOD);
@@ -502,13 +502,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_SEAFOOD);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_POTABLE, CC_EXPRESS, CC_REFRIGERATED
+			weight: 					1;
+			cargo_classes: bitmask(		CC_EXPRESS, CC_REFRIGERATED
 			);
 
-			penalty_lowerbound: 		12;
-			single_penalty_length: 		30;
-			price_factor: 				144;
+			penalty_lowerbound: 		0;
+			single_penalty_length: 		18;
+			price_factor: 				148;
 					
 			
 		}
@@ -527,7 +527,7 @@
 			cargo_payment_list_colour: 	135;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_WOOL);
@@ -540,12 +540,12 @@
 			capacity_multiplier: 		1;	
 			
 			weight: 					0.2;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
+			cargo_classes: bitmask(		CC_PIECE_GOODS, CC_COVERED
 			);
 
 			penalty_lowerbound: 		8;
 			single_penalty_length: 		90;
-			price_factor: 				105;
+			price_factor: 				98;
 					
 			
 		}
@@ -560,11 +560,11 @@
 	item(FEAT_CARGOS, cargo_packaging, 15) {
 		property {
 			number: 15;
-			station_list_colour: 		37;
-			cargo_payment_list_colour: 	37;	
+			station_list_colour: 		145;
+			cargo_payment_list_colour: 	145;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_PACKAGING);
@@ -576,13 +576,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_PACKAGING);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
+			weight: 					0.65;
+			cargo_classes: bitmask(		CC_EXPRESS, CC_PIECE_GOODS
 			);
 
-			penalty_lowerbound: 		5;
-			single_penalty_length: 		24;
-			price_factor: 				149;
+			penalty_lowerbound: 		16;
+			single_penalty_length: 		120;
+			price_factor: 				127;
 					
 			
 		}
@@ -601,7 +601,7 @@
 			cargo_payment_list_colour: 	196;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_SAND);
@@ -613,13 +613,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_SAND);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK, CC_COVERED_BULK, CC_POWDER_BULK
+			weight: 					1;
+			cargo_classes: bitmask(		CC_BULK
 			);
 
 			penalty_lowerbound: 		30;
 			single_penalty_length: 		255;
-			price_factor: 				74;
+			price_factor: 				52;
 					
 			
 		}
@@ -638,7 +638,7 @@
 			cargo_payment_list_colour: 	58;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_WOOD_PRODUCTS);
@@ -650,13 +650,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_WOOD_PRODUCTS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED
+			weight: 					1;
+			cargo_classes: bitmask(		CC_BULK, CC_PIECE_GOODS
 			);
 
-			penalty_lowerbound: 		12;
+			penalty_lowerbound: 		18;
 			single_penalty_length: 		255;
-			price_factor: 				126;
+			price_factor: 				124;
 					
 			
 		}
@@ -675,7 +675,7 @@
 			cargo_payment_list_colour: 	197;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_MAIL;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				0;
 			type_name: 					string(STR_CARGO_NAME_PARCELS);
@@ -687,8 +687,8 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_PARCELS);
 			capacity_multiplier: 		2;	
 			
-			weight: 					0.1;
-			cargo_classes: bitmask(		CC_MAIL, CC_EXPRESS, CC_ARMOURED
+			weight: 					0.25;
+			cargo_classes: bitmask(		CC_MAIL, CC_EXPRESS
 			);
 
 			penalty_lowerbound: 		6;
@@ -712,7 +712,7 @@
 			cargo_payment_list_colour: 	12;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_AGGREGATES);
@@ -724,7 +724,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_AGGREGATES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
 			);
 
@@ -749,7 +749,7 @@
 			cargo_payment_list_colour: 	181;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_FRUIT);
@@ -761,7 +761,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_FRUIT);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_POTABLE, CC_PIECE_GOODS, CC_REFRIGERATED
 			);
 
@@ -786,7 +786,7 @@
 			cargo_payment_list_colour: 	34;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_CONSTRUCTION_MATERIALS);
@@ -798,7 +798,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_CONSTRUCTION_MATERIALS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED, CC_EXPRESS
 			);
 
@@ -823,7 +823,7 @@
 			cargo_payment_list_colour: 	180;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_ALCOHOL);
@@ -835,7 +835,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_ALCOHOL);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_POTABLE, CC_PIECE_GOODS, CC_EXPRESS, CC_REFRIGERATED
 			);
 
@@ -860,7 +860,7 @@
 			cargo_payment_list_colour: 	67;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_FARM_SUPPLIES);
@@ -872,7 +872,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_FARM_SUPPLIES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED, CC_EXPRESS
 			);
 
@@ -897,7 +897,7 @@
 			cargo_payment_list_colour: 	7;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_CEMENT);
@@ -909,7 +909,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_CEMENT);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_POWDER_BULK
 			);
 
@@ -934,7 +934,7 @@
 			cargo_payment_list_colour: 	210;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_GLASS_PRODUCTS);
@@ -946,7 +946,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_GLASS_PRODUCTS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
 			);
 
@@ -971,7 +971,7 @@
 			cargo_payment_list_colour: 	13;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_ALUMINIUM);
@@ -983,7 +983,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_ALUMINIUM);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED
 			);
 
@@ -1008,7 +1008,7 @@
 			cargo_payment_list_colour: 	159;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_PETROLEUM_FUELS);
@@ -1020,7 +1020,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_PETROLEUM_FUELS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_LIQUID_BULK
 			);
 
@@ -1045,7 +1045,7 @@
 			cargo_payment_list_colour: 	82;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_RECYCLABLES);
@@ -1057,7 +1057,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_RECYCLABLES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_OPEN_BULK
 			);
 
@@ -1082,7 +1082,7 @@
 			cargo_payment_list_colour: 	12;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_PLANT_FIBRES);
@@ -1108,43 +1108,6 @@
 		}
 	}
 
-/*---- commuters ----*/
-	
-	spriteset(cargoicon_commuters) {[10 + 20 * 1, 10 + 20 * 6, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
-
-	item(FEAT_CARGOS, cargo_commuters, 30) {
-		property {
-			number: 30;
-			station_list_colour: 		154;
-			cargo_payment_list_colour: 	154;	
-			sprite: NEW_CARGO_SPRITE;
-			town_growth_effect: TOWNGROWTH_PASSENGERS;
-			town_growth_multiplier: 1.0;
-			
-			is_freight: 				0;
-			type_name: 					string(STR_CARGO_NAME_COMMUTERS);
-			unit_name: 					string(STR_CARGO_NAME_COMMUTERS);
-			type_abbreviation: 			string(STR_CID_COMMUTERS);
-			cargo_label: 				"COMM";
-			
-			units_of_cargo: 			string(STR_SHORT_UNIT_COMMUTERS);
-			items_of_cargo: 			string(STR_CARGO_UNIT_COMMUTERS);
-			capacity_multiplier: 		4;	
-			
-			weight: 					0.0625;
-			cargo_classes: bitmask(		CC_PASSENGERS
-			);
-
-			penalty_lowerbound: 		0;
-			single_penalty_length: 		22;
-			price_factor: 				102;
-					
-			
-		}
-		graphics {						cargoicon_commuters;
-		}
-	}
-
 /*---- copper_ore ----*/
 	
 	spriteset(cargoicon_copper_ore) {[10 + 20 * 1, 10 + 20 * 2, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
@@ -1156,7 +1119,7 @@
 			cargo_payment_list_colour: 	111;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_COPPER_ORE);
@@ -1168,7 +1131,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_COPPER_ORE);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
 			);
 
@@ -1193,7 +1156,7 @@
 			cargo_payment_list_colour: 	4;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				0;
 			type_name: 					string(STR_CARGO_NAME_WASTE);
@@ -1205,7 +1168,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_WASTE);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
 			);
 
@@ -1230,7 +1193,7 @@
 			cargo_payment_list_colour: 	192;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_COPPER);
@@ -1242,7 +1205,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_COPPER);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED
 			);
 
@@ -1267,7 +1230,7 @@
 			cargo_payment_list_colour: 	17;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_URANIUM);
@@ -1279,7 +1242,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_URANIUM);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
 			);
 
@@ -1304,7 +1267,7 @@
 			cargo_payment_list_colour: 	202;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_VALUABLES);
@@ -1316,7 +1279,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_VALUABLES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_EXPRESS, CC_ARMOURED
 			);
 
@@ -1341,7 +1304,7 @@
 			cargo_payment_list_colour: 	56;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_BAUXITE);
@@ -1353,7 +1316,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_BAUXITE);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
 			);
 
@@ -1364,43 +1327,6 @@
 			
 		}
 		graphics {						cargoicon_bauxite;
-		}
-	}
-
-/*---- tourists ----*/
-	
-	spriteset(cargoicon_tourists) {[10 + 20 * 2, 10 + 20 * 6, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
-
-	item(FEAT_CARGOS, cargo_tourists, 37) {
-		property {
-			number: 37;
-			station_list_colour: 		173;
-			cargo_payment_list_colour: 	173;	
-			sprite: NEW_CARGO_SPRITE;
-			town_growth_effect: TOWNGROWTH_PASSENGERS;
-			town_growth_multiplier: 1.0;
-			
-			is_freight: 				0;
-			type_name: 					string(STR_CARGO_NAME_TOURISTS);
-			unit_name: 					string(STR_CARGO_NAME_TOURISTS);
-			type_abbreviation: 			string(STR_CID_TOURISTS);
-			cargo_label: 				"TOUR";
-			
-			units_of_cargo: 			string(STR_SHORT_UNIT_TOURISTS);
-			items_of_cargo: 			string(STR_CARGO_UNIT_TOURISTS);
-			capacity_multiplier: 		4;	
-			
-			weight: 					0.0625;
-			cargo_classes: bitmask(		CC_PASSENGERS
-			);
-
-			penalty_lowerbound: 		0;
-			single_penalty_length: 		22;
-			price_factor: 				102;
-					
-			
-		}
-		graphics {						cargoicon_tourists;
 		}
 	}
 
@@ -1415,7 +1341,7 @@
 			cargo_payment_list_colour: 	135;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_MINERAL_ORE);
@@ -1427,7 +1353,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_MINERAL_ORE);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
 			);
 
@@ -1452,7 +1378,7 @@
 			cargo_payment_list_colour: 	116;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_POTASH);
@@ -1464,7 +1390,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_POTASH);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_COVERED_BULK, CC_POWDER_BULK
 			);
 
@@ -1489,7 +1415,7 @@
 			cargo_payment_list_colour: 	88;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_LITHIUM);
@@ -1501,7 +1427,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_LITHIUM);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_COVERED_BULK, CC_POWDER_BULK
 			);
 
@@ -1526,7 +1452,7 @@
 			cargo_payment_list_colour: 	40;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_VEHICLES);
@@ -1538,7 +1464,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_VEHICLES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_FLATBED, CC_EXPRESS
 			);
 
@@ -1563,7 +1489,7 @@
 			cargo_payment_list_colour: 	45;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_POWER_CELLS);
@@ -1575,7 +1501,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_POWER_CELLS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
 			);
 
@@ -1600,7 +1526,7 @@
 			cargo_payment_list_colour: 	151;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_PLASTIC_PRODUCTS);
@@ -1612,7 +1538,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_PLASTIC_PRODUCTS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
 			);
 
@@ -1637,7 +1563,7 @@
 			cargo_payment_list_colour: 	5;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_RECYCLED_METAL);
@@ -1649,7 +1575,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_RECYCLED_METAL);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_OPEN_BULK
 			);
 
@@ -1674,7 +1600,7 @@
 			cargo_payment_list_colour: 	102;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_RECYCLED_PLASTIC);
@@ -1686,7 +1612,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_RECYCLED_PLASTIC);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_OPEN_BULK
 			);
 
@@ -1711,7 +1637,7 @@
 			cargo_payment_list_colour: 	93;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_RECYCLED_GLASS);
@@ -1723,7 +1649,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_RECYCLED_GLASS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_OPEN_BULK
 			);
 
@@ -1748,7 +1674,7 @@
 			cargo_payment_list_colour: 	14;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_RECYCLED_PAPER);
@@ -1760,7 +1686,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_RECYCLED_PAPER);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
 			);
 
@@ -1785,7 +1711,7 @@
 			cargo_payment_list_colour: 	184;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_TEXTILES);
@@ -1797,7 +1723,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_TEXTILES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
 			);
 
@@ -1822,7 +1748,7 @@
 			cargo_payment_list_colour: 	206;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_ELECTRONICS);
@@ -1834,7 +1760,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_ELECTRONICS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
 			);
 
@@ -1859,7 +1785,7 @@
 			cargo_payment_list_colour: 	54;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_FERTILIZER);
@@ -1871,7 +1797,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_FERTILIZER);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_COVERED_BULK, CC_LIQUID_BULK
 			);
 
@@ -1896,7 +1822,7 @@
 			cargo_payment_list_colour: 	207;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_NUCLEAR_WASTE);
@@ -1908,7 +1834,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_NUCLEAR_WASTE);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_WEIRD
 			);
 
@@ -1933,7 +1859,7 @@
 			cargo_payment_list_colour: 	208;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_CHEMICAL_PRODUCTS);
@@ -1945,7 +1871,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_CHEMICAL_PRODUCTS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_LIQUID_BULK, CC_GAS_BULK
 			);
 
@@ -1970,7 +1896,7 @@
 			cargo_payment_list_colour: 	184;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_PETROCHEMICALS);
@@ -1982,7 +1908,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_PETROCHEMICALS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_LIQUID_BULK
 			);
 
@@ -2007,7 +1933,7 @@
 			cargo_payment_list_colour: 	209;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_NUCLEAR_FUELS);
@@ -2019,7 +1945,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_NUCLEAR_FUELS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_ARMOURED, CC_WEIRD
 			);
 
@@ -2044,7 +1970,7 @@
 			cargo_payment_list_colour: 	139;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_ENGINEERING_SUPPLIES);
@@ -2056,7 +1982,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_ENGINEERING_SUPPLIES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED, CC_EXPRESS
 			);
 
@@ -2081,7 +2007,7 @@
 			cargo_payment_list_colour: 	205;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_MARINE_SUPPLIES);
@@ -2093,7 +2019,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_MARINE_SUPPLIES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED, CC_EXPRESS
 			);
 
@@ -2118,7 +2044,7 @@
 			cargo_payment_list_colour: 	69;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_MANUFACTURING_SUPPLIES);
@@ -2130,7 +2056,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_MANUFACTURING_SUPPLIES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED, CC_EXPRESS
 			);
 
@@ -2155,7 +2081,7 @@
 			cargo_payment_list_colour: 	196;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_SILICON);
@@ -2167,7 +2093,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_SILICON);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_COVERED_BULK, CC_POWDER_BULK
 			);
 
@@ -2192,7 +2118,7 @@
 			cargo_payment_list_colour: 	114;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_CLAY);
@@ -2204,7 +2130,7 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_CLAY);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_COVERED_BULK
 			);
 

@@ -5,11 +5,11 @@
 	item(FEAT_CARGOS, cargo_grain, 6) {
 		property {
 			number: 6;
-			station_list_colour: 		186;
-			cargo_payment_list_colour: 	186;	
+			station_list_colour: 		190;
+			cargo_payment_list_colour: 	190;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_GRAIN);
@@ -21,13 +21,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_GRAIN);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_POTABLE, CC_COVERED_BULK
+			weight: 					1;
+			cargo_classes: bitmask(		CC_BULK
 			);
 
 			penalty_lowerbound: 		4;
 			single_penalty_length: 		40;
-			price_factor: 				117;
+			price_factor: 				104;
 					
 			
 		}

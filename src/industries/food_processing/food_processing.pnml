@@ -29,7 +29,7 @@ produce (food_processing_execute_production,
 				TEXT: LOAD_PERM(212);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -40,10 +40,6 @@ switch (FEAT_INDUSTRIES, SELF, food_processing_calculate_production, [
 	
 //store information used to determine production
 	//demand customers
-				STORE_PERM (industry_count(retail),
-							220),
-				STORE_PERM (industry_count(retail),
-							221),
 				STORE_PERM (industry_count(consumer_goods) + industry_count(marine_supplies),
 							222),
 
@@ -52,11 +48,11 @@ switch (FEAT_INDUSTRIES, SELF, food_processing_calculate_production, [
 				STORE_PERM (industry_count(food_processing),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("FOOD"),230),
@@ -142,7 +138,7 @@ switch (FEAT_INDUSTRIES, SELF, food_processing_calculate_production, [
 				produce_cargo("TEXT",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_FOOD_PROCESSING));
 		}

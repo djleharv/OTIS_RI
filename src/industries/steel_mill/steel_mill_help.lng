@@ -1,3 +1,0 @@
-# steel_mill_help_text
-
-STR_STEEL_MILL_EXTRA_TEXT							:{SKIP}{SKIP}{BLACK}Production Run Efficiency: {GREEN}{UNSIGNED_WORD}%{}{}{SKIP}{BLACK}Production Runs Per Cycle: {GREEN}{UNSIGNED_WORD}{}{}{GREEN}Primary Cargo: {BLACK}Iron Ore {}{ORANGE}Secondary Cargo: {BLACK}Coal {}{WHITE}Support Cargo: {BLACK}Chemical Products {}{BLUE}Supply Cargo: {BLACK}Engineering Supplies{}{}{BLACK}Increase efficiency by delivering {YELLOW}supplies{BLACK}, transport {YELLOW}commuters {BLACK}home and transport {YELLOW}waste {BLACK}or {YELLOW}recyclables {BLACK}away. {}{}Increase runs by delivering all primary, secondary, support and supply cargos. Deliver more of all cargos to unlock {GOLD}synergies{BLACK}. {}{}You will need less secondary, support, and supply cargos than primary cargos.

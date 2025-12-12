@@ -1,5 +1,0 @@
-#steel_mill
-
-STR_IND_STEEL_MILL		:(1-Processing) Steel Milling
-STR_FUND_STEEL_MILL		:{}Represents processing of Iron Ore into Steel
-STR_STATION_STEEL_MILL	:Steel Mill

@@ -1,6 +1,0 @@
-/*---- steel_mill_help_text ----*/
- 
-switch (FEAT_INDUSTRIES, SELF, steel_mill_extra_text, [
-    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
-]) {return string(STR_STEEL_MILL_EXTRA_TEXT);}

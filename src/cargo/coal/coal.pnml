@@ -5,11 +5,11 @@
 	item(FEAT_CARGOS, cargo_coal, 1) {
 		property {
 			number: 1;
-			station_list_colour: 		5;
-			cargo_payment_list_colour: 	5;	
+			station_list_colour: 		1;
+			cargo_payment_list_colour: 	1;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_COAL);
@@ -21,13 +21,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_COAL);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
+			weight: 					1;
+			cargo_classes: bitmask(		CC_BULK
 			);
 
 			penalty_lowerbound: 		30;
 			single_penalty_length: 		255;
-			price_factor: 				74;
+			price_factor: 				56;
 					
 			
 		}

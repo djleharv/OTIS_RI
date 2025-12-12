@@ -30,11 +30,11 @@ _demand_customers_
 _supply_competition_
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),				
 					
 	// production bias numbers
 _production_bias_

@@ -9,7 +9,7 @@
 			cargo_payment_list_colour: 	58;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_WOOD_PRODUCTS);
@@ -21,13 +21,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_WOOD_PRODUCTS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED
+			weight: 					1;
+			cargo_classes: bitmask(		CC_BULK, CC_PIECE_GOODS
 			);
 
-			penalty_lowerbound: 		12;
+			penalty_lowerbound: 		18;
 			single_penalty_length: 		255;
-			price_factor: 				126;
+			price_factor: 				124;
 					
 			
 		}

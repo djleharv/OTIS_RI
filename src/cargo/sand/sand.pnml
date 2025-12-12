@@ -9,7 +9,7 @@
 			cargo_payment_list_colour: 	196;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_SAND);
@@ -21,13 +21,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_SAND);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK, CC_COVERED_BULK, CC_POWDER_BULK
+			weight: 					1;
+			cargo_classes: bitmask(		CC_BULK
 			);
 
 			penalty_lowerbound: 		30;
 			single_penalty_length: 		255;
-			price_factor: 				74;
+			price_factor: 				52;
 					
 			
 		}

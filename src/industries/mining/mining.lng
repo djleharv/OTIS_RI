@@ -1,5 +1,5 @@
 #mining
 
 STR_IND_MINING		:(1-Extraction) Mining
-STR_FUND_MINING		:{}Represents offshore excavation activity
+STR_FUND_MINING		:{}Represents mining activity
 STR_STATION_MINING	:Mine

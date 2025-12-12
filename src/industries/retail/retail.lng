@@ -1,5 +1,0 @@
-#retail
-
-STR_IND_RETAIL		:(4-Distribution) Retail Locations
-STR_FUND_RETAIL		:{}Represents retail locations
-STR_STATION_RETAIL	:Mall

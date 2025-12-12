@@ -73,10 +73,30 @@ def CreateCargoPNMLs():
     'cargo.pnml' file in the 'src/' directory.
     """
     
-    if os.path.exists('src/cargo/'):
-        shutil.rmtree('src/cargo/')
-    os.makedirs('src/cargo/', exist_ok=True)    
+    # --- Integrated Helper Function ---
+    def format_value_for_template(value):
+        """
+        Checks if a numeric value is a whole number (e.g., 123.0) and formats it
+        as an integer string ("123") to remove trailing decimals.
+        Retains original string representation for non-whole numbers and non-numeric types.
+        (This function is nested for local use within CreateCargoPNMLs).
+        """
+        # 1. Check if the value is numeric and not a missing value (NaN/NaT)
+        if isinstance(value, (int, float)):
+            if pd.isna(value):
+                return "" # Treat NaN/missing as an empty string
+                
+            # 2. Check if the float value is equivalent to a whole number
+            # Example: 123.0 == int(123.0) is True
+            # Example: 123.4 == int(123.4) is False (123.4 != 123)
+            if value == int(value):
+                return str(int(value)) # Convert 123.0 -> 123 -> "123"
+                
+        # 3. For all other cases (non-whole floats, strings, dates, etc.), convert directly to string
+        return str(value)
+    # --- End of Integrated Helper Function ---
     
+    # Define paths and settings
     spreadsheet_path = 'docs/otis.xlsx'
     template_path = 'src/templates/cargo_template.pnml'
     include_column = 'include'
@@ -84,10 +104,15 @@ def CreateCargoPNMLs():
     output_combined_file = 'src/cargo.pnml'
     output_individual_dir = 'src/cargo/'
 
-    # Ensure the individual output directory exists (we don't purge it here)
+    # Setup directories
+    if os.path.exists(output_individual_dir):
+        shutil.rmtree(output_individual_dir)
     os.makedirs(output_individual_dir, exist_ok=True)
-
+    
+    # Read the spreadsheet data
     try:
+        # NOTE: We do not use 'dtype' here because we want to preserve flexibility
+        # and handle the formatting later, which is safer when column types vary.
         df = pd.read_excel(spreadsheet_path, sheet_name=sheet_name)
         data = df.to_dict(orient='records')
     except FileNotFoundError:
@@ -97,8 +122,10 @@ def CreateCargoPNMLs():
         print(f"Error: Sheet '{sheet_name}' not found in the spreadsheet.")
         return
 
+    # Filter data based on the 'include' column
     filtered_data = [record for record in data if str(record.get(include_column)).lower() == 'true']
 
+    # Read the PNML template
     try:
         with open(template_path, 'r') as f:
             template_content = f.read()
@@ -108,6 +135,7 @@ def CreateCargoPNMLs():
 
     combined_output = ""
 
+    # Process each filtered record
     for record in filtered_data:
         item_name = str(record.get('cargo_item_name', 'default_item'))
         folder_name = item_name.replace(" ", "_")
@@ -118,9 +146,16 @@ def CreateCargoPNMLs():
         os.makedirs(output_folder, exist_ok=True)
 
         modified_content = template_content
+        
+        # Apply data to the template with the new formatting logic
         for key, value in record.items():
             placeholder = f"_{key}_"
-            modified_content = modified_content.replace(placeholder, str(value))
+            
+            # Use the dedicated formatting function to handle whole numbers correctly
+            formatted_value = format_value_for_template(value)
+            
+            # Replace the placeholder in the template content
+            modified_content = modified_content.replace(placeholder, formatted_value)
 
         # Write the individual file
         try:

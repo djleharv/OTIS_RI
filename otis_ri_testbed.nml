@@ -81,14 +81,12 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 				PETR,
 				RCYC,
 				FICR,
-				COMM,
 				CORE,
 				WSTE,
 				COPR,
 				URAN,
 				VALU,
 				AORE,
-				TOUR,
 				NITR,
 				POTA,
 				LITH,
@@ -124,7 +122,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	152;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_PASSENGERS;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				0;
 			type_name: 					string(STR_CARGO_NAME_PASSENGERS);
@@ -142,7 +140,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 
 			penalty_lowerbound: 		0;
 			single_penalty_length: 		22;
-			price_factor: 				102;
+			price_factor: 				105;
 					
 			
 		}
@@ -157,11 +155,11 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 	item(FEAT_CARGOS, cargo_coal, 1) {
 		property {
 			number: 1;
-			station_list_colour: 		5;
-			cargo_payment_list_colour: 	5;	
+			station_list_colour: 		1;
+			cargo_payment_list_colour: 	1;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_COAL);
@@ -173,13 +171,13 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_COAL);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
+			weight: 					1;
+			cargo_classes: bitmask(		CC_BULK
 			);
 
 			penalty_lowerbound: 		30;
 			single_penalty_length: 		255;
-			price_factor: 				74;
+			price_factor: 				56;
 					
 			
 		}
@@ -198,7 +196,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	15;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_MAIL;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				0;
 			type_name: 					string(STR_CARGO_NAME_MAIL);
@@ -216,7 +214,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 
 			penalty_lowerbound: 		6;
 			single_penalty_length: 		24;
-			price_factor: 				144;
+			price_factor: 				156;
 					
 			
 		}
@@ -231,11 +229,11 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 	item(FEAT_CARGOS, cargo_crude_oil, 3) {
 		property {
 			number: 3;
-			station_list_colour: 		1;
-			cargo_payment_list_colour: 	1;	
+			station_list_colour: 		171;
+			cargo_payment_list_colour: 	171;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_CRUDE_OIL);
@@ -247,8 +245,8 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_CRUDE_OIL);
 			capacity_multiplier: 		1;	
 			
-			weight: 					0.875;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_LIQUID_BULK
+			weight: 					0.9;
+			cargo_classes: bitmask(		CC_LIQUID
 			);
 
 			penalty_lowerbound: 		30;
@@ -268,11 +266,11 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 	item(FEAT_CARGOS, cargo_livestock, 4) {
 		property {
 			number: 4;
-			station_list_colour: 		79;
-			cargo_payment_list_colour: 	79;	
+			station_list_colour: 		75;
+			cargo_payment_list_colour: 	75;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_LIVESTOCK);
@@ -285,12 +283,12 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			capacity_multiplier: 		1;	
 			
 			weight: 					0.1875;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_WEIRD
+			cargo_classes: bitmask(		CC_PIECE_GOODS
 			);
 
 			penalty_lowerbound: 		0;
-			single_penalty_length: 		22;
-			price_factor: 				125;
+			single_penalty_length: 		16;
+			price_factor: 				123;
 					
 			
 		}
@@ -309,7 +307,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	194;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_GOODS;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_GOODS);
@@ -319,15 +317,15 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			
 			units_of_cargo: 			string(STR_SHORT_UNIT_GOODS);
 			items_of_cargo: 			string(STR_CARGO_UNIT_GOODS);
-			capacity_multiplier: 		1;	
+			capacity_multiplier: 		2;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED, CC_EXPRESS
+			weight: 					0.5;
+			cargo_classes: bitmask(		CC_EXPRESS
 			);
 
-			penalty_lowerbound: 		5;
-			single_penalty_length: 		24;
-			price_factor: 				149;
+			penalty_lowerbound: 		10;
+			single_penalty_length: 		64;
+			price_factor: 				166;
 					
 			
 		}
@@ -342,11 +340,11 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 	item(FEAT_CARGOS, cargo_grain, 6) {
 		property {
 			number: 6;
-			station_list_colour: 		186;
-			cargo_payment_list_colour: 	186;	
+			station_list_colour: 		190;
+			cargo_payment_list_colour: 	190;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_GRAIN);
@@ -358,13 +356,13 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_GRAIN);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_POTABLE, CC_COVERED_BULK
+			weight: 					1;
+			cargo_classes: bitmask(		CC_BULK
 			);
 
 			penalty_lowerbound: 		4;
 			single_penalty_length: 		40;
-			price_factor: 				117;
+			price_factor: 				104;
 					
 			
 		}
@@ -379,11 +377,11 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 	item(FEAT_CARGOS, cargo_logs, 7) {
 		property {
 			number: 7;
-			station_list_colour: 		53;
-			cargo_payment_list_colour: 	53;	
+			station_list_colour: 		55;
+			cargo_payment_list_colour: 	55;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_LOGS);
@@ -395,13 +393,13 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_LOGS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_FLATBED
+			weight: 					1;
+			cargo_classes: bitmask(		CC_PIECE_GOODS
 			);
 
 			penalty_lowerbound: 		24;
 			single_penalty_length: 		255;
-			price_factor: 				98;
+			price_factor: 				97;
 					
 			
 		}
@@ -416,11 +414,11 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 	item(FEAT_CARGOS, cargo_iron_ore, 8) {
 		property {
 			number: 8;
-			station_list_colour: 		63;
-			cargo_payment_list_colour: 	63;	
+			station_list_colour: 		118;
+			cargo_payment_list_colour: 	118;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_IRON_ORE);
@@ -432,13 +430,13 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_IRON_ORE);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
+			weight: 					1;
+			cargo_classes: bitmask(		CC_BULK
 			);
 
 			penalty_lowerbound: 		30;
 			single_penalty_length: 		255;
-			price_factor: 				74;
+			price_factor: 				60;
 					
 			
 		}
@@ -457,7 +455,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	10;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_STEEL);
@@ -469,11 +467,11 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_STEEL);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED
+			weight: 					1;
+			cargo_classes: bitmask(		CC_PIECE_GOODS
 			);
 
-			penalty_lowerbound: 		7;
+			penalty_lowerbound: 		14;
 			single_penalty_length: 		255;
 			price_factor: 				126;
 					
@@ -494,7 +492,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	161;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_MILK);
@@ -506,13 +504,13 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_MILK);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0625;
-			cargo_classes: bitmask(		CC_POTABLE, CC_PIECE_GOODS, CC_LIQUID_BULK, CC_EXPRESS, CC_REFRIGERATED
+			weight: 					1.1;
+			cargo_classes: bitmask(		CC_EXPRESS, CC_LIQUID, CC_REFRIGERATED
 			);
 
 			penalty_lowerbound: 		0;
-			single_penalty_length: 		20;
-			price_factor: 				135;
+			single_penalty_length: 		16;
+			price_factor: 				145;
 					
 			
 		}
@@ -531,7 +529,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	48;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_FOOD);
@@ -543,7 +541,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_FOOD);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_POTABLE, CC_PIECE_GOODS, CC_EXPRESS, CC_REFRIGERATED
 			);
 
@@ -568,7 +566,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	23;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_PAPER_PRODUCTS);
@@ -580,13 +578,13 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_PAPER_PRODUCTS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
+			weight: 					1;
+			cargo_classes: bitmask(		CC_PIECE_GOODS
 			);
 
-			penalty_lowerbound: 		7;
+			penalty_lowerbound: 		12;
 			single_penalty_length: 		60;
-			price_factor: 				135;
+			price_factor: 				140;
 					
 			
 		}
@@ -605,7 +603,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	149;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_SEAFOOD);
@@ -617,13 +615,13 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_SEAFOOD);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_POTABLE, CC_EXPRESS, CC_REFRIGERATED
+			weight: 					1;
+			cargo_classes: bitmask(		CC_EXPRESS, CC_REFRIGERATED
 			);
 
-			penalty_lowerbound: 		12;
-			single_penalty_length: 		30;
-			price_factor: 				144;
+			penalty_lowerbound: 		0;
+			single_penalty_length: 		18;
+			price_factor: 				148;
 					
 			
 		}
@@ -642,7 +640,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	135;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_WOOL);
@@ -655,12 +653,12 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			capacity_multiplier: 		1;	
 			
 			weight: 					0.2;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
+			cargo_classes: bitmask(		CC_PIECE_GOODS, CC_COVERED
 			);
 
 			penalty_lowerbound: 		8;
 			single_penalty_length: 		90;
-			price_factor: 				105;
+			price_factor: 				98;
 					
 			
 		}
@@ -675,11 +673,11 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 	item(FEAT_CARGOS, cargo_packaging, 15) {
 		property {
 			number: 15;
-			station_list_colour: 		37;
-			cargo_payment_list_colour: 	37;	
+			station_list_colour: 		145;
+			cargo_payment_list_colour: 	145;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_PACKAGING);
@@ -691,13 +689,13 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_PACKAGING);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
+			weight: 					0.65;
+			cargo_classes: bitmask(		CC_EXPRESS, CC_PIECE_GOODS
 			);
 
-			penalty_lowerbound: 		5;
-			single_penalty_length: 		24;
-			price_factor: 				149;
+			penalty_lowerbound: 		16;
+			single_penalty_length: 		120;
+			price_factor: 				127;
 					
 			
 		}
@@ -716,7 +714,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	196;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_SAND);
@@ -728,13 +726,13 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_SAND);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK, CC_COVERED_BULK, CC_POWDER_BULK
+			weight: 					1;
+			cargo_classes: bitmask(		CC_BULK
 			);
 
 			penalty_lowerbound: 		30;
 			single_penalty_length: 		255;
-			price_factor: 				74;
+			price_factor: 				52;
 					
 			
 		}
@@ -753,7 +751,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	58;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_WOOD_PRODUCTS);
@@ -765,13 +763,13 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_WOOD_PRODUCTS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED
+			weight: 					1;
+			cargo_classes: bitmask(		CC_BULK, CC_PIECE_GOODS
 			);
 
-			penalty_lowerbound: 		12;
+			penalty_lowerbound: 		18;
 			single_penalty_length: 		255;
-			price_factor: 				126;
+			price_factor: 				124;
 					
 			
 		}
@@ -790,7 +788,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	197;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_MAIL;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				0;
 			type_name: 					string(STR_CARGO_NAME_PARCELS);
@@ -802,8 +800,8 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_PARCELS);
 			capacity_multiplier: 		2;	
 			
-			weight: 					0.1;
-			cargo_classes: bitmask(		CC_MAIL, CC_EXPRESS, CC_ARMOURED
+			weight: 					0.25;
+			cargo_classes: bitmask(		CC_MAIL, CC_EXPRESS
 			);
 
 			penalty_lowerbound: 		6;
@@ -827,7 +825,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	12;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_AGGREGATES);
@@ -839,7 +837,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_AGGREGATES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
 			);
 
@@ -864,7 +862,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	181;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_FRUIT);
@@ -876,7 +874,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_FRUIT);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_POTABLE, CC_PIECE_GOODS, CC_REFRIGERATED
 			);
 
@@ -901,7 +899,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	34;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_CONSTRUCTION_MATERIALS);
@@ -913,7 +911,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_CONSTRUCTION_MATERIALS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED, CC_EXPRESS
 			);
 
@@ -938,7 +936,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	180;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_ALCOHOL);
@@ -950,7 +948,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_ALCOHOL);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_POTABLE, CC_PIECE_GOODS, CC_EXPRESS, CC_REFRIGERATED
 			);
 
@@ -975,7 +973,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	67;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_FARM_SUPPLIES);
@@ -987,7 +985,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_FARM_SUPPLIES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED, CC_EXPRESS
 			);
 
@@ -1012,7 +1010,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	7;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_CEMENT);
@@ -1024,7 +1022,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_CEMENT);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_POWDER_BULK
 			);
 
@@ -1049,7 +1047,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	210;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_GLASS_PRODUCTS);
@@ -1061,7 +1059,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_GLASS_PRODUCTS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
 			);
 
@@ -1086,7 +1084,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	13;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_ALUMINIUM);
@@ -1098,7 +1096,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_ALUMINIUM);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED
 			);
 
@@ -1123,7 +1121,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	159;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_PETROLEUM_FUELS);
@@ -1135,7 +1133,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_PETROLEUM_FUELS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_LIQUID_BULK
 			);
 
@@ -1160,7 +1158,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	82;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_RECYCLABLES);
@@ -1172,7 +1170,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_RECYCLABLES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_OPEN_BULK
 			);
 
@@ -1197,7 +1195,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	12;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_PLANT_FIBRES);
@@ -1223,43 +1221,6 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 		}
 	}
 
-/*---- commuters ----*/
-	
-	spriteset(cargoicon_commuters) {[10 + 20 * 1, 10 + 20 * 6, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
-
-	item(FEAT_CARGOS, cargo_commuters, 30) {
-		property {
-			number: 30;
-			station_list_colour: 		154;
-			cargo_payment_list_colour: 	154;	
-			sprite: NEW_CARGO_SPRITE;
-			town_growth_effect: TOWNGROWTH_PASSENGERS;
-			town_growth_multiplier: 1.0;
-			
-			is_freight: 				0;
-			type_name: 					string(STR_CARGO_NAME_COMMUTERS);
-			unit_name: 					string(STR_CARGO_NAME_COMMUTERS);
-			type_abbreviation: 			string(STR_CID_COMMUTERS);
-			cargo_label: 				"COMM";
-			
-			units_of_cargo: 			string(STR_SHORT_UNIT_COMMUTERS);
-			items_of_cargo: 			string(STR_CARGO_UNIT_COMMUTERS);
-			capacity_multiplier: 		4;	
-			
-			weight: 					0.0625;
-			cargo_classes: bitmask(		CC_PASSENGERS
-			);
-
-			penalty_lowerbound: 		0;
-			single_penalty_length: 		22;
-			price_factor: 				102;
-					
-			
-		}
-		graphics {						cargoicon_commuters;
-		}
-	}
-
 /*---- copper_ore ----*/
 	
 	spriteset(cargoicon_copper_ore) {[10 + 20 * 1, 10 + 20 * 2, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
@@ -1271,7 +1232,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	111;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_COPPER_ORE);
@@ -1283,7 +1244,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_COPPER_ORE);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
 			);
 
@@ -1308,7 +1269,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	4;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				0;
 			type_name: 					string(STR_CARGO_NAME_WASTE);
@@ -1320,7 +1281,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_WASTE);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
 			);
 
@@ -1345,7 +1306,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	192;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_COPPER);
@@ -1357,7 +1318,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_COPPER);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED
 			);
 
@@ -1382,7 +1343,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	17;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_URANIUM);
@@ -1394,7 +1355,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_URANIUM);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
 			);
 
@@ -1419,7 +1380,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	202;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_VALUABLES);
@@ -1431,7 +1392,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_VALUABLES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_EXPRESS, CC_ARMOURED
 			);
 
@@ -1456,7 +1417,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	56;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_BAUXITE);
@@ -1468,7 +1429,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_BAUXITE);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
 			);
 
@@ -1479,43 +1440,6 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			
 		}
 		graphics {						cargoicon_bauxite;
-		}
-	}
-
-/*---- tourists ----*/
-	
-	spriteset(cargoicon_tourists) {[10 + 20 * 2, 10 + 20 * 6, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
-
-	item(FEAT_CARGOS, cargo_tourists, 37) {
-		property {
-			number: 37;
-			station_list_colour: 		173;
-			cargo_payment_list_colour: 	173;	
-			sprite: NEW_CARGO_SPRITE;
-			town_growth_effect: TOWNGROWTH_PASSENGERS;
-			town_growth_multiplier: 1.0;
-			
-			is_freight: 				0;
-			type_name: 					string(STR_CARGO_NAME_TOURISTS);
-			unit_name: 					string(STR_CARGO_NAME_TOURISTS);
-			type_abbreviation: 			string(STR_CID_TOURISTS);
-			cargo_label: 				"TOUR";
-			
-			units_of_cargo: 			string(STR_SHORT_UNIT_TOURISTS);
-			items_of_cargo: 			string(STR_CARGO_UNIT_TOURISTS);
-			capacity_multiplier: 		4;	
-			
-			weight: 					0.0625;
-			cargo_classes: bitmask(		CC_PASSENGERS
-			);
-
-			penalty_lowerbound: 		0;
-			single_penalty_length: 		22;
-			price_factor: 				102;
-					
-			
-		}
-		graphics {						cargoicon_tourists;
 		}
 	}
 
@@ -1530,7 +1454,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	135;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_MINERAL_ORE);
@@ -1542,7 +1466,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_MINERAL_ORE);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
 			);
 
@@ -1567,7 +1491,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	116;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_POTASH);
@@ -1579,7 +1503,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_POTASH);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_COVERED_BULK, CC_POWDER_BULK
 			);
 
@@ -1604,7 +1528,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	88;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_LITHIUM);
@@ -1616,7 +1540,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_LITHIUM);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_COVERED_BULK, CC_POWDER_BULK
 			);
 
@@ -1641,7 +1565,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	40;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_VEHICLES);
@@ -1653,7 +1577,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_VEHICLES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_FLATBED, CC_EXPRESS
 			);
 
@@ -1678,7 +1602,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	45;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_POWER_CELLS);
@@ -1690,7 +1614,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_POWER_CELLS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
 			);
 
@@ -1715,7 +1639,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	151;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_PLASTIC_PRODUCTS);
@@ -1727,7 +1651,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_PLASTIC_PRODUCTS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
 			);
 
@@ -1752,7 +1676,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	5;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_RECYCLED_METAL);
@@ -1764,7 +1688,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_RECYCLED_METAL);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_OPEN_BULK
 			);
 
@@ -1789,7 +1713,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	102;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_RECYCLED_PLASTIC);
@@ -1801,7 +1725,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_RECYCLED_PLASTIC);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_OPEN_BULK
 			);
 
@@ -1826,7 +1750,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	93;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_RECYCLED_GLASS);
@@ -1838,7 +1762,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_RECYCLED_GLASS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_OPEN_BULK
 			);
 
@@ -1863,7 +1787,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	14;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_RECYCLED_PAPER);
@@ -1875,7 +1799,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_RECYCLED_PAPER);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
 			);
 
@@ -1900,7 +1824,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	184;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_TEXTILES);
@@ -1912,7 +1836,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_TEXTILES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
 			);
 
@@ -1937,7 +1861,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	206;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_ELECTRONICS);
@@ -1949,7 +1873,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_ELECTRONICS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
 			);
 
@@ -1974,7 +1898,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	54;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_FERTILIZER);
@@ -1986,7 +1910,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_FERTILIZER);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_COVERED_BULK, CC_LIQUID_BULK
 			);
 
@@ -2011,7 +1935,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	207;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_NUCLEAR_WASTE);
@@ -2023,7 +1947,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_NUCLEAR_WASTE);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_WEIRD
 			);
 
@@ -2048,7 +1972,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	208;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_CHEMICAL_PRODUCTS);
@@ -2060,7 +1984,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_CHEMICAL_PRODUCTS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_LIQUID_BULK, CC_GAS_BULK
 			);
 
@@ -2085,7 +2009,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	184;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_PETROCHEMICALS);
@@ -2097,7 +2021,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_PETROCHEMICALS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_LIQUID_BULK
 			);
 
@@ -2122,7 +2046,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	209;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_NUCLEAR_FUELS);
@@ -2134,7 +2058,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_NUCLEAR_FUELS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_ARMOURED, CC_WEIRD
 			);
 
@@ -2159,7 +2083,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	139;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_ENGINEERING_SUPPLIES);
@@ -2171,7 +2095,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_ENGINEERING_SUPPLIES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED, CC_EXPRESS
 			);
 
@@ -2196,7 +2120,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	205;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_MARINE_SUPPLIES);
@@ -2208,7 +2132,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_MARINE_SUPPLIES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED, CC_EXPRESS
 			);
 
@@ -2233,7 +2157,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	69;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_MANUFACTURING_SUPPLIES);
@@ -2245,7 +2169,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_MANUFACTURING_SUPPLIES);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_FLATBED, CC_EXPRESS
 			);
 
@@ -2270,7 +2194,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	196;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_SILICON);
@@ -2282,7 +2206,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_SILICON);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_COVERED_BULK, CC_POWDER_BULK
 			);
 
@@ -2307,7 +2231,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			cargo_payment_list_colour: 	114;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1.0;
+			town_growth_multiplier: 1;
 			
 			is_freight: 				1;
 			type_name: 					string(STR_CARGO_NAME_CLAY);
@@ -2319,7 +2243,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 			items_of_cargo: 			string(STR_CARGO_UNIT_CLAY);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1.0;
+			weight: 					1;
 			cargo_classes: bitmask(		CC_NON_POTABLE, CC_COVERED_BULK
 			);
 
@@ -2349,23 +2273,26 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 	superprod = base_consumption * 100;
 
 //calculation used to determine how many supplies are used per run
-	base_supply_consumption = base_consumption / (base_consumption / 2);
+	base_supply_consumption = base_consumption / base_consumption;
 	
 //the base level of runs for extraction industries with no cargo inputs
-	base_extraction_production_runs = 5;
+	base_extraction_production_runs = 3;
 
 //calculation used to determine how many commuters are produced per run
-	base_commuter_production = base_consumption / base_consumption;
+	base_commuter_production = total_production / (total_production * 2);
 
 //calculation used to determine how much byproduct is produced per run
-	base_byproduct_production = base_consumption / base_consumption;
+	base_byproduct_production = total_production / (total_production * 2);
 
 //calculation used to determine the effect of bonuses on production
-	secondary_cargo_synergy_bonus = total_production / 8;
-	support_cargo_synergy_bonus = total_production / 8;
+	secondary_cargo_synergy_bonus = total_production / 8; 
+	support_cargo_synergy_bonus = total_production / 8; 
 	supply_bonus = total_production / 4;
 	commuter_bonus = total_production / 8;
 	byproduct_bonus = total_production / 8;
+	
+	waste_bonus = total_production / total_production;
+	recyclables_bonus = total_production / total_production;
 
 //universal production bias mechanics (Total of produced cargo transported percentages, used to control bias)
 	switch (FEAT_INDUSTRIES, SELF, total_outputs, LOAD_PERM(230) + LOAD_PERM(231) + LOAD_PERM(232) + LOAD_PERM(233) + LOAD_PERM(234) + LOAD_PERM(235) + LOAD_PERM(236) + LOAD_PERM(237),) {return;}
@@ -2380,9 +2307,15 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 
 	//production efficiency for transporting byproducts
 		switch 	(FEAT_INDUSTRIES, SELF, byproduct_production_efficiency, LOAD_PERM(6) < 1,) {1: return byproduct_bonus; return 0;}	
+		
+	//production efficiency for transporting waste
+		switch 	(FEAT_INDUSTRIES, SELF, waste_production_efficiency, LOAD_PERM(6) < 1,) {1: return waste_bonus; return 0;}
+	
+	//production efficiency for transporting recyclables
+		switch 	(FEAT_INDUSTRIES, SELF, recyclables_production_efficiency, LOAD_PERM(7) < 1,) {1: return recyclables_bonus; return 0;}	
 
 	//total production efficiency
-		switch 	(FEAT_INDUSTRIES, SELF, total_production_efficiency, supplies_production_efficiency() + commuter_production_efficiency() + byproduct_production_efficiency(),) {return;}	
+		switch 	(FEAT_INDUSTRIES, SELF, total_production_efficiency, supplies_production_efficiency() + commuter_production_efficiency() + waste_production_efficiency() + recyclables_production_efficiency(),) {return;}	
 
 /********************************************
  * PRODUCTION MECHANICS FOR 1-EXTRACTION INDUSTRIES
@@ -3037,7 +2970,7 @@ item(FEAT_INDUSTRYTILES, dirt_industry_tile) {
 	property {
 		substitute:						0;
 		special_flags:					bitmask(INDTILE_FLAG_ACCEPT_ALL);
-		accepted_cargos:				[[COMM, 8]];
+		accepted_cargos:				[[PASS, 8]];
 	}
 	graphics {
 		default: 						dirt_industry_spritelayout;
@@ -3051,7 +2984,7 @@ item(FEAT_INDUSTRYTILES, concrete_industry_tile) {
 	property {
 		substitute:						0;
 		special_flags:					bitmask(INDTILE_FLAG_ACCEPT_ALL);
-		accepted_cargos:				[[COMM, 8]];
+		accepted_cargos:				[[PASS, 8]];
 	}	
 	graphics {
 		default: 						concrete_industry_spritelayout;
@@ -3061,69 +2994,6 @@ item(FEAT_INDUSTRYTILES, concrete_industry_tile) {
 	
 
 
-
-/*---- metals_help_text ----*/
- 
-switch (FEAT_INDUSTRIES, SELF, metals_extra_text, [
-    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
-]) {return string(STR_METALS_EXTRA_TEXT);}
-
-/*---- purification_help_text ----*/
- 
-switch (FEAT_INDUSTRIES, SELF, purification_extra_text, [
-    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
-]) {return string(STR_PURIFICATION_EXTRA_TEXT);}
-
-/*---- refinement_help_text ----*/
- 
-switch (FEAT_INDUSTRIES, SELF, refinement_extra_text, [
-    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
-]) {return string(STR_REFINEMENT_EXTRA_TEXT);}
-
-/*---- chemicals_help_text ----*/
- 
-switch (FEAT_INDUSTRIES, SELF, chemicals_extra_text, [
-    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
-]) {return string(STR_CHEMICALS_EXTRA_TEXT);}
-
-/*---- materials_help_text ----*/
- 
-switch (FEAT_INDUSTRIES, SELF, materials_extra_text, [
-    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
-]) {return string(STR_MATERIALS_EXTRA_TEXT);}
-
-/*---- products_help_text ----*/
- 
-switch (FEAT_INDUSTRIES, SELF, products_extra_text, [
-    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
-]) {return string(STR_PRODUCTS_EXTRA_TEXT);}
-
-/*---- reclamation_help_text ----*/
- 
-switch (FEAT_INDUSTRIES, SELF, reclamation_extra_text, [
-    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
-]) {return string(STR_RECLAMATION_EXTRA_TEXT);}
-
-/*---- enrichment_help_text ----*/
- 
-switch (FEAT_INDUSTRIES, SELF, enrichment_extra_text, [
-    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
-]) {return string(STR_ENRICHMENT_EXTRA_TEXT);}
-
-/*---- steel_mill_help_text ----*/
- 
-switch (FEAT_INDUSTRIES, SELF, steel_mill_extra_text, [
-    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
-]) {return string(STR_STEEL_MILL_EXTRA_TEXT);}
 
 /*---- inland_extraction_help_text ----*/
  
@@ -3195,20 +3065,6 @@ switch (FEAT_INDUSTRIES, SELF, forestry_extra_text, [
 	STORE_TEMP(extraction_actual_production_runs(), 258)   // returns the total number of production runs active
 ]) {return string(STR_FORESTRY_EXTRA_TEXT);}
 
-/*---- coal_mine_help_text ----*/
- 
-switch (FEAT_INDUSTRIES, SELF, coal_mine_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(extraction_actual_production_runs(), 258)   // returns the total number of production runs active
-]) {return string(STR_COAL_MINE_EXTRA_TEXT);}
-
-/*---- iron_ore_mine_help_text ----*/
- 
-switch (FEAT_INDUSTRIES, SELF, iron_ore_mine_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(extraction_actual_production_runs(), 258)   // returns the total number of production runs active
-]) {return string(STR_IRON_ORE_MINE_EXTRA_TEXT);}
-
 /*---- components_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, components_extra_text, [
@@ -3265,1209 +3121,62 @@ switch (FEAT_INDUSTRIES, SELF, construction_materials_extra_text, [
 	STORE_TEMP(manufacturing_total_production_runs(), 258)   // returns the total number of production runs active
 ]) {return string(STR_CONSTRUCTION_MATERIALS_EXTRA_TEXT);}
 
-/*---- retail_help_text ----*/
+/*---- metals_help_text ----*/
  
-switch (FEAT_INDUSTRIES, SELF, retail_extra_text, [
-    STORE_TEMP(town_zone_text() + 0xD000, 257),   // Store the town zone
-]) {return string(STR_RETAIL_EXTRA_TEXT);}
+switch (FEAT_INDUSTRIES, SELF, metals_extra_text, [
+    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
+	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
+]) {return string(STR_METALS_EXTRA_TEXT);}
 
-
-/*---- metals ----*/
-	
-/* *************************************************
- * PRODUCTION
- * *************************************************/
-
-// Production Line
-	
-produce (metals_execute_production, 
-	[
-	// consumption execution
-				IORE: LOAD_PERM(110);
-				AORE: LOAD_PERM(111);
-				CORE: LOAD_PERM(112);
-				COAL: LOAD_PERM(120);
-				SCMT: LOAD_PERM(121);
-				CHEM: LOAD_PERM(130);
-				ENSP: LOAD_PERM(140);
-
-
-	], 
-	[
-	// production execution
-				STEL: LOAD_PERM(210);
-				ALUM: LOAD_PERM(211);
-				COPR: LOAD_PERM(212);
-				WSTE: LOAD_PERM(240);
-				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
-
+/*---- purification_help_text ----*/
  
-	])
+switch (FEAT_INDUSTRIES, SELF, purification_extra_text, [
+    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
+	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
+]) {return string(STR_PURIFICATION_EXTRA_TEXT);}
 
-// identify cargos 
-
-switch (FEAT_INDUSTRIES, SELF, metals_calculate_production, [
-	
-//store information used to determine production
-	//demand customers
-				STORE_PERM (industry_count(components) + industry_count(consumer_goods) + industry_count(engineering_supplies),
-							220),
-				STORE_PERM (industry_count(components) + industry_count(consumer_goods),
-							221),
-				STORE_PERM (industry_count(components),
-							222),
-
-
-	//supply competition
-				STORE_PERM (industry_count(metals),2),
-
-	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
-
-	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
-					
-	// production bias numbers
-				STORE_PERM (transported_last_month_pct("STEL"),230),
-				STORE_PERM (transported_last_month_pct("ALUM"),231),
-				STORE_PERM (transported_last_month_pct("COPR"),232),
-
-
-// store stockpile amount for use in procedure
-	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
-				STORE_PERM (incoming_cargo_waiting("IORE"),10),
-				STORE_PERM (incoming_cargo_waiting("AORE"),11),
-				STORE_PERM (incoming_cargo_waiting("CORE"),12),
-				STORE_PERM (incoming_cargo_waiting("COAL"),20),
-				STORE_PERM (incoming_cargo_waiting("SCMT"),21),
-				STORE_PERM (incoming_cargo_waiting("CHEM"),30),
-				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
-
-
-// calculate consumption per cargo 
-	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
-				STORE_PERM (processing_primary_cargo_consumption_10(),110),
-				STORE_PERM (processing_primary_cargo_consumption_11(),111),
-				STORE_PERM (processing_primary_cargo_consumption_12(),112),
-				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
-				STORE_PERM (processing_secondary_cargo_consumption_21(),121),
-				STORE_PERM (processing_support_cargo_consumption_30(),130),
-				STORE_PERM (processing_supply_cargo_consumption_40(),140),
-
-
-// calculate cargo and byproduct production
-	//core cargo production 210-229, byproduct cargo production 240-255
-				STORE_PERM (processing_core_cargo_production_210(),210),
-				STORE_PERM (processing_core_cargo_production_211(),211),
-				STORE_PERM (processing_core_cargo_production_212(),212),
-				STORE_PERM (processing_byproduct_cargo_production_240(),240),
-				STORE_PERM (processing_byproduct_cargo_production_241(),241),
-				STORE_PERM (processing_byproduct_cargo_production_250(),250),
-
-
- ])
-
-// Execute Production
-	{    metals_execute_production;	}
-
-
-/* *************************************************
- * INDUSTRY DEFINITION
- * *************************************************/
+/*---- refinement_help_text ----*/
  
- if (param_industry_tile_style == 0) {
+switch (FEAT_INDUSTRIES, SELF, refinement_extra_text, [
+    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
+	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
+]) {return string(STR_REFINEMENT_EXTRA_TEXT);}
 
-	item(FEAT_INDUSTRIES, metals, 37) {
-		property {
-			substitute: 0;
-			map_colour: 36;
-			life_type: IND_LIFE_TYPE_BLACK_HOLE;
-			layouts: [concrete_industry_tilelayout];
-			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
-			name: string(STR_IND_METALS);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
-			cargo_types: [
-				accept_cargo("IORE"),
-				accept_cargo("AORE"),
-				accept_cargo("CORE"),
-				accept_cargo("COAL"),
-				accept_cargo("SCMT"),
-				accept_cargo("CHEM"),
-				accept_cargo("ENSP"),
-
-				produce_cargo("STEL",0),
-				produce_cargo("ALUM",0),
-				produce_cargo("COPR",0),
-				produce_cargo("WSTE",0),
-				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
-				];
-			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_METALS));
-		}
-
-		graphics {
-
-			extra_text_fund:		return string(STR_FUND_METALS);
-			extra_text_industry:	metals_extra_text();
-			produce_256_ticks: 		return metals_calculate_production;
-
-	}
-}
-}
-
-/*---- purification ----*/
-	
-/* *************************************************
- * PRODUCTION
- * *************************************************/
-
-// Production Line
-	
-produce (purification_execute_production, 
-	[
-	// consumption execution
-				NITR: LOAD_PERM(110);
-				GRVL: LOAD_PERM(111);
-				SAND: LOAD_PERM(112);
-				COAL: LOAD_PERM(120);
-				CHEM: LOAD_PERM(130);
-				ENSP: LOAD_PERM(140);
-
-
-	], 
-	[
-	// production execution
-				LITH: LOAD_PERM(210);
-				SILI: LOAD_PERM(211);
-				WSTE: LOAD_PERM(240);
-				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
-
+/*---- chemicals_help_text ----*/
  
-	])
+switch (FEAT_INDUSTRIES, SELF, chemicals_extra_text, [
+    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
+	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
+]) {return string(STR_CHEMICALS_EXTRA_TEXT);}
 
-// identify cargos 
-
-switch (FEAT_INDUSTRIES, SELF, purification_calculate_production, [
-	
-//store information used to determine production
-	//demand customers
-				STORE_PERM (industry_count(components),
-							220),
-				STORE_PERM (industry_count(components),
-							221),
-
-
-	//supply competition
-				STORE_PERM (industry_count(purification),2),
-
-	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
-
-	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
-					
-	// production bias numbers
-				STORE_PERM (transported_last_month_pct("LITH"),230),
-				STORE_PERM (transported_last_month_pct("SILI"),231),
-
-
-// store stockpile amount for use in procedure
-	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
-				STORE_PERM (incoming_cargo_waiting("NITR"),10),
-				STORE_PERM (incoming_cargo_waiting("GRVL"),11),
-				STORE_PERM (incoming_cargo_waiting("SAND"),12),
-				STORE_PERM (incoming_cargo_waiting("COAL"),20),
-				STORE_PERM (incoming_cargo_waiting("CHEM"),30),
-				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
-
-
-// calculate consumption per cargo 
-	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
-				STORE_PERM (processing_primary_cargo_consumption_10(),110),
-				STORE_PERM (processing_primary_cargo_consumption_11(),111),
-				STORE_PERM (processing_primary_cargo_consumption_12(),112),
-				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
-				STORE_PERM (processing_support_cargo_consumption_30(),130),
-				STORE_PERM (processing_supply_cargo_consumption_40(),140),
-
-
-// calculate cargo and byproduct production
-	//core cargo production 210-229, byproduct cargo production 240-255
-				STORE_PERM (processing_core_cargo_production_210(),210),
-				STORE_PERM (processing_core_cargo_production_211(),211),
-				STORE_PERM (processing_byproduct_cargo_production_240(),240),
-				STORE_PERM (processing_byproduct_cargo_production_241(),241),
-				STORE_PERM (processing_byproduct_cargo_production_250(),250),
-
-
- ])
-
-// Execute Production
-	{    purification_execute_production;	}
-
-
-/* *************************************************
- * INDUSTRY DEFINITION
- * *************************************************/
+/*---- materials_help_text ----*/
  
- if (param_industry_tile_style == 0) {
+switch (FEAT_INDUSTRIES, SELF, materials_extra_text, [
+    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
+	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
+]) {return string(STR_MATERIALS_EXTRA_TEXT);}
 
-	item(FEAT_INDUSTRIES, purification, 38) {
-		property {
-			substitute: 0;
-			map_colour: 152;
-			life_type: IND_LIFE_TYPE_BLACK_HOLE;
-			layouts: [concrete_industry_tilelayout];
-			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
-			name: string(STR_IND_PURIFICATION);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
-			cargo_types: [
-				accept_cargo("NITR"),
-				accept_cargo("GRVL"),
-				accept_cargo("SAND"),
-				accept_cargo("COAL"),
-				accept_cargo("CHEM"),
-				accept_cargo("ENSP"),
-
-				produce_cargo("LITH",0),
-				produce_cargo("SILI",0),
-				produce_cargo("WSTE",0),
-				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
-				];
-			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_PURIFICATION));
-		}
-
-		graphics {
-
-			extra_text_fund:		return string(STR_FUND_PURIFICATION);
-			extra_text_industry:	purification_extra_text();
-			produce_256_ticks: 		return purification_calculate_production;
-
-	}
-}
-}
-
-/*---- refinement ----*/
-	
-/* *************************************************
- * PRODUCTION
- * *************************************************/
-
-// Production Line
-	
-produce (refinement_execute_production, 
-	[
-	// consumption execution
-				OIL_: LOAD_PERM(110);
-				ENSP: LOAD_PERM(140);
-
-
-	], 
-	[
-	// production execution
-				PETR: LOAD_PERM(210);
-				RFPR: LOAD_PERM(211);
-				WSTE: LOAD_PERM(240);
-				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
-
+/*---- products_help_text ----*/
  
-	])
+switch (FEAT_INDUSTRIES, SELF, products_extra_text, [
+    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
+	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
+]) {return string(STR_PRODUCTS_EXTRA_TEXT);}
 
-// identify cargos 
-
-switch (FEAT_INDUSTRIES, SELF, refinement_calculate_production, [
-	
-//store information used to determine production
-	//demand customers
-				STORE_PERM (industry_count(retail),
-							220),
-				STORE_PERM (industry_count(products),
-							221),
-
-
-	//supply competition
-				STORE_PERM (industry_count(refinement),2),
-
-	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
-
-	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
-					
-	// production bias numbers
-				STORE_PERM (transported_last_month_pct("PETR"),230),
-				STORE_PERM (transported_last_month_pct("RFPR"),231),
-
-
-// store stockpile amount for use in procedure
-	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
-				STORE_PERM (incoming_cargo_waiting("OIL_"),10),
-				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
-
-
-// calculate consumption per cargo 
-	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
-				STORE_PERM (processing_primary_cargo_consumption_10(),110),
-				STORE_PERM (processing_supply_cargo_consumption_40(),140),
-
-
-// calculate cargo and byproduct production
-	//core cargo production 210-229, byproduct cargo production 240-255
-				STORE_PERM (processing_core_cargo_production_210(),210),
-				STORE_PERM (processing_core_cargo_production_211(),211),
-				STORE_PERM (processing_byproduct_cargo_production_240(),240),
-				STORE_PERM (processing_byproduct_cargo_production_241(),241),
-				STORE_PERM (processing_byproduct_cargo_production_250(),250),
-
-
- ])
-
-// Execute Production
-	{    refinement_execute_production;	}
-
-
-/* *************************************************
- * INDUSTRY DEFINITION
- * *************************************************/
+/*---- reclamation_help_text ----*/
  
- if (param_industry_tile_style == 0) {
+switch (FEAT_INDUSTRIES, SELF, reclamation_extra_text, [
+    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
+	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
+]) {return string(STR_RECLAMATION_EXTRA_TEXT);}
 
-	item(FEAT_INDUSTRIES, refinement, 39) {
-		property {
-			substitute: 0;
-			map_colour: 146;
-			life_type: IND_LIFE_TYPE_BLACK_HOLE;
-			layouts: [concrete_industry_tilelayout];
-			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
-			name: string(STR_IND_REFINEMENT);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
-			cargo_types: [
-				accept_cargo("OIL_"),
-				accept_cargo("ENSP"),
-
-				produce_cargo("PETR",0),
-				produce_cargo("RFPR",0),
-				produce_cargo("WSTE",0),
-				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
-				];
-			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_REFINEMENT));
-		}
-
-		graphics {
-
-			extra_text_fund:		return string(STR_FUND_REFINEMENT);
-			extra_text_industry:	refinement_extra_text();
-			produce_256_ticks: 		return refinement_calculate_production;
-
-	}
-}
-}
-
-/*---- chemicals ----*/
-	
-/* *************************************************
- * PRODUCTION
- * *************************************************/
-
-// Production Line
-	
-produce (chemicals_execute_production, 
-	[
-	// consumption execution
-				NITR: LOAD_PERM(110);
-				ENSP: LOAD_PERM(140);
-
-
-	], 
-	[
-	// production execution
-				CHEM: LOAD_PERM(210);
-				WSTE: LOAD_PERM(240);
-				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
-
+/*---- enrichment_help_text ----*/
  
-	])
+switch (FEAT_INDUSTRIES, SELF, enrichment_extra_text, [
+    STORE_TEMP(((total_production - processing_synergy_production_efficiency() - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
+	STORE_TEMP(processing_total_production_runs(), 258)   // returns the total number of production runs active
+]) {return string(STR_ENRICHMENT_EXTRA_TEXT);}
 
-// identify cargos 
-
-switch (FEAT_INDUSTRIES, SELF, chemicals_calculate_production, [
-	
-//store information used to determine production
-	//demand customers
-				STORE_PERM (industry_count(metals) + industry_count(purification) + industry_count(materials) + industry_count(products) + industry_count(enrichment) + industry_count(components) + industry_count(consumer_goods) + industry_count(food_processing) + industry_count(marine_supplies) + industry_count(manufacturing_supplies),
-							220),
-
-
-	//supply competition
-				STORE_PERM (industry_count(chemicals),2),
-
-	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
-
-	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
-					
-	// production bias numbers
-				STORE_PERM (transported_last_month_pct("CHEM"),230),
-
-
-// store stockpile amount for use in procedure
-	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
-				STORE_PERM (incoming_cargo_waiting("NITR"),10),
-				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
-
-
-// calculate consumption per cargo 
-	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
-				STORE_PERM (processing_primary_cargo_consumption_10(),110),
-				STORE_PERM (processing_supply_cargo_consumption_40(),140),
-
-
-// calculate cargo and byproduct production
-	//core cargo production 210-229, byproduct cargo production 240-255
-				STORE_PERM (processing_core_cargo_production_210(),210),
-				STORE_PERM (processing_byproduct_cargo_production_240(),240),
-				STORE_PERM (processing_byproduct_cargo_production_241(),241),
-				STORE_PERM (processing_byproduct_cargo_production_250(),250),
-
-
- ])
-
-// Execute Production
-	{    chemicals_execute_production;	}
-
-
-/* *************************************************
- * INDUSTRY DEFINITION
- * *************************************************/
- 
- if (param_industry_tile_style == 0) {
-
-	item(FEAT_INDUSTRIES, chemicals, 40) {
-		property {
-			substitute: 0;
-			map_colour: 81;
-			life_type: IND_LIFE_TYPE_BLACK_HOLE;
-			layouts: [concrete_industry_tilelayout];
-			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
-			name: string(STR_IND_CHEMICALS);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
-			cargo_types: [
-				accept_cargo("NITR"),
-				accept_cargo("ENSP"),
-
-				produce_cargo("CHEM",0),
-				produce_cargo("WSTE",0),
-				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
-				];
-			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_CHEMICALS));
-		}
-
-		graphics {
-
-			extra_text_fund:		return string(STR_FUND_CHEMICALS);
-			extra_text_industry:	chemicals_extra_text();
-			produce_256_ticks: 		return chemicals_calculate_production;
-
-	}
-}
-}
-
-/*---- materials ----*/
-	
-/* *************************************************
- * PRODUCTION
- * *************************************************/
-
-// Production Line
-	
-produce (materials_execute_production, 
-	[
-	// consumption execution
-				GRVL: LOAD_PERM(110);
-				SAND: LOAD_PERM(111);
-				CLAY: LOAD_PERM(112);
-				RGLA: LOAD_PERM(120);
-				CHEM: LOAD_PERM(130);
-				ENSP: LOAD_PERM(140);
-
-
-	], 
-	[
-	// production execution
-				CMNT: LOAD_PERM(210);
-				WSTE: LOAD_PERM(240);
-				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
-
- 
-	])
-
-// identify cargos 
-
-switch (FEAT_INDUSTRIES, SELF, materials_calculate_production, [
-	
-//store information used to determine production
-	//demand customers
-				STORE_PERM (industry_count(construction_materials),
-							220),
-
-
-	//supply competition
-				STORE_PERM (industry_count(materials),2),
-
-	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
-
-	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
-					
-	// production bias numbers
-				STORE_PERM (transported_last_month_pct("CMNT"),230),
-
-
-// store stockpile amount for use in procedure
-	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
-				STORE_PERM (incoming_cargo_waiting("GRVL"),10),
-				STORE_PERM (incoming_cargo_waiting("SAND"),11),
-				STORE_PERM (incoming_cargo_waiting("CLAY"),12),
-				STORE_PERM (incoming_cargo_waiting("RGLA"),20),
-				STORE_PERM (incoming_cargo_waiting("CHEM"),30),
-				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
-
-
-// calculate consumption per cargo 
-	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
-				STORE_PERM (processing_primary_cargo_consumption_10(),110),
-				STORE_PERM (processing_primary_cargo_consumption_11(),111),
-				STORE_PERM (processing_primary_cargo_consumption_12(),112),
-				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
-				STORE_PERM (processing_support_cargo_consumption_30(),130),
-				STORE_PERM (processing_supply_cargo_consumption_40(),140),
-
-
-// calculate cargo and byproduct production
-	//core cargo production 210-229, byproduct cargo production 240-255
-				STORE_PERM (processing_core_cargo_production_210(),210),
-				STORE_PERM (processing_byproduct_cargo_production_240(),240),
-				STORE_PERM (processing_byproduct_cargo_production_241(),241),
-				STORE_PERM (processing_byproduct_cargo_production_250(),250),
-
-
- ])
-
-// Execute Production
-	{    materials_execute_production;	}
-
-
-/* *************************************************
- * INDUSTRY DEFINITION
- * *************************************************/
- 
- if (param_industry_tile_style == 0) {
-
-	item(FEAT_INDUSTRIES, materials, 41) {
-		property {
-			substitute: 0;
-			map_colour: 58;
-			life_type: IND_LIFE_TYPE_BLACK_HOLE;
-			layouts: [concrete_industry_tilelayout];
-			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
-			name: string(STR_IND_MATERIALS);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
-			cargo_types: [
-				accept_cargo("GRVL"),
-				accept_cargo("SAND"),
-				accept_cargo("CLAY"),
-				accept_cargo("RGLA"),
-				accept_cargo("CHEM"),
-				accept_cargo("ENSP"),
-
-				produce_cargo("CMNT",0),
-				produce_cargo("WSTE",0),
-				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
-				];
-			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_MATERIALS));
-		}
-
-		graphics {
-
-			extra_text_fund:		return string(STR_FUND_MATERIALS);
-			extra_text_industry:	materials_extra_text();
-			produce_256_ticks: 		return materials_calculate_production;
-
-	}
-}
-}
-
-/*---- products ----*/
-	
-/* *************************************************
- * PRODUCTION
- * *************************************************/
-
-// Production Line
-	
-produce (products_execute_production, 
-	[
-	// consumption execution
-				WOOD: LOAD_PERM(110);
-				RFPR: LOAD_PERM(111);
-				SAND: LOAD_PERM(112);
-				RGLA: LOAD_PERM(120);
-				RPAP: LOAD_PERM(121);
-				RPLA: LOAD_PERM(122);
-				COAL: LOAD_PERM(130);
-				CHEM: LOAD_PERM(131);
-				ENSP: LOAD_PERM(140);
-
-
-	], 
-	[
-	// production execution
-				WDPR: LOAD_PERM(210);
-				PAPR: LOAD_PERM(211);
-				PLAS: LOAD_PERM(212);
-				GLAS: LOAD_PERM(213);
-				WSTE: LOAD_PERM(240);
-				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
-
- 
-	])
-
-// identify cargos 
-
-switch (FEAT_INDUSTRIES, SELF, products_calculate_production, [
-	
-//store information used to determine production
-	//demand customers
-				STORE_PERM (industry_count(consumer_goods) + industry_count(farming_supplies) + industry_count(construction_materials),
-							220),
-				STORE_PERM (industry_count(components),
-							221),
-				STORE_PERM (industry_count(components) + industry_count(consumer_goods),
-							222),
-				STORE_PERM (industry_count(components) + industry_count(consumer_goods),
-							223),
-
-
-	//supply competition
-				STORE_PERM (industry_count(products),2),
-
-	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
-
-	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
-					
-	// production bias numbers
-				STORE_PERM (transported_last_month_pct("WDPR"),230),
-				STORE_PERM (transported_last_month_pct("PAPR"),231),
-				STORE_PERM (transported_last_month_pct("PLAS"),232),
-				STORE_PERM (transported_last_month_pct("GLAS"),233),
-
-
-// store stockpile amount for use in procedure
-	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
-				STORE_PERM (incoming_cargo_waiting("WOOD"),10),
-				STORE_PERM (incoming_cargo_waiting("RFPR"),11),
-				STORE_PERM (incoming_cargo_waiting("SAND"),12),
-				STORE_PERM (incoming_cargo_waiting("RGLA"),20),
-				STORE_PERM (incoming_cargo_waiting("RPAP"),21),
-				STORE_PERM (incoming_cargo_waiting("RPLA"),22),
-				STORE_PERM (incoming_cargo_waiting("COAL"),30),
-				STORE_PERM (incoming_cargo_waiting("CHEM"),31),
-				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
-
-
-// calculate consumption per cargo 
-	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
-				STORE_PERM (processing_primary_cargo_consumption_10(),110),
-				STORE_PERM (processing_primary_cargo_consumption_11(),111),
-				STORE_PERM (processing_primary_cargo_consumption_12(),112),
-				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
-				STORE_PERM (processing_secondary_cargo_consumption_21(),121),
-				STORE_PERM (processing_secondary_cargo_consumption_22(),122),
-				STORE_PERM (processing_support_cargo_consumption_30(),130),
-				STORE_PERM (processing_support_cargo_consumption_31(),131),
-				STORE_PERM (processing_supply_cargo_consumption_40(),140),
-
-
-// calculate cargo and byproduct production
-	//core cargo production 210-229, byproduct cargo production 240-255
-				STORE_PERM (processing_core_cargo_production_210(),210),
-				STORE_PERM (processing_core_cargo_production_211(),211),
-				STORE_PERM (processing_core_cargo_production_212(),212),
-				STORE_PERM (processing_core_cargo_production_213(),213),
-				STORE_PERM (processing_byproduct_cargo_production_240(),240),
-				STORE_PERM (processing_byproduct_cargo_production_241(),241),
-				STORE_PERM (processing_byproduct_cargo_production_250(),250),
-
-
- ])
-
-// Execute Production
-	{    products_execute_production;	}
-
-
-/* *************************************************
- * INDUSTRY DEFINITION
- * *************************************************/
- 
- if (param_industry_tile_style == 0) {
-
-	item(FEAT_INDUSTRIES, products, 42) {
-		property {
-			substitute: 0;
-			map_colour: 166;
-			life_type: IND_LIFE_TYPE_BLACK_HOLE;
-			layouts: [concrete_industry_tilelayout];
-			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
-			name: string(STR_IND_PRODUCTS);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
-			cargo_types: [
-				accept_cargo("WOOD"),
-				accept_cargo("RFPR"),
-				accept_cargo("SAND"),
-				accept_cargo("RGLA"),
-				accept_cargo("RPAP"),
-				accept_cargo("RPLA"),
-				accept_cargo("COAL"),
-				accept_cargo("CHEM"),
-				accept_cargo("ENSP"),
-
-				produce_cargo("WDPR",0),
-				produce_cargo("PAPR",0),
-				produce_cargo("PLAS",0),
-				produce_cargo("GLAS",0),
-				produce_cargo("WSTE",0),
-				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
-				];
-			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_PRODUCTS));
-		}
-
-		graphics {
-
-			extra_text_fund:		return string(STR_FUND_PRODUCTS);
-			extra_text_industry:	products_extra_text();
-			produce_256_ticks: 		return products_calculate_production;
-
-	}
-}
-}
-
-/*---- reclamation ----*/
-	
-/* *************************************************
- * PRODUCTION
- * *************************************************/
-
-// Production Line
-	
-produce (reclamation_execute_production, 
-	[
-	// consumption execution
-				RCYC: LOAD_PERM(110);
-				ENSP: LOAD_PERM(140);
-
-
-	], 
-	[
-	// production execution
-				SCMT: LOAD_PERM(210);
-				RPAP: LOAD_PERM(211);
-				RPLA: LOAD_PERM(212);
-				RGLA: LOAD_PERM(213);
-				WSTE: LOAD_PERM(240);
-				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
-
- 
-	])
-
-// identify cargos 
-
-switch (FEAT_INDUSTRIES, SELF, reclamation_calculate_production, [
-	
-//store information used to determine production
-	//demand customers
-				STORE_PERM (industry_count(metals),
-							220),
-				STORE_PERM (industry_count(products),
-							221),
-				STORE_PERM (industry_count(products),
-							222),
-				STORE_PERM (industry_count(materials) + industry_count(products),
-							223),
-
-
-	//supply competition
-				STORE_PERM (industry_count(reclamation),2),
-
-	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
-
-	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
-					
-	// production bias numbers
-				STORE_PERM (transported_last_month_pct("SCMT"),230),
-				STORE_PERM (transported_last_month_pct("RPAP"),231),
-				STORE_PERM (transported_last_month_pct("RPLA"),232),
-				STORE_PERM (transported_last_month_pct("RGLA"),233),
-
-
-// store stockpile amount for use in procedure
-	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
-				STORE_PERM (incoming_cargo_waiting("RCYC"),10),
-				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
-
-
-// calculate consumption per cargo 
-	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
-				STORE_PERM (processing_primary_cargo_consumption_10(),110),
-				STORE_PERM (processing_supply_cargo_consumption_40(),140),
-
-
-// calculate cargo and byproduct production
-	//core cargo production 210-229, byproduct cargo production 240-255
-				STORE_PERM (processing_core_cargo_production_210(),210),
-				STORE_PERM (processing_core_cargo_production_211(),211),
-				STORE_PERM (processing_core_cargo_production_212(),212),
-				STORE_PERM (processing_core_cargo_production_213(),213),
-				STORE_PERM (processing_byproduct_cargo_production_240(),240),
-				STORE_PERM (processing_byproduct_cargo_production_241(),241),
-				STORE_PERM (processing_byproduct_cargo_production_250(),250),
-
-
- ])
-
-// Execute Production
-	{    reclamation_execute_production;	}
-
-
-/* *************************************************
- * INDUSTRY DEFINITION
- * *************************************************/
- 
- if (param_industry_tile_style == 0) {
-
-	item(FEAT_INDUSTRIES, reclamation, 43) {
-		property {
-			substitute: 0;
-			map_colour: 59;
-			life_type: IND_LIFE_TYPE_BLACK_HOLE;
-			layouts: [concrete_industry_tilelayout];
-			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
-			name: string(STR_IND_RECLAMATION);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
-			cargo_types: [
-				accept_cargo("RCYC"),
-				accept_cargo("ENSP"),
-
-				produce_cargo("SCMT",0),
-				produce_cargo("RPAP",0),
-				produce_cargo("RPLA",0),
-				produce_cargo("RGLA",0),
-				produce_cargo("WSTE",0),
-				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
-				];
-			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_RECLAMATION));
-		}
-
-		graphics {
-
-			extra_text_fund:		return string(STR_FUND_RECLAMATION);
-			extra_text_industry:	reclamation_extra_text();
-			produce_256_ticks: 		return reclamation_calculate_production;
-
-	}
-}
-}
-
-/*---- enrichment ----*/
-	
-/* *************************************************
- * PRODUCTION
- * *************************************************/
-
-// Production Line
-	
-produce (enrichment_execute_production, 
-	[
-	// consumption execution
-				URAN: LOAD_PERM(110);
-				POTA: LOAD_PERM(111);
-				CHEM: LOAD_PERM(120);
-				NUKW: LOAD_PERM(121);
-				ENSP: LOAD_PERM(140);
-
-
-	], 
-	[
-	// production execution
-				NUKF: LOAD_PERM(210);
-				FERT: LOAD_PERM(211);
-				WSTE: LOAD_PERM(240);
-				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
-
- 
-	])
-
-// identify cargos 
-
-switch (FEAT_INDUSTRIES, SELF, enrichment_calculate_production, [
-	
-//store information used to determine production
-	//demand customers
-				STORE_PERM (industry_count(farming_supplies),
-							221),
-
-
-	//supply competition
-				STORE_PERM (industry_count(enrichment),2),
-
-	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
-
-	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
-					
-	// production bias numbers
-				STORE_PERM (transported_last_month_pct("NUKF"),230),
-				STORE_PERM (transported_last_month_pct("FERT"),231),
-
-
-// store stockpile amount for use in procedure
-	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
-				STORE_PERM (incoming_cargo_waiting("URAN"),10),
-				STORE_PERM (incoming_cargo_waiting("POTA"),11),
-				STORE_PERM (incoming_cargo_waiting("CHEM"),20),
-				STORE_PERM (incoming_cargo_waiting("NUKW"),21),
-				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
-
-
-// calculate consumption per cargo 
-	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
-				STORE_PERM (processing_primary_cargo_consumption_10(),110),
-				STORE_PERM (processing_primary_cargo_consumption_11(),111),
-				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
-				STORE_PERM (processing_secondary_cargo_consumption_21(),121),
-				STORE_PERM (processing_supply_cargo_consumption_40(),140),
-
-
-// calculate cargo and byproduct production
-	//core cargo production 210-229, byproduct cargo production 240-255
-				STORE_PERM (processing_core_cargo_production_210(),210),
-				STORE_PERM (processing_core_cargo_production_211(),211),
-				STORE_PERM (processing_byproduct_cargo_production_240(),240),
-				STORE_PERM (processing_byproduct_cargo_production_241(),241),
-				STORE_PERM (processing_byproduct_cargo_production_250(),250),
-
-
- ])
-
-// Execute Production
-	{    enrichment_execute_production;	}
-
-
-/* *************************************************
- * INDUSTRY DEFINITION
- * *************************************************/
- 
- if (param_industry_tile_style == 0) {
-
-	item(FEAT_INDUSTRIES, enrichment, 44) {
-		property {
-			substitute: 0;
-			map_colour: 171;
-			life_type: IND_LIFE_TYPE_BLACK_HOLE;
-			layouts: [concrete_industry_tilelayout];
-			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
-			name: string(STR_IND_ENRICHMENT);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
-			cargo_types: [
-				accept_cargo("URAN"),
-				accept_cargo("POTA"),
-				accept_cargo("CHEM"),
-				accept_cargo("NUKW"),
-				accept_cargo("ENSP"),
-
-				produce_cargo("NUKF",0),
-				produce_cargo("FERT",0),
-				produce_cargo("WSTE",0),
-				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
-				];
-			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_ENRICHMENT));
-		}
-
-		graphics {
-
-			extra_text_fund:		return string(STR_FUND_ENRICHMENT);
-			extra_text_industry:	enrichment_extra_text();
-			produce_256_ticks: 		return enrichment_calculate_production;
-
-	}
-}
-}
-
-/*---- steel_mill ----*/
-	
-/* *************************************************
- * PRODUCTION
- * *************************************************/
-
-// Production Line
-	
-produce (steel_mill_execute_production, 
-	[
-	// consumption execution
-				IORE: LOAD_PERM(110);
-				COAL: LOAD_PERM(120);
-				CHEM: LOAD_PERM(130);
-				ENSP: LOAD_PERM(140);
-
-
-	], 
-	[
-	// production execution
-				STEL: LOAD_PERM(210);
-				WSTE: LOAD_PERM(240);
-				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
-
- 
-	])
-
-// identify cargos 
-
-switch (FEAT_INDUSTRIES, SELF, steel_mill_calculate_production, [
-	
-//store information used to determine production
-	//demand customers
-
-
-	//supply competition
-				STORE_PERM (industry_count(steel_mill),2),
-
-	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
-
-	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
-					
-	// production bias numbers
-				STORE_PERM (transported_last_month_pct("STEL"),230),
-
-
-// store stockpile amount for use in procedure
-	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
-				STORE_PERM (incoming_cargo_waiting("IORE"),10),
-				STORE_PERM (incoming_cargo_waiting("COAL"),20),
-				STORE_PERM (incoming_cargo_waiting("CHEM"),30),
-				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
-
-
-// calculate consumption per cargo 
-	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
-				STORE_PERM (processing_primary_cargo_consumption_10(),110),
-				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
-				STORE_PERM (processing_support_cargo_consumption_30(),130),
-				STORE_PERM (processing_supply_cargo_consumption_40(),140),
-
-
-// calculate cargo and byproduct production
-	//core cargo production 210-229, byproduct cargo production 240-255
-				STORE_PERM (processing_core_cargo_production_210(),210),
-				STORE_PERM (processing_byproduct_cargo_production_240(),240),
-				STORE_PERM (processing_byproduct_cargo_production_241(),241),
-				STORE_PERM (processing_byproduct_cargo_production_250(),250),
-
-
- ])
-
-// Execute Production
-	{    steel_mill_execute_production;	}
-
-
-/* *************************************************
- * INDUSTRY DEFINITION
- * *************************************************/
- 
- if (param_industry_tile_style == 1) {
-
-	item(FEAT_INDUSTRIES, steel_mill, 3) {
-		property {
-			substitute: 0;
-			map_colour: 10;
-			life_type: IND_LIFE_TYPE_BLACK_HOLE;
-			layouts: [concrete_industry_tilelayout];
-			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
-			name: string(STR_IND_STEEL_MILL);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
-			cargo_types: [
-				accept_cargo("IORE"),
-				accept_cargo("COAL"),
-				accept_cargo("CHEM"),
-				accept_cargo("ENSP"),
-
-				produce_cargo("STEL",0),
-				produce_cargo("WSTE",0),
-				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
-				];
-			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_STEEL_MILL));
-		}
-
-		graphics {
-
-			extra_text_fund:		return string(STR_FUND_STEEL_MILL);
-			extra_text_industry:	steel_mill_extra_text();
-			produce_256_ticks: 		return steel_mill_calculate_production;
-
-	}
-}
-}
 
 /*---- inland_extraction ----*/
 	
@@ -4489,7 +3198,7 @@ produce (inland_extraction_execute_production,
 				OIL_: LOAD_PERM(210);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -4508,11 +3217,11 @@ switch (FEAT_INDUSTRIES, SELF, inland_extraction_calculate_production, [
 				STORE_PERM (industry_count(inland_extraction),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("OIL_"),230),
@@ -4565,7 +3274,7 @@ switch (FEAT_INDUSTRIES, SELF, inland_extraction_calculate_production, [
 				produce_cargo("OIL_",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_INLAND_EXTRACTION));
 		}
@@ -4600,7 +3309,7 @@ produce (offshore_extraction_execute_production,
 				OIL_: LOAD_PERM(210);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -4619,11 +3328,11 @@ switch (FEAT_INDUSTRIES, SELF, offshore_extraction_calculate_production, [
 				STORE_PERM (industry_count(offshore_extraction),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("OIL_"),230),
@@ -4676,7 +3385,7 @@ switch (FEAT_INDUSTRIES, SELF, offshore_extraction_calculate_production, [
 				produce_cargo("OIL_",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_OFFSHORE_EXTRACTION));
 		}
@@ -4711,7 +3420,7 @@ produce (inland_fisheries_execute_production,
 				FISH: LOAD_PERM(210);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -4730,11 +3439,11 @@ switch (FEAT_INDUSTRIES, SELF, inland_fisheries_calculate_production, [
 				STORE_PERM (industry_count(inland_fisheries),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("FISH"),230),
@@ -4787,7 +3496,7 @@ switch (FEAT_INDUSTRIES, SELF, inland_fisheries_calculate_production, [
 				produce_cargo("FISH",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_INLAND_FISHERIES));
 		}
@@ -4822,7 +3531,7 @@ produce (offshore_fisheries_execute_production,
 				FISH: LOAD_PERM(210);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -4841,11 +3550,11 @@ switch (FEAT_INDUSTRIES, SELF, offshore_fisheries_calculate_production, [
 				STORE_PERM (industry_count(offshore_fisheries),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("FISH"),230),
@@ -4898,7 +3607,7 @@ switch (FEAT_INDUSTRIES, SELF, offshore_fisheries_calculate_production, [
 				produce_cargo("FISH",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_OFFSHORE_FISHERIES));
 		}
@@ -4935,7 +3644,7 @@ produce (inland_excavation_execute_production,
 				CLAY: LOAD_PERM(212);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -4958,11 +3667,11 @@ switch (FEAT_INDUSTRIES, SELF, inland_excavation_calculate_production, [
 				STORE_PERM (industry_count(inland_excavation),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("GRVL"),230),
@@ -5021,7 +3730,7 @@ switch (FEAT_INDUSTRIES, SELF, inland_excavation_calculate_production, [
 				produce_cargo("CLAY",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_INLAND_EXCAVATION));
 		}
@@ -5047,7 +3756,7 @@ switch (FEAT_INDUSTRIES, SELF, inland_excavation_calculate_production, [
 produce (offshore_excavation_execute_production, 
 	[
 	// consumption execution
-				ENSP: LOAD_PERM(140);
+				SESP: LOAD_PERM(140);
 
 
 	], 
@@ -5058,7 +3767,7 @@ produce (offshore_excavation_execute_production,
 				CLAY: LOAD_PERM(212);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -5081,11 +3790,11 @@ switch (FEAT_INDUSTRIES, SELF, offshore_excavation_calculate_production, [
 				STORE_PERM (industry_count(offshore_excavation),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("GRVL"),230),
@@ -5095,7 +3804,7 @@ switch (FEAT_INDUSTRIES, SELF, offshore_excavation_calculate_production, [
 
 // store stockpile amount for use in procedure
 	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
-				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+				STORE_PERM (incoming_cargo_waiting("SESP"),40),
 
 
 // calculate consumption per cargo 
@@ -5137,14 +3846,14 @@ switch (FEAT_INDUSTRIES, SELF, offshore_excavation_calculate_production, [
 			prob_in_game: 0;
 			fund_cost_multiplier: 255;
 			cargo_types: [
-				accept_cargo("ENSP"),
+				accept_cargo("SESP"),
 
 				produce_cargo("GRVL",0),
 				produce_cargo("SAND",0),
 				produce_cargo("CLAY",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_OFFSHORE_EXCAVATION));
 		}
@@ -5185,7 +3894,7 @@ produce (mining_execute_production,
 				NITR: LOAD_PERM(216);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -5216,11 +3925,11 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 				STORE_PERM (industry_count(mining),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("COAL"),230),
@@ -5291,7 +4000,7 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 				produce_cargo("NITR",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_MINING));
 		}
@@ -5328,7 +4037,7 @@ produce (husbandry_execute_production,
 				WOOL: LOAD_PERM(212);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -5351,11 +4060,11 @@ switch (FEAT_INDUSTRIES, SELF, husbandry_calculate_production, [
 				STORE_PERM (industry_count(husbandry),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("LVST"),230),
@@ -5414,7 +4123,7 @@ switch (FEAT_INDUSTRIES, SELF, husbandry_calculate_production, [
 				produce_cargo("WOOL",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_HUSBANDRY));
 		}
@@ -5451,7 +4160,7 @@ produce (cultivation_execute_production,
 				FICR: LOAD_PERM(212);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -5474,11 +4183,11 @@ switch (FEAT_INDUSTRIES, SELF, cultivation_calculate_production, [
 				STORE_PERM (industry_count(cultivation),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("GRAI"),230),
@@ -5537,7 +4246,7 @@ switch (FEAT_INDUSTRIES, SELF, cultivation_calculate_production, [
 				produce_cargo("FICR",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_CULTIVATION));
 		}
@@ -5572,7 +4281,7 @@ produce (forestry_execute_production,
 				WOOD: LOAD_PERM(210);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -5591,11 +4300,11 @@ switch (FEAT_INDUSTRIES, SELF, forestry_calculate_production, [
 				STORE_PERM (industry_count(forestry),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("WOOD"),230),
@@ -5648,7 +4357,7 @@ switch (FEAT_INDUSTRIES, SELF, forestry_calculate_production, [
 				produce_cargo("WOOD",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_FORESTRY));
 		}
@@ -5658,228 +4367,6 @@ switch (FEAT_INDUSTRIES, SELF, forestry_calculate_production, [
 			extra_text_fund:		return string(STR_FUND_FORESTRY);
 			extra_text_industry:	forestry_extra_text();
 			produce_256_ticks: 		return forestry_calculate_production;
-
-	}
-}
-}
-
-/*---- coal_mine ----*/
-	
-/* *************************************************
- * PRODUCTION
- * *************************************************/
-
-// Production Line
-	
-produce (coal_mine_execute_production, 
-	[
-	// consumption execution
-				ENSP: LOAD_PERM(140);
-
-
-	], 
-	[
-	// production execution
-				COAL: LOAD_PERM(210);
-				WSTE: LOAD_PERM(240);
-				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
-
- 
-	])
-
-// identify cargos 
-
-switch (FEAT_INDUSTRIES, SELF, coal_mine_calculate_production, [
-	
-//store information used to determine production
-	//demand customers
-				STORE_PERM (industry_count(steel_mill),
-							220),
-
-
-	//supply competition
-				STORE_PERM (industry_count(coal_mine),2),
-
-	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
-
-	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
-					
-	// production bias numbers
-				STORE_PERM (transported_last_month_pct("COAL"),230),
-
-
-// store stockpile amount for use in procedure
-	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
-				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
-
-
-// calculate consumption per cargo 
-	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
-				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
-
-
-// calculate cargo and byproduct production
-	//core cargo production 210-229, byproduct cargo production 240-255
-				STORE_PERM (extraction_core_cargo_production_210(),210),
-				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
-				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
-				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
-
-
- ])
-
-// Execute Production
-	{    coal_mine_execute_production;	}
-
-
-/* *************************************************
- * INDUSTRY DEFINITION
- * *************************************************/
- 
- if (param_industry_tile_style == 1) {
-
-	item(FEAT_INDUSTRIES, coal_mine, 1) {
-		property {
-			substitute: 0;
-			map_colour: 2;
-			life_type: IND_LIFE_TYPE_BLACK_HOLE;
-			layouts: [dirt_industry_tilelayout];
-			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
-			name: string(STR_IND_COAL_MINE);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
-			cargo_types: [
-				accept_cargo("ENSP"),
-
-				produce_cargo("COAL",0),
-				produce_cargo("WSTE",0),
-				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
-				];
-			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_COAL_MINE));
-		}
-
-		graphics {
-
-			extra_text_fund:		return string(STR_FUND_COAL_MINE);
-			extra_text_industry:	coal_mine_extra_text();
-			produce_256_ticks: 		return coal_mine_calculate_production;
-
-	}
-}
-}
-
-/*---- iron_ore_mine ----*/
-	
-/* *************************************************
- * PRODUCTION
- * *************************************************/
-
-// Production Line
-	
-produce (iron_ore_mine_execute_production, 
-	[
-	// consumption execution
-				ENSP: LOAD_PERM(140);
-
-
-	], 
-	[
-	// production execution
-				IORE: LOAD_PERM(210);
-				WSTE: LOAD_PERM(240);
-				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
-
- 
-	])
-
-// identify cargos 
-
-switch (FEAT_INDUSTRIES, SELF, iron_ore_mine_calculate_production, [
-	
-//store information used to determine production
-	//demand customers
-				STORE_PERM (industry_count(steel_mill),
-							220),
-
-
-	//supply competition
-				STORE_PERM (industry_count(iron_ore_mine),2),
-
-	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
-
-	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
-					
-	// production bias numbers
-				STORE_PERM (transported_last_month_pct("IORE"),230),
-
-
-// store stockpile amount for use in procedure
-	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
-				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
-
-
-// calculate consumption per cargo 
-	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
-				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
-
-
-// calculate cargo and byproduct production
-	//core cargo production 210-229, byproduct cargo production 240-255
-				STORE_PERM (extraction_core_cargo_production_210(),210),
-				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
-				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
-				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
-
-
- ])
-
-// Execute Production
-	{    iron_ore_mine_execute_production;	}
-
-
-/* *************************************************
- * INDUSTRY DEFINITION
- * *************************************************/
- 
- if (param_industry_tile_style == 1) {
-
-	item(FEAT_INDUSTRIES, iron_ore_mine, 2) {
-		property {
-			substitute: 0;
-			map_colour: 187;
-			life_type: IND_LIFE_TYPE_BLACK_HOLE;
-			layouts: [dirt_industry_tilelayout];
-			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
-			name: string(STR_IND_IRON_ORE_MINE);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
-			cargo_types: [
-				accept_cargo("ENSP"),
-
-				produce_cargo("IORE",0),
-				produce_cargo("WSTE",0),
-				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
-				];
-			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_IRON_ORE_MINE));
-		}
-
-		graphics {
-
-			extra_text_fund:		return string(STR_FUND_IRON_ORE_MINE);
-			extra_text_industry:	iron_ore_mine_extra_text();
-			produce_256_ticks: 		return iron_ore_mine_calculate_production;
 
 	}
 }
@@ -5916,7 +4403,7 @@ produce (components_execute_production,
 				POWR: LOAD_PERM(212);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -5939,11 +4426,11 @@ switch (FEAT_INDUSTRIES, SELF, components_calculate_production, [
 				STORE_PERM (industry_count(components),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("PACK"),230),
@@ -6029,7 +4516,7 @@ switch (FEAT_INDUSTRIES, SELF, components_calculate_production, [
 				produce_cargo("POWR",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_COMPONENTS));
 		}
@@ -6075,7 +4562,7 @@ produce (consumer_goods_execute_production,
 				VEHI: LOAD_PERM(211);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -6086,21 +4573,17 @@ switch (FEAT_INDUSTRIES, SELF, consumer_goods_calculate_production, [
 	
 //store information used to determine production
 	//demand customers
-				STORE_PERM (industry_count(retail),
-							220),
-				STORE_PERM (industry_count(retail),
-							221),
 
 
 	//supply competition
 				STORE_PERM (industry_count(consumer_goods),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("GOOD"),230),
@@ -6186,7 +4669,7 @@ switch (FEAT_INDUSTRIES, SELF, consumer_goods_calculate_production, [
 				produce_cargo("VEHI",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_CONSUMER_GOODS));
 		}
@@ -6232,7 +4715,7 @@ produce (food_processing_execute_production,
 				TEXT: LOAD_PERM(212);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -6243,10 +4726,6 @@ switch (FEAT_INDUSTRIES, SELF, food_processing_calculate_production, [
 	
 //store information used to determine production
 	//demand customers
-				STORE_PERM (industry_count(retail),
-							220),
-				STORE_PERM (industry_count(retail),
-							221),
 				STORE_PERM (industry_count(consumer_goods) + industry_count(marine_supplies),
 							222),
 
@@ -6255,11 +4734,11 @@ switch (FEAT_INDUSTRIES, SELF, food_processing_calculate_production, [
 				STORE_PERM (industry_count(food_processing),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("FOOD"),230),
@@ -6345,7 +4824,7 @@ switch (FEAT_INDUSTRIES, SELF, food_processing_calculate_production, [
 				produce_cargo("TEXT",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_FOOD_PROCESSING));
 		}
@@ -6383,7 +4862,7 @@ produce (engineering_supplies_execute_production,
 				ENSP: LOAD_PERM(210);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -6394,7 +4873,7 @@ switch (FEAT_INDUSTRIES, SELF, engineering_supplies_calculate_production, [
 	
 //store information used to determine production
 	//demand customers
-				STORE_PERM (industry_count(metals) + industry_count(purification) + industry_count(refinement) + industry_count(chemicals) + industry_count(materials) + industry_count(products) + industry_count(reclamation) + industry_count(enrichment) + industry_count(inland_extraction) + industry_count(inland_fisheries) + industry_count(inland_excavation) + industry_count(offshore_excavation) + industry_count(mining),
+				STORE_PERM (industry_count(inland_extraction) + industry_count(inland_fisheries) + industry_count(inland_excavation) + industry_count(mining) + industry_count(metals) + industry_count(purification) + industry_count(refinement) + industry_count(chemicals) + industry_count(materials) + industry_count(products) + industry_count(reclamation) + industry_count(enrichment),
 							220),
 
 
@@ -6402,11 +4881,11 @@ switch (FEAT_INDUSTRIES, SELF, engineering_supplies_calculate_production, [
 				STORE_PERM (industry_count(engineering_supplies),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("ENSP"),230),
@@ -6468,7 +4947,7 @@ switch (FEAT_INDUSTRIES, SELF, engineering_supplies_calculate_production, [
 				produce_cargo("ENSP",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_ENGINEERING_SUPPLIES));
 		}
@@ -6506,7 +4985,7 @@ produce (farming_supplies_execute_production,
 				FMSP: LOAD_PERM(210);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -6525,11 +5004,11 @@ switch (FEAT_INDUSTRIES, SELF, farming_supplies_calculate_production, [
 				STORE_PERM (industry_count(farming_supplies),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("FMSP"),230),
@@ -6591,7 +5070,7 @@ switch (FEAT_INDUSTRIES, SELF, farming_supplies_calculate_production, [
 				produce_cargo("FMSP",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_FARMING_SUPPLIES));
 		}
@@ -6629,7 +5108,7 @@ produce (marine_supplies_execute_production,
 				SESP: LOAD_PERM(210);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -6640,7 +5119,7 @@ switch (FEAT_INDUSTRIES, SELF, marine_supplies_calculate_production, [
 	
 //store information used to determine production
 	//demand customers
-				STORE_PERM (industry_count(offshore_extraction) + industry_count(offshore_fisheries),
+				STORE_PERM (industry_count(offshore_extraction) + industry_count(offshore_fisheries) + industry_count(offshore_excavation),
 							220),
 
 
@@ -6648,11 +5127,11 @@ switch (FEAT_INDUSTRIES, SELF, marine_supplies_calculate_production, [
 				STORE_PERM (industry_count(marine_supplies),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("SESP"),230),
@@ -6714,7 +5193,7 @@ switch (FEAT_INDUSTRIES, SELF, marine_supplies_calculate_production, [
 				produce_cargo("SESP",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_MARINE_SUPPLIES));
 		}
@@ -6752,7 +5231,7 @@ produce (manufacturing_supplies_execute_production,
 				MNSP: LOAD_PERM(210);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -6771,11 +5250,11 @@ switch (FEAT_INDUSTRIES, SELF, manufacturing_supplies_calculate_production, [
 				STORE_PERM (industry_count(manufacturing_supplies),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("MNSP"),230),
@@ -6837,7 +5316,7 @@ switch (FEAT_INDUSTRIES, SELF, manufacturing_supplies_calculate_production, [
 				produce_cargo("MNSP",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_MANUFACTURING_SUPPLIES));
 		}
@@ -6875,7 +5354,7 @@ produce (construction_materials_execute_production,
 				BDMT: LOAD_PERM(210);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
-				COMM: LOAD_PERM(250);
+				PASS: LOAD_PERM(250);
 
  
 	])
@@ -6886,19 +5365,17 @@ switch (FEAT_INDUSTRIES, SELF, construction_materials_calculate_production, [
 	
 //store information used to determine production
 	//demand customers
-				STORE_PERM (industry_count(retail),
-							220),
 
 
 	//supply competition
 				STORE_PERM (industry_count(construction_materials),2),
 
 	// commuters transported 	
-				STORE_PERM 	(transported_last_month_pct("COMM"),5),
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
 
 	// byproducts transported 
-				STORE_PERM 	(last_month_transported("WSTE") + 						
-							last_month_transported("RCYC") ,6),
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("BDMT"),230),
@@ -6960,7 +5437,7 @@ switch (FEAT_INDUSTRIES, SELF, construction_materials_calculate_production, [
 				produce_cargo("BDMT",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
-				produce_cargo("COMM",0)
+				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_CONSTRUCTION_MATERIALS));
 		}
@@ -6975,104 +5452,105 @@ switch (FEAT_INDUSTRIES, SELF, construction_materials_calculate_production, [
 }
 }
 
-/*---- retail ----*/
+/*---- metals ----*/
 	
 /* *************************************************
  * PRODUCTION
  * *************************************************/
 
 // Production Line
-
-produce (retail_execute_consumption, 
+	
+produce (metals_execute_production, 
 	[
 	// consumption execution
-				PASS: LOAD_PERM(110);
-				MAIL: LOAD_PERM(111);
-				GOOD: LOAD_PERM(112);
-				VEHI: LOAD_PERM(113);
-				FOOD: LOAD_PERM(114);
-				PETR: LOAD_PERM(115);
-				BEER: LOAD_PERM(116);
-				BDMT: LOAD_PERM(117);
+				IORE: LOAD_PERM(110);
+				AORE: LOAD_PERM(111);
+				CORE: LOAD_PERM(112);
+				COAL: LOAD_PERM(120);
+				SCMT: LOAD_PERM(121);
+				CHEM: LOAD_PERM(130);
+				ENSP: LOAD_PERM(140);
 
 
 	], 
 	[
 	// production execution
-
- 
-	])
-
-produce (retail_execute_production, 
-	[
-	// consumption execution
-
-
-	], 
-	[
-	// production execution
-				PASS: LOAD_PERM(210);
-				MAIL: LOAD_PERM(211);
-				PCL_: LOAD_PERM(212);
-				WSTE: LOAD_PERM(213);
-				RCYC: LOAD_PERM(214);
+				STEL: LOAD_PERM(210);
+				ALUM: LOAD_PERM(211);
+				COPR: LOAD_PERM(212);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				PASS: LOAD_PERM(250);
 
  
 	])
 
 // identify cargos 
 
-switch (FEAT_INDUSTRIES, SELF, retail_calculate_consumption, [
-
-// store information for use in the procedure
-
-	STORE_PERM 	(town_euclidean_dist(0,0),3),
-	STORE_PERM 	(town_zone(0,0),4),
+switch (FEAT_INDUSTRIES, SELF, metals_calculate_production, [
 	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(components) + industry_count(consumer_goods) + industry_count(engineering_supplies),
+							220),
+				STORE_PERM (industry_count(components) + industry_count(consumer_goods),
+							221),
+				STORE_PERM (industry_count(components),
+							222),
+
+
+	//supply competition
+				STORE_PERM (industry_count(metals),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),				
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("STEL"),230),
+				STORE_PERM (transported_last_month_pct("ALUM"),231),
+				STORE_PERM (transported_last_month_pct("COPR"),232),
+
+
 // store stockpile amount for use in procedure
 	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
-				STORE_PERM (incoming_cargo_waiting("PASS"),10),
-				STORE_PERM (incoming_cargo_waiting("MAIL"),11),
-				STORE_PERM (incoming_cargo_waiting("GOOD"),12),
-				STORE_PERM (incoming_cargo_waiting("VEHI"),13),
-				STORE_PERM (incoming_cargo_waiting("FOOD"),14),
-				STORE_PERM (incoming_cargo_waiting("PETR"),15),
-				STORE_PERM (incoming_cargo_waiting("BEER"),16),
-				STORE_PERM (incoming_cargo_waiting("BDMT"),17),
+				STORE_PERM (incoming_cargo_waiting("IORE"),10),
+				STORE_PERM (incoming_cargo_waiting("AORE"),11),
+				STORE_PERM (incoming_cargo_waiting("CORE"),12),
+				STORE_PERM (incoming_cargo_waiting("COAL"),20),
+				STORE_PERM (incoming_cargo_waiting("SCMT"),21),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),30),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
 
 
 // calculate consumption per cargo 
 	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
-				STORE_PERM (distribution_primary_cargo_consumption_10(),110),
-				STORE_PERM (distribution_primary_cargo_consumption_11(),111),
-				STORE_PERM (distribution_primary_cargo_consumption_12(),112),
-				STORE_PERM (distribution_primary_cargo_consumption_13(),113),
-				STORE_PERM (distribution_primary_cargo_consumption_14(),114),
-				STORE_PERM (distribution_primary_cargo_consumption_15(),115),
-				STORE_PERM (distribution_primary_cargo_consumption_16(),116),
-				STORE_PERM (distribution_primary_cargo_consumption_17(),117),
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_primary_cargo_consumption_11(),111),
+				STORE_PERM (processing_primary_cargo_consumption_12(),112),
+				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (processing_secondary_cargo_consumption_21(),121),
+				STORE_PERM (processing_support_cargo_consumption_30(),130),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
 
 
- ])
-
-// Execute Production
-	{    retail_execute_consumption;	}
-
-switch (FEAT_INDUSTRIES, SELF, retail_calculate_production, [
-	
 // calculate cargo and byproduct production
 	//core cargo production 210-229, byproduct cargo production 240-255
-				STORE_PERM (distribution_core_cargo_production_210(),210),
-				STORE_PERM (distribution_core_cargo_production_211(),211),
-				STORE_PERM (distribution_core_cargo_production_212(),212),
-				STORE_PERM (distribution_core_cargo_production_213(),213),
-				STORE_PERM (distribution_core_cargo_production_214(),214),
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_core_cargo_production_211(),211),
+				STORE_PERM (processing_core_cargo_production_212(),212),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
 
 
  ])
 
 // Execute Production
-	{    retail_execute_production;	}
+	{    metals_execute_production;	}
 
 
 /* *************************************************
@@ -7081,43 +5559,968 @@ switch (FEAT_INDUSTRIES, SELF, retail_calculate_production, [
  
  if (param_industry_tile_style == 0) {
 
-	item(FEAT_INDUSTRIES, retail, 109) {
+	item(FEAT_INDUSTRIES, metals, 37) {
 		property {
 			substitute: 0;
-			map_colour: 142;
+			map_colour: 36;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
-			name: string(STR_IND_RETAIL);
+			name: string(STR_IND_METALS);
 			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
 			prob_in_game: 0;
 			fund_cost_multiplier: 255;
 			cargo_types: [
-				accept_cargo("PASS"),
-				accept_cargo("MAIL"),
-				accept_cargo("GOOD"),
-				accept_cargo("VEHI"),
-				accept_cargo("FOOD"),
-				accept_cargo("PETR"),
-				accept_cargo("BEER"),
-				accept_cargo("BDMT"),
+				accept_cargo("IORE"),
+				accept_cargo("AORE"),
+				accept_cargo("CORE"),
+				accept_cargo("COAL"),
+				accept_cargo("SCMT"),
+				accept_cargo("CHEM"),
+				accept_cargo("ENSP"),
 
-				produce_cargo("PASS",0),
-				produce_cargo("MAIL",0),
-				produce_cargo("PCL_",0),
+				produce_cargo("STEL",0),
+				produce_cargo("ALUM",0),
+				produce_cargo("COPR",0),
 				produce_cargo("WSTE",0),
-				produce_cargo("RCYC",0)
+				produce_cargo("RCYC",0),
+				produce_cargo("PASS",0)
 				];
-			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_RETAIL));
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_METALS));
 		}
 
 		graphics {
 
-			extra_text_fund:		return string(STR_FUND_RETAIL);
-			extra_text_industry:	retail_extra_text();
-			produce_256_ticks: 		return retail_calculate_production;
-			produce_cargo_arrival: 	return retail_calculate_consumption;
-			cargo_subtype_display:	cargo_subtype_display;
+			extra_text_fund:		return string(STR_FUND_METALS);
+			extra_text_industry:	metals_extra_text();
+			produce_256_ticks: 		return metals_calculate_production;
+
+	}
+}
+}
+
+/*---- purification ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (purification_execute_production, 
+	[
+	// consumption execution
+				NITR: LOAD_PERM(110);
+				GRVL: LOAD_PERM(111);
+				SAND: LOAD_PERM(112);
+				COAL: LOAD_PERM(120);
+				CHEM: LOAD_PERM(130);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				LITH: LOAD_PERM(210);
+				SILI: LOAD_PERM(211);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				PASS: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, purification_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(components),
+							220),
+				STORE_PERM (industry_count(components),
+							221),
+
+
+	//supply competition
+				STORE_PERM (industry_count(purification),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),				
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("LITH"),230),
+				STORE_PERM (transported_last_month_pct("SILI"),231),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("NITR"),10),
+				STORE_PERM (incoming_cargo_waiting("GRVL"),11),
+				STORE_PERM (incoming_cargo_waiting("SAND"),12),
+				STORE_PERM (incoming_cargo_waiting("COAL"),20),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),30),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_primary_cargo_consumption_11(),111),
+				STORE_PERM (processing_primary_cargo_consumption_12(),112),
+				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (processing_support_cargo_consumption_30(),130),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_core_cargo_production_211(),211),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    purification_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, purification, 38) {
+		property {
+			substitute: 0;
+			map_colour: 152;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_PURIFICATION);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("NITR"),
+				accept_cargo("GRVL"),
+				accept_cargo("SAND"),
+				accept_cargo("COAL"),
+				accept_cargo("CHEM"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("LITH",0),
+				produce_cargo("SILI",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("PASS",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_PURIFICATION));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_PURIFICATION);
+			extra_text_industry:	purification_extra_text();
+			produce_256_ticks: 		return purification_calculate_production;
+
+	}
+}
+}
+
+/*---- refinement ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (refinement_execute_production, 
+	[
+	// consumption execution
+				OIL_: LOAD_PERM(110);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				PETR: LOAD_PERM(210);
+				RFPR: LOAD_PERM(211);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				PASS: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, refinement_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(products),
+							221),
+
+
+	//supply competition
+				STORE_PERM (industry_count(refinement),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),				
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("PETR"),230),
+				STORE_PERM (transported_last_month_pct("RFPR"),231),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("OIL_"),10),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_core_cargo_production_211(),211),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    refinement_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, refinement, 39) {
+		property {
+			substitute: 0;
+			map_colour: 146;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_REFINEMENT);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("OIL_"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("PETR",0),
+				produce_cargo("RFPR",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("PASS",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_REFINEMENT));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_REFINEMENT);
+			extra_text_industry:	refinement_extra_text();
+			produce_256_ticks: 		return refinement_calculate_production;
+
+	}
+}
+}
+
+/*---- chemicals ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (chemicals_execute_production, 
+	[
+	// consumption execution
+				NITR: LOAD_PERM(110);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				CHEM: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				PASS: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, chemicals_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(components) + industry_count(consumer_goods) + industry_count(food_processing) + industry_count(marine_supplies) + industry_count(manufacturing_supplies) + industry_count(metals) + industry_count(purification) + industry_count(materials) + industry_count(products) + industry_count(enrichment),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(chemicals),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),				
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("CHEM"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("NITR"),10),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    chemicals_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, chemicals, 40) {
+		property {
+			substitute: 0;
+			map_colour: 81;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_CHEMICALS);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("NITR"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("CHEM",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("PASS",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_CHEMICALS));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_CHEMICALS);
+			extra_text_industry:	chemicals_extra_text();
+			produce_256_ticks: 		return chemicals_calculate_production;
+
+	}
+}
+}
+
+/*---- materials ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (materials_execute_production, 
+	[
+	// consumption execution
+				GRVL: LOAD_PERM(110);
+				SAND: LOAD_PERM(111);
+				CLAY: LOAD_PERM(112);
+				RGLA: LOAD_PERM(120);
+				CHEM: LOAD_PERM(130);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				CMNT: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				PASS: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, materials_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(construction_materials),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(materials),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),				
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("CMNT"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("GRVL"),10),
+				STORE_PERM (incoming_cargo_waiting("SAND"),11),
+				STORE_PERM (incoming_cargo_waiting("CLAY"),12),
+				STORE_PERM (incoming_cargo_waiting("RGLA"),20),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),30),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_primary_cargo_consumption_11(),111),
+				STORE_PERM (processing_primary_cargo_consumption_12(),112),
+				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (processing_support_cargo_consumption_30(),130),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    materials_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, materials, 41) {
+		property {
+			substitute: 0;
+			map_colour: 58;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_MATERIALS);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("GRVL"),
+				accept_cargo("SAND"),
+				accept_cargo("CLAY"),
+				accept_cargo("RGLA"),
+				accept_cargo("CHEM"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("CMNT",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("PASS",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_MATERIALS));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_MATERIALS);
+			extra_text_industry:	materials_extra_text();
+			produce_256_ticks: 		return materials_calculate_production;
+
+	}
+}
+}
+
+/*---- products ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (products_execute_production, 
+	[
+	// consumption execution
+				WOOD: LOAD_PERM(110);
+				RFPR: LOAD_PERM(111);
+				SAND: LOAD_PERM(112);
+				RGLA: LOAD_PERM(120);
+				RPAP: LOAD_PERM(121);
+				RPLA: LOAD_PERM(122);
+				COAL: LOAD_PERM(130);
+				CHEM: LOAD_PERM(131);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				WDPR: LOAD_PERM(210);
+				PAPR: LOAD_PERM(211);
+				PLAS: LOAD_PERM(212);
+				GLAS: LOAD_PERM(213);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				PASS: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, products_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(consumer_goods) + industry_count(farming_supplies) + industry_count(construction_materials),
+							220),
+				STORE_PERM (industry_count(components),
+							221),
+				STORE_PERM (industry_count(components) + industry_count(consumer_goods),
+							222),
+				STORE_PERM (industry_count(components) + industry_count(consumer_goods),
+							223),
+
+
+	//supply competition
+				STORE_PERM (industry_count(products),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),				
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("WDPR"),230),
+				STORE_PERM (transported_last_month_pct("PAPR"),231),
+				STORE_PERM (transported_last_month_pct("PLAS"),232),
+				STORE_PERM (transported_last_month_pct("GLAS"),233),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("WOOD"),10),
+				STORE_PERM (incoming_cargo_waiting("RFPR"),11),
+				STORE_PERM (incoming_cargo_waiting("SAND"),12),
+				STORE_PERM (incoming_cargo_waiting("RGLA"),20),
+				STORE_PERM (incoming_cargo_waiting("RPAP"),21),
+				STORE_PERM (incoming_cargo_waiting("RPLA"),22),
+				STORE_PERM (incoming_cargo_waiting("COAL"),30),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),31),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_primary_cargo_consumption_11(),111),
+				STORE_PERM (processing_primary_cargo_consumption_12(),112),
+				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (processing_secondary_cargo_consumption_21(),121),
+				STORE_PERM (processing_secondary_cargo_consumption_22(),122),
+				STORE_PERM (processing_support_cargo_consumption_30(),130),
+				STORE_PERM (processing_support_cargo_consumption_31(),131),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_core_cargo_production_211(),211),
+				STORE_PERM (processing_core_cargo_production_212(),212),
+				STORE_PERM (processing_core_cargo_production_213(),213),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    products_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, products, 42) {
+		property {
+			substitute: 0;
+			map_colour: 166;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_PRODUCTS);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("WOOD"),
+				accept_cargo("RFPR"),
+				accept_cargo("SAND"),
+				accept_cargo("RGLA"),
+				accept_cargo("RPAP"),
+				accept_cargo("RPLA"),
+				accept_cargo("COAL"),
+				accept_cargo("CHEM"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("WDPR",0),
+				produce_cargo("PAPR",0),
+				produce_cargo("PLAS",0),
+				produce_cargo("GLAS",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("PASS",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_PRODUCTS));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_PRODUCTS);
+			extra_text_industry:	products_extra_text();
+			produce_256_ticks: 		return products_calculate_production;
+
+	}
+}
+}
+
+/*---- reclamation ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (reclamation_execute_production, 
+	[
+	// consumption execution
+				RCYC: LOAD_PERM(110);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				SCMT: LOAD_PERM(210);
+				RPAP: LOAD_PERM(211);
+				RPLA: LOAD_PERM(212);
+				RGLA: LOAD_PERM(213);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				PASS: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, reclamation_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(metals),
+							220),
+				STORE_PERM (industry_count(products),
+							221),
+				STORE_PERM (industry_count(products),
+							222),
+				STORE_PERM (industry_count(materials) + industry_count(products),
+							223),
+
+
+	//supply competition
+				STORE_PERM (industry_count(reclamation),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),				
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("SCMT"),230),
+				STORE_PERM (transported_last_month_pct("RPAP"),231),
+				STORE_PERM (transported_last_month_pct("RPLA"),232),
+				STORE_PERM (transported_last_month_pct("RGLA"),233),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("RCYC"),10),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_core_cargo_production_211(),211),
+				STORE_PERM (processing_core_cargo_production_212(),212),
+				STORE_PERM (processing_core_cargo_production_213(),213),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    reclamation_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, reclamation, 43) {
+		property {
+			substitute: 0;
+			map_colour: 59;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_RECLAMATION);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("RCYC"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("SCMT",0),
+				produce_cargo("RPAP",0),
+				produce_cargo("RPLA",0),
+				produce_cargo("RGLA",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("PASS",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_RECLAMATION));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_RECLAMATION);
+			extra_text_industry:	reclamation_extra_text();
+			produce_256_ticks: 		return reclamation_calculate_production;
+
+	}
+}
+}
+
+/*---- enrichment ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (enrichment_execute_production, 
+	[
+	// consumption execution
+				URAN: LOAD_PERM(110);
+				POTA: LOAD_PERM(111);
+				CHEM: LOAD_PERM(120);
+				NUKW: LOAD_PERM(121);
+				ENSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				NUKF: LOAD_PERM(210);
+				FERT: LOAD_PERM(211);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				PASS: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, enrichment_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(farming_supplies),
+							221),
+
+
+	//supply competition
+				STORE_PERM (industry_count(enrichment),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),				
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("NUKF"),230),
+				STORE_PERM (transported_last_month_pct("FERT"),231),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("URAN"),10),
+				STORE_PERM (incoming_cargo_waiting("POTA"),11),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),20),
+				STORE_PERM (incoming_cargo_waiting("NUKW"),21),
+				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (processing_primary_cargo_consumption_10(),110),
+				STORE_PERM (processing_primary_cargo_consumption_11(),111),
+				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (processing_secondary_cargo_consumption_21(),121),
+				STORE_PERM (processing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (processing_core_cargo_production_210(),210),
+				STORE_PERM (processing_core_cargo_production_211(),211),
+				STORE_PERM (processing_byproduct_cargo_production_240(),240),
+				STORE_PERM (processing_byproduct_cargo_production_241(),241),
+				STORE_PERM (processing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    enrichment_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, enrichment, 44) {
+		property {
+			substitute: 0;
+			map_colour: 171;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_ENRICHMENT);
+			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0;
+			fund_cost_multiplier: 255;
+			cargo_types: [
+				accept_cargo("URAN"),
+				accept_cargo("POTA"),
+				accept_cargo("CHEM"),
+				accept_cargo("NUKW"),
+				accept_cargo("ENSP"),
+
+				produce_cargo("NUKF",0),
+				produce_cargo("FERT",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("PASS",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_ENRICHMENT));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_ENRICHMENT);
+			extra_text_industry:	enrichment_extra_text();
+			produce_256_ticks: 		return enrichment_calculate_production;
 
 	}
 }

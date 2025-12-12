@@ -1,5 +1,0 @@
-#coal_mine
-
-STR_IND_COAL_MINE		:(1-Extraction) Coal Mining
-STR_FUND_COAL_MINE		:{}Represents mining of coal
-STR_STATION_COAL_MINE	:Coal Mine
