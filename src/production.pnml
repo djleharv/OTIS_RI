@@ -2,6 +2,8 @@
  * GENERAL PRODUCTION SWITCHES AND VALUES
 *********************************************/
 
+
+
 //foundational information needed for calculations (needs to be divisble into whole numbers)
 	base_consumption = 20; 
 	total_production = 16; 
