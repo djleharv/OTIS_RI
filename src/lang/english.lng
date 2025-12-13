@@ -181,9 +181,9 @@ STR_SHORT_UNIT_CONSTRUCTION_MATERIALS										:{SIGNED_WORD} pallette{P 0 "" s}
 
 # alcohol
 
-STR_CARGO_NAME_ALCOHOL										:Alcohol
+STR_CARGO_NAME_ALCOHOL										:Alcoholic Beverages
 STR_CID_ALCOHOL												:{TINYFONT}ALCL
-STR_CARGO_UNIT_ALCOHOL										:{SIGNED_WORD} pallette{P 0 "" s} of Alcohol
+STR_CARGO_UNIT_ALCOHOL										:{SIGNED_WORD} pallette{P 0 "" s} of Alcoholic Beverages
 STR_SHORT_UNIT_ALCOHOL										:{SIGNED_WORD} pallette{P 0 "" s}
 
 # farm_supplies
@@ -262,13 +262,6 @@ STR_CARGO_NAME_URANIUM										:Uranium Ore
 STR_CID_URANIUM												:{TINYFONT}URAN
 STR_CARGO_UNIT_URANIUM										:{WEIGHT} of Uranium Ore
 STR_SHORT_UNIT_URANIUM										:{WEIGHT}
-
-# valuables
-
-STR_CARGO_NAME_VALUABLES										:Valuables
-STR_CID_VALUABLES												:{TINYFONT}VALU
-STR_CARGO_UNIT_VALUABLES										:{SIGNED_WORD} bag{P 0 "" s} of Valuables
-STR_SHORT_UNIT_VALUABLES										:{SIGNED_WORD} bag{P 0 "" s}
 
 # bauxite
 

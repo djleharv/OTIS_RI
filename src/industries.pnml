@@ -3105,7 +3105,6 @@ produce (reclamation_execute_production,
 				RPLA: LOAD_PERM(212);
 				RGLA: LOAD_PERM(213);
 				WSTE: LOAD_PERM(240);
-				RCYC: LOAD_PERM(241);
 				PASS: LOAD_PERM(250);
 
  
@@ -3163,7 +3162,6 @@ switch (FEAT_INDUSTRIES, SELF, reclamation_calculate_production, [
 				STORE_PERM (processing_core_cargo_production_212(),212),
 				STORE_PERM (processing_core_cargo_production_213(),213),
 				STORE_PERM (processing_byproduct_cargo_production_240(),240),
-				STORE_PERM (processing_byproduct_cargo_production_241(),241),
 				STORE_PERM (processing_byproduct_cargo_production_250(),250),
 
 
@@ -3199,7 +3197,6 @@ switch (FEAT_INDUSTRIES, SELF, reclamation_calculate_production, [
 				produce_cargo("RPLA",0),
 				produce_cargo("RGLA",0),
 				produce_cargo("WSTE",0),
-				produce_cargo("RCYC",0),
 				produce_cargo("PASS",0)
 				];
 			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_RECLAMATION));

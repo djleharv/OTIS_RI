@@ -1256,43 +1256,6 @@
 		}
 	}
 
-/*---- valuables ----*/
-	
-	spriteset(cargoicon_valuables) {[10 + 20 * 3, 10 + 20 * 2, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
-
-	item(FEAT_CARGOS, cargo_valuables, 35) {
-		property {
-			number: 35;
-			station_list_colour: 		202;
-			cargo_payment_list_colour: 	202;	
-			sprite: NEW_CARGO_SPRITE;
-			town_growth_effect: TOWNGROWTH_NONE;
-			town_growth_multiplier: 1;
-			
-			is_freight: 				1;
-			type_name: 					string(STR_CARGO_NAME_VALUABLES);
-			unit_name: 					string(STR_CARGO_NAME_VALUABLES);
-			type_abbreviation: 			string(STR_CID_VALUABLES);
-			cargo_label: 				"VALU";
-			
-			units_of_cargo: 			string(STR_SHORT_UNIT_VALUABLES);
-			items_of_cargo: 			string(STR_CARGO_UNIT_VALUABLES);
-			capacity_multiplier: 		1;	
-			
-			weight: 					1;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_EXPRESS, CC_ARMOURED
-			);
-
-			penalty_lowerbound: 		30;
-			single_penalty_length: 		255;
-			price_factor: 				172;
-					
-			
-		}
-		graphics {						cargoicon_valuables;
-		}
-	}
-
 /*---- bauxite ----*/
 	
 	spriteset(cargoicon_bauxite) {[10 + 20 * 13, 10 + 20 * 1, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }

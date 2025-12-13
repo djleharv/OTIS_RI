@@ -1,6 +1,0 @@
-# valuables
-
-STR_CARGO_NAME_VALUABLES										:Valuables
-STR_CID_VALUABLES												:{TINYFONT}VALU
-STR_CARGO_UNIT_VALUABLES										:{SIGNED_WORD} bag{P 0 "" s} of Valuables
-STR_SHORT_UNIT_VALUABLES										:{SIGNED_WORD} bag{P 0 "" s}
