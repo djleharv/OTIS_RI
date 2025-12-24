@@ -20,8 +20,7 @@ produce (mining_execute_production,
 				AORE: LOAD_PERM(212);
 				CORE: LOAD_PERM(213);
 				POTA: LOAD_PERM(214);
-				URAN: LOAD_PERM(215);
-				NITR: LOAD_PERM(216);
+				NITR: LOAD_PERM(215);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
 				PASS: LOAD_PERM(250);
@@ -45,10 +44,8 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 							223),
 				STORE_PERM (industry_count(enrichment),
 							224),
-				STORE_PERM (industry_count(enrichment),
-							225),
 				STORE_PERM (industry_count(purification) + industry_count(chemicals),
-							226),
+							225),
 
 
 	//supply competition
@@ -67,8 +64,7 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 				STORE_PERM (transported_last_month_pct("AORE"),232),
 				STORE_PERM (transported_last_month_pct("CORE"),233),
 				STORE_PERM (transported_last_month_pct("POTA"),234),
-				STORE_PERM (transported_last_month_pct("URAN"),235),
-				STORE_PERM (transported_last_month_pct("NITR"),236),
+				STORE_PERM (transported_last_month_pct("NITR"),235),
 
 
 // store stockpile amount for use in procedure
@@ -89,7 +85,6 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 				STORE_PERM (extraction_core_cargo_production_213(),213),
 				STORE_PERM (extraction_core_cargo_production_214(),214),
 				STORE_PERM (extraction_core_cargo_production_215(),215),
-				STORE_PERM (extraction_core_cargo_production_216(),216),
 				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
 				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
 				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
@@ -126,7 +121,6 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 				produce_cargo("AORE",0),
 				produce_cargo("CORE",0),
 				produce_cargo("POTA",0),
-				produce_cargo("URAN",0),
 				produce_cargo("NITR",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),

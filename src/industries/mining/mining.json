@@ -60,18 +60,11 @@
             "bias_num": 234
         },
         {
-            "produce_cargo": "URAN",
+            "produce_cargo": "NITR",
             "produce_cargo_type": "core",
             "prod_num": 215,
             "demand_num": 225,
             "bias_num": 235
-        },
-        {
-            "produce_cargo": "NITR",
-            "produce_cargo_type": "core",
-            "prod_num": 216,
-            "demand_num": 226,
-            "bias_num": 236
         },
         {
             "produce_cargo": "WSTE",
@@ -134,19 +127,12 @@
             "demand_num": 224
         },
         {
-            "produce_cargo": "URAN",
-            "accepted_by": [
-                "enrichment"
-            ],
-            "demand_num": 225
-        },
-        {
             "produce_cargo": "NITR",
             "accepted_by": [
                 "purification",
                 "chemicals"
             ],
-            "demand_num": 226
+            "demand_num": 225
         }
     ]
 }

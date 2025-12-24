@@ -1,6 +1,0 @@
-# nuclear_fuels
-
-STR_CARGO_NAME_NUCLEAR_FUELS										:Nuclear Fuels
-STR_CID_NUCLEAR_FUELS												:{TINYFONT}NUKF
-STR_CARGO_UNIT_NUCLEAR_FUELS										:{WEIGHT} of Nuclear Fuels
-STR_SHORT_UNIT_NUCLEAR_FUELS										:{WEIGHT}

@@ -5,8 +5,8 @@
 	item(FEAT_CARGOS, cargo_petrochemicals, 53) {
 		property {
 			number: 53;
-			station_list_colour: 		184;
-			cargo_payment_list_colour: 	184;	
+			station_list_colour: 		5;
+			cargo_payment_list_colour: 	5;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
 			town_growth_multiplier: 1;
@@ -21,13 +21,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_PETROCHEMICALS);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_LIQUID_BULK
+			weight: 					1.2;
+			cargo_classes: bitmask(		CC_LIQUID, CC_PIECE_GOODS, CC_HAZARDOUS
 			);
 
 			penalty_lowerbound: 		20;
-			single_penalty_length: 		40;
-			price_factor: 				120;
+			single_penalty_length: 		255;
+			price_factor: 				117;
 					
 			
 		}

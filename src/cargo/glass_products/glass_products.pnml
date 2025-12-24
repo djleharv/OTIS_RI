@@ -5,8 +5,8 @@
 	item(FEAT_CARGOS, cargo_glass_products, 25) {
 		property {
 			number: 25;
-			station_list_colour: 		210;
-			cargo_payment_list_colour: 	210;	
+			station_list_colour: 		169;
+			cargo_payment_list_colour: 	169;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
 			town_growth_multiplier: 1;
@@ -22,12 +22,12 @@
 			capacity_multiplier: 		1;	
 			
 			weight: 					1;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS
+			cargo_classes: bitmask(		CC_PIECE_GOODS
 			);
 
 			penalty_lowerbound: 		12;
-			single_penalty_length: 		255;
-			price_factor: 				136;
+			single_penalty_length: 		180;
+			price_factor: 				133;
 					
 			
 		}

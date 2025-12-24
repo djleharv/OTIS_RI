@@ -1,6 +1,0 @@
-# nuclear_waste
-
-STR_CARGO_NAME_NUCLEAR_WASTE										:Nuclear Waste
-STR_CID_NUCLEAR_WASTE												:{TINYFONT}NUWS
-STR_CARGO_UNIT_NUCLEAR_WASTE										:{WEIGHT} of Nuclear Waste
-STR_SHORT_UNIT_NUCLEAR_WASTE										:{WEIGHT}

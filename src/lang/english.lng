@@ -25,68 +25,12 @@ STR_TOWN_ZONE_CENTRE											:City Centre
 
 
 
-# passengers
+# waste
 
-STR_CARGO_NAME_PASSENGERS										:Passengers
-STR_CID_PASSENGERS												:{TINYFONT}PASS
-STR_CARGO_UNIT_PASSENGERS										:{SIGNED_WORD} Passengers
-STR_SHORT_UNIT_PASSENGERS										:{SIGNED_WORD} Passengers
-
-# coal
-
-STR_CARGO_NAME_COAL										:Coal
-STR_CID_COAL												:{TINYFONT}COAL
-STR_CARGO_UNIT_COAL										:{WEIGHT} of Coal
-STR_SHORT_UNIT_COAL										:{WEIGHT}
-
-# mail
-
-STR_CARGO_NAME_MAIL										:Mail
-STR_CID_MAIL												:{TINYFONT}MAIL
-STR_CARGO_UNIT_MAIL										:{SIGNED_WORD} bag{P 0 "" s} of Mail
-STR_SHORT_UNIT_MAIL										:{SIGNED_WORD} bag{P 0 "" s}
-
-# crude_oil
-
-STR_CARGO_NAME_CRUDE_OIL										:Crude Oil
-STR_CID_CRUDE_OIL												:{TINYFONT}OILC
-STR_CARGO_UNIT_CRUDE_OIL										:{VOLUME} of Crude Oil
-STR_SHORT_UNIT_CRUDE_OIL										:{VOLUME}
-
-# livestock
-
-STR_CARGO_NAME_LIVESTOCK										:Livestock
-STR_CID_LIVESTOCK												:{TINYFONT}LVST
-STR_CARGO_UNIT_LIVESTOCK										:{COMMA} item{P "" s} of Livestock
-STR_SHORT_UNIT_LIVESTOCK										:{COMMA} item{P "" s}
-
-# goods
-
-STR_CARGO_NAME_GOODS										:Goods
-STR_CID_GOODS												:{TINYFONT}GOOD
-STR_CARGO_UNIT_GOODS										:{SIGNED_WORD} pallette{P 0 "" s} of Goods
-STR_SHORT_UNIT_GOODS										:{SIGNED_WORD} pallette{P 0 "" s}
-
-# grain
-
-STR_CARGO_NAME_GRAIN										:Cereals and Grains
-STR_CID_GRAIN												:{TINYFONT}GRAI
-STR_CARGO_UNIT_GRAIN										:{WEIGHT} of Cereals or Grains
-STR_SHORT_UNIT_GRAIN										:{WEIGHT}
-
-# logs
-
-STR_CARGO_NAME_LOGS										:Logs
-STR_CID_LOGS												:{TINYFONT}LOGS
-STR_CARGO_UNIT_LOGS										:{WEIGHT} of Logs
-STR_SHORT_UNIT_LOGS										:{WEIGHT}
-
-# iron_ore
-
-STR_CARGO_NAME_IRON_ORE										:Iron Ore
-STR_CID_IRON_ORE												:{TINYFONT}IORE
-STR_CARGO_UNIT_IRON_ORE										:{WEIGHT} of Iron Ore
-STR_SHORT_UNIT_IRON_ORE										:{WEIGHT}
+STR_CARGO_NAME_WASTE										:Waste
+STR_CID_WASTE												:{TINYFONT}WSTE
+STR_CARGO_UNIT_WASTE										:{WEIGHT} of Waste
+STR_SHORT_UNIT_WASTE										:{WEIGHT}
 
 # steel
 
@@ -95,19 +39,19 @@ STR_CID_STEEL												:{TINYFONT}STEL
 STR_CARGO_UNIT_STEEL										:{WEIGHT} of Steel
 STR_SHORT_UNIT_STEEL										:{WEIGHT}
 
-# milk
+# recycled_paper
 
-STR_CARGO_NAME_MILK										:Milk
-STR_CID_MILK												:{TINYFONT}MILK
-STR_CARGO_UNIT_MILK										:{VOLUME} of Milk
-STR_SHORT_UNIT_MILK										:{VOLUME}
+STR_CARGO_NAME_RECYCLED_PAPER										:Recycled Paper
+STR_CID_RECYCLED_PAPER												:{TINYFONT}RPAP
+STR_CARGO_UNIT_RECYCLED_PAPER										:{WEIGHT} of Recycled Paper
+STR_SHORT_UNIT_RECYCLED_PAPER										:{WEIGHT}
 
-# food
+# mail
 
-STR_CARGO_NAME_FOOD										:Food
-STR_CID_FOOD												:{TINYFONT}FOOD
-STR_CARGO_UNIT_FOOD										:{SIGNED_WORD} pallette{P 0 "" s} of Food
-STR_SHORT_UNIT_FOOD										:{SIGNED_WORD} pallette{P 0 "" s}
+STR_CARGO_NAME_MAIL										:Mail
+STR_CID_MAIL												:{TINYFONT}MAIL
+STR_CARGO_UNIT_MAIL										:{SIGNED_WORD} bag{P 0 "" s} of Mail
+STR_SHORT_UNIT_MAIL										:{SIGNED_WORD} bag{P 0 "" s}
 
 # paper_products
 
@@ -116,33 +60,12 @@ STR_CID_PAPER_PRODUCTS												:{TINYFONT}PAPR
 STR_CARGO_UNIT_PAPER_PRODUCTS										:{WEIGHT} of Paper Products
 STR_SHORT_UNIT_PAPER_PRODUCTS										:{WEIGHT}
 
-# seafood
+# power_cells
 
-STR_CARGO_NAME_SEAFOOD										:Seafood
-STR_CID_SEAFOOD												:{TINYFONT}SEAF
-STR_CARGO_UNIT_SEAFOOD										:{WEIGHT} of Seafood
-STR_SHORT_UNIT_SEAFOOD										:{WEIGHT}
-
-# wool
-
-STR_CARGO_NAME_WOOL										:Wool
-STR_CID_WOOL												:{TINYFONT}WOOL
-STR_CARGO_UNIT_WOOL										:{SIGNED_WORD} bale{P 0 "" s} of Wool
-STR_SHORT_UNIT_WOOL										:{SIGNED_WORD} bale{P 0 "" s}
-
-# packaging
-
-STR_CARGO_NAME_PACKAGING										:Packaging
-STR_CID_PACKAGING												:{TINYFONT}PACK
-STR_CARGO_UNIT_PACKAGING										:{SIGNED_WORD} pallette{P 0 "" s} of Packaging
-STR_SHORT_UNIT_PACKAGING										:{SIGNED_WORD} pallette{P 0 "" s}
-
-# sand
-
-STR_CARGO_NAME_SAND										:Sand
-STR_CID_SAND												:{TINYFONT}SAND
-STR_CARGO_UNIT_SAND										:{WEIGHT} of Sand
-STR_SHORT_UNIT_SAND										:{WEIGHT}
+STR_CARGO_NAME_POWER_CELLS										:Power Cells
+STR_CID_POWER_CELLS												:{TINYFONT}POWR
+STR_CARGO_UNIT_POWER_CELLS										:{SIGNED_WORD} pallette{P 0 "" s} of Power Cells
+STR_SHORT_UNIT_POWER_CELLS										:{SIGNED_WORD} pallette{P 0 "" s}
 
 # wood_products
 
@@ -151,138 +74,12 @@ STR_CID_WOOD_PRODUCTS												:{TINYFONT}WDPR
 STR_CARGO_UNIT_WOOD_PRODUCTS										:{WEIGHT} of Wood Products
 STR_SHORT_UNIT_WOOD_PRODUCTS										:{WEIGHT}
 
-# parcels
+# manufacturing_supplies
 
-STR_CARGO_NAME_PARCELS										:Parcels
-STR_CID_PARCELS												:{TINYFONT}PCLS
-STR_CARGO_UNIT_PARCELS										:{SIGNED_WORD} Parcels
-STR_SHORT_UNIT_PARCELS										:{SIGNED_WORD} Parcels
-
-# aggregates
-
-STR_CARGO_NAME_AGGREGATES										:Aggregates
-STR_CID_AGGREGATES												:{TINYFONT}AGGR
-STR_CARGO_UNIT_AGGREGATES										:{WEIGHT} of Aggregates
-STR_SHORT_UNIT_AGGREGATES										:{WEIGHT}
-
-# fruit
-
-STR_CARGO_NAME_FRUIT										:Fruit and Vegetables
-STR_CID_FRUIT												:{TINYFONT}FTVG
-STR_CARGO_UNIT_FRUIT										:{WEIGHT} of Fruit or Vegetables
-STR_SHORT_UNIT_FRUIT										:{WEIGHT}
-
-# construction_materials
-
-STR_CARGO_NAME_CONSTRUCTION_MATERIALS										:Construction Materials
-STR_CID_CONSTRUCTION_MATERIALS												:{TINYFONT}CNST
-STR_CARGO_UNIT_CONSTRUCTION_MATERIALS										:{SIGNED_WORD} pallette{P 0 "" s} of Construction Materials
-STR_SHORT_UNIT_CONSTRUCTION_MATERIALS										:{SIGNED_WORD} pallette{P 0 "" s}
-
-# alcohol
-
-STR_CARGO_NAME_ALCOHOL										:Alcoholic Beverages
-STR_CID_ALCOHOL												:{TINYFONT}ALCL
-STR_CARGO_UNIT_ALCOHOL										:{SIGNED_WORD} pallette{P 0 "" s} of Alcoholic Beverages
-STR_SHORT_UNIT_ALCOHOL										:{SIGNED_WORD} pallette{P 0 "" s}
-
-# farm_supplies
-
-STR_CARGO_NAME_FARM_SUPPLIES										:Farm Supplies
-STR_CID_FARM_SUPPLIES												:{TINYFONT}FARM
-STR_CARGO_UNIT_FARM_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s} of Farm Supplies
-STR_SHORT_UNIT_FARM_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s}
-
-# cement
-
-STR_CARGO_NAME_CEMENT										:Cement
-STR_CID_CEMENT												:{TINYFONT}CMNT
-STR_CARGO_UNIT_CEMENT										:{WEIGHT} of Cement
-STR_SHORT_UNIT_CEMENT										:{WEIGHT}
-
-# glass_products
-
-STR_CARGO_NAME_GLASS_PRODUCTS										:Glass Products
-STR_CID_GLASS_PRODUCTS												:{TINYFONT}GLAS
-STR_CARGO_UNIT_GLASS_PRODUCTS										:{WEIGHT} of Glass Products
-STR_SHORT_UNIT_GLASS_PRODUCTS										:{WEIGHT}
-
-# aluminium
-
-STR_CARGO_NAME_ALUMINIUM										:Aluminium
-STR_CID_ALUMINIUM												:{TINYFONT}ALUM
-STR_CARGO_UNIT_ALUMINIUM										:{WEIGHT} of Aluminium
-STR_SHORT_UNIT_ALUMINIUM										:{WEIGHT}
-
-# petroleum_fuels
-
-STR_CARGO_NAME_PETROLEUM_FUELS										:Petroleum Fuels
-STR_CID_PETROLEUM_FUELS												:{TINYFONT}PETR
-STR_CARGO_UNIT_PETROLEUM_FUELS										:{VOLUME} of Petroleum Fuels
-STR_SHORT_UNIT_PETROLEUM_FUELS										:{WEIGHT}
-
-# recyclables
-
-STR_CARGO_NAME_RECYCLABLES										:Recyclables
-STR_CID_RECYCLABLES												:{TINYFONT}RCYC
-STR_CARGO_UNIT_RECYCLABLES										:{WEIGHT} of Recyclables
-STR_SHORT_UNIT_RECYCLABLES										:{WEIGHT}
-
-# plant_fibres
-
-STR_CARGO_NAME_PLANT_FIBRES										:Plant Fibres
-STR_CID_PLANT_FIBRES												:{TINYFONT}PLNT
-STR_CARGO_UNIT_PLANT_FIBRES										:{SIGNED_WORD} bale{P 0 "" s} of Plant Fibres
-STR_SHORT_UNIT_PLANT_FIBRES										:{SIGNED_WORD} bale{P 0 "" s}
-
-# copper_ore
-
-STR_CARGO_NAME_COPPER_ORE										:Copper Ore
-STR_CID_COPPER_ORE												:{TINYFONT}CORE
-STR_CARGO_UNIT_COPPER_ORE										:{WEIGHT} of Copper Ore
-STR_SHORT_UNIT_COPPER_ORE										:{WEIGHT}
-
-# waste
-
-STR_CARGO_NAME_WASTE										:Waste
-STR_CID_WASTE												:{TINYFONT}WSTE
-STR_CARGO_UNIT_WASTE										:{WEIGHT} of Waste
-STR_SHORT_UNIT_WASTE										:{WEIGHT}
-
-# copper
-
-STR_CARGO_NAME_COPPER										:Copper
-STR_CID_COPPER												:{TINYFONT}COPP
-STR_CARGO_UNIT_COPPER										:{WEIGHT} of Copper
-STR_SHORT_UNIT_COPPER										:{WEIGHT}
-
-# uranium
-
-STR_CARGO_NAME_URANIUM										:Uranium Ore
-STR_CID_URANIUM												:{TINYFONT}URAN
-STR_CARGO_UNIT_URANIUM										:{WEIGHT} of Uranium Ore
-STR_SHORT_UNIT_URANIUM										:{WEIGHT}
-
-# bauxite
-
-STR_CARGO_NAME_BAUXITE										:Bauxite
-STR_CID_BAUXITE												:{TINYFONT}AORE
-STR_CARGO_UNIT_BAUXITE										:{WEIGHT} of Bauxite
-STR_SHORT_UNIT_BAUXITE										:{WEIGHT}
-
-# mineral_ore
-
-STR_CARGO_NAME_MINERAL_ORE										:Mineral Ore
-STR_CID_MINERAL_ORE												:{TINYFONT}MORE
-STR_CARGO_UNIT_MINERAL_ORE										:{WEIGHT} of Mineral Ore
-STR_SHORT_UNIT_MINERAL_ORE										:{WEIGHT}
-
-# potash
-
-STR_CARGO_NAME_POTASH										:Potash
-STR_CID_POTASH												:{TINYFONT}POTA
-STR_CARGO_UNIT_POTASH										:{WEIGHT} of Potash
-STR_SHORT_UNIT_POTASH										:{WEIGHT}
+STR_CARGO_NAME_MANUFACTURING_SUPPLIES										:Manufacturing Supplies
+STR_CID_MANUFACTURING_SUPPLIES												:{TINYFONT}MANU
+STR_CARGO_UNIT_MANUFACTURING_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s} of Manufacturing Supplies
+STR_SHORT_UNIT_MANUFACTURING_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s}
 
 # lithium
 
@@ -291,33 +88,12 @@ STR_CID_LITHIUM												:{TINYFONT}LITH
 STR_CARGO_UNIT_LITHIUM										:{WEIGHT} of Lithium Carbonate
 STR_SHORT_UNIT_LITHIUM										:{WEIGHT}
 
-# vehicles
+# recycled_glass
 
-STR_CARGO_NAME_VEHICLES										:Vehicles
-STR_CID_VEHICLES												:{TINYFONT}VEHI
-STR_CARGO_UNIT_VEHICLES										:{SIGNED_WORD} Vehicles
-STR_SHORT_UNIT_VEHICLES										:{SIGNED_WORD} Vehicles
-
-# power_cells
-
-STR_CARGO_NAME_POWER_CELLS										:Power Cells
-STR_CID_POWER_CELLS												:{TINYFONT}POWR
-STR_CARGO_UNIT_POWER_CELLS										:{SIGNED_WORD} pallette{P 0 "" s} of Power Cells
-STR_SHORT_UNIT_POWER_CELLS										:{SIGNED_WORD} pallette{P 0 "" s}
-
-# plastic_products
-
-STR_CARGO_NAME_PLASTIC_PRODUCTS										:Plastic Products
-STR_CID_PLASTIC_PRODUCTS												:{TINYFONT}PLAS
-STR_CARGO_UNIT_PLASTIC_PRODUCTS										:{WEIGHT} of Plastic Products
-STR_SHORT_UNIT_PLASTIC_PRODUCTS										:{WEIGHT}
-
-# recycled_metal
-
-STR_CARGO_NAME_RECYCLED_METAL										:Recycled Metal
-STR_CID_RECYCLED_METAL												:{TINYFONT}SCMT
-STR_CARGO_UNIT_RECYCLED_METAL										:{WEIGHT} of Recycled Metal
-STR_SHORT_UNIT_RECYCLED_METAL										:{WEIGHT}
+STR_CARGO_NAME_RECYCLED_GLASS										:Recycled Glass
+STR_CID_RECYCLED_GLASS												:{TINYFONT}RGLA
+STR_CARGO_UNIT_RECYCLED_GLASS										:{WEIGHT} of Recycled Glass
+STR_SHORT_UNIT_RECYCLED_GLASS										:{WEIGHT}
 
 # recycled_plastic
 
@@ -326,89 +102,54 @@ STR_CID_RECYCLED_PLASTIC												:{TINYFONT}RPLA
 STR_CARGO_UNIT_RECYCLED_PLASTIC										:{WEIGHT} of Recycled Plastic
 STR_SHORT_UNIT_RECYCLED_PLASTIC										:{WEIGHT}
 
-# recycled_glass
+# wool
 
-STR_CARGO_NAME_RECYCLED_GLASS										:Recycled Glass
-STR_CID_RECYCLED_GLASS												:{TINYFONT}RGLA
-STR_CARGO_UNIT_RECYCLED_GLASS										:{WEIGHT} of Recycled Glass
-STR_SHORT_UNIT_RECYCLED_GLASS										:{WEIGHT}
+STR_CARGO_NAME_WOOL										:Wool
+STR_CID_WOOL												:{TINYFONT}WOOL
+STR_CARGO_UNIT_WOOL										:{SIGNED_WORD} bale{P 0 "" s} of Wool
+STR_SHORT_UNIT_WOOL										:{SIGNED_WORD} bale{P 0 "" s}
 
-# recycled_paper
+# seafood
 
-STR_CARGO_NAME_RECYCLED_PAPER										:Recycled Paper
-STR_CID_RECYCLED_PAPER												:{TINYFONT}RPAP
-STR_CARGO_UNIT_RECYCLED_PAPER										:{WEIGHT} of Recycled Paper
-STR_SHORT_UNIT_RECYCLED_PAPER										:{WEIGHT}
+STR_CARGO_NAME_SEAFOOD										:Seafood
+STR_CID_SEAFOOD												:{TINYFONT}SEAF
+STR_CARGO_UNIT_SEAFOOD										:{WEIGHT} of Seafood
+STR_SHORT_UNIT_SEAFOOD										:{WEIGHT}
 
-# textiles
+# passengers
 
-STR_CARGO_NAME_TEXTILES										:Textiles
-STR_CID_TEXTILES												:{TINYFONT}TEXT
-STR_CARGO_UNIT_TEXTILES										:{WEIGHT} of Textiles
-STR_SHORT_UNIT_TEXTILES										:{WEIGHT}
+STR_CARGO_NAME_PASSENGERS										:Passengers
+STR_CID_PASSENGERS												:{TINYFONT}PASS
+STR_CARGO_UNIT_PASSENGERS										:{SIGNED_WORD} Passengers
+STR_SHORT_UNIT_PASSENGERS										:{SIGNED_WORD} Passengers
 
-# electronics
+# milk
 
-STR_CARGO_NAME_ELECTRONICS										:Electronics
-STR_CID_ELECTRONICS												:{TINYFONT}ELEC
-STR_CARGO_UNIT_ELECTRONICS										:{SIGNED_WORD} pallette{P 0 "" s} of Electronics
-STR_SHORT_UNIT_ELECTRONICS										:{SIGNED_WORD} pallette{P 0 "" s}
+STR_CARGO_NAME_MILK										:Milk
+STR_CID_MILK												:{TINYFONT}MILK
+STR_CARGO_UNIT_MILK										:{VOLUME} of Milk
+STR_SHORT_UNIT_MILK										:{VOLUME}
 
-# fertilizer
+# fruit
 
-STR_CARGO_NAME_FERTILIZER										:Fertilizer
-STR_CID_FERTILIZER												:{TINYFONT}FERT
-STR_CARGO_UNIT_FERTILIZER										:{WEIGHT} of Fertilizer
-STR_SHORT_UNIT_FERTILIZER										:{WEIGHT}
+STR_CARGO_NAME_FRUIT										:Fruit and Vegetables
+STR_CID_FRUIT												:{TINYFONT}FTVG
+STR_CARGO_UNIT_FRUIT										:{WEIGHT} of Fruit or Vegetables
+STR_SHORT_UNIT_FRUIT										:{WEIGHT}
 
-# nuclear_waste
+# goods
 
-STR_CARGO_NAME_NUCLEAR_WASTE										:Nuclear Waste
-STR_CID_NUCLEAR_WASTE												:{TINYFONT}NUWS
-STR_CARGO_UNIT_NUCLEAR_WASTE										:{WEIGHT} of Nuclear Waste
-STR_SHORT_UNIT_NUCLEAR_WASTE										:{WEIGHT}
+STR_CARGO_NAME_GOODS										:Goods
+STR_CID_GOODS												:{TINYFONT}GOOD
+STR_CARGO_UNIT_GOODS										:{SIGNED_WORD} pallette{P 0 "" s} of Goods
+STR_SHORT_UNIT_GOODS										:{SIGNED_WORD} pallette{P 0 "" s}
 
-# chemical_products
+# sand
 
-STR_CARGO_NAME_CHEMICAL_PRODUCTS										:Chemical Products
-STR_CID_CHEMICAL_PRODUCTS												:{TINYFONT}CHEM
-STR_CARGO_UNIT_CHEMICAL_PRODUCTS										:{VOLUME} of Chemical Products
-STR_SHORT_UNIT_CHEMICAL_PRODUCTS										:{VOLUME}
-
-# petrochemicals
-
-STR_CARGO_NAME_PETROCHEMICALS										:Petrochemicals
-STR_CID_PETROCHEMICALS												:{TINYFONT}RFPR
-STR_CARGO_UNIT_PETROCHEMICALS										:{VOLUME} of Petrochemicals
-STR_SHORT_UNIT_PETROCHEMICALS										:{VOLUME}
-
-# nuclear_fuels
-
-STR_CARGO_NAME_NUCLEAR_FUELS										:Nuclear Fuels
-STR_CID_NUCLEAR_FUELS												:{TINYFONT}NUKF
-STR_CARGO_UNIT_NUCLEAR_FUELS										:{WEIGHT} of Nuclear Fuels
-STR_SHORT_UNIT_NUCLEAR_FUELS										:{WEIGHT}
-
-# engineering_supplies
-
-STR_CARGO_NAME_ENGINEERING_SUPPLIES										:Engineering Supplies
-STR_CID_ENGINEERING_SUPPLIES												:{TINYFONT}ENGS
-STR_CARGO_UNIT_ENGINEERING_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s} of Engineering Supplies
-STR_SHORT_UNIT_ENGINEERING_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s}
-
-# marine_supplies
-
-STR_CARGO_NAME_MARINE_SUPPLIES										:Marine Supplies
-STR_CID_MARINE_SUPPLIES												:{TINYFONT}MARI
-STR_CARGO_UNIT_MARINE_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s} of Marine Supplies
-STR_SHORT_UNIT_MARINE_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s}
-
-# manufacturing_supplies
-
-STR_CARGO_NAME_MANUFACTURING_SUPPLIES										:Manufacturing Supplies
-STR_CID_MANUFACTURING_SUPPLIES												:{TINYFONT}MANU
-STR_CARGO_UNIT_MANUFACTURING_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s} of Manufacturing Supplies
-STR_SHORT_UNIT_MANUFACTURING_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s}
+STR_CARGO_NAME_SAND										:Sand
+STR_CID_SAND												:{TINYFONT}SAND
+STR_CARGO_UNIT_SAND										:{WEIGHT} of Sand
+STR_SHORT_UNIT_SAND										:{WEIGHT}
 
 # silicon
 
@@ -417,12 +158,250 @@ STR_CID_SILICON												:{TINYFONT}SILI
 STR_CARGO_UNIT_SILICON										:{WEIGHT} of Silicon
 STR_SHORT_UNIT_SILICON										:{WEIGHT}
 
+# parcels
+
+STR_CARGO_NAME_PARCELS										:Parcels
+STR_CID_PARCELS												:{TINYFONT}PCLS
+STR_CARGO_UNIT_PARCELS										:{SIGNED_WORD} Parcels
+STR_SHORT_UNIT_PARCELS										:{SIGNED_WORD} Parcels
+
+# marine_supplies
+
+STR_CARGO_NAME_MARINE_SUPPLIES										:Marine Supplies
+STR_CID_MARINE_SUPPLIES												:{TINYFONT}MARI
+STR_CARGO_UNIT_MARINE_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s} of Marine Supplies
+STR_SHORT_UNIT_MARINE_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s}
+
+# electronics
+
+STR_CARGO_NAME_ELECTRONICS										:Electronics
+STR_CID_ELECTRONICS												:{TINYFONT}ELEC
+STR_CARGO_UNIT_ELECTRONICS										:{SIGNED_WORD} pallette{P 0 "" s} of Electronics
+STR_SHORT_UNIT_ELECTRONICS										:{SIGNED_WORD} pallette{P 0 "" s}
+
+# chemical_products
+
+STR_CARGO_NAME_CHEMICAL_PRODUCTS										:Chemical Products
+STR_CID_CHEMICAL_PRODUCTS												:{TINYFONT}CHEM
+STR_CARGO_UNIT_CHEMICAL_PRODUCTS										:{VOLUME} of Chemical Products
+STR_SHORT_UNIT_CHEMICAL_PRODUCTS										:{VOLUME}
+
+# coal
+
+STR_CARGO_NAME_COAL										:Coal
+STR_CID_COAL												:{TINYFONT}COAL
+STR_CARGO_UNIT_COAL										:{WEIGHT} of Coal
+STR_SHORT_UNIT_COAL										:{WEIGHT}
+
+# plant_fibres
+
+STR_CARGO_NAME_PLANT_FIBRES										:Plant Fibres
+STR_CID_PLANT_FIBRES												:{TINYFONT}PLNT
+STR_CARGO_UNIT_PLANT_FIBRES										:{SIGNED_WORD} bale{P 0 "" s} of Plant Fibres
+STR_SHORT_UNIT_PLANT_FIBRES										:{SIGNED_WORD} bale{P 0 "" s}
+
+# iron_ore
+
+STR_CARGO_NAME_IRON_ORE										:Iron Ore
+STR_CID_IRON_ORE												:{TINYFONT}IORE
+STR_CARGO_UNIT_IRON_ORE										:{WEIGHT} of Iron Ore
+STR_SHORT_UNIT_IRON_ORE										:{WEIGHT}
+
+# plastic_products
+
+STR_CARGO_NAME_PLASTIC_PRODUCTS										:Plastic Products
+STR_CID_PLASTIC_PRODUCTS												:{TINYFONT}PLAS
+STR_CARGO_UNIT_PLASTIC_PRODUCTS										:{WEIGHT} of Plastic Products
+STR_SHORT_UNIT_PLASTIC_PRODUCTS										:{WEIGHT}
+
 # clay
 
 STR_CARGO_NAME_CLAY										:Clay
 STR_CID_CLAY												:{TINYFONT}CLAY
 STR_CARGO_UNIT_CLAY										:{WEIGHT} of Clay
 STR_SHORT_UNIT_CLAY										:{WEIGHT}
+
+# packaging
+
+STR_CARGO_NAME_PACKAGING										:Packaging
+STR_CID_PACKAGING												:{TINYFONT}PACK
+STR_CARGO_UNIT_PACKAGING										:{SIGNED_WORD} pallette{P 0 "" s} of Packaging
+STR_SHORT_UNIT_PACKAGING										:{SIGNED_WORD} pallette{P 0 "" s}
+
+# cement
+
+STR_CARGO_NAME_CEMENT										:Cement
+STR_CID_CEMENT												:{TINYFONT}CMNT
+STR_CARGO_UNIT_CEMENT										:{WEIGHT} of Cement
+STR_SHORT_UNIT_CEMENT										:{WEIGHT}
+
+# recycled_metal
+
+STR_CARGO_NAME_RECYCLED_METAL										:Recycled Metal
+STR_CID_RECYCLED_METAL												:{TINYFONT}SCMT
+STR_CARGO_UNIT_RECYCLED_METAL										:{WEIGHT} of Recycled Metal
+STR_SHORT_UNIT_RECYCLED_METAL										:{WEIGHT}
+
+# aluminium
+
+STR_CARGO_NAME_ALUMINIUM										:Aluminium
+STR_CID_ALUMINIUM												:{TINYFONT}ALUM
+STR_CARGO_UNIT_ALUMINIUM										:{WEIGHT} of Aluminium
+STR_SHORT_UNIT_ALUMINIUM										:{WEIGHT}
+
+# fertilizer
+
+STR_CARGO_NAME_FERTILIZER										:Fertilizer
+STR_CID_FERTILIZER												:{TINYFONT}FERT
+STR_CARGO_UNIT_FERTILIZER										:{WEIGHT} of Fertilizer
+STR_SHORT_UNIT_FERTILIZER										:{WEIGHT}
+
+# copper_ore
+
+STR_CARGO_NAME_COPPER_ORE										:Copper Ore
+STR_CID_COPPER_ORE												:{TINYFONT}CORE
+STR_CARGO_UNIT_COPPER_ORE										:{WEIGHT} of Copper Ore
+STR_SHORT_UNIT_COPPER_ORE										:{WEIGHT}
+
+# potash
+
+STR_CARGO_NAME_POTASH										:Potash
+STR_CID_POTASH												:{TINYFONT}POTA
+STR_CARGO_UNIT_POTASH										:{WEIGHT} of Potash
+STR_SHORT_UNIT_POTASH										:{WEIGHT}
+
+# vehicles
+
+STR_CARGO_NAME_VEHICLES										:Vehicles
+STR_CID_VEHICLES												:{TINYFONT}VEHI
+STR_CARGO_UNIT_VEHICLES										:{SIGNED_WORD} Vehicles
+STR_SHORT_UNIT_VEHICLES										:{SIGNED_WORD} Vehicles
+
+# glass_products
+
+STR_CARGO_NAME_GLASS_PRODUCTS										:Glass Products
+STR_CID_GLASS_PRODUCTS												:{TINYFONT}GLAS
+STR_CARGO_UNIT_GLASS_PRODUCTS										:{WEIGHT} of Glass Products
+STR_SHORT_UNIT_GLASS_PRODUCTS										:{WEIGHT}
+
+# crude_oil
+
+STR_CARGO_NAME_CRUDE_OIL										:Crude Oil
+STR_CID_CRUDE_OIL												:{TINYFONT}OILC
+STR_CARGO_UNIT_CRUDE_OIL										:{VOLUME} of Crude Oil
+STR_SHORT_UNIT_CRUDE_OIL										:{VOLUME}
+
+# engineering_supplies
+
+STR_CARGO_NAME_ENGINEERING_SUPPLIES										:Engineering Supplies
+STR_CID_ENGINEERING_SUPPLIES												:{TINYFONT}ENGS
+STR_CARGO_UNIT_ENGINEERING_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s} of Engineering Supplies
+STR_SHORT_UNIT_ENGINEERING_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s}
+
+# alcohol
+
+STR_CARGO_NAME_ALCOHOL										:Alcoholic Beverages
+STR_CID_ALCOHOL												:{TINYFONT}ALCL
+STR_CARGO_UNIT_ALCOHOL										:{SIGNED_WORD} pallette{P 0 "" s} of Alcoholic Beverages
+STR_SHORT_UNIT_ALCOHOL										:{SIGNED_WORD} pallette{P 0 "" s}
+
+# food
+
+STR_CARGO_NAME_FOOD										:Food
+STR_CID_FOOD												:{TINYFONT}FOOD
+STR_CARGO_UNIT_FOOD										:{SIGNED_WORD} pallette{P 0 "" s} of Food
+STR_SHORT_UNIT_FOOD										:{SIGNED_WORD} pallette{P 0 "" s}
+
+# bauxite
+
+STR_CARGO_NAME_BAUXITE										:Bauxite
+STR_CID_BAUXITE												:{TINYFONT}AORE
+STR_CARGO_UNIT_BAUXITE										:{WEIGHT} of Bauxite
+STR_SHORT_UNIT_BAUXITE										:{WEIGHT}
+
+# grain
+
+STR_CARGO_NAME_GRAIN										:Cereals and Grains
+STR_CID_GRAIN												:{TINYFONT}GRAI
+STR_CARGO_UNIT_GRAIN										:{WEIGHT} of Cereals or Grains
+STR_SHORT_UNIT_GRAIN										:{WEIGHT}
+
+# farm_supplies
+
+STR_CARGO_NAME_FARM_SUPPLIES										:Farm Supplies
+STR_CID_FARM_SUPPLIES												:{TINYFONT}FARM
+STR_CARGO_UNIT_FARM_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s} of Farm Supplies
+STR_SHORT_UNIT_FARM_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s}
+
+# aggregates
+
+STR_CARGO_NAME_AGGREGATES										:Aggregates
+STR_CID_AGGREGATES												:{TINYFONT}AGGR
+STR_CARGO_UNIT_AGGREGATES										:{WEIGHT} of Aggregates
+STR_SHORT_UNIT_AGGREGATES										:{WEIGHT}
+
+# copper
+
+STR_CARGO_NAME_COPPER										:Copper
+STR_CID_COPPER												:{TINYFONT}COPP
+STR_CARGO_UNIT_COPPER										:{WEIGHT} of Copper
+STR_SHORT_UNIT_COPPER										:{WEIGHT}
+
+# textiles
+
+STR_CARGO_NAME_TEXTILES										:Textiles
+STR_CID_TEXTILES												:{TINYFONT}TEXT
+STR_CARGO_UNIT_TEXTILES										:{WEIGHT} of Textiles
+STR_SHORT_UNIT_TEXTILES										:{WEIGHT}
+
+# petrochemicals
+
+STR_CARGO_NAME_PETROCHEMICALS										:Petrochemicals
+STR_CID_PETROCHEMICALS												:{TINYFONT}RFPR
+STR_CARGO_UNIT_PETROCHEMICALS										:{VOLUME} of Petrochemicals
+STR_SHORT_UNIT_PETROCHEMICALS										:{VOLUME}
+
+# logs
+
+STR_CARGO_NAME_LOGS										:Logs
+STR_CID_LOGS												:{TINYFONT}LOGS
+STR_CARGO_UNIT_LOGS										:{WEIGHT} of Logs
+STR_SHORT_UNIT_LOGS										:{WEIGHT}
+
+# construction_materials
+
+STR_CARGO_NAME_CONSTRUCTION_MATERIALS										:Construction Materials
+STR_CID_CONSTRUCTION_MATERIALS												:{TINYFONT}CNST
+STR_CARGO_UNIT_CONSTRUCTION_MATERIALS										:{SIGNED_WORD} pallette{P 0 "" s} of Construction Materials
+STR_SHORT_UNIT_CONSTRUCTION_MATERIALS										:{SIGNED_WORD} pallette{P 0 "" s}
+
+# petroleum_fuels
+
+STR_CARGO_NAME_PETROLEUM_FUELS										:Petroleum Fuels
+STR_CID_PETROLEUM_FUELS												:{TINYFONT}PETR
+STR_CARGO_UNIT_PETROLEUM_FUELS										:{VOLUME} of Petroleum Fuels
+STR_SHORT_UNIT_PETROLEUM_FUELS										:{WEIGHT}
+
+# livestock
+
+STR_CARGO_NAME_LIVESTOCK										:Livestock
+STR_CID_LIVESTOCK												:{TINYFONT}LVST
+STR_CARGO_UNIT_LIVESTOCK										:{COMMA} item{P "" s} of Livestock
+STR_SHORT_UNIT_LIVESTOCK										:{COMMA} item{P "" s}
+
+# recyclables
+
+STR_CARGO_NAME_RECYCLABLES										:Recyclables
+STR_CID_RECYCLABLES												:{TINYFONT}RCYC
+STR_CARGO_UNIT_RECYCLABLES										:{WEIGHT} of Recyclables
+STR_SHORT_UNIT_RECYCLABLES										:{WEIGHT}
+
+# mineral_ore
+
+STR_CARGO_NAME_MINERAL_ORE										:Mineral Ore
+STR_CID_MINERAL_ORE												:{TINYFONT}MORE
+STR_CARGO_UNIT_MINERAL_ORE										:{WEIGHT} of Mineral Ore
+STR_SHORT_UNIT_MINERAL_ORE										:{WEIGHT}
 
 #chemicals
 
@@ -682,4 +661,4 @@ STR_RECLAMATION_EXTRA_TEXT							:{SKIP}{SKIP}{BLACK}Production Run Efficiency: 
 
 # enrichment_help_text
 
-STR_ENRICHMENT_EXTRA_TEXT							:{SKIP}{SKIP}{BLACK}Production Run Efficiency: {GREEN}{UNSIGNED_WORD}%{}{}{SKIP}{BLACK}Production Runs Per Cycle: {GREEN}{UNSIGNED_WORD}{}{}{GREEN}Primary Cargo: {BLACK}Uranium Ore, Potash {}{ORANGE}Secondary Cargo: {BLACK}Chemical Products, Nuclear Waste {}{WHITE}Support Cargo: {BLACK}n/a {}{BLUE}Supply Cargo: {BLACK}Engineering Supplies{}{}{BLACK}Increase efficiency by delivering {YELLOW}supplies{BLACK}, transport {YELLOW}commuters {BLACK}home and transport {YELLOW}waste {BLACK}or {YELLOW}recyclables {BLACK}away. {}{}Increase runs by delivering all primary, secondary, support and supply cargos. Deliver more of all cargos to unlock {GOLD}synergies{BLACK}. {}{}You will need less secondary, support, and supply cargos than primary cargos.
+STR_ENRICHMENT_EXTRA_TEXT							:{SKIP}{SKIP}{BLACK}Production Run Efficiency: {GREEN}{UNSIGNED_WORD}%{}{}{SKIP}{BLACK}Production Runs Per Cycle: {GREEN}{UNSIGNED_WORD}{}{}{GREEN}Primary Cargo: {BLACK}Potash {}{ORANGE}Secondary Cargo: {BLACK}Chemical Products {}{WHITE}Support Cargo: {BLACK}n/a {}{BLUE}Supply Cargo: {BLACK}Engineering Supplies{}{}{BLACK}Increase efficiency by delivering {YELLOW}supplies{BLACK}, transport {YELLOW}commuters {BLACK}home and transport {YELLOW}waste {BLACK}or {YELLOW}recyclables {BLACK}away. {}{}Increase runs by delivering all primary, secondary, support and supply cargos. Deliver more of all cargos to unlock {GOLD}synergies{BLACK}. {}{}You will need less secondary, support, and supply cargos than primary cargos.
