@@ -17,6 +17,12 @@
     "str_station": "Mine",
     "accept_cargo_list": [
         {
+            "accept_cargo": "PETR",
+            "accept_cargo_type": "support",
+            "stock_num": 30,
+            "cons_num": 130
+        },
+        {
             "accept_cargo": "ENSP",
             "accept_cargo_type": "supply",
             "stock_num": 40,

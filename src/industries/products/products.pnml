@@ -58,8 +58,8 @@ switch (FEAT_INDUSTRIES, SELF, products_calculate_production, [
 
 	// byproducts transported 
 				STORE_PERM 	(last_month_transported("WSTE") ,6),
-				STORE_PERM 	(last_month_transported("RCYC") ,7),				
-					
+				STORE_PERM 	(last_month_transported("RCYC") ,7),
+				
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("WDPR"),230),
 				STORE_PERM (transported_last_month_pct("PAPR"),231),

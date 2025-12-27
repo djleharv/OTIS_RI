@@ -9,6 +9,7 @@
 produce (mining_execute_production, 
 	[
 	// consumption execution
+				PETR: LOAD_PERM(130);
 				ENSP: LOAD_PERM(140);
 
 
@@ -69,11 +70,13 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 
 // store stockpile amount for use in procedure
 	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("PETR"),30),
 				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
 
 
 // calculate consumption per cargo 
 	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_support_cargo_consumption_30(),130),
 				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
 
 
@@ -114,6 +117,7 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 			prob_in_game: 0;
 			fund_cost_multiplier: 255;
 			cargo_types: [
+				accept_cargo("PETR"),
 				accept_cargo("ENSP"),
 
 				produce_cargo("COAL",0),

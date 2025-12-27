@@ -69,7 +69,9 @@
     "demand_customers": [
         {
             "produce_cargo": "PETR",
-            "accepted_by": [],
+            "accepted_by": [
+                "mining"
+            ],
             "demand_num": 220
         },
         {
