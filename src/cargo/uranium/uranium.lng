@@ -1,6 +1,0 @@
-# uranium
-
-STR_CARGO_NAME_URANIUM										:Uranium Ore
-STR_CID_URANIUM												:{TINYFONT}URAN
-STR_CARGO_UNIT_URANIUM										:{WEIGHT} of Uranium Ore
-STR_SHORT_UNIT_URANIUM										:{WEIGHT}

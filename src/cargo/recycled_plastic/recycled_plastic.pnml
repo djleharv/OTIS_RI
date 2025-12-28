@@ -22,12 +22,12 @@
 			capacity_multiplier: 		1;	
 			
 			weight: 					1;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_OPEN_BULK
+			cargo_classes: bitmask(		CC_BULK, CC_PIECE_GOODS
 			);
 
-			penalty_lowerbound: 		4;
-			single_penalty_length: 		40;
-			price_factor: 				116;
+			penalty_lowerbound: 		10;
+			single_penalty_length: 		128;
+			price_factor: 				125;
 					
 			
 		}

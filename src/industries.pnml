@@ -710,8 +710,7 @@ produce (mining_execute_production,
 				AORE: LOAD_PERM(212);
 				CORE: LOAD_PERM(213);
 				POTA: LOAD_PERM(214);
-				URAN: LOAD_PERM(215);
-				NITR: LOAD_PERM(216);
+				NITR: LOAD_PERM(215);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
 				PASS: LOAD_PERM(250);
@@ -735,10 +734,8 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 							223),
 				STORE_PERM (industry_count(enrichment),
 							224),
-				STORE_PERM (industry_count(enrichment),
-							225),
 				STORE_PERM (industry_count(purification) + industry_count(chemicals),
-							226),
+							225),
 
 
 	//supply competition
@@ -757,8 +754,7 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 				STORE_PERM (transported_last_month_pct("AORE"),232),
 				STORE_PERM (transported_last_month_pct("CORE"),233),
 				STORE_PERM (transported_last_month_pct("POTA"),234),
-				STORE_PERM (transported_last_month_pct("URAN"),235),
-				STORE_PERM (transported_last_month_pct("NITR"),236),
+				STORE_PERM (transported_last_month_pct("NITR"),235),
 
 
 // store stockpile amount for use in procedure
@@ -779,7 +775,6 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 				STORE_PERM (extraction_core_cargo_production_213(),213),
 				STORE_PERM (extraction_core_cargo_production_214(),214),
 				STORE_PERM (extraction_core_cargo_production_215(),215),
-				STORE_PERM (extraction_core_cargo_production_216(),216),
 				STORE_PERM (extraction_byproduct_cargo_production_240(),240),
 				STORE_PERM (extraction_byproduct_cargo_production_241(),241),
 				STORE_PERM (extraction_byproduct_cargo_production_250(),250),
@@ -816,7 +811,6 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 				produce_cargo("AORE",0),
 				produce_cargo("CORE",0),
 				produce_cargo("POTA",0),
-				produce_cargo("URAN",0),
 				produce_cargo("NITR",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
@@ -3223,18 +3217,15 @@ switch (FEAT_INDUSTRIES, SELF, reclamation_calculate_production, [
 produce (enrichment_execute_production, 
 	[
 	// consumption execution
-				URAN: LOAD_PERM(110);
-				POTA: LOAD_PERM(111);
+				POTA: LOAD_PERM(110);
 				CHEM: LOAD_PERM(120);
-				NUKW: LOAD_PERM(121);
 				ENSP: LOAD_PERM(140);
 
 
 	], 
 	[
 	// production execution
-				NUKF: LOAD_PERM(210);
-				FERT: LOAD_PERM(211);
+				FERT: LOAD_PERM(210);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
 				PASS: LOAD_PERM(250);
@@ -3249,7 +3240,7 @@ switch (FEAT_INDUSTRIES, SELF, enrichment_calculate_production, [
 //store information used to determine production
 	//demand customers
 				STORE_PERM (industry_count(farming_supplies),
-							221),
+							220),
 
 
 	//supply competition
@@ -3263,32 +3254,26 @@ switch (FEAT_INDUSTRIES, SELF, enrichment_calculate_production, [
 				STORE_PERM 	(last_month_transported("RCYC") ,7),				
 					
 	// production bias numbers
-				STORE_PERM (transported_last_month_pct("NUKF"),230),
-				STORE_PERM (transported_last_month_pct("FERT"),231),
+				STORE_PERM (transported_last_month_pct("FERT"),230),
 
 
 // store stockpile amount for use in procedure
 	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
-				STORE_PERM (incoming_cargo_waiting("URAN"),10),
-				STORE_PERM (incoming_cargo_waiting("POTA"),11),
+				STORE_PERM (incoming_cargo_waiting("POTA"),10),
 				STORE_PERM (incoming_cargo_waiting("CHEM"),20),
-				STORE_PERM (incoming_cargo_waiting("NUKW"),21),
 				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
 
 
 // calculate consumption per cargo 
 	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
 				STORE_PERM (processing_primary_cargo_consumption_10(),110),
-				STORE_PERM (processing_primary_cargo_consumption_11(),111),
 				STORE_PERM (processing_secondary_cargo_consumption_20(),120),
-				STORE_PERM (processing_secondary_cargo_consumption_21(),121),
 				STORE_PERM (processing_supply_cargo_consumption_40(),140),
 
 
 // calculate cargo and byproduct production
 	//core cargo production 210-229, byproduct cargo production 240-255
 				STORE_PERM (processing_core_cargo_production_210(),210),
-				STORE_PERM (processing_core_cargo_production_211(),211),
 				STORE_PERM (processing_byproduct_cargo_production_240(),240),
 				STORE_PERM (processing_byproduct_cargo_production_241(),241),
 				STORE_PERM (processing_byproduct_cargo_production_250(),250),
@@ -3318,13 +3303,10 @@ switch (FEAT_INDUSTRIES, SELF, enrichment_calculate_production, [
 			prob_in_game: 0;
 			fund_cost_multiplier: 255;
 			cargo_types: [
-				accept_cargo("URAN"),
 				accept_cargo("POTA"),
 				accept_cargo("CHEM"),
-				accept_cargo("NUKW"),
 				accept_cargo("ENSP"),
 
-				produce_cargo("NUKF",0),
 				produce_cargo("FERT",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),

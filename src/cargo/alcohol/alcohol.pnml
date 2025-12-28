@@ -5,8 +5,8 @@
 	item(FEAT_CARGOS, cargo_alcohol, 22) {
 		property {
 			number: 22;
-			station_list_colour: 		180;
-			cargo_payment_list_colour: 	180;	
+			station_list_colour: 		183;
+			cargo_payment_list_colour: 	183;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
 			town_growth_multiplier: 1;
@@ -21,13 +21,13 @@
 			items_of_cargo: 			string(STR_CARGO_UNIT_ALCOHOL);
 			capacity_multiplier: 		1;	
 			
-			weight: 					1;
-			cargo_classes: bitmask(		CC_POTABLE, CC_PIECE_GOODS, CC_EXPRESS, CC_REFRIGERATED
+			weight: 					1.1;
+			cargo_classes: bitmask(		CC_EXPRESS, CC_PIECE_GOODS, CC_LIQUID
 			);
 
-			penalty_lowerbound: 		0;
-			single_penalty_length: 		24;
-			price_factor: 				146;
+			penalty_lowerbound: 		9;
+			single_penalty_length: 		36;
+			price_factor: 				166;
 					
 			
 		}

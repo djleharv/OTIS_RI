@@ -5,8 +5,8 @@
 	item(FEAT_CARGOS, cargo_potash, 39) {
 		property {
 			number: 39;
-			station_list_colour: 		116;
-			cargo_payment_list_colour: 	116;	
+			station_list_colour: 		160;
+			cargo_payment_list_colour: 	160;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
 			town_growth_multiplier: 1;
@@ -22,12 +22,12 @@
 			capacity_multiplier: 		1;	
 			
 			weight: 					1;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_COVERED_BULK, CC_POWDER_BULK
+			cargo_classes: bitmask(		CC_BULK
 			);
 
 			penalty_lowerbound: 		30;
 			single_penalty_length: 		255;
-			price_factor: 				83;
+			price_factor: 				102;
 					
 			
 		}

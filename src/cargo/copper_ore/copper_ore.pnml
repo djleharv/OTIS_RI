@@ -5,8 +5,8 @@
 	item(FEAT_CARGOS, cargo_copper_ore, 31) {
 		property {
 			number: 31;
-			station_list_colour: 		111;
-			cargo_payment_list_colour: 	111;	
+			station_list_colour: 		160;
+			cargo_payment_list_colour: 	160;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
 			town_growth_multiplier: 1;
@@ -22,12 +22,12 @@
 			capacity_multiplier: 		1;	
 			
 			weight: 					1;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_OPEN_BULK
+			cargo_classes: bitmask(		CC_BULK
 			);
 
 			penalty_lowerbound: 		30;
 			single_penalty_length: 		255;
-			price_factor: 				74;
+			price_factor: 				90;
 					
 			
 		}

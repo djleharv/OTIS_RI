@@ -5,8 +5,8 @@
 	item(FEAT_CARGOS, cargo_fertilizer, 50) {
 		property {
 			number: 50;
-			station_list_colour: 		54;
-			cargo_payment_list_colour: 	54;	
+			station_list_colour: 		157;
+			cargo_payment_list_colour: 	157;	
 			sprite: NEW_CARGO_SPRITE;
 			town_growth_effect: TOWNGROWTH_NONE;
 			town_growth_multiplier: 1;
@@ -22,12 +22,12 @@
 			capacity_multiplier: 		1;	
 			
 			weight: 					1;
-			cargo_classes: bitmask(		CC_NON_POTABLE, CC_PIECE_GOODS, CC_COVERED_BULK, CC_LIQUID_BULK
+			cargo_classes: bitmask(		CC_PIECE_GOODS, CC_BULK, CC_COVERED
 			);
 
-			penalty_lowerbound: 		20;
-			single_penalty_length: 		36;
-			price_factor: 				128;
+			penalty_lowerbound: 		22;
+			single_penalty_length: 		44;
+			price_factor: 				123;
 					
 			
 		}
