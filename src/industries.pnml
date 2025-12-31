@@ -699,6 +699,7 @@ switch (FEAT_INDUSTRIES, SELF, offshore_excavation_calculate_production, [
 produce (mining_execute_production, 
 	[
 	// consumption execution
+				PETR: LOAD_PERM(130);
 				ENSP: LOAD_PERM(140);
 
 
@@ -759,11 +760,13 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 
 // store stockpile amount for use in procedure
 	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("PETR"),30),
 				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
 
 
 // calculate consumption per cargo 
 	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_support_cargo_consumption_30(),130),
 				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
 
 
@@ -804,6 +807,7 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 			prob_in_game: 0;
 			fund_cost_multiplier: 255;
 			cargo_types: [
+				accept_cargo("PETR"),
 				accept_cargo("ENSP"),
 
 				produce_cargo("COAL",0),
@@ -2321,8 +2325,8 @@ switch (FEAT_INDUSTRIES, SELF, metals_calculate_production, [
 
 	// byproducts transported 
 				STORE_PERM 	(last_month_transported("WSTE") ,6),
-				STORE_PERM 	(last_month_transported("RCYC") ,7),				
-					
+				STORE_PERM 	(last_month_transported("RCYC") ,7),
+				
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("STEL"),230),
 				STORE_PERM (transported_last_month_pct("ALUM"),231),
@@ -2464,8 +2468,8 @@ switch (FEAT_INDUSTRIES, SELF, purification_calculate_production, [
 
 	// byproducts transported 
 				STORE_PERM 	(last_month_transported("WSTE") ,6),
-				STORE_PERM 	(last_month_transported("RCYC") ,7),				
-					
+				STORE_PERM 	(last_month_transported("RCYC") ,7),
+				
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("LITH"),230),
 				STORE_PERM (transported_last_month_pct("SILI"),231),
@@ -2583,6 +2587,8 @@ switch (FEAT_INDUSTRIES, SELF, refinement_calculate_production, [
 	
 //store information used to determine production
 	//demand customers
+				STORE_PERM (industry_count(mining),
+							220),
 				STORE_PERM (industry_count(products),
 							221),
 
@@ -2595,8 +2601,8 @@ switch (FEAT_INDUSTRIES, SELF, refinement_calculate_production, [
 
 	// byproducts transported 
 				STORE_PERM 	(last_month_transported("WSTE") ,6),
-				STORE_PERM 	(last_month_transported("RCYC") ,7),				
-					
+				STORE_PERM 	(last_month_transported("RCYC") ,7),
+				
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("PETR"),230),
 				STORE_PERM (transported_last_month_pct("RFPR"),231),
@@ -2713,8 +2719,8 @@ switch (FEAT_INDUSTRIES, SELF, chemicals_calculate_production, [
 
 	// byproducts transported 
 				STORE_PERM 	(last_month_transported("WSTE") ,6),
-				STORE_PERM 	(last_month_transported("RCYC") ,7),				
-					
+				STORE_PERM 	(last_month_transported("RCYC") ,7),
+				
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("CHEM"),230),
 
@@ -2832,8 +2838,8 @@ switch (FEAT_INDUSTRIES, SELF, materials_calculate_production, [
 
 	// byproducts transported 
 				STORE_PERM 	(last_month_transported("WSTE") ,6),
-				STORE_PERM 	(last_month_transported("RCYC") ,7),				
-					
+				STORE_PERM 	(last_month_transported("RCYC") ,7),
+				
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("CMNT"),230),
 
@@ -2975,8 +2981,8 @@ switch (FEAT_INDUSTRIES, SELF, products_calculate_production, [
 
 	// byproducts transported 
 				STORE_PERM 	(last_month_transported("WSTE") ,6),
-				STORE_PERM 	(last_month_transported("RCYC") ,7),				
-					
+				STORE_PERM 	(last_month_transported("RCYC") ,7),
+				
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("WDPR"),230),
 				STORE_PERM (transported_last_month_pct("PAPR"),231),
@@ -3128,8 +3134,8 @@ switch (FEAT_INDUSTRIES, SELF, reclamation_calculate_production, [
 
 	// byproducts transported 
 				STORE_PERM 	(last_month_transported("WSTE") ,6),
-				STORE_PERM 	(last_month_transported("RCYC") ,7),				
-					
+				STORE_PERM 	(last_month_transported("RCYC") ,7),
+				
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("SCMT"),230),
 				STORE_PERM (transported_last_month_pct("RPAP"),231),
@@ -3251,8 +3257,8 @@ switch (FEAT_INDUSTRIES, SELF, enrichment_calculate_production, [
 
 	// byproducts transported 
 				STORE_PERM 	(last_month_transported("WSTE") ,6),
-				STORE_PERM 	(last_month_transported("RCYC") ,7),				
-					
+				STORE_PERM 	(last_month_transported("RCYC") ,7),
+				
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("FERT"),230),
 

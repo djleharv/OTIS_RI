@@ -34,8 +34,8 @@ _supply_competition_
 
 	// byproducts transported 
 				STORE_PERM 	(last_month_transported("WSTE") ,6),
-				STORE_PERM 	(last_month_transported("RCYC") ,7),				
-					
+				STORE_PERM 	(last_month_transported("RCYC") ,7),
+				
 	// production bias numbers
 _production_bias_
 

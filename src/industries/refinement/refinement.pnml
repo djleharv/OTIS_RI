@@ -31,6 +31,8 @@ switch (FEAT_INDUSTRIES, SELF, refinement_calculate_production, [
 	
 //store information used to determine production
 	//demand customers
+				STORE_PERM (industry_count(mining),
+							220),
 				STORE_PERM (industry_count(products),
 							221),
 
@@ -43,8 +45,8 @@ switch (FEAT_INDUSTRIES, SELF, refinement_calculate_production, [
 
 	// byproducts transported 
 				STORE_PERM 	(last_month_transported("WSTE") ,6),
-				STORE_PERM 	(last_month_transported("RCYC") ,7),				
-					
+				STORE_PERM 	(last_month_transported("RCYC") ,7),
+				
 	// production bias numbers
 				STORE_PERM (transported_last_month_pct("PETR"),230),
 				STORE_PERM (transported_last_month_pct("RFPR"),231),
