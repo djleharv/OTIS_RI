@@ -71,112 +71,128 @@ switch (FEAT_INDUSTRIES, SELF, forestry_extra_text, [
 /*---- components_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, components_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(manufacturing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - manufacturing_total_production_efficiency_malus(), 257),   // returns production run efficiency
+	STORE_TEMP(manufacturing_total_production(), 258)   // returns the total number of production runs active
 ]) {return string(STR_COMPONENTS_EXTRA_TEXT);}
 
 /*---- consumer_goods_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, consumer_goods_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(manufacturing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - manufacturing_total_production_efficiency_malus(), 257),   // returns production run efficiency
+	STORE_TEMP(manufacturing_total_production(), 258)   // returns the total number of production runs active
 ]) {return string(STR_CONSUMER_GOODS_EXTRA_TEXT);}
 
 /*---- food_processing_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, food_processing_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(manufacturing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - manufacturing_total_production_efficiency_malus(), 257),   // returns production run efficiency
+	STORE_TEMP(manufacturing_total_production(), 258)   // returns the total number of production runs active
 ]) {return string(STR_FOOD_PROCESSING_EXTRA_TEXT);}
 
 /*---- engineering_supplies_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, engineering_supplies_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(manufacturing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - manufacturing_total_production_efficiency_malus(), 257),   // returns production run efficiency
+	STORE_TEMP(manufacturing_total_production(), 258)   // returns the total number of production runs active
 ]) {return string(STR_ENGINEERING_SUPPLIES_EXTRA_TEXT);}
 
 /*---- farming_supplies_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, farming_supplies_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(manufacturing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - manufacturing_total_production_efficiency_malus(), 257),   // returns production run efficiency
+	STORE_TEMP(manufacturing_total_production(), 258)   // returns the total number of production runs active
 ]) {return string(STR_FARMING_SUPPLIES_EXTRA_TEXT);}
 
 /*---- marine_supplies_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, marine_supplies_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(manufacturing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - manufacturing_total_production_efficiency_malus(), 257),   // returns production run efficiency
+	STORE_TEMP(manufacturing_total_production(), 258)   // returns the total number of production runs active
 ]) {return string(STR_MARINE_SUPPLIES_EXTRA_TEXT);}
 
 /*---- manufacturing_supplies_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, manufacturing_supplies_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(manufacturing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - manufacturing_total_production_efficiency_malus(), 257),   // returns production run efficiency
+	STORE_TEMP(manufacturing_total_production(), 258)   // returns the total number of production runs active
 ]) {return string(STR_MANUFACTURING_SUPPLIES_EXTRA_TEXT);}
 
 /*---- construction_materials_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, construction_materials_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(manufacturing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - manufacturing_total_production_efficiency_malus(), 257),   // returns production run efficiency
+	STORE_TEMP(manufacturing_total_production(), 258)   // returns the total number of production runs active
 ]) {return string(STR_CONSTRUCTION_MATERIALS_EXTRA_TEXT);}
 
 /*---- metals_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, metals_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - (total_efficiency_malus - processing_total_production_efficiency_malus()), 257),   // returns production efficiency
+	STORE_TEMP(processing_total_production(), 258)   // returns the current production level
 ]) {return string(STR_METALS_EXTRA_TEXT);}
+
+
 
 /*---- purification_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, purification_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - (total_efficiency_malus - processing_total_production_efficiency_malus()), 257),   // returns production efficiency
+	STORE_TEMP(processing_total_production(), 258)   // returns the current production level
 ]) {return string(STR_PURIFICATION_EXTRA_TEXT);}
+
+
 
 /*---- refinement_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, refinement_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - (total_efficiency_malus - processing_total_production_efficiency_malus()), 257),   // returns production efficiency
+	STORE_TEMP(processing_total_production(), 258)   // returns the current production level
 ]) {return string(STR_REFINEMENT_EXTRA_TEXT);}
+
+
 
 /*---- chemicals_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, chemicals_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - (total_efficiency_malus - processing_total_production_efficiency_malus()), 257),   // returns production efficiency
+	STORE_TEMP(processing_total_production(), 258)   // returns the current production level
 ]) {return string(STR_CHEMICALS_EXTRA_TEXT);}
+
+
 
 /*---- materials_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, materials_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - (total_efficiency_malus - processing_total_production_efficiency_malus()), 257),   // returns production efficiency
+	STORE_TEMP(processing_total_production(), 258)   // returns the current production level
 ]) {return string(STR_MATERIALS_EXTRA_TEXT);}
+
+
 
 /*---- products_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, products_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - (total_efficiency_malus - processing_total_production_efficiency_malus()), 257),   // returns production efficiency
+	STORE_TEMP(processing_total_production(), 258)   // returns the current production level
 ]) {return string(STR_PRODUCTS_EXTRA_TEXT);}
+
+
 
 /*---- reclamation_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, reclamation_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - (total_efficiency_malus - processing_total_production_efficiency_malus()), 257),   // returns production efficiency
+	STORE_TEMP(processing_total_production(), 258)   // returns the current production level
 ]) {return string(STR_RECLAMATION_EXTRA_TEXT);}
+
+
 
 /*---- enrichment_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, enrichment_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(processing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - (total_efficiency_malus - processing_total_production_efficiency_malus()), 257),   // returns production efficiency
+	STORE_TEMP(processing_total_production(), 258)   // returns the current production level
 ]) {return string(STR_ENRICHMENT_EXTRA_TEXT);}
+
+
 
