@@ -1,4 +1,4 @@
-/*---- manufacturing_supplies ----*/
+/*---- explosives ----*/
 	
 /* *************************************************
  * PRODUCTION
@@ -6,10 +6,10 @@
 
 // Production Line
 	
-produce (manufacturing_supplies_execute_production, 
+produce (explosives_execute_production, 
 	[
 	// consumption execution
-				POWR: LOAD_PERM(110);
+				NITR: LOAD_PERM(110);
 				CHEM: LOAD_PERM(120);
 				PACK: LOAD_PERM(130);
 				MNSP: LOAD_PERM(140);
@@ -18,7 +18,7 @@ produce (manufacturing_supplies_execute_production,
 	], 
 	[
 	// production execution
-				MNSP: LOAD_PERM(210);
+				BOOM: LOAD_PERM(210);
 				WSTE: LOAD_PERM(240);
 				RCYC: LOAD_PERM(241);
 				PASS: LOAD_PERM(250);
@@ -28,16 +28,16 @@ produce (manufacturing_supplies_execute_production,
 
 // identify cargos 
 
-switch (FEAT_INDUSTRIES, SELF, manufacturing_supplies_calculate_production, [
+switch (FEAT_INDUSTRIES, SELF, explosives_calculate_production, [
 	
 //store information used to determine production
 	//demand customers
-				STORE_PERM (industry_count(components) + industry_count(consumer_goods) + industry_count(food_processing) + industry_count(engineering_supplies) + industry_count(farming_supplies) + industry_count(marine_supplies) + industry_count(construction_materials) + industry_count(explosives),
+				STORE_PERM (industry_count(mining),
 							220),
 
 
 	//supply competition
-				STORE_PERM (industry_count(manufacturing_supplies),2),
+				STORE_PERM (industry_count(explosives),2),
 
 	// commuters transported 	
 				STORE_PERM 	(transported_last_month_pct("PASS"),5),
@@ -47,12 +47,12 @@ switch (FEAT_INDUSTRIES, SELF, manufacturing_supplies_calculate_production, [
 				STORE_PERM 	(last_month_transported("RCYC") ,7),	
 					
 	// production bias numbers
-				STORE_PERM (transported_last_month_pct("MNSP"),230),
+				STORE_PERM (transported_last_month_pct("BOOM"),230),
 
 
 // store stockpile amount for use in procedure
 	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
-				STORE_PERM (incoming_cargo_waiting("POWR"),10),
+				STORE_PERM (incoming_cargo_waiting("NITR"),10),
 				STORE_PERM (incoming_cargo_waiting("CHEM"),20),
 				STORE_PERM (incoming_cargo_waiting("PACK"),30),
 				STORE_PERM (incoming_cargo_waiting("MNSP"),40),
@@ -77,7 +77,7 @@ switch (FEAT_INDUSTRIES, SELF, manufacturing_supplies_calculate_production, [
  ])
 
 // Execute Production
-	{    manufacturing_supplies_execute_production;	}
+	{    explosives_execute_production;	}
 
 
 /* *************************************************
@@ -86,36 +86,36 @@ switch (FEAT_INDUSTRIES, SELF, manufacturing_supplies_calculate_production, [
  
  if (param_industry_tile_style == 0) {
 
-	item(FEAT_INDUSTRIES, manufacturing_supplies, 80) {
+	item(FEAT_INDUSTRIES, explosives, 82) {
 		property {
 			substitute: 0;
-			map_colour: 139;
+			map_colour: 148;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
-			name: string(STR_IND_MANUFACTURING_SUPPLIES);
+			name: string(STR_IND_EXPLOSIVES);
 			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
 			prob_in_game: 0;
 			fund_cost_multiplier: 255;
 			cargo_types: [
-				accept_cargo("POWR"),
+				accept_cargo("NITR"),
 				accept_cargo("CHEM"),
 				accept_cargo("PACK"),
 				accept_cargo("MNSP"),
 
-				produce_cargo("MNSP",0),
+				produce_cargo("BOOM",0),
 				produce_cargo("WSTE",0),
 				produce_cargo("RCYC",0),
 				produce_cargo("PASS",0)
 				];
-			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_MANUFACTURING_SUPPLIES));
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_EXPLOSIVES));
 		}
 
 		graphics {
 
-			extra_text_fund:		return string(STR_FUND_MANUFACTURING_SUPPLIES);
-			extra_text_industry:	manufacturing_supplies_extra_text();
-			produce_256_ticks: 		return manufacturing_supplies_calculate_production;
+			extra_text_fund:		return string(STR_FUND_EXPLOSIVES);
+			extra_text_industry:	explosives_extra_text();
+			produce_256_ticks: 		return explosives_calculate_production;
 
 	}
 }

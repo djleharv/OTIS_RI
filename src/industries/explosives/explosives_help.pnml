@@ -1,5 +1,5 @@
-/*---- components_help_text ----*/
+/*---- explosives_help_text ----*/
  
-switch (FEAT_INDUSTRIES, SELF, components_extra_text, [
+switch (FEAT_INDUSTRIES, SELF, explosives_extra_text, [
     STORE_TEMP(100 - max(efficiency_waste, manufacturing_total_production_efficiency_malus()), 257),   // returns production run efficiency
-]) {return string(STR_COMPONENTS_EXTRA_TEXT);}
+]) {return string(STR_EXPLOSIVES_EXTRA_TEXT);}

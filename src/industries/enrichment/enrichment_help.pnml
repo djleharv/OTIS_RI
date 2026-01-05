@@ -1,7 +1,6 @@
 /*---- enrichment_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, enrichment_extra_text, [
-    STORE_TEMP(100 - (total_efficiency_malus - processing_total_production_efficiency_malus()), 257),   // returns production efficiency
-	STORE_TEMP(processing_total_production(), 258)   // returns the current production level
+    STORE_TEMP(100 - max(efficiency_waste, processing_total_production_efficiency_malus()), 257),   // returns production efficiency
 ]) {return string(STR_ENRICHMENT_EXTRA_TEXT);}
 

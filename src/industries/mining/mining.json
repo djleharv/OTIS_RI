@@ -17,6 +17,12 @@
     "str_station": "Mine",
     "accept_cargo_list": [
         {
+            "accept_cargo": "BOOM",
+            "accept_cargo_type": "secondary",
+            "stock_num": 20,
+            "cons_num": 120
+        },
+        {
             "accept_cargo": "PETR",
             "accept_cargo_type": "support",
             "stock_num": 30,
@@ -136,7 +142,8 @@
             "produce_cargo": "NITR",
             "accepted_by": [
                 "purification",
-                "chemicals"
+                "chemicals",
+                "explosives"
             ],
             "demand_num": 225
         }

@@ -72,7 +72,8 @@
                 "purification",
                 "materials",
                 "products",
-                "enrichment"
+                "enrichment",
+                "explosives"
             ],
             "demand_num": 220
         }

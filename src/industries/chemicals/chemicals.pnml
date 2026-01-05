@@ -30,7 +30,7 @@ switch (FEAT_INDUSTRIES, SELF, chemicals_calculate_production, [
 	
 //store information used to determine production
 	//demand customers
-				STORE_PERM (industry_count(components) + industry_count(consumer_goods) + industry_count(food_processing) + industry_count(marine_supplies) + industry_count(manufacturing_supplies) + industry_count(metals) + industry_count(purification) + industry_count(materials) + industry_count(products) + industry_count(enrichment),
+				STORE_PERM (industry_count(components) + industry_count(consumer_goods) + industry_count(food_processing) + industry_count(marine_supplies) + industry_count(manufacturing_supplies) + industry_count(metals) + industry_count(purification) + industry_count(materials) + industry_count(products) + industry_count(enrichment) + industry_count(explosives),
 							220),
 
 

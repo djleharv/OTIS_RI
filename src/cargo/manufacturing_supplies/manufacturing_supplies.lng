@@ -2,5 +2,5 @@
 
 STR_CARGO_NAME_MANUFACTURING_SUPPLIES										:Manufacturing Supplies
 STR_CID_MANUFACTURING_SUPPLIES												:{TINYFONT}MANU
-STR_CARGO_UNIT_MANUFACTURING_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s} of Manufacturing Supplies
-STR_SHORT_UNIT_MANUFACTURING_SUPPLIES										:{SIGNED_WORD} pallette{P 0 "" s}
+STR_CARGO_UNIT_MANUFACTURING_SUPPLIES										:{SIGNED_WORD} pallet{P 0 "" s} of Manufacturing Supplies
+STR_SHORT_UNIT_MANUFACTURING_SUPPLIES										:{SIGNED_WORD} pallet{P 0 "" s}

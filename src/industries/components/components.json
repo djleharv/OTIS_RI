@@ -131,7 +131,8 @@
                 "farming_supplies",
                 "marine_supplies",
                 "manufacturing_supplies",
-                "construction_materials"
+                "construction_materials",
+                "explosives"
             ],
             "demand_num": 220
         },

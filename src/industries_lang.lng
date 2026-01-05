@@ -40,6 +40,12 @@ STR_IND_ENRICHMENT		:(2-Processing) Enrichment
 STR_FUND_ENRICHMENT		:{}Represents enrichment of materials
 STR_STATION_ENRICHMENT	:Plant
 
+#explosives
+
+STR_IND_EXPLOSIVES		:(3-Manufacturing) Explosives
+STR_FUND_EXPLOSIVES		:{}Represents manufacturing of explosives used in extraction
+STR_STATION_EXPLOSIVES	:Factory
+
 #farming_supplies
 
 STR_IND_FARMING_SUPPLIES		:(3-Manufacturing) Farming Supplies Manufacturing

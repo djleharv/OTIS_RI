@@ -1,0 +1,6 @@
+# explosives
+
+STR_CARGO_NAME_EXPLOSIVES										:Explosives
+STR_CID_EXPLOSIVES												:{TINYFONT}BOOM
+STR_CARGO_UNIT_EXPLOSIVES										:{SIGNED_WORD} pallet{P 0 "" s} of Explosives
+STR_SHORT_UNIT_EXPLOSIVES										:{SIGNED_WORD} pallet{P 0 "" s}

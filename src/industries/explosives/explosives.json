@@ -1,23 +1,23 @@
 {
-    "industry_item_name": "manufacturing_supplies",
-    "string": "MANUFACTURING_SUPPLIES",
-    "folder": "manufacturing_supplies",
+    "industry_item_name": "explosives",
+    "string": "EXPLOSIVES",
+    "folder": "explosives",
     "include": true,
     "industry_type": "manufacturing",
     "industry_pack": 0,
-    "industry_ID": 80,
-    "industry_colour_number": 139,
+    "industry_ID": 82,
+    "industry_colour_number": 148,
     "industry_layout": "concrete",
     "extra_text_industry": "manufacturing",
     "prob_map_gen": 2,
     "prob_in_game": 0,
     "fund_cost_multiplier": 255,
-    "str_ind": "(3-Manufacturing) Manufacturing Supplies Manufacturing",
-    "str_fund": "{}Represents manufacturing of supplies",
+    "str_ind": "(3-Manufacturing) Explosives",
+    "str_fund": "{}Represents manufacturing of explosives used in extraction",
     "str_station": "Factory",
     "accept_cargo_list": [
         {
-            "accept_cargo": "POWR",
+            "accept_cargo": "NITR",
             "accept_cargo_type": "primary",
             "stock_num": 10,
             "cons_num": 110
@@ -43,7 +43,7 @@
     ],
     "produce_cargo_list": [
         {
-            "produce_cargo": "MNSP",
+            "produce_cargo": "BOOM",
             "produce_cargo_type": "core",
             "prod_num": 210,
             "demand_num": 220,
@@ -73,16 +73,9 @@
     ],
     "demand_customers": [
         {
-            "produce_cargo": "MNSP",
+            "produce_cargo": "BOOM",
             "accepted_by": [
-                "components",
-                "consumer_goods",
-                "food_processing",
-                "engineering_supplies",
-                "farming_supplies",
-                "marine_supplies",
-                "construction_materials",
-                "explosives"
+                "mining"
             ],
             "demand_num": 220
         }
