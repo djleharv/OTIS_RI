@@ -2147,7 +2147,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 *********************************************/
 //foundational information needed for calculations (needs to be divisble into whole numbers)
 	stockpile_threshold = 10;
-	base_extraction_production = 100;
+	base_extraction_production = 10;
 
 //calculation used to determine how many other cargos are used per run
 	secondary_consumption = 25;
@@ -2170,8 +2170,6 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 	waste_efficiency_malus = 5;
 	recyclables_efficiency_malus = 5;
 	efficiency_waste = 10;
-
-//universal counting of other cargo_subtype
 
 //calculate number of waiting other cargos
 	//secondary cargo
@@ -2221,6 +2219,7 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 
 	//production efficiency malus for transporting recyclables
 		switch 	(FEAT_INDUSTRIES, SELF, recyclables_production_efficiency_malus, LOAD_PERM(7) == 0,) {1: return recyclables_efficiency_malus; return 0;}	
+
 
 /********************************************
  * PRODUCTION MECHANICS FOR 1-EXTRACTION INDUSTRIES
@@ -2340,14 +2339,14 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 	switch (FEAT_INDUSTRIES, SELF, extraction_production_bias_217, LOAD_PERM(237) * 100 / total_outputs(),) {return;}   
 
 //calculate core cargo production 
-	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_210, max(1, (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_210() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_211, max(1, (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_211() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_212, max(1, (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_212() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_213, max(1, (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_213() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_214, max(1, (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_214() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_215, max(1, (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_215() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_216, max(1, (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_216() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_217, max(1, (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_217() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_210, max((total_outputs() == 0 ? 1 : 0), (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_210() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_211, max((total_outputs() == 0 ? 1 : 0), (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_211() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_212, max((total_outputs() == 0 ? 1 : 0), (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_212() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_213, max((total_outputs() == 0 ? 1 : 0), (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_213() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_214, max((total_outputs() == 0 ? 1 : 0), (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_214() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_215, max((total_outputs() == 0 ? 1 : 0), (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_215() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_216, max((total_outputs() == 0 ? 1 : 0), (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_216() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, extraction_core_cargo_production_217, max((total_outputs() == 0 ? 1 : 0), (extraction_total_production() - (extraction_total_production() * max(efficiency_waste, extraction_total_production_efficiency_malus()) / 100)) * extraction_production_bias_217() / 100)			,) {return;}
 
 //calculate byproduct/commuter production
 	switch 	(FEAT_INDUSTRIES, SELF, extraction_byproduct_cargo_production_240, extraction_total_production() * waste_production / 100,) {return;}
@@ -2477,14 +2476,14 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 	switch (FEAT_INDUSTRIES, SELF, processing_production_bias_217, LOAD_PERM(237) * 100 / total_outputs(),) {return;}   
 
 //calculate core cargo production 
-	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_210, max(1, (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_210() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_211, max(1, (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_211() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_212, max(1, (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_212() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_213, max(1, (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_213() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_214, max(1, (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_214() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_215, max(1, (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_214() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_216, max(1, (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_216() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_217, max(1, (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_217() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_210, max((total_outputs() == 0 ? 1 : 0), (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_210() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_211, max((total_outputs() == 0 ? 1 : 0), (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_211() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_212, max((total_outputs() == 0 ? 1 : 0), (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_212() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_213, max((total_outputs() == 0 ? 1 : 0), (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_213() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_214, max((total_outputs() == 0 ? 1 : 0), (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_214() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_215, max((total_outputs() == 0 ? 1 : 0), (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_215() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_216, max((total_outputs() == 0 ? 1 : 0), (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_216() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, processing_core_cargo_production_217, max((total_outputs() == 0 ? 1 : 0), (processing_total_production() - (processing_total_production() * (efficiency_waste + processing_total_production_efficiency_malus()) / 100)) * processing_production_bias_217() / 100)			,) {return;}
 
 //calculate byproduct/commuter production
 	switch 	(FEAT_INDUSTRIES, SELF, processing_byproduct_cargo_production_240, processing_total_production() * waste_production / 100,) {return;}
@@ -2615,14 +2614,14 @@ const CC_WEIRD = 12; // remaps legacy NML class: CC_NON_POURABLE
 	switch (FEAT_INDUSTRIES, SELF, manufacturing_production_bias_217, LOAD_PERM(237) * 100 / total_outputs(),) {return;}   
 
 //calculate core cargo production 
-	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_210, max(1, (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_210() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_211, max(1, (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_211() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_212, max(1, (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_212() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_213, max(1, (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_213() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_214, max(1, (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_214() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_215, max(1, (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_215() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_216, max(1, (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_216() / 100)			,) {return;}
-	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_217, max(1, (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_217() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_210, max((total_outputs() == 0 ? 1 : 0), (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_210() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_211, max((total_outputs() == 0 ? 1 : 0), (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_211() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_212, max((total_outputs() == 0 ? 1 : 0), (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_212() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_213, max((total_outputs() == 0 ? 1 : 0), (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_213() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_214, max((total_outputs() == 0 ? 1 : 0), (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_214() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_215, max((total_outputs() == 0 ? 1 : 0), (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_215() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_216, max((total_outputs() == 0 ? 1 : 0), (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_216() / 100)			,) {return;}
+	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_core_cargo_production_217, max((total_outputs() == 0 ? 1 : 0), (manufacturing_total_production() - (manufacturing_total_production() * (efficiency_waste + manufacturing_total_production_efficiency_malus()) / 100)) * manufacturing_production_bias_217() / 100)			,) {return;}
 
 //calculate byproduct/commuter production
 	switch 	(FEAT_INDUSTRIES, SELF, manufacturing_byproduct_cargo_production_240, manufacturing_total_production() * waste_production / 100,) {return;}
