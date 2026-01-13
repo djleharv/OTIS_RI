@@ -80,14 +80,14 @@ switch (FEAT_INDUSTRIES, SELF, inland_extraction_calculate_production, [
 	item(FEAT_INDUSTRIES, inland_extraction, 1) {
 		property {
 			substitute: 0;
-			map_colour: 152;
+			map_colour: 152.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [dirt_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_INLAND_EXTRACTION);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("ENSP"),
 
@@ -191,14 +191,14 @@ switch (FEAT_INDUSTRIES, SELF, offshore_extraction_calculate_production, [
 	item(FEAT_INDUSTRIES, offshore_extraction, 2) {
 		property {
 			substitute: 0;
-			map_colour: 152;
+			map_colour: 152.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [dirt_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_OFFSHORE_EXTRACTION);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("SESP"),
 
@@ -302,14 +302,14 @@ switch (FEAT_INDUSTRIES, SELF, inland_fisheries_calculate_production, [
 	item(FEAT_INDUSTRIES, inland_fisheries, 3) {
 		property {
 			substitute: 0;
-			map_colour: 99;
+			map_colour: 99.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [dirt_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_INLAND_FISHERIES);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("ENSP"),
 
@@ -413,14 +413,14 @@ switch (FEAT_INDUSTRIES, SELF, offshore_fisheries_calculate_production, [
 	item(FEAT_INDUSTRIES, offshore_fisheries, 4) {
 		property {
 			substitute: 0;
-			map_colour: 99;
+			map_colour: 99.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [dirt_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_OFFSHORE_FISHERIES);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("SESP"),
 
@@ -534,14 +534,14 @@ switch (FEAT_INDUSTRIES, SELF, inland_excavation_calculate_production, [
 	item(FEAT_INDUSTRIES, inland_excavation, 5) {
 		property {
 			substitute: 0;
-			map_colour: 6;
+			map_colour: 6.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [dirt_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_INLAND_EXCAVATION);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("ENSP"),
 
@@ -657,14 +657,14 @@ switch (FEAT_INDUSTRIES, SELF, offshore_excavation_calculate_production, [
 	item(FEAT_INDUSTRIES, offshore_excavation, 6) {
 		property {
 			substitute: 0;
-			map_colour: 6;
+			map_colour: 6.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [dirt_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_OFFSHORE_EXCAVATION);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("SESP"),
 
@@ -699,6 +699,7 @@ switch (FEAT_INDUSTRIES, SELF, offshore_excavation_calculate_production, [
 produce (mining_execute_production, 
 	[
 	// consumption execution
+				BOOM: LOAD_PERM(120);
 				PETR: LOAD_PERM(130);
 				ENSP: LOAD_PERM(140);
 
@@ -735,7 +736,7 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 							223),
 				STORE_PERM (industry_count(enrichment),
 							224),
-				STORE_PERM (industry_count(purification) + industry_count(chemicals),
+				STORE_PERM (industry_count(purification) + industry_count(chemicals) + industry_count(explosives),
 							225),
 
 
@@ -760,12 +761,14 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 
 // store stockpile amount for use in procedure
 	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("BOOM"),20),
 				STORE_PERM (incoming_cargo_waiting("PETR"),30),
 				STORE_PERM (incoming_cargo_waiting("ENSP"),40),
 
 
 // calculate consumption per cargo 
 	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (extraction_secondary_cargo_consumption_20(),120),
 				STORE_PERM (extraction_support_cargo_consumption_30(),130),
 				STORE_PERM (extraction_supply_cargo_consumption_40(),140),
 
@@ -798,15 +801,16 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 	item(FEAT_INDUSTRIES, mining, 7) {
 		property {
 			substitute: 0;
-			map_colour: 116;
+			map_colour: 116.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [dirt_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_MINING);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
+				accept_cargo("BOOM"),
 				accept_cargo("PETR"),
 				accept_cargo("ENSP"),
 
@@ -925,14 +929,14 @@ switch (FEAT_INDUSTRIES, SELF, husbandry_calculate_production, [
 	item(FEAT_INDUSTRIES, husbandry, 8) {
 		property {
 			substitute: 0;
-			map_colour: 107;
+			map_colour: 107.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [dirt_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_HUSBANDRY);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("FMSP"),
 
@@ -1048,14 +1052,14 @@ switch (FEAT_INDUSTRIES, SELF, cultivation_calculate_production, [
 	item(FEAT_INDUSTRIES, cultivation, 9) {
 		property {
 			substitute: 0;
-			map_colour: 51;
+			map_colour: 51.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [dirt_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_CULTIVATION);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("FMSP"),
 
@@ -1161,14 +1165,14 @@ switch (FEAT_INDUSTRIES, SELF, forestry_calculate_production, [
 	item(FEAT_INDUSTRIES, forestry, 10) {
 		property {
 			substitute: 0;
-			map_colour: 85;
+			map_colour: 85.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [dirt_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_FORESTRY);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("FMSP"),
 
@@ -1232,7 +1236,7 @@ switch (FEAT_INDUSTRIES, SELF, components_calculate_production, [
 	
 //store information used to determine production
 	//demand customers
-				STORE_PERM (industry_count(consumer_goods) + industry_count(food_processing) + industry_count(engineering_supplies) + industry_count(farming_supplies) + industry_count(marine_supplies) + industry_count(manufacturing_supplies) + industry_count(construction_materials),
+				STORE_PERM (industry_count(consumer_goods) + industry_count(food_processing) + industry_count(engineering_supplies) + industry_count(farming_supplies) + industry_count(marine_supplies) + industry_count(manufacturing_supplies) + industry_count(construction_materials) + industry_count(explosives),
 							220),
 				STORE_PERM (industry_count(consumer_goods),
 							221),
@@ -1309,14 +1313,14 @@ switch (FEAT_INDUSTRIES, SELF, components_calculate_production, [
 	item(FEAT_INDUSTRIES, components, 73) {
 		property {
 			substitute: 0;
-			map_colour: 144;
+			map_colour: 144.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_COMPONENTS);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("STEL"),
 				accept_cargo("ALUM"),
@@ -1462,14 +1466,14 @@ switch (FEAT_INDUSTRIES, SELF, consumer_goods_calculate_production, [
 	item(FEAT_INDUSTRIES, consumer_goods, 74) {
 		property {
 			substitute: 0;
-			map_colour: 37;
+			map_colour: 37.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_CONSUMER_GOODS);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("STEL"),
 				accept_cargo("ALUM"),
@@ -1617,14 +1621,14 @@ switch (FEAT_INDUSTRIES, SELF, food_processing_calculate_production, [
 	item(FEAT_INDUSTRIES, food_processing, 75) {
 		property {
 			substitute: 0;
-			map_colour: 87;
+			map_colour: 87.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_FOOD_PROCESSING);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("GRAI"),
 				accept_cargo("FRUT"),
@@ -1748,14 +1752,14 @@ switch (FEAT_INDUSTRIES, SELF, engineering_supplies_calculate_production, [
 	item(FEAT_INDUSTRIES, engineering_supplies, 77) {
 		property {
 			substitute: 0;
-			map_colour: 139;
+			map_colour: 139.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_ENGINEERING_SUPPLIES);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("STEL"),
 				accept_cargo("POWR"),
@@ -1871,14 +1875,14 @@ switch (FEAT_INDUSTRIES, SELF, farming_supplies_calculate_production, [
 	item(FEAT_INDUSTRIES, farming_supplies, 78) {
 		property {
 			substitute: 0;
-			map_colour: 139;
+			map_colour: 139.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_FARMING_SUPPLIES);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("FERT"),
 				accept_cargo("WDPR"),
@@ -1994,14 +1998,14 @@ switch (FEAT_INDUSTRIES, SELF, marine_supplies_calculate_production, [
 	item(FEAT_INDUSTRIES, marine_supplies, 79) {
 		property {
 			substitute: 0;
-			map_colour: 139;
+			map_colour: 139.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_MARINE_SUPPLIES);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("TEXT"),
 				accept_cargo("CHEM"),
@@ -2060,7 +2064,7 @@ switch (FEAT_INDUSTRIES, SELF, manufacturing_supplies_calculate_production, [
 	
 //store information used to determine production
 	//demand customers
-				STORE_PERM (industry_count(components) + industry_count(consumer_goods) + industry_count(food_processing) + industry_count(engineering_supplies) + industry_count(farming_supplies) + industry_count(marine_supplies) + industry_count(construction_materials),
+				STORE_PERM (industry_count(components) + industry_count(consumer_goods) + industry_count(food_processing) + industry_count(engineering_supplies) + industry_count(farming_supplies) + industry_count(marine_supplies) + industry_count(construction_materials) + industry_count(explosives),
 							220),
 
 
@@ -2117,14 +2121,14 @@ switch (FEAT_INDUSTRIES, SELF, manufacturing_supplies_calculate_production, [
 	item(FEAT_INDUSTRIES, manufacturing_supplies, 80) {
 		property {
 			substitute: 0;
-			map_colour: 139;
+			map_colour: 139.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_MANUFACTURING_SUPPLIES);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("POWR"),
 				accept_cargo("CHEM"),
@@ -2238,14 +2242,14 @@ switch (FEAT_INDUSTRIES, SELF, construction_materials_calculate_production, [
 	item(FEAT_INDUSTRIES, construction_materials, 81) {
 		property {
 			substitute: 0;
-			map_colour: 139;
+			map_colour: 139.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_CONSTRUCTION_MATERIALS);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("CMNT"),
 				accept_cargo("WDPR"),
@@ -2380,14 +2384,14 @@ switch (FEAT_INDUSTRIES, SELF, metals_calculate_production, [
 	item(FEAT_INDUSTRIES, metals, 37) {
 		property {
 			substitute: 0;
-			map_colour: 36;
+			map_colour: 36.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_METALS);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("IORE"),
 				accept_cargo("AORE"),
@@ -2519,14 +2523,14 @@ switch (FEAT_INDUSTRIES, SELF, purification_calculate_production, [
 	item(FEAT_INDUSTRIES, purification, 38) {
 		property {
 			substitute: 0;
-			map_colour: 152;
+			map_colour: 152.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_PURIFICATION);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("NITR"),
 				accept_cargo("GRVL"),
@@ -2644,14 +2648,14 @@ switch (FEAT_INDUSTRIES, SELF, refinement_calculate_production, [
 	item(FEAT_INDUSTRIES, refinement, 39) {
 		property {
 			substitute: 0;
-			map_colour: 146;
+			map_colour: 146.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_REFINEMENT);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("OIL_"),
 				accept_cargo("ENSP"),
@@ -2707,7 +2711,7 @@ switch (FEAT_INDUSTRIES, SELF, chemicals_calculate_production, [
 	
 //store information used to determine production
 	//demand customers
-				STORE_PERM (industry_count(components) + industry_count(consumer_goods) + industry_count(food_processing) + industry_count(marine_supplies) + industry_count(manufacturing_supplies) + industry_count(metals) + industry_count(purification) + industry_count(materials) + industry_count(products) + industry_count(enrichment),
+				STORE_PERM (industry_count(components) + industry_count(consumer_goods) + industry_count(food_processing) + industry_count(marine_supplies) + industry_count(manufacturing_supplies) + industry_count(metals) + industry_count(purification) + industry_count(materials) + industry_count(products) + industry_count(enrichment) + industry_count(explosives),
 							220),
 
 
@@ -2760,14 +2764,14 @@ switch (FEAT_INDUSTRIES, SELF, chemicals_calculate_production, [
 	item(FEAT_INDUSTRIES, chemicals, 40) {
 		property {
 			substitute: 0;
-			map_colour: 81;
+			map_colour: 81.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_CHEMICALS);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("NITR"),
 				accept_cargo("ENSP"),
@@ -2887,14 +2891,14 @@ switch (FEAT_INDUSTRIES, SELF, materials_calculate_production, [
 	item(FEAT_INDUSTRIES, materials, 41) {
 		property {
 			substitute: 0;
-			map_colour: 58;
+			map_colour: 58.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_MATERIALS);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("GRVL"),
 				accept_cargo("SAND"),
@@ -3042,14 +3046,14 @@ switch (FEAT_INDUSTRIES, SELF, products_calculate_production, [
 	item(FEAT_INDUSTRIES, products, 42) {
 		property {
 			substitute: 0;
-			map_colour: 166;
+			map_colour: 166.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_PRODUCTS);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("WOOD"),
 				accept_cargo("RFPR"),
@@ -3180,14 +3184,14 @@ switch (FEAT_INDUSTRIES, SELF, reclamation_calculate_production, [
 	item(FEAT_INDUSTRIES, reclamation, 43) {
 		property {
 			substitute: 0;
-			map_colour: 59;
+			map_colour: 59.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_RECLAMATION);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("RCYC"),
 				accept_cargo("ENSP"),
@@ -3300,14 +3304,14 @@ switch (FEAT_INDUSTRIES, SELF, enrichment_calculate_production, [
 	item(FEAT_INDUSTRIES, enrichment, 44) {
 		property {
 			substitute: 0;
-			map_colour: 171;
+			map_colour: 171.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_ENRICHMENT);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("POTA"),
 				accept_cargo("CHEM"),
@@ -3326,6 +3330,129 @@ switch (FEAT_INDUSTRIES, SELF, enrichment_calculate_production, [
 			extra_text_fund:		return string(STR_FUND_ENRICHMENT);
 			extra_text_industry:	enrichment_extra_text();
 			produce_256_ticks: 		return enrichment_calculate_production;
+
+	}
+}
+}
+
+/*---- explosives ----*/
+	
+/* *************************************************
+ * PRODUCTION
+ * *************************************************/
+
+// Production Line
+	
+produce (explosives_execute_production, 
+	[
+	// consumption execution
+				NITR: LOAD_PERM(110);
+				CHEM: LOAD_PERM(120);
+				PACK: LOAD_PERM(130);
+				MNSP: LOAD_PERM(140);
+
+
+	], 
+	[
+	// production execution
+				BOOM: LOAD_PERM(210);
+				WSTE: LOAD_PERM(240);
+				RCYC: LOAD_PERM(241);
+				PASS: LOAD_PERM(250);
+
+ 
+	])
+
+// identify cargos 
+
+switch (FEAT_INDUSTRIES, SELF, explosives_calculate_production, [
+	
+//store information used to determine production
+	//demand customers
+				STORE_PERM (industry_count(mining),
+							220),
+
+
+	//supply competition
+				STORE_PERM (industry_count(explosives),2),
+
+	// commuters transported 	
+				STORE_PERM 	(transported_last_month_pct("PASS"),5),
+
+	// byproducts transported 
+				STORE_PERM 	(last_month_transported("WSTE") ,6),
+				STORE_PERM 	(last_month_transported("RCYC") ,7),	
+					
+	// production bias numbers
+				STORE_PERM (transported_last_month_pct("BOOM"),230),
+
+
+// store stockpile amount for use in procedure
+	// primary cargos 10-19, secondary cargos 20-29, support cargos 30-39, supply cargos 40-49
+				STORE_PERM (incoming_cargo_waiting("NITR"),10),
+				STORE_PERM (incoming_cargo_waiting("CHEM"),20),
+				STORE_PERM (incoming_cargo_waiting("PACK"),30),
+				STORE_PERM (incoming_cargo_waiting("MNSP"),40),
+
+
+// calculate consumption per cargo 
+	// primary cargos 110-119, secondary cargos 120-129, support cargos 130-139, supply cargos 140-149	
+				STORE_PERM (manufacturing_primary_cargo_consumption_10(),110),
+				STORE_PERM (manufacturing_secondary_cargo_consumption_20(),120),
+				STORE_PERM (manufacturing_support_cargo_consumption_30(),130),
+				STORE_PERM (manufacturing_supply_cargo_consumption_40(),140),
+
+
+// calculate cargo and byproduct production
+	//core cargo production 210-229, byproduct cargo production 240-255
+				STORE_PERM (manufacturing_core_cargo_production_210(),210),
+				STORE_PERM (manufacturing_byproduct_cargo_production_240(),240),
+				STORE_PERM (manufacturing_byproduct_cargo_production_241(),241),
+				STORE_PERM (manufacturing_byproduct_cargo_production_250(),250),
+
+
+ ])
+
+// Execute Production
+	{    explosives_execute_production;	}
+
+
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+ 
+ if (param_industry_tile_style == 0) {
+
+	item(FEAT_INDUSTRIES, explosives, 82) {
+		property {
+			substitute: 0;
+			map_colour: 148.0;
+			life_type: IND_LIFE_TYPE_BLACK_HOLE;
+			layouts: [concrete_industry_tilelayout];
+			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
+			name: string(STR_IND_EXPLOSIVES);
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
+			cargo_types: [
+				accept_cargo("NITR"),
+				accept_cargo("CHEM"),
+				accept_cargo("PACK"),
+				accept_cargo("MNSP"),
+
+				produce_cargo("BOOM",0),
+				produce_cargo("WSTE",0),
+				produce_cargo("RCYC",0),
+				produce_cargo("PASS",0)
+				];
+			nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_STATION_EXPLOSIVES));
+		}
+
+		graphics {
+
+			extra_text_fund:		return string(STR_FUND_EXPLOSIVES);
+			extra_text_industry:	explosives_extra_text();
+			produce_256_ticks: 		return explosives_calculate_production;
 
 	}
 }

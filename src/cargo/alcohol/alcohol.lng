@@ -2,5 +2,5 @@
 
 STR_CARGO_NAME_ALCOHOL										:Alcoholic Beverages
 STR_CID_ALCOHOL												:{TINYFONT}ALCL
-STR_CARGO_UNIT_ALCOHOL										:{SIGNED_WORD} pallette{P 0 "" s} of Alcoholic Beverages
-STR_SHORT_UNIT_ALCOHOL										:{SIGNED_WORD} pallette{P 0 "" s}
+STR_CARGO_UNIT_ALCOHOL										:{SIGNED_WORD} pallet{P 0 "" s} of Alcoholic Beverages
+STR_SHORT_UNIT_ALCOHOL										:{SIGNED_WORD} pallet{P 0 "" s}

@@ -1,0 +1,5 @@
+#explosives
+
+STR_IND_EXPLOSIVES		:(3-Manufacturing) Explosives
+STR_FUND_EXPLOSIVES		:{}Represents manufacturing of explosives used in extraction
+STR_STATION_EXPLOSIVES	:Factory

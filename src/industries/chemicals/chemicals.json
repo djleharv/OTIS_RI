@@ -6,12 +6,12 @@
     "industry_type": "processing",
     "industry_pack": 0,
     "industry_ID": 40,
-    "industry_colour_number": 81,
+    "industry_colour_number": 81.0,
     "industry_layout": "concrete",
     "extra_text_industry": "processing",
-    "prob_map_gen": 2,
-    "prob_in_game": 0,
-    "fund_cost_multiplier": 255,
+    "prob_map_gen": 2.0,
+    "prob_in_game": 0.0,
+    "fund_cost_multiplier": 255.0,
     "str_ind": "(2-Processing) Chemicals",
     "str_fund": "{}Represents processing of chemicals",
     "str_station": "Plant",
@@ -72,7 +72,8 @@
                 "purification",
                 "materials",
                 "products",
-                "enrichment"
+                "enrichment",
+                "explosives"
             ],
             "demand_num": 220
         }

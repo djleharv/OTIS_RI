@@ -1,0 +1,36 @@
+/*---- explosives ----*/
+	
+	spriteset(cargoicon_explosives) {[10 + 20 * 2, 10 + 20 * 3, 10, 10, 0, 0, "gfx/other/cargoicons.png"]    }
+
+	item(FEAT_CARGOS, cargo_explosives, 30) {
+		property {
+			number: 30;
+			station_list_colour: 		148;
+			cargo_payment_list_colour: 	148;	
+			sprite: NEW_CARGO_SPRITE;
+			town_growth_effect: TOWNGROWTH_NONE;
+			town_growth_multiplier: 1;
+			
+			is_freight: 				1;
+			type_name: 					string(STR_CARGO_NAME_EXPLOSIVES);
+			unit_name: 					string(STR_CARGO_NAME_EXPLOSIVES);
+			type_abbreviation: 			string(STR_CID_EXPLOSIVES);
+			cargo_label: 				"BOOM";
+			
+			units_of_cargo: 			string(STR_SHORT_UNIT_EXPLOSIVES);
+			items_of_cargo: 			string(STR_CARGO_UNIT_EXPLOSIVES);
+			capacity_multiplier: 		1;	
+			
+			weight: 					0.25;
+			cargo_classes: bitmask(		CC_EXPRESS, CC_PIECE_GOODS, CC_HAZARDOUS
+			);
+
+			penalty_lowerbound: 		6;
+			single_penalty_length: 		42;
+			price_factor: 				180;
+					
+			
+		}
+		graphics {						cargoicon_explosives;
+		}
+	}

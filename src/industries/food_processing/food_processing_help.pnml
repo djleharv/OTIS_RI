@@ -1,6 +1,5 @@
 /*---- food_processing_help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, food_processing_extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(manufacturing_cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - max(efficiency_waste, manufacturing_total_production_efficiency_malus()), 257),   // returns production run efficiency
 ]) {return string(STR_FOOD_PROCESSING_EXTRA_TEXT);}

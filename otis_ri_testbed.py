@@ -23,5 +23,11 @@ functions.CreateIndustryHelpText()
 print("\tCreating Industry Help Texts LNGs")
 functions.CreateIndustryHelpTextsLNGs()
 
+print("\tCreating House PNMLs")
+functions.CreateHousePNMLs()
+
+print("\tCreating House LNGs")
+functions.CreateHouseLNGs()
+
 print("\tCreating Lang file")
 functions.CreateLNGFile()

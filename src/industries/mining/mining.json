@@ -6,16 +6,22 @@
     "industry_type": "extraction",
     "industry_pack": 0,
     "industry_ID": 7,
-    "industry_colour_number": 116,
+    "industry_colour_number": 116.0,
     "industry_layout": "dirt",
     "extra_text_industry": "extraction",
-    "prob_map_gen": 2,
-    "prob_in_game": 0,
-    "fund_cost_multiplier": 255,
+    "prob_map_gen": 2.0,
+    "prob_in_game": 0.0,
+    "fund_cost_multiplier": 255.0,
     "str_ind": "(1-Extraction) Mining",
     "str_fund": "{}Represents mining activity",
     "str_station": "Mine",
     "accept_cargo_list": [
+        {
+            "accept_cargo": "BOOM",
+            "accept_cargo_type": "secondary",
+            "stock_num": 20,
+            "cons_num": 120
+        },
         {
             "accept_cargo": "PETR",
             "accept_cargo_type": "support",
@@ -136,7 +142,8 @@
             "produce_cargo": "NITR",
             "accepted_by": [
                 "purification",
-                "chemicals"
+                "chemicals",
+                "explosives"
             ],
             "demand_num": 225
         }

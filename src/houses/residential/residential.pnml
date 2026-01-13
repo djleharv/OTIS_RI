@@ -1,0 +1,26 @@
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+
+ if (param_industry_tile_style == 0) {
+
+ 	item(FEAT_HOUSES, residential, 252, HOUSE_SIZE_1X1){
+		property {
+			substitute:					27;
+			name:						string(STR_HOUSE_RESIDENTIAL);
+			population:					255;
+			accepted_cargos:			[[PASS,8],[MAIL,8],[PCL_,8]];
+			local_authority_impact:		80;
+			removal_cost_multiplier:	80;
+			probability:				0;
+			years_available:			[0,0xFFFF];
+			minimum_lifetime:			200;
+			availability_mask:			[bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, ABOVE_SNOWLINE, CLIMATE_TROPIC)];
+			building_class:				5;
+			}
+		graphics {
+			default:					concrete_industry_spritelayout;
+			cargo_production:			distribution_calculate_production(40,10,10,10,10);
+		}
+	}
+ }

@@ -1,6 +1,5 @@
 /*---- _industry_item_name__help_text ----*/
  
 switch (FEAT_INDUSTRIES, SELF, _industry_item_name__extra_text, [
-    STORE_TEMP(((total_production - total_production_efficiency()) * 100) / total_production , 257),   // returns production run efficiency
-	STORE_TEMP(_industry_type__cargo_runs(), 258)   // returns the total number of production runs active
+    STORE_TEMP(100 - max(efficiency_waste, extraction_total_production_efficiency_malus()), 257),   // returns production run efficiency
 ]) {return string(STR__string__EXTRA_TEXT);}

@@ -30,7 +30,7 @@ switch (FEAT_INDUSTRIES, SELF, chemicals_calculate_production, [
 	
 //store information used to determine production
 	//demand customers
-				STORE_PERM (industry_count(components) + industry_count(consumer_goods) + industry_count(food_processing) + industry_count(marine_supplies) + industry_count(manufacturing_supplies) + industry_count(metals) + industry_count(purification) + industry_count(materials) + industry_count(products) + industry_count(enrichment),
+				STORE_PERM (industry_count(components) + industry_count(consumer_goods) + industry_count(food_processing) + industry_count(marine_supplies) + industry_count(manufacturing_supplies) + industry_count(metals) + industry_count(purification) + industry_count(materials) + industry_count(products) + industry_count(enrichment) + industry_count(explosives),
 							220),
 
 
@@ -83,14 +83,14 @@ switch (FEAT_INDUSTRIES, SELF, chemicals_calculate_production, [
 	item(FEAT_INDUSTRIES, chemicals, 40) {
 		property {
 			substitute: 0;
-			map_colour: 81;
+			map_colour: 81.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [concrete_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_CHEMICALS);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("NITR"),
 				accept_cargo("ENSP"),
