@@ -1,0 +1,11 @@
+#retail
+
+STR_HOUSE_RETAIL		:Retail (OTIS)
+
+#services
+
+STR_HOUSE_SERVICES		:Services (OTIS)
+
+#residential
+
+STR_HOUSE_RESIDENTIAL		:Residential (OTIS)

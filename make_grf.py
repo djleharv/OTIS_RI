@@ -13,7 +13,8 @@ header_stuff = [
 "production",
 "graphics",
 "helptext",
-"industries"
+"industries",
+"houses"
 ]
 
 # Files to place in alphabetical order below

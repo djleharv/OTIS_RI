@@ -491,6 +491,21 @@
  * PRODUCTION MECHANICS FOR 4-DISTRIBUTION INDUSTRIES
 *********************************************/
 
+// Distribution industries are implemented as houses.
+
+/* Production loop, shared by all houses. Individual production rates stored in temporary registers in the function below.*/
+
+switch (FEAT_HOUSES, SELF, distribution_execute_production, getbits(extra_callback_info1, 0, 8)) {
+	0: (PASS * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(1);
+	1: (MAIL * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(2);
+	2: (PCL_ * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(3);
+	3: (WSTE * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(4);
+	4: (RCYC * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(5);
+	return CB_RESULT_HOUSE_NO_MORE_PRODUCTION;
+}
+
+/* Production levels for passengers and mail, are passed as arguments to this function for use in the production loop. */
+switch (FEAT_HOUSES, SELF, distribution_calculate_production, pass, mail, parcels, waste, recycling, [STORE_TEMP(pass, 1), STORE_TEMP(mail, 2), STORE_TEMP(parcels, 3), STORE_TEMP(waste, 4), STORE_TEMP(recycling, 5)] ) {distribution_execute_production;}
 
 /********************************************
  * PRODUCTION MECHANICS FOR 5-UTILITIES INDUSTRIES

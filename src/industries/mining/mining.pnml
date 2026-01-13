@@ -111,14 +111,14 @@ switch (FEAT_INDUSTRIES, SELF, mining_calculate_production, [
 	item(FEAT_INDUSTRIES, mining, 7) {
 		property {
 			substitute: 0;
-			map_colour: 116;
+			map_colour: 116.0;
 			life_type: IND_LIFE_TYPE_BLACK_HOLE;
 			layouts: [dirt_industry_tilelayout];
 			spec_flags: bitmask(IND_FLAG_LONG_CARGO_TYPE_LISTS);
 			name: string(STR_IND_MINING);
-			prob_map_gen: 2; // Account for difficulty of finding suitable locatiom
-			prob_in_game: 0;
-			fund_cost_multiplier: 255;
+			prob_map_gen: 2.0; // Account for difficulty of finding suitable locatiom
+			prob_in_game: 0.0;
+			fund_cost_multiplier: 255.0;
 			cargo_types: [
 				accept_cargo("BOOM"),
 				accept_cargo("PETR"),

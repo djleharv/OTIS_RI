@@ -1,0 +1,26 @@
+/* *************************************************
+ * INDUSTRY DEFINITION
+ * *************************************************/
+
+ if (param_industry_tile_style == 0) {
+
+ 	item(FEAT_HOUSES, _house_item_name_, _house_ID_, HOUSE_SIZE_1X1){
+		property {
+			substitute:					27;
+			name:						string(STR_HOUSE__string_);
+			population:					_house_population_;
+			accepted_cargos:			[_accept_cargo_list_];
+			local_authority_impact:		_local_authority_impact_;
+			removal_cost_multiplier:	_removal_cost_multiplier_;
+			probability:				0;
+			years_available:			[0,0xFFFF];
+			minimum_lifetime:			200;
+			availability_mask:			[bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, ABOVE_SNOWLINE, CLIMATE_TROPIC)];
+			building_class:				5;
+			}
+		graphics {
+			default:					_house_layout__industry_spritelayout;
+			cargo_production:			_industry_type__calculate_production(_produce_amount_);
+		}
+	}
+ }

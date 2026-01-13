@@ -23,8 +23,6 @@ STR_TOWN_ZONE_3													:Outer Suburbs
 STR_TOWN_ZONE_4													:Inner Suburbs
 STR_TOWN_ZONE_CENTRE											:City Centre
 
-
-
 # passengers
 
 STR_CARGO_NAME_PASSENGERS										:Passengers
@@ -571,6 +569,18 @@ STR_STATION_RECLAMATION	:Plant
 STR_IND_REFINEMENT		:(2-Processing) Refinement
 STR_FUND_REFINEMENT		:{}Represents refinement of extracted raw materials
 STR_STATION_REFINEMENT	:Refinery
+
+#retail
+
+STR_HOUSE_RETAIL		:Retail (OTIS)
+
+#services
+
+STR_HOUSE_SERVICES		:Services (OTIS)
+
+#residential
+
+STR_HOUSE_RESIDENTIAL		:Residential (OTIS)
 
 # inland_extraction_help_text
 

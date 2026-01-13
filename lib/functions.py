@@ -502,6 +502,7 @@ def CreateIndustries(excel_filepath='docs/otis.xlsx', base_folder='src/industrie
         print(f"An error occurred: {e}")
         return
 
+
 def CreateIndustryLNGs(industries_data_path='src/industries'):
     """
     Reads industry data from JSON files (created by CreateIndustries),
@@ -781,24 +782,188 @@ def CreateIndustryHelpTextsLNGs(excel_filepath='docs/otis.xlsx', base_folder='sr
     except Exception as e:
         print(f"An error occurred: {e}")
         return
+
+def CreateHousePNMLs(excel_filepath='docs/otis.xlsx', base_folder='src/houses'):
+    """
+    Reads house data and processes cargo using forward slashes for pathing
+    to maintain consistency with the industries folder structure.
+    """
+    template_path = 'src/templates/house_template.pnml'
+    sheet_name = 'houses'
+    output_combined_file = 'src/houses.pnml'
+
+    try:
+        xls = pd.ExcelFile(excel_filepath)
+        df_houses = xls.parse(sheet_name)
+
+        if 'include' not in df_houses.columns:
+            print(f"Error: 'include' column not found in sheet '{sheet_name}'.")
+            return
+            
+        filtered_df = df_houses[df_houses['include'].astype(str).str.lower() == 'true']
+
+        if not os.path.exists(template_path):
+            print(f"Error: House template not found at {template_path}")
+            return
+            
+        with open(template_path, 'r', encoding='utf-8') as f:
+            template_content = f.read()
+
+        # Clean/Create the base output directory
+        if os.path.exists(base_folder):
+            shutil.rmtree(base_folder)
+        os.makedirs(base_folder, exist_ok=True)
+
+        combined_output = ""
+
+        for _, row in filtered_df.iterrows():
+            house_name = str(row.get('house_item_name', 'default_house'))
+            safe_name = house_name.replace(" ", "_")
+            
+            # Use forward slashes for the directory and file paths
+            house_folder = f"{base_folder}/{safe_name}"
+            os.makedirs(house_folder, exist_ok=True)
+            output_path = f"{house_folder}/{safe_name}.pnml"
+
+            modified_content = template_content
+            
+            # 1. Standard Placeholder Replacement
+            for column in df_houses.columns:
+                placeholder = f"_{column}_"
+                val = row[column]
+                replacement = str(int(val)) if isinstance(val, float) and val.is_integer() else str(val) if pd.notna(val) else ""
+                modified_content = modified_content.replace(placeholder, replacement)
+
+            # 2. Cargo Logic
+            try:
+                df_cargo = xls.parse(house_name)
+                
+                # Process Accept Cargo: [CARGO,AMOUNT],[CARGO,AMOUNT]
+                accept_entries = []
+                if 'accept_cargo' in df_cargo.columns and 'accept_amount' in df_cargo.columns:
+                    for _, c_row in df_cargo.iterrows():
+                        if pd.notna(c_row['accept_cargo']) and pd.notna(c_row['accept_amount']):
+                            amt = int(c_row['accept_amount']) if isinstance(c_row['accept_amount'], (int, float)) else c_row['accept_amount']
+                            accept_entries.append(f"[{c_row['accept_cargo']},{amt}]")
+                
+                accept_list_str = ",".join(accept_entries)
+                modified_content = modified_content.replace('_accept_cargo_list_', accept_list_str)
+
+                # Process Produce Amount: 40,10,10
+                produce_entries = []
+                if 'produce_amount' in df_cargo.columns:
+                    valid_produce = df_cargo['produce_amount'].dropna()
+                    for val in valid_produce:
+                        produce_entries.append(str(int(val)) if isinstance(val, float) and val.is_integer() else str(val))
+                
+                produce_amount_str = ",".join(produce_entries)
+                modified_content = modified_content.replace('_produce_amount_', produce_amount_str)
+
+            except Exception:
+                modified_content = modified_content.replace('_accept_cargo_list_', "")
+                modified_content = modified_content.replace('_produce_amount_', "")
+
+            # Write individual file
+            with open(output_path, 'w', encoding='utf-8') as outfile:
+                outfile.write(modified_content)
+            
+            combined_output += modified_content + "\n\n"
+            print(f"Created house PNML: {output_path}")
+
+        # Write the combined file
+        with open(output_combined_file, 'w', encoding='utf-8') as combined_file:
+            combined_file.write(combined_output.strip())
         
+        print(f"Successfully combined house PNMLs into: {output_combined_file}")
+
+    except Exception as e:
+        print(f"An error occurred while creating house PNMLs: {e}")
+
+def CreateHouseLNGs(excel_filepath='docs/otis.xlsx', base_folder='src/houses'):
+    """
+    Reads house data from the 'houses' sheet, filters by the 'include' column,
+    and merges data into the house LNG template. Saves individual files
+    into house subfolders and a combined file in the src directory.
+
+    Args:
+        excel_filepath (str): The path to the Excel file.
+        base_folder (str): The folder containing individual house directories.
+    """
+    template_path_lng = 'src/templates/house_lang_template.lng'
+    sheet_name = 'houses'
+    output_combined_file_lng = 'src/houses_lang.lng'
+
+    try:
+        # Read the Excel file
+        xls = pd.ExcelFile(excel_filepath)
+        df = xls.parse(sheet_name)
+
+        if 'include' not in df.columns:
+            print(f"Error: 'include' column not found in sheet '{sheet_name}'.")
+            return
+
+        filtered_df = df[df['include'].astype(str).str.lower() == 'true']
+
+        # Read the LNG template
+        if not os.path.exists(template_path_lng):
+            print(f"Error: House LNG template not found at {template_path_lng}")
+            return
+
+        with open(template_path_lng, 'r', encoding='utf-8') as f:
+            template_content_lng = f.read()
+
+        combined_output_lng = ""
+
+        for _, row in filtered_df.iterrows():
+            house_name = str(row.get('house_item_name', 'default_house'))
+            safe_name = house_name.replace(" ", "_")
+            
+            # Ensure the specific house folder exists (created by CreateHousePNMLs)
+            house_folder = f"{base_folder}/{safe_name}"
+            os.makedirs(house_folder, exist_ok=True)
+            
+            output_path_lng = f"{house_folder}/{safe_name}.lng"
+
+            modified_content_lng = template_content_lng
+            
+            # Replace placeholders based on column headers
+            for column in df.columns:
+                placeholder = f"_{column}_"
+                value = row[column]
+                
+                # Format value as string, handling NaN
+                replacement = str(value) if pd.notna(value) else ""
+                modified_content_lng = modified_content_lng.replace(placeholder, replacement)
+
+            # Write the individual LNG file
+            with open(output_path_lng, 'w', encoding='utf-8') as outfile:
+                outfile.write(modified_content_lng)
+            
+            combined_output_lng += modified_content_lng + "\n\n"
+            print(f"Created house LNG: {output_path_lng}")
+
+        # Write the combined LNG file
+        with open(output_combined_file_lng, 'w', encoding='utf-8') as combined_file:
+            combined_file.write(combined_output_lng.strip())
+        
+        print(f"Successfully combined house LNGs into: {output_combined_file_lng}")
+
+    except FileNotFoundError:
+        print(f"Error: Excel file not found at {excel_filepath}")
+    except Exception as e:
+        print(f"An error occurred while creating house LNGs: {e}")
+
 def CreateLNGFile(
     header_lang_path="src/header_lang.lng",
     cargo_lang_path="src/cargo_lang.lng",
     industries_lang_path="src/industries_lang.lng",
+    houses_lang_path="src/houses_lang.lng",
     helptext_lang_path="src/helptext_lang.lng",
     output_file_path="src/lang/english.lng",
 ):
     """
-    Combines the content of  "header_lang.lng", "cargo_lang.lng", "industries_lang.lng" and "helptext_lang.lng"
-    into a single english.lng file.
-
-    Args:
-        header_lang_path (str): Path to the header_lang.lng file.
-        cargo_lang_path (str):  Path to cargo_lang.lng.
-        industries_lang_path (str): Path to industries_lang.lng
-        helptext_lang_path (str): Path to helptext_lang.lng
-        output_file_path (str): Path to the output english.lng file.
+    Combines the content of "header_lang.lng", "cargo_lang.lng", "industries_lang.lng",
+    "houses_lang.lng", and "helptext_lang.lng" into a single english.lng file.
     """
 
     combined_content = ""
@@ -824,10 +989,13 @@ def CreateLNGFile(
     # 3. Read and append industries_lang.lng
     append_lng_content(industries_lang_path, "Industries LNG")
 
-    # 4. Read and append helptext_lang.lng
+    # 4. Read and append houses_lang.lng
+    append_lng_content(houses_lang_path, "Houses LNG")
+
+    # 5. Read and append helptext_lang.lng
     append_lng_content(helptext_lang_path, "Helptext LNG")
 
-    # 5. Write the combined content to english.lng
+    # 6. Write the combined content to english.lng
     try:
         os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
         with open(output_file_path, "w", encoding="utf-8") as outfile:
